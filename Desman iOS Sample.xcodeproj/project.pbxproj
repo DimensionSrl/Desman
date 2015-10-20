@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1B81BD4F09200464E9E /* AppDelegate.swift */; };
-		956AF1BB1BD4F09200464E9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1BA1BD4F09200464E9E /* ViewController.swift */; };
 		956AF1BE1BD4F09200464E9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BC1BD4F09200464E9E /* Main.storyboard */; };
 		956AF1C01BD4F09200464E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BF1BD4F09200464E9E /* Assets.xcassets */; };
 		956AF1C31BD4F09200464E9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1C11BD4F09200464E9E /* LaunchScreen.storyboard */; };
@@ -83,7 +82,6 @@
 /* Begin PBXFileReference section */
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1B81BD4F09200464E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		956AF1BA1BD4F09200464E9E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		956AF1BD1BD4F09200464E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		956AF1BF1BD4F09200464E9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956AF1C21BD4F09200464E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			children = (
 				956AF1B81BD4F09200464E9E /* AppDelegate.swift */,
 				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
-				956AF1BA1BD4F09200464E9E /* ViewController.swift */,
 				956AF1BC1BD4F09200464E9E /* Main.storyboard */,
 				956AF1BF1BD4F09200464E9E /* Assets.xcassets */,
 				956AF1C11BD4F09200464E9E /* LaunchScreen.storyboard */,
@@ -442,7 +439,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				956AF1BB1BD4F09200464E9E /* ViewController.swift in Sources */,
 				956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */,
 				956AF21B1BD5469B00464E9E /* EventsTableViewController.swift in Sources */,
 			);
@@ -772,6 +768,7 @@
 				956AF1DF1BD4F09200464E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		956AF1E01BD4F09200464E9E /* Build configuration list for PBXNativeTarget "Desman iOS SampleTests" */ = {
 			isa = XCConfigurationList;
@@ -780,6 +777,7 @@
 				956AF1E21BD4F09200464E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		956AF1E31BD4F09200464E9E /* Build configuration list for PBXNativeTarget "Desman iOS SampleUITests" */ = {
 			isa = XCConfigurationList;
@@ -788,6 +786,7 @@
 				956AF1E51BD4F09200464E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		956AF2021BD4F0AF00464E9E /* Build configuration list for PBXNativeTarget "Desman" */ = {
 			isa = XCConfigurationList;
@@ -796,6 +795,7 @@
 				956AF2041BD4F0AF00464E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		956AF2061BD4F0AF00464E9E /* Build configuration list for PBXNativeTarget "DesmanTests" */ = {
 			isa = XCConfigurationList;
@@ -804,6 +804,7 @@
 				956AF2081BD4F0AF00464E9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
