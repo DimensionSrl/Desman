@@ -63,18 +63,52 @@ public class NetworkManager {
                 }
                 
                 event.sent = true
-                // TODO: mark it as saved if it needs to be serialized
             }
         })
         task.resume()
     }
     
     func sendEvents(events: Set<Event>) {
-        // TODO: upload multiple events at the same time
+        guard (self.session != nil) else { return }
         let pendingEvents = events.filter{ $0.sent == false }
-        for event in pendingEvents {
-            sendEvent(event)
+        let url = NSURL(string: "/batch", relativeToURL: baseURL)!
+        let request = forgeRequest(url: url, contentTypes: ["application/json"])
+        request.HTTPMethod = "POST"
+        
+        let operations = pendingEvents.map{forgeSendEventOperation($0)}
+        let dictionary = ["ops": operations, "sequential": true]
+        
+        do {
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            request.HTTPBody = data
+            let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                if let error = error {
+                    print("Desman: cannot send event - \(error)")
+                } else {
+                    // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
+                    if let data = data {
+                        do {
+                            let _ = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                            // TODO: update the ids with the ones returned by the server
+                        } catch let parseError as NSError {
+                            print("Desman: cannot parse event response \(parseError.description)")
+                        }
+                    }
+                    
+                    // event.sent = true
+                    // TODO: mark it as saved if it needs to be serialized
+                }
+            })
+            task.resume()
+        } catch let error {
+            print("Desman: canno serialize events \(error)")
         }
+    }
+    
+    func forgeSendEventOperation(event: Event) -> [String : AnyObject] {
+        let operation : [String : AnyObject] = ["method": "post", "url": "/events", "params": event.dictionary]
+        print(operation.description)
+        return operation
     }
     
     

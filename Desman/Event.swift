@@ -114,7 +114,7 @@ public class Event: NSCoder {
         var dict = [String : AnyObject]()
         dict["type"] = type
         dict["timestamp"] = timestamp.timeIntervalSince1970
-        dict["id"] = identifier
+        dict["uuid"] = identifier
         dict["user"] = userIdentifier
         dict["app"] = currentAppIdentifier
         
