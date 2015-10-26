@@ -63,6 +63,7 @@ public class NetworkManager {
                 }
                 
                 event.sent = true
+                EventManager.sharedInstance.sentEvents.insert(event)
             }
         })
         task.resume()
@@ -88,26 +89,44 @@ public class NetworkManager {
                     // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                     if let data = data {
                         do {
-                            let _ = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
-                            // TODO: update the ids with the ones returned by the server
+                            let parsedData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                            if let results = parsedData["results"] as? [[String : AnyObject]] {
+                                for result in results {
+                                    if let bodyJson = result["body"] as? String, body = bodyJson.dataUsingEncoding(NSUTF8StringEncoding) {
+                                        do {
+                                            let body = try NSJSONSerialization.JSONObjectWithData(body, options: NSJSONReadingOptions(rawValue: 0))
+                                            if let id = body["id"] as? Int, let uuidString = body["uuid"] as? String, let uuid = NSUUID(UUIDString: uuidString) {
+                                                let filteredEvents = events.filter{$0.uuid == uuid}
+                                                if let event = filteredEvents.first {
+                                                    event.id = "\(id)"
+                                                    event.sent = true
+                                                    EventManager.sharedInstance.sentEvents.insert(event)
+                                                }
+                                            }
+                                        } catch let parseBodyError as NSError {
+                                            print("Desman: cannot parse body event response \(parseBodyError.description)")
+                                        }
+                                    } else {
+                                        print("Desman: cannot parse result \(result)")
+                                    }
+                                }
+                            } else {
+                                print("Desman: cannot find and parse *results* data \(parsedData)")
+                            }
                         } catch let parseError as NSError {
                             print("Desman: cannot parse event response \(parseError.description)")
                         }
                     }
-                    
-                    // event.sent = true
-                    // TODO: mark it as saved if it needs to be serialized
                 }
             })
             task.resume()
         } catch let error {
-            print("Desman: canno serialize events \(error)")
+            print("Desman: cannot serialize events \(error)")
         }
     }
     
     func forgeSendEventOperation(event: Event) -> [String : AnyObject] {
         let operation : [String : AnyObject] = ["method": "post", "url": "/events", "params": event.dictionary]
-        print(operation.description)
         return operation
     }
     

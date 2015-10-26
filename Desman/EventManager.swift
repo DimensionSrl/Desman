@@ -16,12 +16,21 @@ public enum EventDatabase {
 public class EventManager : NSObject {
     var lastSync : NSDate?
     var upload = false
-    public var limit = 100
+    public var limit = 10
     public var syncInterval = 5.0
+    public var processInterval = 1.0 {
+        didSet {
+            if processInterval < 0.25 {
+                processInterval = 0.25
+            }
+            self.timer?.invalidate()
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+        }
+    }
     var timer : NSTimer?
     var eventsQueue = Set<Event>()
-    
     var type = EventDatabase.None
+    
     /**
     A shared instance of `EventManager`.
     */
@@ -29,8 +38,7 @@ public class EventManager : NSObject {
 
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
     dynamic private(set) public var events = Set<Event>()
-    dynamic private(set) public var addedEvents = [Event]()
-    dynamic private(set) public var removedEvents = [Event]()
+    dynamic internal(set) public var sentEvents = Set<Event>()
     
     public func takeOff(baseURL: NSURL, appKey: String, type: EventDatabase) {
         self.type = type
@@ -40,7 +48,6 @@ public class EventManager : NSObject {
             deserializeEvents()
         }
         scheduleProcessTimer()
-        
         // TODO: support other databases
     }
     
@@ -48,7 +55,7 @@ public class EventManager : NSObject {
         if let timer = timer {
             timer.invalidate()
         }
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
     }
     
     public func takeOff(type: EventDatabase) {
@@ -60,7 +67,6 @@ public class EventManager : NSObject {
         // TODO: support other databases
     }
     
-    // TODO: we should rate limit the events that can be processed at the same time
     // If you connect a KVO controller the updates can be too fast to manage
     
     public func logEvent(event: Event){
@@ -71,36 +77,30 @@ public class EventManager : NSObject {
         guard eventsQueue.count > 0 else  {
             return
         }
-        for event in eventsQueue {
-            self.events.insert(event)
+        let eventsUnion = self.events.union(eventsQueue)
+        var sortedEvents = eventsUnion.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        
+        if sortedEvents.count > self.limit {
+            sortedEvents.removeRange(self.limit..<sortedEvents.count)
         }
-        self.addedEvents = Array(eventsQueue)
-        if self.events.count > self.limit {
-            var range = self.events.count - self.limit
-            var temporaryEvents = [Event]()
-            while range > 0 {
-                let event = self.events[self.events.startIndex]
-                temporaryEvents.append(event)
-                self.events.removeFirst()
-                range--
-            }
-            self.removedEvents =  temporaryEvents
-        }
+        
         if self.upload {
+            self.sentEvents.removeAll()
             NetworkManager.sharedInstance.sendEvents(eventsQueue)
         }
+        
         if self.type == .UserDefaults {
             self.serializeEvents()
         }
+        
         eventsQueue.removeAll()
+        self.events = Set<Event>(sortedEvents)
     }
     
     func serializeEvents() {
         if (lastSync == nil) || abs(lastSync!.timeIntervalSinceNow) > syncInterval {
             lastSync = NSDate()
-            print("Desman: serializing")
-            // TODO: maybe we can keep only the latest events
-            let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedAscending }
+            let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
             let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject(eventsData, forKey: "events")
@@ -115,10 +115,8 @@ public class EventManager : NSObject {
     func deserializeEvents() {
         let defaults = NSUserDefaults.standardUserDefaults()
         if let eventsData = defaults.objectForKey("events") as? NSData {
-            if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? Set<Event> {
-                removedEvents = Array(self.events)
-                self.events = events
-                addedEvents = Array(events)
+            if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? [Event] {
+                self.eventsQueue.unionInPlace(events)
             }
         }
     }

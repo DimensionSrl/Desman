@@ -14,17 +14,17 @@
 		956AF1CE1BD4F09200464E9E /* Desman_iOS_SampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1CD1BD4F09200464E9E /* Desman_iOS_SampleTests.swift */; };
 		956AF1D91BD4F09200464E9E /* Desman_iOS_SampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1D81BD4F09200464E9E /* Desman_iOS_SampleUITests.swift */; };
 		956AF1EE1BD4F0AF00464E9E /* Desman.h in Headers */ = {isa = PBXBuildFile; fileRef = 956AF1ED1BD4F0AF00464E9E /* Desman.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		956AF1F51BD4F0AF00464E9E /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; settings = {ASSET_TAGS = (); }; };
+		956AF1F51BD4F0AF00464E9E /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
 		956AF1FC1BD4F0AF00464E9E /* DesmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1FB1BD4F0AF00464E9E /* DesmanTests.swift */; };
 		956AF2001BD4F0AF00464E9E /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
 		956AF2011BD4F0AF00464E9E /* Desman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2091BD4F0DE00464E9E /* EventManager.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF20C1BD4F11200464E9E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20B1BD4F11200464E9E /* Event.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF2151BD51CB800464E9E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2141BD51CB800464E9E /* Reachability.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; settings = {ASSET_TAGS = (); }; };
-		956AF21B1BD5469B00464E9E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2091BD4F0DE00464E9E /* EventManager.swift */; };
+		956AF20C1BD4F11200464E9E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20B1BD4F11200464E9E /* Event.swift */; };
+		956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */; };
+		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; };
+		956AF2151BD51CB800464E9E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2141BD51CB800464E9E /* Reachability.swift */; };
+		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; };
+		956AF21B1BD5469B00464E9E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,11 +208,11 @@
 			children = (
 				956AF2131BD51C9B00464E9E /* External */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
+				956AF20B1BD4F11200464E9E /* Event.swift */,
 				956AF2091BD4F0DE00464E9E /* EventManager.swift */,
 				956AF2161BD51CD000464E9E /* NetworkManager.swift */,
 				956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */,
 				956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */,
-				956AF20B1BD4F11200464E9E /* Event.swift */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
 			);
 			path = Desman;

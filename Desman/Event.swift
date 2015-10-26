@@ -13,13 +13,21 @@ public class Event: NSCoder {
     public let type : String
     public let payload : [String : AnyObject]?
     public let timestamp : NSDate
-    var sent : Bool = false
+    public var sent : Bool = false
     var id : String?
+    var uuid : NSUUID?
     var user : String?
+    let dateFormatter = NSDateFormatter()
     
     // This way we are able to track the current user and current device between app installations
     let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
     let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
+    
+    func commonInit() {
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .MediumStyle
+        dateFormatter.locale = NSLocale.currentLocale()
+    }
     
     public init?(dictionary: [String : AnyObject]) {
         guard let type = dictionary["type"] as? String else {
@@ -46,36 +54,64 @@ public class Event: NSCoder {
             self.id = id
         }
         
+        if let uuid = dictionary["uuid"] as? String {
+            self.uuid = NSUUID(UUIDString: uuid)
+        }
+        
         if let user = dictionary["user"] as? String {
             self.user = user
         }
         
         self.type = type
         super.init()
+        self.commonInit()
     }
     
     public init(type: String) {
         self.type = type
         self.timestamp = NSDate()
         self.payload = nil
-        self.id = NSUUID().UUIDString
+        self.uuid = NSUUID()
         super.init()
+        self.commonInit()
     }
     
     public init(type: String, timestamp: NSDate) {
         self.type = type
         self.timestamp = timestamp
         self.payload = nil
-        self.id = NSUUID().UUIDString
+        self.uuid = NSUUID()
         super.init()
+        self.commonInit()
+    }
+    
+    public init(type: String, timestamp: NSDate, user : String) {
+        self.type = type
+        self.timestamp = timestamp
+        self.user = user
+        self.payload = nil
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
     }
     
     public init(type: String, timestamp: NSDate, payload : [String : AnyObject]) {
         self.type = type
         self.timestamp = timestamp
         self.payload = payload
-        self.id = NSUUID().UUIDString
+        self.uuid = NSUUID()
         super.init()
+        self.commonInit()
+    }
+    
+    public init(type: String, timestamp: NSDate, payload : [String : AnyObject], user : String) {
+        self.type = type
+        self.timestamp = timestamp
+        self.payload = payload
+        self.uuid = NSUUID()
+        self.user = user
+        super.init()
+        self.commonInit()
     }
     
     public convenience init(coder decoder: NSCoder) {
@@ -97,17 +133,24 @@ public class Event: NSCoder {
         if let id = decoder.decodeObjectForKey("id") as? String {
             self.id = id
         }
+        if let uuid = decoder.decodeObjectForKey("uuid") as? String {
+            self.uuid = NSUUID(UUIDString: uuid)
+        }
         if let user = decoder.decodeObjectForKey("user") as? String {
             self.user = user
         }
+        self.sent = decoder.decodeBoolForKey("sent")
+        self.commonInit()
     }
 
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(self.type, forKey: "type")
-        coder.encodeObject(self.timestamp, forKey: "timestamp")
-        coder.encodeObject(self.payload, forKey: "payload")
+        coder.encodeObject(type, forKey: "type")
+        coder.encodeObject(timestamp, forKey: "timestamp")
+        coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
+        coder.encodeObject(uuid, forKey: "uuid")
         coder.encodeObject(user, forKey: "user")
+        coder.encodeBool(sent, forKey: "sent")
     }
     
     var dictionary : [String : AnyObject] {
@@ -117,7 +160,9 @@ public class Event: NSCoder {
         dict["uuid"] = identifier
         dict["user"] = userIdentifier
         dict["app"] = currentAppIdentifier
-        
+        if let id = self.id {
+            dict["id"] = id
+        }
         if let payload = self.payload {
             dict["payload"] = payload
         }
@@ -136,21 +181,23 @@ public class Event: NSCoder {
     }
     
     public var identifier : String {
-        if let id = self.id {
-            return id
+        if let uuid = self.uuid {
+            return uuid.UUIDString
+        } else {
+            self.uuid = NSUUID()
+            return self.uuid!.UUIDString
         }
-        return NSUUID().UUIDString
     }
     
     public var userIdentifier : String {
         if let user = self.user {
-            return user
+            return "\(currentUserIdentifier) - \(user)"
         }
         return currentUserIdentifier
     }
     
     override public var description : String {
-        return "\(timestamp.timeIntervalSince1970) - \(type)"
+        return "\n\(dateFormatter.stringFromDate(timestamp)) (\(timestamp.timeIntervalSince1970)) - \(type) - \(sent)"
     }
     
     override public func isEqual(object: AnyObject?) -> Bool {
