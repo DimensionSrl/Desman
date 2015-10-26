@@ -98,7 +98,7 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let event = Event(type: "Select Row")
+        let event = Event(type: .DidSelectRow)
         EventManager.sharedInstance.logEvent(event)
     }
 
@@ -110,6 +110,7 @@ class EventsTableViewController: UITableViewController {
         } else {
             cell.textLabel?.text = event.type
         }
+        cell.imageView?.image = event.image
         
         cell.detailTextLabel?.text = event.identifier
         

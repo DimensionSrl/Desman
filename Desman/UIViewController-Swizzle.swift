@@ -38,7 +38,7 @@ extension UIViewController {
     
     func desman_viewWillAppear(animated: Bool) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            let event = Event(type: "viewWillAppear", timestamp: NSDate(), payload: ["controller": self.description])
+            let event = Event(type: .ViewWillAppear, payload: ["controller": self.description])
             EventManager.sharedInstance.logEvent(event)
         }
         self.desman_viewWillAppear(animated)

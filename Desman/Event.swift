@@ -67,8 +67,8 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: String) {
-        self.type = type
+    public init(string: String) {
+        self.type = string
         self.timestamp = NSDate()
         self.payload = nil
         self.uuid = NSUUID()
@@ -76,8 +76,17 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: String, timestamp: NSDate) {
-        self.type = type
+    public init(type: EventType) {
+        self.type = type.rawValue
+        self.timestamp = NSDate()
+        self.payload = nil
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(string: String, timestamp: NSDate) {
+        self.type = string
         self.timestamp = timestamp
         self.payload = nil
         self.uuid = NSUUID()
@@ -85,18 +94,8 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: String, timestamp: NSDate, user : String) {
-        self.type = type
-        self.timestamp = timestamp
-        self.user = user
-        self.payload = nil
-        self.uuid = NSUUID()
-        super.init()
-        self.commonInit()
-    }
-    
-    public init(type: String, timestamp: NSDate, payload : [String : AnyObject]) {
-        self.type = type
+    public init(string: String, timestamp: NSDate, payload: [String : AnyObject]) {
+        self.type = string
         self.timestamp = timestamp
         self.payload = payload
         self.uuid = NSUUID()
@@ -104,12 +103,21 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: String, timestamp: NSDate, payload : [String : AnyObject], user : String) {
-        self.type = type
+    public init(string: String, timestamp: NSDate, payload: [String : AnyObject], user: String) {
+        self.type = string
         self.timestamp = timestamp
         self.payload = payload
         self.uuid = NSUUID()
         self.user = user
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(type: EventType, payload: [String : AnyObject]) {
+        self.type = type.rawValue
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.uuid = NSUUID()
         super.init()
         self.commonInit()
     }
@@ -118,17 +126,16 @@ public class Event: NSCoder {
         let type = decoder.decodeObjectForKey("type") as! String
         if let timestamp = decoder.decodeObjectForKey("timestamp") as? NSDate {
             if let payloadData = decoder.decodeObjectForKey("payload") as? NSData {
-                
                 if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : AnyObject] {
-                    self.init(type: type, timestamp: timestamp, payload: payload)
+                    self.init(string: type, timestamp: timestamp, payload: payload)
                 } else {
-                    self.init(type: type, timestamp: timestamp)
+                    self.init(string: type, timestamp: timestamp)
                 }
             } else {
-                self.init(type: type, timestamp: timestamp)
+                self.init(string: type, timestamp: timestamp)
             }
         } else {
-            self.init(type: type)
+            self.init(string: type)
         }
         if let id = decoder.decodeObjectForKey("id") as? String {
             self.id = id
@@ -209,5 +216,9 @@ public class Event: NSCoder {
     
     override public var hash: Int {
         return "\(type)-\(timestamp.timeIntervalSince1970)-\(identifier)-\(userIdentifier)".hashValue
+    }
+    
+    public var image : UIImage? {
+        return EventType(rawValue: self.type)?.image
     }
 }

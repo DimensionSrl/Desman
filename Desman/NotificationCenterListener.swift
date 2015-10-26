@@ -26,7 +26,7 @@ public class NotificationCenterListener {
             if let userInfo = notification.userInfo {
                 payload["userInfo"] = userInfo.description
             }
-            let event = Event(type: notification.name, timestamp: NSDate(), payload: payload)
+            let event = Event(string: notification.name, timestamp: NSDate(), payload: payload)
             EventManager.sharedInstance.logEvent(event)
         }
     }

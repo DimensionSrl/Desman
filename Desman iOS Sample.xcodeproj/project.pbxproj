@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
+		952D19F71BDE910400988338 /* EventType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* EventType.swift */; };
 		956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1B81BD4F09200464E9E /* AppDelegate.swift */; };
 		956AF1BE1BD4F09200464E9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BC1BD4F09200464E9E /* Main.storyboard */; };
 		956AF1C01BD4F09200464E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BF1BD4F09200464E9E /* Assets.xcassets */; };
@@ -80,6 +82,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		952D19F61BDE910400988338 /* EventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventType.swift; sourceTree = "<group>"; };
+		952D19F81BDE9A8300988338 /* SampleEventType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleEventType.swift; sourceTree = "<group>"; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1B81BD4F09200464E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956AF1BD1BD4F09200464E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				956AF1B81BD4F09200464E9E /* AppDelegate.swift */,
+				952D19F81BDE9A8300988338 /* SampleEventType.swift */,
 				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
 				956AF1BC1BD4F09200464E9E /* Main.storyboard */,
 				956AF1BF1BD4F09200464E9E /* Assets.xcassets */,
@@ -209,11 +215,13 @@
 				956AF2131BD51C9B00464E9E /* External */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF20B1BD4F11200464E9E /* Event.swift */,
+				952D19F61BDE910400988338 /* EventType.swift */,
 				956AF2091BD4F0DE00464E9E /* EventManager.swift */,
 				956AF2161BD51CD000464E9E /* NetworkManager.swift */,
 				956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */,
 				956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
+				952D19F41BDE88EA00988338 /* Media.xcassets */,
 			);
 			path = Desman;
 			sourceTree = "<group>";
@@ -422,6 +430,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952D19F51BDE88EA00988338 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				952D19F71BDE910400988338 /* EventType.swift in Sources */,
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
