@@ -10,9 +10,9 @@ import Foundation
 import AdSupport
 
 public class Event: NSCoder {
-    public let type : String
+    public let type : Type
     public let payload : [String : AnyObject]?
-    public let timestamp : NSDate
+    public var timestamp : NSDate
     public var sent : Bool = false
     var id : String?
     var uuid : NSUUID?
@@ -30,8 +30,8 @@ public class Event: NSCoder {
     }
     
     public init?(dictionary: [String : AnyObject]) {
-        guard let type = dictionary["type"] as? String else {
-            self.type = ""
+        guard let typeDictionary = dictionary["type"] as? [String: String], type = Type.new(typeDictionary) as? Type else {
+            self.type = Type()
             self.timestamp = NSDate()
             self.payload = nil
             super.init()
@@ -67,8 +67,8 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(string: String) {
-        self.type = string
+    public init(type: Type) {
+        self.type = type
         self.timestamp = NSDate()
         self.payload = nil
         self.uuid = NSUUID()
@@ -76,45 +76,8 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: EventType) {
-        self.type = type.rawValue
-        self.timestamp = NSDate()
-        self.payload = nil
-        self.uuid = NSUUID()
-        super.init()
-        self.commonInit()
-    }
-    
-    public init(string: String, timestamp: NSDate) {
-        self.type = string
-        self.timestamp = timestamp
-        self.payload = nil
-        self.uuid = NSUUID()
-        super.init()
-        self.commonInit()
-    }
-    
-    public init(string: String, timestamp: NSDate, payload: [String : AnyObject]) {
-        self.type = string
-        self.timestamp = timestamp
-        self.payload = payload
-        self.uuid = NSUUID()
-        super.init()
-        self.commonInit()
-    }
-    
-    public init(string: String, timestamp: NSDate, payload: [String : AnyObject], user: String) {
-        self.type = string
-        self.timestamp = timestamp
-        self.payload = payload
-        self.uuid = NSUUID()
-        self.user = user
-        super.init()
-        self.commonInit()
-    }
-    
-    public init(type: EventType, payload: [String : AnyObject]) {
-        self.type = type.rawValue
+    public init(type: Type, payload: [String : AnyObject]) {
+        self.type = type
         self.timestamp = NSDate()
         self.payload = payload
         self.uuid = NSUUID()
@@ -123,20 +86,28 @@ public class Event: NSCoder {
     }
     
     public convenience init(coder decoder: NSCoder) {
-        let type = decoder.decodeObjectForKey("type") as! String
-        if let timestamp = decoder.decodeObjectForKey("timestamp") as? NSDate {
-            if let payloadData = decoder.decodeObjectForKey("payload") as? NSData {
-                if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : AnyObject] {
-                    self.init(string: type, timestamp: timestamp, payload: payload)
+        if let typeDictionary = decoder.decodeObjectForKey("type") as? [String : String], type = Type.new(typeDictionary) as? Type  {
+            if let timestamp = decoder.decodeObjectForKey("timestamp") as? NSDate {
+                if let payloadData = decoder.decodeObjectForKey("payload") as? NSData {
+                    if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : AnyObject] {
+                        self.init(type: type, payload: payload)
+                        self.timestamp = timestamp
+                    } else {
+                        self.init(type: type)
+                        self.timestamp = timestamp
+                    }
                 } else {
-                    self.init(string: type, timestamp: timestamp)
+                    self.init(type: type)
+                    self.timestamp = timestamp
                 }
             } else {
-                self.init(string: type, timestamp: timestamp)
+                self.init(type: type)
             }
+        
         } else {
-            self.init(string: type)
+            self.init(type: Type())
         }
+        
         if let id = decoder.decodeObjectForKey("id") as? String {
             self.id = id
         }
@@ -151,7 +122,7 @@ public class Event: NSCoder {
     }
 
     func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(type, forKey: "type")
+        coder.encodeObject(type.dictionary, forKey: "type")
         coder.encodeObject(timestamp, forKey: "timestamp")
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
@@ -162,7 +133,7 @@ public class Event: NSCoder {
     
     var dictionary : [String : AnyObject] {
         var dict = [String : AnyObject]()
-        dict["type"] = type
+        dict["type"] = type.description
         dict["timestamp"] = timestamp.timeIntervalSince1970
         dict["uuid"] = identifier
         dict["user"] = userIdentifier
@@ -219,6 +190,6 @@ public class Event: NSCoder {
     }
     
     public var image : UIImage? {
-        return EventType(rawValue: self.type)?.image
+        return self.type.image
     }
 }

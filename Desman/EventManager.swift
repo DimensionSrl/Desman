@@ -17,7 +17,6 @@ public class EventManager : NSObject {
     var lastSync : NSDate?
     var upload = false
     public var limit = 10
-    public var syncInterval = 5.0
     public var processInterval = 1.0 {
         didSet {
             if processInterval < 0.25 {
@@ -69,8 +68,12 @@ public class EventManager : NSObject {
     
     // If you connect a KVO controller the updates can be too fast to manage
     
-    public func logEvent(event: Event){
+    public func log(event: Event){
         self.eventsQueue.insert(event)
+    }
+    
+    public func log(type: Type){
+        self.eventsQueue.insert(Event(type: type))
     }
     
     func processEvents() {
@@ -89,23 +92,23 @@ public class EventManager : NSObject {
             NetworkManager.sharedInstance.sendEvents(eventsQueue)
         }
         
+        eventsQueue.removeAll()
+        self.events = Set<Event>(sortedEvents)
+        
         if self.type == .UserDefaults {
             self.serializeEvents()
         }
-        
-        eventsQueue.removeAll()
-        self.events = Set<Event>(sortedEvents)
     }
     
     func serializeEvents() {
-        if (lastSync == nil) || abs(lastSync!.timeIntervalSinceNow) > syncInterval {
-            lastSync = NSDate()
-            let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
-            let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(eventsData, forKey: "events")
-            defaults.synchronize()
+        let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        guard sortedEvents.count > 0 else  {
+            return
         }
+        let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(eventsData, forKey: "events")
+        defaults.synchronize()
     }
     
     public func resetEvents() {

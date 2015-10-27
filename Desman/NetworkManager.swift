@@ -65,6 +65,7 @@ public class NetworkManager {
                 event.sent = true
                 EventManager.sharedInstance.sentEvents.insert(event)
             }
+            EventManager.sharedInstance.serializeEvents()
         })
         task.resume()
     }
@@ -118,6 +119,7 @@ public class NetworkManager {
                         }
                     }
                 }
+                EventManager.sharedInstance.serializeEvents()
             })
             task.resume()
         } catch let error {

@@ -98,17 +98,17 @@ class EventsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let event = Event(type: .DidSelectRow)
-        EventManager.sharedInstance.logEvent(event)
+        let event = Event(type: Table.DidSelectRow, payload: ["row": indexPath.row, "section": indexPath.section])
+        EventManager.sharedInstance.log(event)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
         let event = events[indexPath.row]
         if event.sent {
-            cell.textLabel?.text = "\(event.type) - sent"
+            cell.textLabel?.text = "\(event.type.description) - sent"
         } else {
-            cell.textLabel?.text = event.type
+            cell.textLabel?.text = event.type.description
         }
         cell.imageView?.image = event.image
         
