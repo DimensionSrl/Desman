@@ -57,6 +57,8 @@ public class Application : Type {
     public static let WillResignActive = Application(subtype: "WillResignActive")
     public static let DidEnterBackground = Application(subtype: "DidEnterBackground")
     public static let WillTerminate = Application(subtype: "WillTerminate")
+    public static let DidRegisterForRemoteNotifications = Application(subtype: "DidRegisterForRemoteNotifications")
+    public static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
     
     override var imageName : String {
         get { return "App" }
