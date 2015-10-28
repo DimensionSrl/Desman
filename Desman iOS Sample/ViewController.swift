@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
         let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))

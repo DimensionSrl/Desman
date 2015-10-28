@@ -53,12 +53,15 @@ class EventsTableViewController: UITableViewController {
                         addedIndexPaths.append(indexPath)
                         index++
                     }
-                    
+                    var rowAnimation : UITableViewRowAnimation = .Right
+                    if events.count == 0 {
+                        rowAnimation = .None
+                    }
                     events = updatedEvents.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
                     
                     tableView.beginUpdates()
                     tableView.deleteRowsAtIndexPaths(removeIndexPaths, withRowAnimation: .Left)
-                    tableView.insertRowsAtIndexPaths(addedIndexPaths, withRowAnimation: .Right)
+                    tableView.insertRowsAtIndexPaths(addedIndexPaths, withRowAnimation: rowAnimation)
                     tableView.endUpdates()
                 }
             } else if keyPath == "sentEvents" {
@@ -107,6 +110,8 @@ class EventsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let event = Event(type: Table.DidSelectRow, payload: ["row": indexPath.row, "section": indexPath.section])
         EventManager.sharedInstance.log(event)
+        let selectedEvent = events[indexPath.row]
+        self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -118,7 +123,6 @@ class EventsTableViewController: UITableViewController {
             cell.textLabel?.text = event.type.description
         }
         cell.imageView?.image = event.image
-        
         cell.detailTextLabel?.text = event.identifier
         
         return cell
@@ -127,5 +131,15 @@ class EventsTableViewController: UITableViewController {
     deinit {
         objectToObserve.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
         objectToObserve.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showEventDetailSegue" {
+            if let detailController = segue.destinationViewController as? EventDetailTableViewController {
+                if let event = sender as? Event {
+                    detailController.event = event
+                }
+            }
+        }
     }
 }

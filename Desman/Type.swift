@@ -87,3 +87,53 @@ public class Controller : Type {
         set { self.imageName = newValue }
     }
 }
+
+public class Beacon : Type {
+    public static let DidRangeBeacons = Beacon(subtype: "DidRangeBeacons")
+    public static let StartRanging = Beacon(subtype: "StartRanging")
+    public static let StopRanging = Beacon(subtype: "StopRanging")
+    public static let StopBrieflyRanging = Beacon(subtype: "StopBrieflyRanging")
+    public static let RangingDidFail = Beacon(subtype: "RangingDidFail")
+
+    override var imageName : String {
+        get { return "Beacon" }
+        set { self.imageName = newValue }
+    }
+}
+
+public class Region : Type {
+    public static let StartRegionMonitoring = Region(subtype: "StartRegionMonitoring")
+    public static let MonitorDidFail = Region(subtype: "MonitorDidFail")
+    public static let DidEnter = Region(subtype: "DidEnter")
+    public static let DidExit = Region(subtype: "DidExit")
+    public static let DidStartMonitoring = Region(subtype: "DidStartMonitoring")
+    public static let DidDetermineState = Region(subtype: "DidDetermineState")
+    public static let DidChangeAuthorization = Region(subtype: "DidChangeAuthorization")
+    
+    override var imageName : String {
+        get { return "Beacon" }
+        set { self.imageName = newValue }
+    }
+}
+
+public class Location : Type {
+    public static let DidFail = Location(subtype: "DidFail")
+    public static let DidDetermineState = Location(subtype: "DidDetermineState")
+    public static let DidChangeAuthorization = Location(subtype: "DidChangeAuthorization")
+    
+    override var imageName : String {
+        get { return "Beacon" }
+        set { self.imageName = newValue }
+    }
+}
+
+
+public class Connection : Type {
+    public static let DidFail = Connection(subtype: "DidFail")
+    public static let DidLoad = Connection(subtype: "DidLoad")
+    
+    override var imageName : String {
+        get { return "Safari" }
+        set { self.imageName = newValue }
+    }
+}
