@@ -9,8 +9,8 @@
 import Desman
 
 class SampleType : Type {
-    static let Unknown = SampleType(subtype: "Untitled")
+    static let Unknown = SampleType(subtype: "Unknown")
     override var image : UIImage? {
-        return UIImage(named: "Untitled")
+        return UIImage(named: "Unknown")
     }
 }

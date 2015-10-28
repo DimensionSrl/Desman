@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Desman
 
 private var desmanEventsContext = 0
 
@@ -17,8 +16,16 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let dismissButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("dismissController"))
+        self.navigationItem.rightBarButtonItem = dismissButton
+        
         objectToObserve.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
         objectToObserve.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
+    }
+    
+    func dismissController() {
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {

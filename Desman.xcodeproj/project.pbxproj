@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */; };
+		950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950871A01BE0BF76000C54AE /* Desman.storyboard */; };
+		950871A31BE0C006000C54AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950871A21BE0C006000C54AE /* ViewController.swift */; };
 		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
@@ -27,7 +30,6 @@
 		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; };
 		956AF2151BD51CB800464E9E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2141BD51CB800464E9E /* Reachability.swift */; };
 		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; };
-		956AF21B1BD5469B00464E9E /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9508719E1BE0BF45000C54AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		950871A01BE0BF76000C54AE /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
+		950871A21BE0C006000C54AE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
@@ -110,7 +115,7 @@
 		956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
 		956AF2141BD51CB800464E9E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		956AF2161BD51CD000464E9E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Desman/EventsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +162,7 @@
 		956AF1AC1BD4F09200464E9E = {
 			isa = PBXGroup;
 			children = (
+				9508719E1BE0BF45000C54AE /* README.md */,
 				956AF1B71BD4F09200464E9E /* Desman iOS Sample */,
 				956AF1EC1BD4F0AF00464E9E /* Desman */,
 				956AF1FA1BD4F0AF00464E9E /* DesmanTests */,
@@ -183,7 +189,7 @@
 			children = (
 				956AF1B81BD4F09200464E9E /* AppDelegate.swift */,
 				952D19F81BDE9A8300988338 /* SampleType.swift */,
-				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
+				950871A21BE0C006000C54AE /* ViewController.swift */,
 				956AF1BC1BD4F09200464E9E /* Main.storyboard */,
 				956AF1BF1BD4F09200464E9E /* Assets.xcassets */,
 				956AF1C11BD4F09200464E9E /* LaunchScreen.storyboard */,
@@ -219,6 +225,8 @@
 				956AF2161BD51CD000464E9E /* NetworkManager.swift */,
 				956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */,
 				956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */,
+				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
+				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF2131BD51C9B00464E9E /* External */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
@@ -380,7 +388,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 956AF1B01BD4F09200464E9E /* Build configuration list for PBXProject "Desman iOS Sample" */;
+			buildConfigurationList = 956AF1B01BD4F09200464E9E /* Build configuration list for PBXProject "Desman" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -431,6 +439,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */,
 				952D19F51BDE88EA00988338 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,9 +458,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				950871A31BE0C006000C54AE /* ViewController.swift in Sources */,
 				955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */,
 				956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */,
-				956AF21B1BD5469B00464E9E /* EventsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,6 +490,7 @@
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
 				956AF2151BD51CB800464E9E /* Reachability.swift in Sources */,
+				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -768,7 +778,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		956AF1B01BD4F09200464E9E /* Build configuration list for PBXProject "Desman iOS Sample" */ = {
+		956AF1B01BD4F09200464E9E /* Build configuration list for PBXProject "Desman" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				956AF1DB1BD4F09200464E9E /* Debug */,

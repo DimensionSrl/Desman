@@ -67,7 +67,7 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: Type) {
+    public init(_ type: Type) {
         self.type = type
         self.timestamp = NSDate()
         self.payload = nil
@@ -93,19 +93,19 @@ public class Event: NSCoder {
                         self.init(type: type, payload: payload)
                         self.timestamp = timestamp
                     } else {
-                        self.init(type: type)
+                        self.init(type)
                         self.timestamp = timestamp
                     }
                 } else {
-                    self.init(type: type)
+                    self.init(type)
                     self.timestamp = timestamp
                 }
             } else {
-                self.init(type: type)
+                self.init(type)
             }
         
         } else {
-            self.init(type: Type())
+            self.init(Type())
         }
         
         if let id = decoder.decodeObjectForKey("id") as? String {

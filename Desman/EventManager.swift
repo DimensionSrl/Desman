@@ -73,7 +73,11 @@ public class EventManager : NSObject {
     }
     
     public func log(type: Type){
-        self.eventsQueue.insert(Event(type: type))
+        self.eventsQueue.insert(Event(type))
+    }
+    
+    public func log(type: Type, payload: [String : AnyObject]){
+        self.eventsQueue.insert(Event(type: type, payload: payload))
     }
     
     func processEvents() {
