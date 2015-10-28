@@ -35,7 +35,8 @@ public class Type {
     }
     
     public var description : String {
-        return "\(className.componentsSeparatedByString(".").last!) \(subtype)"
+        let dotString = "."
+        return "\(className.componentsSeparatedByString(dotString).last!) \(subtype)"
     }
     
     class public func new(dictionary : [String : String]) -> AnyObject? {
