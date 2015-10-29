@@ -113,7 +113,6 @@
 		956AF20B1BD4F11200464E9E /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterListener.swift; sourceTree = "<group>"; };
 		956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
-		956AF2141BD51CB800464E9E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		956AF2161BD51CD000464E9E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Desman/EventsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -230,7 +229,6 @@
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
-				956AF2131BD51C9B00464E9E /* External */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
 				952D19F41BDE88EA00988338 /* Media.xcassets */,
 			);
@@ -244,14 +242,6 @@
 				956AF1FD1BD4F0AF00464E9E /* Info.plist */,
 			);
 			path = DesmanTests;
-			sourceTree = "<group>";
-		};
-		956AF2131BD51C9B00464E9E /* External */ = {
-			isa = PBXGroup;
-			children = (
-				956AF2141BD51CB800464E9E /* Reachability.swift */,
-			);
-			path = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
