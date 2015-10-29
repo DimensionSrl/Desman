@@ -10,7 +10,7 @@ import Foundation
 
 @objc public class Type : NSObject {
     override required public init() {}
-    static let Unknown = "Unknown"
+    static let Unknown = Type(subtype: "Unknown")
     public var subtype : String = "Unknown"
     private var imageName : String = ""
     

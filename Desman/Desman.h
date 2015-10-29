@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Desman-Swift.h"
 
 //! Project version number for Desman.
 FOUNDATION_EXPORT double DesmanVersionNumber;
@@ -16,5 +15,3 @@ FOUNDATION_EXPORT double DesmanVersionNumber;
 FOUNDATION_EXPORT const unsigned char DesmanVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <Desman/PublicHeader.h>
-
-
