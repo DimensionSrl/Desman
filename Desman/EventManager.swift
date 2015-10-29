@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum EventDatabase {
+@objc public enum EventDatabase : Int {
     case None
     case UserDefaults
 }
@@ -72,7 +72,7 @@ public class EventManager : NSObject {
         self.eventsQueue.insert(event)
     }
     
-    public func log(type: Type){
+    public func logType(type: Type){
         self.eventsQueue.insert(Event(type))
     }
     

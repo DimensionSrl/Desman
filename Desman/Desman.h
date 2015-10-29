@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Desman-Swift.h"
 
 //! Project version number for Desman.
 FOUNDATION_EXPORT double DesmanVersionNumber;

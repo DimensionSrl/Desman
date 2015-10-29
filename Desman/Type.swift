@@ -8,8 +8,8 @@
 
 import Foundation
 
-public class Type {
-    required public init() {}
+@objc public class Type : NSObject {
+    override required public init() {}
     static let Unknown = "Unknown"
     public var subtype : String = "Unknown"
     private var imageName : String = ""
@@ -34,7 +34,7 @@ public class Type {
         self.subtype = subtype
     }
     
-    public var description : String {
+    override public var description : String {
         let dotString = "."
         return "\(className.componentsSeparatedByString(dotString).last!) \(subtype)"
     }
