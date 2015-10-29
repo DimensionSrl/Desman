@@ -14,7 +14,10 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var payloadTextView: UITextView!
-    @IBOutlet weak var sentLabel: UILabel!
+    @IBOutlet var sentCell: UITableViewCell!
+    
+    @IBOutlet var payloadTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet var payloadLeadingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +32,11 @@ class EventDetailTableViewController: UITableViewController {
             typeLabel.text = event.type.description
             uuidLabel.text = event.uuid?.UUIDString
             dateLabel.text = event.dateFormatter.stringFromDate(event.timestamp)
+            
             if event.sent {
-                sentLabel.text = "True"
+                sentCell.accessoryType = .Checkmark
             } else {
-                sentLabel.text = "False"
+                sentCell.accessoryType = .None
             }
             
             if let image = event.image {
@@ -61,8 +65,8 @@ class EventDetailTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 4 {
-            let size = payloadTextView.sizeThatFits(CGSize(width: tableView.frame.size.width - 25, height: CGFloat.max))
-            return size.height + 2
+            let size = payloadTextView.sizeThatFits(CGSize(width: self.view.frame.size.width - payloadLeadingConstraint.constant - payloadTrailingConstraint.constant, height: CGFloat.max))
+            return size.height + 1
         }
         return 44
     }

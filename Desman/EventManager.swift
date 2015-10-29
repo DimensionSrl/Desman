@@ -91,13 +91,13 @@ public class EventManager : NSObject {
             sortedEvents.removeRange(self.limit..<sortedEvents.count)
         }
         
-        if self.upload {
-            self.sentEvents.removeAll()
-            NetworkManager.sharedInstance.sendEvents(eventsQueue)
-        }
-        
         eventsQueue.removeAll()
         self.events = Set<Event>(sortedEvents)
+        
+        if self.upload {
+            self.sentEvents.removeAll()
+            NetworkManager.sharedInstance.sendEvents(self.events)
+        }
         
         if self.type == .UserDefaults {
             self.serializeEvents()

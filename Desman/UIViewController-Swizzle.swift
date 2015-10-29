@@ -18,11 +18,12 @@ extension UIViewController {
         }
         
         dispatch_once(&Static.token) {
-            var originalSelector = Selector("viewWillAppear:")
-            var swizzledSelector = Selector("desman_viewWillAppear:")
             
-            var originalMethod = class_getInstanceMethod(self, originalSelector)
-            var swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
+            let originalSelector = Selector("viewWillAppear:")
+            let swizzledSelector = Selector("desman_viewWillAppear:")
+            
+            let originalMethod = class_getInstanceMethod(self, originalSelector)
+            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
             
             let didAddMethodWill = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
             
@@ -32,6 +33,7 @@ extension UIViewController {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
             
+            /*
             originalSelector = Selector("viewDidAppear:")
             swizzledSelector = Selector("desman_viewDidAppear:")
             
@@ -45,6 +47,7 @@ extension UIViewController {
             } else {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
+            */
         }
     }
     

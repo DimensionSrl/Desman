@@ -22,6 +22,8 @@ class EventsTableViewController: UITableViewController {
         
         objectToObserve.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
         objectToObserve.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
+        
+        self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
     }
     
     func dismissController() {
@@ -80,9 +82,9 @@ class EventsTableViewController: UITableViewController {
                         index++
                     }
                     
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.3 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.10 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
                         self.tableView.beginUpdates()
-                        self.tableView.reloadRowsAtIndexPaths(updatedIndexPaths, withRowAnimation: .Fade)
+                        self.tableView.reloadRowsAtIndexPaths(updatedIndexPaths, withRowAnimation: .None)
                         self.tableView.endUpdates()
                     }
                 }
@@ -115,15 +117,16 @@ class EventsTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! EventTableViewCell
         let event = events[indexPath.row]
+        cell.eventTitleLabel?.text = event.type.description
         if event.sent {
-            cell.textLabel?.text = "\(event.type.description) - sent"
+            cell.accessoryType = .Checkmark
         } else {
-            cell.textLabel?.text = event.type.description
+            cell.accessoryType = .None
         }
-        cell.imageView?.image = event.image
-        cell.detailTextLabel?.text = event.identifier
+        cell.eventImageView?.image = event.image
+        cell.eventSubtitleLabel?.text = event.dateFormatter.stringFromDate(event.timestamp)
         
         return cell
     }
