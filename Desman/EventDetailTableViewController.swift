@@ -50,7 +50,8 @@ class EventDetailTableViewController: UITableViewController {
                 do {
                     let data = try NSJSONSerialization.dataWithJSONObject(payload, options: NSJSONWritingOptions.PrettyPrinted)
                     if let string = String(data: data, encoding: NSUTF8StringEncoding) {
-                        payloadTextView.text = string
+                        let replacedString = string.stringByReplacingOccurrencesOfString("\\/", withString: "/")
+                        payloadTextView.text = replacedString
                     }
                 } catch _ as NSError {
                     payloadTextView.text = NSLocalizedString("Error: cannot parse the Event Payload.", comment: "")

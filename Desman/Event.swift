@@ -9,9 +9,11 @@
 import Foundation
 import AdSupport
 
+public typealias Coding = protocol<NSCoding>
+
 public class Event: NSCoder {
     public let type : Type
-    public let payload : [String : AnyObject]?
+    public var payload : [String : AnyObject]?
     public var timestamp : NSDate
     public var sent : Bool = false
     var id : String?
@@ -29,11 +31,10 @@ public class Event: NSCoder {
         dateFormatter.locale = NSLocale.currentLocale()
     }
     
-    public init?(dictionary: [String : AnyObject]) {
+    public init?(dictionary: [String : Coding]) {
         guard let typeDictionary = dictionary["type"] as? [String: String], type = Type.new(typeDictionary) as? Type else {
             self.type = Type()
             self.timestamp = NSDate()
-            self.payload = nil
             super.init()
             return nil
         }
@@ -46,8 +47,6 @@ public class Event: NSCoder {
         
         if let payload = dictionary["payload"] as? [String : AnyObject] {
             self.payload = payload
-        } else {
-            self.payload = nil
         }
         
         if let id = dictionary["id"] as? String {
@@ -70,13 +69,12 @@ public class Event: NSCoder {
     public init(_ type: Type) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = nil
         self.uuid = NSUUID()
         super.init()
         self.commonInit()
     }
     
-    public init(type: Type, payload: [String : AnyObject]) {
+    public init(type: Type, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
         self.payload = payload
@@ -89,7 +87,7 @@ public class Event: NSCoder {
         if let typeDictionary = decoder.decodeObjectForKey("type") as? [String : String], type = Type.new(typeDictionary) as? Type  {
             if let timestamp = decoder.decodeObjectForKey("timestamp") as? NSDate {
                 if let payloadData = decoder.decodeObjectForKey("payload") as? NSData {
-                    if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : AnyObject] {
+                    if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : Coding] {
                         self.init(type: type, payload: payload)
                         self.timestamp = timestamp
                     } else {
@@ -131,8 +129,8 @@ public class Event: NSCoder {
         coder.encodeBool(sent, forKey: "sent")
     }
     
-    var dictionary : [String : AnyObject] {
-        var dict = [String : AnyObject]()
+    var dictionary : [String : Coding] {
+        var dict = [String : Coding]()
         dict["type"] = type.description
         dict["timestamp"] = timestamp.timeIntervalSince1970
         dict["uuid"] = identifier

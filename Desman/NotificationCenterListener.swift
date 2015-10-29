@@ -19,7 +19,7 @@ public class NotificationCenterListener {
     public func startListening() {
         stopListening()
         NSNotificationCenter.defaultCenter().addObserverForName(nil, object: nil, queue: nil) { (notification) -> Void in
-            var payload = [String: AnyObject]()
+            var payload = [String: Coding]()
             if let object = notification.object {
                 payload["object"] = object.description
             }

@@ -11,6 +11,7 @@
 		950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950871A01BE0BF76000C54AE /* Desman.storyboard */; };
 		950871A31BE0C006000C54AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950871A21BE0C006000C54AE /* ViewController.swift */; };
 		95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F311BE26F5900187A1C /* EventTableViewCell.swift */; };
+		95271F341BE27D0200187A1C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F331BE27D0200187A1C /* Info.swift */; };
 		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
@@ -91,6 +92,7 @@
 		950871A21BE0C006000C54AE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		95271F311BE26F5900187A1C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		95271F331BE27D0200187A1C /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				956AF20B1BD4F11200464E9E /* Event.swift */,
+				95271F331BE27D0200187A1C /* Info.swift */,
 				952D19F61BDE910400988338 /* Type.swift */,
 				956AF2091BD4F0DE00464E9E /* EventManager.swift */,
 				956AF2161BD51CD000464E9E /* NetworkManager.swift */,
@@ -484,6 +487,7 @@
 				95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */,
 				952D19F71BDE910400988338 /* Type.swift in Sources */,
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
+				95271F341BE27D0200187A1C /* Info.swift in Sources */,
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,

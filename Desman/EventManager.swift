@@ -76,7 +76,7 @@ public class EventManager : NSObject {
         self.eventsQueue.insert(Event(type))
     }
     
-    public func log(type: Type, payload: [String : AnyObject]){
+    public func log(type: Type, payload: [String : Coding]){
         self.eventsQueue.insert(Event(type: type, payload: payload))
     }
     

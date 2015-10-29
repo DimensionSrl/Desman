@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EventManager.sharedInstance.logType(Application.DidFinishLaunching)
         EventManager.sharedInstance.logType(SampleType.Unknown)
         EventManager.sharedInstance.limit = 40
+        
+        EventManager.sharedInstance.log(Info())
+        
         // NotificationCenterListener.sharedInstance.startListening()
         return true
     }
