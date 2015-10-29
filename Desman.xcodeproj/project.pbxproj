@@ -28,7 +28,6 @@
 		956AF20C1BD4F11200464E9E /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20B1BD4F11200464E9E /* Event.swift */; };
 		956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */; };
 		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; };
-		956AF2151BD51CB800464E9E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2141BD51CB800464E9E /* Reachability.swift */; };
 		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; };
 		95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */; };
 /* End PBXBuildFile section */
@@ -493,7 +492,6 @@
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
-				956AF2151BD51CB800464E9E /* Reachability.swift in Sources */,
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */,
 			);
@@ -577,6 +575,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -622,6 +621,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
