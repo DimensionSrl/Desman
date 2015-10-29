@@ -16,9 +16,7 @@ class EventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let dismissButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: Selector("dismissController"))
-        self.navigationItem.rightBarButtonItem = dismissButton
+        self.splitViewController?.preferredDisplayMode = .AllVisible
         
         objectToObserve.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
         objectToObserve.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
@@ -26,7 +24,7 @@ class EventsTableViewController: UITableViewController {
         self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
     }
     
-    func dismissController() {
+    @IBAction func dismissController(sender: UIBarButtonItem) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -138,11 +136,21 @@ class EventsTableViewController: UITableViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showEventDetailSegue" {
-            if let detailController = segue.destinationViewController as? EventDetailTableViewController {
+            if let detailNavigationController = segue.destinationViewController as? UINavigationController, detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
                 if let event = sender as? Event {
                     detailController.event = event
                 }
             }
         }
+    }
+    
+    @IBAction func infoButtonPressed(sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: NSLocalizedString("Desman \(DesmanVersionNumber)", comment: ""), message: "\n\(currentUserIdentifier)\n\(currentDeviceName)", preferredStyle: .ActionSheet)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: { (action) -> Void in
+            alertController.dismissViewControllerAnimated(true, completion: nil)
+        }))
+        
+        alertController.popoverPresentationController?.barButtonItem = sender
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
 }

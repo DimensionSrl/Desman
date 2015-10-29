@@ -11,6 +11,11 @@ import AdSupport
 
 public typealias Coding = protocol<NSCoding>
 
+// This way we are able to track the current user and current device between app installations
+let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
+let currentDeviceName = UIDevice.currentDevice().name
+
 public class Event: NSCoder {
     public let type : Type
     public var payload : [String : AnyObject]?
@@ -18,12 +23,7 @@ public class Event: NSCoder {
     public var sent : Bool = false
     var id : String?
     var uuid : NSUUID?
-    var user : String?
     let dateFormatter = NSDateFormatter()
-    
-    // This way we are able to track the current user and current device between app installations
-    let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
-    let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
     
     func commonInit() {
         dateFormatter.dateStyle = .ShortStyle
@@ -55,10 +55,6 @@ public class Event: NSCoder {
         
         if let uuid = dictionary["uuid"] as? String {
             self.uuid = NSUUID(UUIDString: uuid)
-        }
-        
-        if let user = dictionary["user"] as? String {
-            self.user = user
         }
         
         self.type = type
@@ -112,9 +108,6 @@ public class Event: NSCoder {
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
-        if let user = decoder.decodeObjectForKey("user") as? String {
-            self.user = user
-        }
         self.sent = decoder.decodeBoolForKey("sent")
         self.commonInit()
     }
@@ -125,7 +118,6 @@ public class Event: NSCoder {
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
-        coder.encodeObject(user, forKey: "user")
         coder.encodeBool(sent, forKey: "sent")
     }
     
@@ -166,10 +158,7 @@ public class Event: NSCoder {
     }
     
     public var userIdentifier : String {
-        if let user = self.user {
-            return "\(currentUserIdentifier) - \(user)"
-        }
-        return currentUserIdentifier
+        return "\(currentUserIdentifier) - \(currentDeviceName)"
     }
     
     override public var description : String {

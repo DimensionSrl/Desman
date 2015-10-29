@@ -12,6 +12,7 @@
 		950871A31BE0C006000C54AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950871A21BE0C006000C54AE /* ViewController.swift */; };
 		95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F311BE26F5900187A1C /* EventTableViewCell.swift */; };
 		95271F341BE27D0200187A1C /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F331BE27D0200187A1C /* Info.swift */; };
+		95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */; };
 		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
@@ -93,6 +94,7 @@
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		95271F311BE26F5900187A1C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		95271F331BE27D0200187A1C /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
+		95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */,
 				956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */,
 				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
+				95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */,
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
@@ -493,6 +496,7 @@
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
+				95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */,
 				956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -718,10 +722,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.1.0;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = 0.1.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Desman/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -740,10 +744,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 0.1.0;
 				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_COMPATIBILITY_VERSION = 0.1.0;
+				DYLIB_CURRENT_VERSION = 0.1.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Desman/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
