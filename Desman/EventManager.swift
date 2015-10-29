@@ -39,8 +39,8 @@ public class EventManager : NSObject {
     dynamic private(set) public var events = Set<Event>()
     dynamic internal(set) public var sentEvents = Set<Event>()
     
-    public func takeOff(baseURL: NSURL, appKey: String, type: EventDatabase) {
-        self.type = type
+    public func takeOff(baseURL: NSURL, appKey: String, serialization: EventDatabase) {
+        self.type = serialization
         self.upload = true
         NetworkManager.sharedInstance.takeOff(baseURL, appKey: appKey)
         if type == .UserDefaults {
@@ -57,8 +57,8 @@ public class EventManager : NSObject {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
     }
     
-    public func takeOff(type: EventDatabase) {
-        self.type = type
+    public func takeOff(serialization: EventDatabase) {
+        self.type = serialization
         if type == .UserDefaults {
             deserializeEvents()
         }

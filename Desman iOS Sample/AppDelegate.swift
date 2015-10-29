@@ -14,7 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.dimension.it")!, appKey: "", type: .UserDefaults)
+        EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.dimension.it")!, appKey: "", serialization: .UserDefaults)
+        
+        EventManager.sharedInstance.takeOff(.None)
         
         EventManager.sharedInstance.logType(Application.DidFinishLaunching)
         EventManager.sharedInstance.logType(SampleType.Unknown)
