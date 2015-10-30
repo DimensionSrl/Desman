@@ -15,7 +15,7 @@ Remember to whitelist your endpoint on iOS 9 to fulfill *App Transport Security*
 
 ### Sample Code
 
-In this repository you can find a sample code project with few lines of code in the `AppDelegate`'s `application:didFinishLaunchingWithOptions` to setup `EventManager`.
+In this repository you can find a sample code project with few lines of code in the `AppDelegate`'s `application:didFinishLaunchingWithOptions:` to setup `EventManager`.
 You can choose to send the events to an endpoint, serialize them into `NSUserDefaults` or just keep them in memory.
 
 ### Usage

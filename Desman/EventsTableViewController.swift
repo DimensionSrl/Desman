@@ -10,7 +10,7 @@ import UIKit
 
 private var desmanEventsContext = 0
 
-class EventsTableViewController: UITableViewController {
+class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var objectToObserve = EventManager.sharedInstance
     var events = [Event]()
     
@@ -22,6 +22,36 @@ class EventsTableViewController: UITableViewController {
         objectToObserve.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
         
         self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        
+        if #available(iOS 9.0, *) {
+            // FIXME: should check for forceTouchCapability but for some reason it doesn't work
+            registerForPreviewingWithDelegate(self, sourceView: view)
+            /*
+            if traitCollection.forceTouchCapability == .Available {
+                registerForPreviewingWithDelegate(self, sourceView: view)
+            }
+            */
+        }
+    }
+
+    @available(iOS 9.0, *)
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRowAtPoint(location) else { return nil }
+        guard let cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
+        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("EventDetailTableViewController") as? EventDetailTableViewController else { return nil }
+        
+        let selectedEvent = events[indexPath.row]
+        detailVC.event = selectedEvent
+        
+        detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
+        
+        previewingContext.sourceRect = cell.frame
+        
+        return detailVC
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        showViewController(viewControllerToCommit, sender: self)
     }
     
     @IBAction func dismissController(sender: UIBarButtonItem) {

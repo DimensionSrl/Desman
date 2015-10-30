@@ -196,7 +196,7 @@
         <!--Event Detail Table View Controller-->
         <scene sceneID="dUf-6k-RrN">
             <objects>
-                <tableViewController id="9pZ-yC-4tN" customClass="EventDetailTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EventDetailTableViewController" id="9pZ-yC-4tN" customClass="EventDetailTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="fJW-xc-IFg">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
