@@ -28,6 +28,14 @@ class ViewController: UIViewController {
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     
+    @IBAction func feedbackCompose(sender: UIButton) {
+        let feedbackController = FeedbackComposeViewController()
+        feedbackController.placeholder = "Give your feedback"
+        feedbackController.modalPresentationStyle = .OverCurrentContext
+        self.presentViewController(feedbackController, animated: true) { () -> Void in
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

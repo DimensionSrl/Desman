@@ -33,6 +33,7 @@
 		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; };
 		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; };
 		95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */; };
+		95FB15221BE375B7002C8793 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +124,7 @@
 		956AF2161BD51CD000464E9E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Desman/EventsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 				95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */,
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
+				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
@@ -491,6 +494,7 @@
 				952D19F71BDE910400988338 /* Type.swift in Sources */,
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
 				95271F341BE27D0200187A1C /* Info.swift in Sources */,
+				95FB15221BE375B7002C8793 /* FeedbackComposeViewController.swift in Sources */,
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
