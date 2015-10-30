@@ -15,10 +15,11 @@ import Foundation
     private var imageName : String = ""
     
     public var image : UIImage? {
+        var name = imageName
         if imageName == "" {
-            return nil
+            name = "Unknown"
         }
-        return UIImage(named: imageName, inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        return UIImage(named: name, inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
     }
     
     var rawValue: String {

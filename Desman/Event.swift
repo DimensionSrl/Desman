@@ -177,6 +177,10 @@ public class Event: NSCoder {
     }
     
     public var image : UIImage? {
-        return self.type.image
+        if let image = self.type.image {
+            return image
+        } else {
+            return UIImage(named: "Unknown", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        }
     }
 }
