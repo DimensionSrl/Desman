@@ -16,6 +16,8 @@ import Foundation
 public class EventManager : NSObject {
     var lastSync : NSDate?
     var upload = false
+    var shouldLog = false
+    
     public var limit = 10
     public var processInterval = 1.0 {
         didSet {
@@ -50,6 +52,22 @@ public class EventManager : NSObject {
         // TODO: support other databases
     }
     
+    public func startLogging() {
+        shouldLog = true
+    }
+    
+    public func stopLogging() {
+        shouldLog = false
+    }
+    
+    public func purgeLogs() {
+        self.events.removeAll()
+        if self.type == .UserDefaults {
+            self.serializeEvents()
+        }
+        // TODO: remove every online log linked to this device and user
+    }
+    
     func scheduleProcessTimer() {
         if let timer = timer {
             timer.invalidate()
@@ -69,15 +87,21 @@ public class EventManager : NSObject {
     // If you connect a KVO controller the updates can be too fast to manage
     
     public func log(event: Event){
-        self.eventsQueue.insert(event)
+        if shouldLog {
+            self.eventsQueue.insert(event)
+        }
     }
     
     public func logType(type: Type){
-        self.eventsQueue.insert(Event(type))
+        if shouldLog {
+            self.eventsQueue.insert(Event(type))
+        }
     }
     
     public func log(type: Type, payload: [String : Coding]){
-        self.eventsQueue.insert(Event(type: type, payload: payload))
+        if shouldLog {
+            self.eventsQueue.insert(Event(type: type, payload: payload))
+        }
     }
     
     func processEvents() {

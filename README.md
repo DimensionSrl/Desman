@@ -53,6 +53,16 @@ If you have a remote web service instance you can provide the url, otherwise you
 EventManager.sharedInstance.takeOff(NSURL(string: "https://example.com")!, appKey: "", serialization: .UserDefaults)
 ```
 
+In order to collect events you also need to call the `startLogging:` method.
+
+```swift
+EventManager.sharedInstance.startLogging()
+```
+
+To stop the collection use `stopLogging:`.
+
+To delete every previously serialized `Event` you can use the `EventManager`'s `purgeLogs:` method.
+
 #### Logging
 
 Create an `Event`:

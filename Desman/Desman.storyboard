@@ -70,6 +70,7 @@
                                     </variation>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="eventImageView" destination="pD4-hx-Zw2" id="b1g-6V-Ou8"/>
                                     <outlet property="eventSubtitleLabel" destination="QEy-zh-Jut" id="Hk9-XC-H9v"/>
@@ -307,6 +308,7 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Opo-t8-VFj">
                                         <rect key="frame" x="0.0" y="240" width="600" height="44"/>
@@ -316,7 +318,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mnd-tw-yYt">
-                                                    <rect key="frame" x="10" y="0.0" width="570" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <animations/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -328,8 +330,8 @@
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="mnd-tw-yYt" secondAttribute="bottom" constant="0.5" id="58z-ZU-rTZ"/>
-                                                <constraint firstItem="mnd-tw-yYt" firstAttribute="leading" secondItem="Dhl-FU-jyQ" secondAttribute="leading" constant="10" id="Dec-BL-9tY"/>
-                                                <constraint firstAttribute="trailing" secondItem="mnd-tw-yYt" secondAttribute="trailing" constant="20" id="ne1-5h-z6q"/>
+                                                <constraint firstItem="mnd-tw-yYt" firstAttribute="leading" secondItem="Dhl-FU-jyQ" secondAttribute="leading" constant="15" id="Dec-BL-9tY"/>
+                                                <constraint firstAttribute="trailing" secondItem="mnd-tw-yYt" secondAttribute="trailing" constant="15" id="ne1-5h-z6q"/>
                                                 <constraint firstItem="mnd-tw-yYt" firstAttribute="top" secondItem="Dhl-FU-jyQ" secondAttribute="top" id="oKd-eF-84f"/>
                                             </constraints>
                                         </tableViewCellContentView>
