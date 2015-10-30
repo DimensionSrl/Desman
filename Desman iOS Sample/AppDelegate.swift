@@ -14,38 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        logEvents()
+        return true
+    }
+    
+    func logEvents() {
         // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
         EventManager.sharedInstance.takeOff(.UserDefaults)
-
-        EventManager.sharedInstance.swizzles.insert(Swizzle.ViewWillAppear)
+        EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
         EventManager.sharedInstance.limit = 40
         EventManager.sharedInstance.timeInterval = 0.5
         EventManager.sharedInstance.startLogging()
-        
         EventManager.sharedInstance.logType(Application.DidFinishLaunching)
         EventManager.sharedInstance.log(Info())
-        // NotificationCenterListener.sharedInstance.startListening()
-        return true
-    }
-
-    func applicationWillResignActive(application: UIApplication) {
-        EventManager.sharedInstance.logType(Application.WillResignActive)
-    }
-
-    func applicationDidEnterBackground(application: UIApplication) {
-        EventManager.sharedInstance.logType(Application.DidEnterBackground)
-    }
-
-    func applicationWillEnterForeground(application: UIApplication) {
-        EventManager.sharedInstance.logType(Application.WillEnterForeground)
-    }
-
-    func applicationDidBecomeActive(application: UIApplication) {
-        EventManager.sharedInstance.logType(Application.DidBecomeActive)
-    }
-
-    func applicationWillTerminate(application: UIApplication) {
-        EventManager.sharedInstance.logType(Application.WillTerminate)
+        NotificationCenterListener.sharedInstance.listenToAppLifecicleActivity()
+        NotificationCenterListener.sharedInstance.listenToScreenshots()
     }
 }
 

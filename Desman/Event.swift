@@ -165,6 +165,15 @@ public class Event: NSCoder {
         return "\n\(dateFormatter.stringFromDate(timestamp)) (\(timestamp.timeIntervalSince1970)) - \(type) - \(sent)"
     }
     
+    public var title : String {
+        if self.type.className == "Desman.Controller" {
+            if let payload = self.payload, let controllerName = payload["controller"] as? String {
+                return "\(controllerName) \(type.subtype)"
+            }
+        }
+        return type.description
+    }
+    
     override public func isEqual(object: AnyObject?) -> Bool {
         if let object = object as? Event {
             return hash == object.hash

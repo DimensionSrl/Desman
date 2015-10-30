@@ -16,22 +16,55 @@ public class NotificationCenterListener {
     */
     static public let sharedInstance = NotificationCenterListener()
     
-    public func startListening() {
-        stopListening()
-        NSNotificationCenter.defaultCenter().addObserverForName(nil, object: nil, queue: nil) { (notification) -> Void in
+    public func listenToScreenshots() {
+        startListening(UIApplicationUserDidTakeScreenshotNotification, type: Notification(subtype: "screenshot"))
+    }
+    
+    public func stopListeningToScreenshots() {
+        stopListening(UIApplicationUserDidTakeScreenshotNotification)
+    }
+    
+    public func listenToAppLifecicleActivity() {
+        startListening(UIApplicationDidBecomeActiveNotification, type: Application.DidBecomeActive)
+        startListening(UIApplicationDidEnterBackgroundNotification, type: Application.DidEnterBackground)
+        // startListening(UIApplicationDidFinishLaunchingNotification, type: Application.DidFinishLaunching)
+        startListening(UIApplicationWillEnterForegroundNotification, type: Application.WillEnterForeground)
+        startListening(UIApplicationWillResignActiveNotification, type: Application.WillResignActive)
+        startListening(UIApplicationWillTerminateNotification, type: Application.WillTerminate)
+    }
+    
+    public func stopListeningToAppLifecycleActivity() {
+        stopListening(UIApplicationDidBecomeActiveNotification)
+        stopListening(UIApplicationDidEnterBackgroundNotification)
+        // stopListening(UIApplicationDidFinishLaunchingNotification)
+        stopListening(UIApplicationWillEnterForegroundNotification)
+        stopListening(UIApplicationWillResignActiveNotification)
+        stopListening(UIApplicationWillTerminateNotification)
+    }
+    
+    public func startListening(name: String, type: Type) {
+        stopListening(name)
+        NSNotificationCenter.defaultCenter().addObserverForName(name, object: nil, queue: nil) { (notification) -> Void in
             var payload = [String: Coding]()
             if let object = notification.object {
-                payload["object"] = object.description
+                if let object = object as? Coding {
+                    payload["object"] = object
+                } else {
+                    payload["object"] = object.description
+                }
             }
             if let userInfo = notification.userInfo {
-                payload["userInfo"] = userInfo.description
+                payload["userInfo"] = userInfo
             }
-            let event = Event(type: Notification(subtype: notification.name), payload: payload)
+            if type.subtype == "" {
+                type.subtype = notification.name
+            }
+            let event = Event(type: type, payload: payload)
             EventManager.sharedInstance.log(event)
         }
     }
     
-    public func stopListening() {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+    public func stopListening(name: String) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: name, object: nil)
     }
 }

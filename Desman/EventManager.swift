@@ -16,6 +16,7 @@ import Foundation
 @objc public enum Swizzle : Int {
     case ViewWillAppear
     case ViewDidAppear
+    case ViewWillDisappear
 }
 
 public class EventManager : NSObject {
@@ -61,11 +62,11 @@ public class EventManager : NSObject {
     
     public func startLogging() {
         shouldLog = true
-        self.logType(User.LogEnable)
+        self.logType(Application.LogEnable)
     }
     
     public func stopLogging() {
-        self.logType(User.LogDisable)
+        self.logType(Application.LogDisable)
         self.processEvents()
         shouldLog = false
     }

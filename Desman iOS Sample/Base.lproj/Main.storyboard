@@ -14,6 +14,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
                     </navigationBar>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="log" value="NO"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="82m-NS-lbf" kind="relationship" relationship="rootViewController" id="9gi-sJ-HQh"/>
                     </connections>

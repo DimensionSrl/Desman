@@ -39,8 +39,7 @@ import Foundation
     }
     
     override public var description : String {
-        let dotString = "."
-        return "\(className.componentsSeparatedByString(dotString).last!) \(subtype)"
+        return "\(className.componentsSeparatedByString(".").last!) \(subtype)"
     }
     
     class public func new(dictionary : [String : String]) -> AnyObject? {
@@ -64,15 +63,26 @@ public class Application : Type {
     public static let WillTerminate = Application(subtype: "WillTerminate")
     public static let DidRegisterForRemoteNotifications = Application(subtype: "DidRegisterForRemoteNotifications")
     public static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
-    
+    public static let LogEnable = Application(subtype: "LogEnable")
+    public static let LogDisable = Application(subtype: "LogDisable")
+
     override var imageName : String {
-        get { return "App" }
+        get {
+            if subtype == "DidFinishLaunching" {
+                 return "App Launch"
+            } else {
+                 return "App"
+            }
+        }
         set { self.imageName = newValue }
     }
 }
 
 public class Notification : Type {
-
+    override var imageName : String {
+        get { return "Notification" }
+        set { self.imageName = newValue }
+    }
 }
 
 public class Table : Type {
@@ -86,9 +96,15 @@ public class Table : Type {
 public class Controller : Type {
     public static let ViewWillAppear = Controller(subtype: "ViewWillAppear")
     public static let ViewDidAppear = Controller(subtype: "ViewDidAppear")
+    public static let ViewWillDisappear = Controller(subtype: "ViewWillDisappear")
     override var imageName : String {
         get { return "View Controller" }
         set { self.imageName = newValue }
+    }
+    
+    internal func imageWithController(controller: String) {
+        // TODO: return a different image based on the controller type
+        // Navigation, table, collection, generic, alert, split view
     }
 }
 
@@ -141,14 +157,21 @@ public class Connection : Type {
     }
 }
 
+public class Device : Type {
+    public static let Info = Device(subtype: "Info")
+    
+    override var imageName : String {
+        get { return "Device" }
+        set { self.imageName = newValue }
+    }
+}
+
 public class User : Type {
     public static let Feedback = User(subtype: "Feedback")
-    public static let LogEnable = User(subtype: "LogEnable")
-    public static let LogDisable = User(subtype: "LogDisable")
-    public static let Info = User(subtype: "Info")
     
     override var imageName : String {
         get { return "User" }
         set { self.imageName = newValue }
     }
 }
+

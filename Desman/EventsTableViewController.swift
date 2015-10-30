@@ -145,7 +145,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! EventTableViewCell
         let event = events[indexPath.row]
-        cell.eventTitleLabel?.text = event.type.description
+        cell.eventTitleLabel?.text = event.title
         if event.sent {
             cell.accessoryType = .Checkmark
         } else {
@@ -174,6 +174,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     
     @IBAction func infoButtonPressed(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: NSLocalizedString("Desman \(DesmanVersionNumber)", comment: ""), message: "\n\(currentUserIdentifier)\n\(currentDeviceName)", preferredStyle: .ActionSheet)
+        alertController.log = false
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: { (action) -> Void in
             alertController.dismissViewControllerAnimated(true, completion: nil)
         }))
