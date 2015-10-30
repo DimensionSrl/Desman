@@ -14,19 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.dimension.it")!, appKey: "", serialization: .UserDefaults)
-        
-        EventManager.sharedInstance.takeOff(.None)
+        // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
+        EventManager.sharedInstance.takeOff(.UserDefaults)
+
+        EventManager.sharedInstance.swizzles.insert(Swizzle.ViewWillAppear)
+        EventManager.sharedInstance.limit = 40
+        EventManager.sharedInstance.timeInterval = 0.5
+        EventManager.sharedInstance.startLogging()
         
         EventManager.sharedInstance.logType(Application.DidFinishLaunching)
-        EventManager.sharedInstance.logType(SampleType.Unknown)
-        // EventManager.sharedInstance.swizzles.insert(Swizzle.ViewWillAppear)
-        EventManager.sharedInstance.limit = 40
-        EventManager.sharedInstance.startLogging()
-
-        
         EventManager.sharedInstance.log(Info())
-        
         // NotificationCenterListener.sharedInstance.startListening()
         return true
     }

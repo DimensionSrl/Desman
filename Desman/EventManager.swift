@@ -26,13 +26,13 @@ public class EventManager : NSObject {
     public var swizzles = Set<Swizzle>()
     
     public var limit = 10
-    public var processInterval = 1.0 {
+    public var timeInterval = 1.0 {
         didSet {
-            if processInterval < 0.25 {
-                processInterval = 0.25
+            if timeInterval < 0.25 {
+                timeInterval = 0.25
             }
             self.timer?.invalidate()
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
         }
     }
     var timer : NSTimer?
@@ -82,7 +82,7 @@ public class EventManager : NSObject {
         if let timer = timer {
             timer.invalidate()
         }
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
     }
     
     public func takeOff(serialization: Serialization) {
