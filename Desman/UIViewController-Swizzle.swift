@@ -123,7 +123,7 @@ extension UIViewController {
             if let log = objc_getAssociatedObject(self, &desmanControllerAssociationKey) as? Bool {
                 return log
             }
-            return true
+            return false
         }
         set(newValue) {
             objc_setAssociatedObject(self, &desmanControllerAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)

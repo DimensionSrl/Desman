@@ -138,7 +138,6 @@ public class Region : Type {
 
 public class Location : Type {
     public static let DidFail = Location(subtype: "DidFail")
-    public static let DidDetermineState = Location(subtype: "DidDetermineState")
     public static let DidChangeAuthorization = Location(subtype: "DidChangeAuthorization")
     
     override var imageName : String {
@@ -175,3 +174,11 @@ public class User : Type {
     }
 }
 
+public class Action : Type {
+    public static let Button = Action(subtype: "Button")
+    
+    override var imageName : String {
+        get { return "Action Button" }
+        set { self.imageName = newValue }
+    }
+}

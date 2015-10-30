@@ -25,8 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EventManager.sharedInstance.limit = 40
         EventManager.sharedInstance.timeInterval = 0.5
         EventManager.sharedInstance.startLogging()
-        EventManager.sharedInstance.logType(Application.DidFinishLaunching)
-        EventManager.sharedInstance.log(Info())
+        // D is an alias for EventManager.sharedInstance
+        D.logType(Application.DidFinishLaunching)
+        D.log(Info())
         NotificationCenterListener.sharedInstance.listenToAppLifecicleActivity()
         NotificationCenterListener.sharedInstance.listenToScreenshots()
     }

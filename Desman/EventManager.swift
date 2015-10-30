@@ -8,6 +8,8 @@
 
 import Foundation
 
+public let D = EventManager.sharedInstance
+
 @objc public enum Serialization : Int {
     case None
     case UserDefaults

@@ -23,12 +23,14 @@ class ViewController: UIViewController {
     }
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
+        D.log(Action.Button, payload: ["button": "show events"])
         let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     
     @IBAction func feedbackCompose(sender: UIButton) {
+        D.log(Action.Button, payload: ["button": "feedback compose"])
         let feedbackController = FeedbackComposeViewController()
         feedbackController.placeholder = "Give your feedback"
         feedbackController.modalPresentationStyle = .OverCurrentContext

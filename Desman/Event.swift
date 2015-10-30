@@ -21,6 +21,10 @@ public class Event: NSCoder {
     public var payload : [String : AnyObject]?
     public var timestamp : NSDate
     public var sent : Bool = false
+    // TODO: decide how to manage images
+    // Biggest problem is the serialization
+    // var iconFile : NSURL?
+    
     var id : String?
     var uuid : NSUUID?
     let dateFormatter = NSDateFormatter()
@@ -169,6 +173,11 @@ public class Event: NSCoder {
         if self.type.className == "Desman.Controller" {
             if let payload = self.payload, let controllerName = payload["controller"] as? String {
                 return "\(controllerName) \(type.subtype)"
+            }
+        }
+        if self.type.className == "Desman.Action" && self.type.subtype == Action.Button.subtype {
+            if let payload = self.payload, let buttonName = payload["button"] as? String {
+                return "\(buttonName) \(type.subtype)"
             }
         }
         return type.description
