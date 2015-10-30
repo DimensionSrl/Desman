@@ -11,6 +11,6 @@ import Desman
 class SampleType : Type {
     static let Unknown = SampleType(subtype: "Unknown")
     override var image : UIImage? {
-        return UIImage(named: "Unknown")
+        return UIImage(named: "Unknown") // Replace this with an existing image
     }
 }

@@ -15,6 +15,9 @@ import Foundation
     private var imageName : String = ""
     
     public var image : UIImage? {
+        if imageName == "" {
+            return nil
+        }
         return UIImage(named: imageName, inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
     }
     
