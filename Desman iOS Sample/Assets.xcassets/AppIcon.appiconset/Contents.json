@@ -3,13 +3,13 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "icon-29@2x.png",
+      "filename" : "icon-29@2x-1.png",
       "scale" : "2x"
     },
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "icon-29@3x-87x87.png",
+      "filename" : "icon-29@3x-87x87-1.png",
       "scale" : "3x"
     },
     {
@@ -23,6 +23,18 @@
       "idiom" : "iphone",
       "filename" : "icon-40@3x.png",
       "scale" : "3x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "icon-57.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "57x57",
+      "idiom" : "iphone",
+      "filename" : "icon-57@2x.png",
+      "scale" : "2x"
     },
     {
       "size" : "60x60",
@@ -45,7 +57,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "icon-29@2x-1.png",
+      "filename" : "icon-29@2x-2.png",
       "scale" : "2x"
     },
     {
@@ -61,6 +73,30 @@
       "scale" : "2x"
     },
     {
+      "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "icon-50.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "50x50",
+      "idiom" : "ipad",
+      "filename" : "icon-50@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "icon-72.png",
+      "scale" : "1x"
+    },
+    {
+      "size" : "72x72",
+      "idiom" : "ipad",
+      "filename" : "icon-72@2x.png",
+      "scale" : "2x"
+    },
+    {
       "size" : "76x76",
       "idiom" : "ipad",
       "filename" : "icon-76.png",
@@ -71,6 +107,20 @@
       "idiom" : "ipad",
       "filename" : "icon-76@2x.png",
       "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "watch",
+      "filename" : "icon-29@2x.png",
+      "role" : "companionSettings",
+      "scale" : "2x"
+    },
+    {
+      "size" : "29x29",
+      "idiom" : "watch",
+      "filename" : "icon-29@3x-87x87.png",
+      "role" : "companionSettings",
+      "scale" : "3x"
     }
   ],
   "info" : {
