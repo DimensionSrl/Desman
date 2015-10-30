@@ -138,8 +138,6 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let event = Event(type: Table.DidSelectRow, payload: ["row": indexPath.row, "section": indexPath.section])
-        EventManager.sharedInstance.log(event)
         let selectedEvent = events[indexPath.row]
         self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
     }
