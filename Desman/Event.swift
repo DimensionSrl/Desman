@@ -166,7 +166,11 @@ public class Event: NSCoder {
     }
     
     override public var description : String {
-        return "\n\(dateFormatter.stringFromDate(timestamp)) (\(timestamp.timeIntervalSince1970)) - \(type) - \(sent)"
+        if let payload = payload {
+            return "\(dateFormatter.stringFromDate(timestamp)) - \(title) \(payload)"
+        } else {
+            return "\(dateFormatter.stringFromDate(timestamp)) - \(title)"
+        }
     }
     
     public var title : String {

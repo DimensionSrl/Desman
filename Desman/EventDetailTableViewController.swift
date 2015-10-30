@@ -29,7 +29,7 @@ class EventDetailTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let event = event {
-            typeLabel.text = event.type.description
+            typeLabel.text = event.title
             uuidLabel.text = event.uuid?.UUIDString
             dateLabel.text = event.dateFormatter.stringFromDate(event.timestamp)
             

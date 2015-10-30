@@ -25,7 +25,7 @@ public class EventManager : NSObject {
     var lastSync : NSDate?
     var upload = false
     var shouldLog = false
-    
+    public var consoleLog = false
     public var swizzles = Set<Swizzle>()
     
     public var limit = 10
@@ -102,18 +102,29 @@ public class EventManager : NSObject {
     public func log(event: Event){
         if shouldLog {
             self.eventsQueue.insert(event)
+            if consoleLog {
+                print(event.description)
+            }
         }
     }
     
     public func logType(type: Type){
         if shouldLog {
-            self.eventsQueue.insert(Event(type))
+            let event = Event(type)
+            self.eventsQueue.insert(event)
+            if consoleLog {
+                print(event.description)
+            }
         }
     }
     
     public func log(type: Type, payload: [String : Coding]){
         if shouldLog {
-            self.eventsQueue.insert(Event(type: type, payload: payload))
+            let event = Event(type: type, payload: payload)
+            self.eventsQueue.insert(event)
+            if consoleLog {
+                print(event.description)
+            }
         }
     }
     

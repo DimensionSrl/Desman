@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
         EventManager.sharedInstance.takeOff(.UserDefaults)
         EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
+        EventManager.sharedInstance.consoleLog = true
         EventManager.sharedInstance.limit = 40
         EventManager.sharedInstance.timeInterval = 0.5
         EventManager.sharedInstance.startLogging()
