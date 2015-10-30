@@ -130,13 +130,24 @@ public class Location : Type {
     }
 }
 
-
 public class Connection : Type {
     public static let DidFail = Connection(subtype: "DidFail")
     public static let DidLoad = Connection(subtype: "DidLoad")
     
     override var imageName : String {
         get { return "Safari" }
+        set { self.imageName = newValue }
+    }
+}
+
+public class User : Type {
+    public static let Feedback = User(subtype: "Feedback")
+    public static let LogEnable = User(subtype: "LogEnable")
+    public static let LogDisable = User(subtype: "LogDisable")
+    public static let Info = User(subtype: "Info")
+    
+    override var imageName : String {
+        get { return "User" }
         set { self.imageName = newValue }
     }
 }

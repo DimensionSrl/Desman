@@ -61,9 +61,12 @@ public class EventManager : NSObject {
     
     public func startLogging() {
         shouldLog = true
+        self.logType(User.LogEnable)
     }
     
     public func stopLogging() {
+        self.logType(User.LogDisable)
+        self.processEvents()
         shouldLog = false
     }
     

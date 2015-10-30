@@ -10,7 +10,7 @@ import Foundation
 
 @objc public class Info : Event {
     public init () {
-        super.init(Type(subtype: "info"))
+        super.init(User.Info)
         payload = infoDictionary
     }
     
