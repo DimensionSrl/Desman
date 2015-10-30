@@ -18,12 +18,11 @@ extension UIViewController {
         }
         
         dispatch_once(&Static.token) {
+            var originalSelector = Selector("viewWillAppear:")
+            var swizzledSelector = Selector("desman_viewWillAppear:")
             
-            let originalSelector = Selector("viewWillAppear:")
-            let swizzledSelector = Selector("desman_viewWillAppear:")
-            
-            let originalMethod = class_getInstanceMethod(self, originalSelector)
-            let swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
+            var originalMethod = class_getInstanceMethod(self, originalSelector)
+            var swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
             
             let didAddMethodWill = class_addMethod(self, originalSelector, method_getImplementation(swizzledMethod), method_getTypeEncoding(swizzledMethod))
             
@@ -33,7 +32,7 @@ extension UIViewController {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
             
-            /*
+            
             originalSelector = Selector("viewDidAppear:")
             swizzledSelector = Selector("desman_viewDidAppear:")
             
@@ -47,21 +46,24 @@ extension UIViewController {
             } else {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
-            */
         }
     }
     
     // MARK: - Method Swizzling
     
     func desman_viewWillAppear(animated: Bool) {
-        let event = Event(type: Controller.ViewWillAppear, payload: ["controller": self.description])
-        EventManager.sharedInstance.log(event)
+        if EventManager.sharedInstance.swizzles.contains(Swizzle.ViewWillAppear) {
+            let event = Event(type: Controller.ViewWillAppear, payload: ["controller": self.description])
+            EventManager.sharedInstance.log(event)
+        }
         self.desman_viewWillAppear(animated)
     }
     
     func desman_viewDidAppear(animated: Bool) {
-        let event = Event(type: Controller.ViewDidAppear, payload: ["controller": self.description])
-        EventManager.sharedInstance.log(event)
+        if EventManager.sharedInstance.swizzles.contains(Swizzle.ViewDidAppear) {
+            let event = Event(type: Controller.ViewDidAppear, payload: ["controller": self.description])
+            EventManager.sharedInstance.log(event)
+        }        
         self.desman_viewDidAppear(animated)
     }
 }

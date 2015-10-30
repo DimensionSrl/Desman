@@ -20,8 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         EventManager.sharedInstance.logType(Application.DidFinishLaunching)
         EventManager.sharedInstance.logType(SampleType.Unknown)
+        // EventManager.sharedInstance.swizzles.insert(Swizzle.ViewWillAppear)
         EventManager.sharedInstance.limit = 40
         EventManager.sharedInstance.startLogging()
+
         
         EventManager.sharedInstance.log(Info())
         

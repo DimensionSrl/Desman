@@ -8,15 +8,22 @@
 
 import Foundation
 
-@objc public enum EventDatabase : Int {
+@objc public enum Serialization : Int {
     case None
     case UserDefaults
+}
+
+@objc public enum Swizzle : Int {
+    case ViewWillAppear
+    case ViewDidAppear
 }
 
 public class EventManager : NSObject {
     var lastSync : NSDate?
     var upload = false
     var shouldLog = false
+    
+    public var swizzles = Set<Swizzle>()
     
     public var limit = 10
     public var processInterval = 1.0 {
@@ -30,7 +37,7 @@ public class EventManager : NSObject {
     }
     var timer : NSTimer?
     var eventsQueue = Set<Event>()
-    var type = EventDatabase.None
+    var type = Serialization.None
     
     /**
     A shared instance of `EventManager`.
@@ -41,7 +48,7 @@ public class EventManager : NSObject {
     dynamic private(set) public var events = Set<Event>()
     dynamic internal(set) public var sentEvents = Set<Event>()
     
-    public func takeOff(baseURL: NSURL, appKey: String, serialization: EventDatabase) {
+    public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization) {
         self.type = serialization
         self.upload = true
         NetworkManager.sharedInstance.takeOff(baseURL, appKey: appKey)
@@ -75,7 +82,7 @@ public class EventManager : NSObject {
         self.timer = NSTimer.scheduledTimerWithTimeInterval(processInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
     }
     
-    public func takeOff(serialization: EventDatabase) {
+    public func takeOff(serialization: Serialization) {
         self.type = serialization
         if type == .UserDefaults {
             deserializeEvents()
