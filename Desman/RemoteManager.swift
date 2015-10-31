@@ -28,10 +28,12 @@ public class RemoteManager : NSObject {
     
     public func fetchUsers(app: App) {
         self.app = app
+        users.removeAll()
         NetworkManager.sharedInstance.fetchUsers(app)
     }
     
     public func fetchEvents(user: User) {
+        events.removeAll()
         self.user = user
         if let app = app {
             NetworkManager.sharedInstance.fetchEvents(app, user: user)

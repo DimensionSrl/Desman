@@ -63,9 +63,13 @@ public class NetworkManager {
                 }
                 
                 event.sent = true
-                EventManager.sharedInstance.sentEvents.insert(event)
+                dispatch_async(dispatch_get_main_queue()) {
+                    EventManager.sharedInstance.sentEvents.insert(event)
+                }
             }
-            EventManager.sharedInstance.serializeEvents()
+            dispatch_async(dispatch_get_main_queue()) {
+                EventManager.sharedInstance.serializeEvents()
+            }
         })
         task.resume()
     }
@@ -101,7 +105,9 @@ public class NetworkManager {
                                                 if let event = filteredEvents.first {
                                                     event.id = "\(id)"
                                                     event.sent = true
-                                                    EventManager.sharedInstance.sentEvents.insert(event)
+                                                    dispatch_async(dispatch_get_main_queue()) {
+                                                        EventManager.sharedInstance.sentEvents.insert(event)
+                                                    }
                                                 }
                                             }
                                         } catch let parseBodyError as NSError {
@@ -119,7 +125,9 @@ public class NetworkManager {
                         }
                     }
                 }
-                EventManager.sharedInstance.serializeEvents()
+                dispatch_async(dispatch_get_main_queue()) {
+                    EventManager.sharedInstance.serializeEvents()
+                }
             })
             task.resume()
         } catch let error {
@@ -150,7 +158,9 @@ public class NetworkManager {
                                     apps.insert(app)
                                 }
                             }
-                            RemoteManager.sharedInstance.apps = apps
+                            dispatch_async(dispatch_get_main_queue()) {
+                                RemoteManager.sharedInstance.apps = apps
+                            }
                         } else {
                             print("Desman: cannot parse apps array")
                         }
@@ -181,7 +191,9 @@ public class NetworkManager {
                                     users.insert(user)
                                 }
                             }
-                            RemoteManager.sharedInstance.users = users
+                            dispatch_async(dispatch_get_main_queue()) {
+                                RemoteManager.sharedInstance.users = users
+                            }
                         } else {
                             print("Desman: cannot parse users array")
                         }
@@ -214,7 +226,9 @@ public class NetworkManager {
                                         events.insert(event)
                                     }
                                 }
-                                RemoteManager.sharedInstance.events = events
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    RemoteManager.sharedInstance.events = events
+                                }
                             } else {
                                 print("Desman: cannot parse events array")
                             }
