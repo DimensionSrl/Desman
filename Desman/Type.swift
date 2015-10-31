@@ -42,6 +42,10 @@ import Foundation
         return "\(className.componentsSeparatedByString(".").last!) \(subtype)"
     }
     
+    public var type : String {
+        return "\(className.componentsSeparatedByString(".").last!)"
+    }
+    
     class public func new(dictionary : [String : String]) -> AnyObject? {
         if let typeString = dictionary["type"], subtypeString = dictionary["subtype"] {
             if let TypeClass = NSClassFromString(typeString) as? Type.Type {
@@ -49,6 +53,15 @@ import Foundation
                 type.subtype = subtypeString
                 return type
             }
+        }
+        return nil
+    }
+    
+    class public func new(type : String, subtype: String) -> AnyObject? {
+        if let TypeClass = NSClassFromString(type) as? Type.Type {
+            let type = TypeClass.init()
+            type.subtype = subtype
+            return type
         }
         return nil
     }
@@ -165,8 +178,8 @@ public class Device : Type {
     }
 }
 
-public class User : Type {
-    public static let Feedback = User(subtype: "Feedback")
+public class Feedback : Type {
+    public static let User = Feedback(subtype: "User")
     
     override var imageName : String {
         get { return "User" }
