@@ -32,6 +32,12 @@
 		956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */; };
 		956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */; };
 		956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF2161BD51CD000464E9E /* NetworkManager.swift */; };
+		9580CF7D1BE4CEC0008AC4A2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580CF7C1BE4CEC0008AC4A2 /* App.swift */; };
+		9580CF7F1BE4CFBA008AC4A2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580CF7E1BE4CFBA008AC4A2 /* User.swift */; };
+		9580CF811BE4D0C2008AC4A2 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580CF801BE4D0C2008AC4A2 /* RemoteManager.swift */; };
+		9580CF851BE51A21008AC4A2 /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9580CF841BE51A21008AC4A2 /* Remote.storyboard */; };
+		9580CF871BE51C58008AC4A2 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580CF861BE51C58008AC4A2 /* AppsTableViewController.swift */; };
+		9580CF891BE51EDB008AC4A2 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9580CF881BE51EDB008AC4A2 /* UsersTableViewController.swift */; };
 		95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */; };
 		95FB15221BE375B7002C8793 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +129,12 @@
 		956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
 		956AF2161BD51CD000464E9E /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventsTableViewController.swift; path = Desman/EventsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		9580CF7C1BE4CEC0008AC4A2 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9580CF7E1BE4CFBA008AC4A2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9580CF801BE4D0C2008AC4A2 /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		9580CF841BE51A21008AC4A2 /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
+		9580CF861BE51C58008AC4A2 /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
+		9580CF881BE51EDB008AC4A2 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -230,18 +242,24 @@
 			isa = PBXGroup;
 			children = (
 				956AF20B1BD4F11200464E9E /* Event.swift */,
+				9580CF7C1BE4CEC0008AC4A2 /* App.swift */,
+				9580CF7E1BE4CFBA008AC4A2 /* User.swift */,
 				95271F331BE27D0200187A1C /* Info.swift */,
 				952D19F61BDE910400988338 /* Type.swift */,
 				956AF2091BD4F0DE00464E9E /* EventManager.swift */,
+				9580CF801BE4D0C2008AC4A2 /* RemoteManager.swift */,
 				956AF2161BD51CD000464E9E /* NetworkManager.swift */,
 				956AF20F1BD5003A00464E9E /* NotificationCenterListener.swift */,
 				956AF2111BD5186700464E9E /* UIViewController-Swizzle.swift */,
 				956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */,
+				9580CF861BE51C58008AC4A2 /* AppsTableViewController.swift */,
+				9580CF881BE51EDB008AC4A2 /* UsersTableViewController.swift */,
 				95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */,
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
+				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
 				952D19F41BDE88EA00988338 /* Media.xcassets */,
@@ -445,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9580CF851BE51A21008AC4A2 /* Remote.storyboard in Resources */,
 				950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */,
 				952D19F51BDE88EA00988338 /* Media.xcassets in Resources */,
 			);
@@ -490,17 +509,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9580CF7D1BE4CEC0008AC4A2 /* App.swift in Sources */,
 				95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */,
 				952D19F71BDE910400988338 /* Type.swift in Sources */,
+				9580CF871BE51C58008AC4A2 /* AppsTableViewController.swift in Sources */,
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
 				95271F341BE27D0200187A1C /* Info.swift in Sources */,
 				95FB15221BE375B7002C8793 /* FeedbackComposeViewController.swift in Sources */,
+				9580CF811BE4D0C2008AC4A2 /* RemoteManager.swift in Sources */,
+				9580CF7F1BE4CFBA008AC4A2 /* User.swift in Sources */,
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */,
+				9580CF891BE51EDB008AC4A2 /* UsersTableViewController.swift in Sources */,
 				956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

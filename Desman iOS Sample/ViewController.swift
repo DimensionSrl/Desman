@@ -10,13 +10,15 @@ import UIKit
 import Desman
 
 class ViewController: UIViewController {
-
+    var objectToObserve = RemoteManager.sharedInstance
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        RemoteManager.sharedInstance.fetchApps()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -26,6 +28,13 @@ class ViewController: UIViewController {
         D.log(Action.Button, payload: ["button": "show events"])
         let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
+        self.presentViewController(desmanController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showRemote(sender: UIButton) {
+        D.log(Action.Button, payload: ["button": "show remote"])
+        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: EventManager.self))
+        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     

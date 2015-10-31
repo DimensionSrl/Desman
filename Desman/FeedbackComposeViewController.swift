@@ -11,7 +11,7 @@ import Social
 
 public class FeedbackComposeViewController: SLComposeServiceViewController {
     public var inputItems = [AnyObject]()
-    let event = Event(User.Feedback)
+    let event = Event(Feedback.User)
     
     override public func didSelectPost() {
         self.dismissViewControllerAnimated(true, completion: nil)

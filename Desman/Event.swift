@@ -36,7 +36,7 @@ public class Event: NSCoder {
     }
     
     public init?(dictionary: [String : Coding]) {
-        guard let typeDictionary = dictionary["type"] as? [String: String], type = Type.new(typeDictionary) as? Type else {
+        guard let typeString = dictionary["type"] as? String, subtypeString = dictionary["subtype"] as? String, type = Type.new(typeString, subtype: subtypeString) as? Type else {
             self.type = Type()
             self.timestamp = NSDate()
             super.init()
@@ -127,7 +127,8 @@ public class Event: NSCoder {
     
     var dictionary : [String : Coding] {
         var dict = [String : Coding]()
-        dict["type"] = type.description
+        dict["type"] = type.className
+        dict["subtype"] = type.subtype
         dict["timestamp"] = timestamp.timeIntervalSince1970
         dict["uuid"] = identifier
         dict["user"] = userIdentifier

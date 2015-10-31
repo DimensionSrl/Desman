@@ -11,17 +11,23 @@ import UIKit
 private var desmanEventsContext = 0
 
 class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
-    var objectToObserve = EventManager.sharedInstance
     var events = [Event]()
+    
+    var remote : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.splitViewController?.preferredDisplayMode = .AllVisible
-        
-        objectToObserve.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
-        objectToObserve.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
-        
-        self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+    
+        if remote {
+            RemoteManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
+            self.events = RemoteManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        } else {
+            EventManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
+            EventManager.sharedInstance.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
+            self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+            
+        }
         
         if #available(iOS 9.0, *) {
             // FIXME: should check for forceTouchCapability but for some reason it doesn't work
@@ -158,8 +164,12 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     }
 
     deinit {
-        objectToObserve.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
-        objectToObserve.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+        if remote {
+            RemoteManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
+        } else {
+            EventManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
+            EventManager.sharedInstance.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
