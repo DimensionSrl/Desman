@@ -16,6 +16,8 @@
 		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
+		95661BD01BE6A1FE00046E4D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95661BCF1BE6A1FE00046E4D /* WebSocket.swift */; };
+		95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95661BD11BE6A21300046E4D /* libz.tbd */; };
 		956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1B81BD4F09200464E9E /* AppDelegate.swift */; };
 		956AF1BE1BD4F09200464E9E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BC1BD4F09200464E9E /* Main.storyboard */; };
 		956AF1C01BD4F09200464E9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956AF1BF1BD4F09200464E9E /* Assets.xcassets */; };
@@ -105,6 +107,8 @@
 		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
+		95661BCF1BE6A1FE00046E4D /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
+		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1B81BD4F09200464E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		956AF1BD1BD4F09200464E9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +188,7 @@
 		956AF1AC1BD4F09200464E9E = {
 			isa = PBXGroup;
 			children = (
+				95661BD11BE6A21300046E4D /* libz.tbd */,
 				9508719E1BE0BF45000C54AE /* README.md */,
 				95271F2F1BE26D8800187A1C /* Features.md */,
 				956AF1B71BD4F09200464E9E /* Desman iOS Sample */,
@@ -258,6 +264,7 @@
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
+				95661BCF1BE6A1FE00046E4D /* WebSocket.swift */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
@@ -516,6 +523,7 @@
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
 				95271F341BE27D0200187A1C /* Info.swift in Sources */,
 				95FB15221BE375B7002C8793 /* FeedbackComposeViewController.swift in Sources */,
+				95661BD01BE6A1FE00046E4D /* WebSocket.swift in Sources */,
 				9580CF811BE4D0C2008AC4A2 /* RemoteManager.swift in Sources */,
 				9580CF7F1BE4CFBA008AC4A2 /* User.swift in Sources */,
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
