@@ -17,6 +17,8 @@ public class NetworkManager {
     var baseURL: NSURL?
     var session: NSURLSession?
     
+    var uploading = false
+    
     /**
     Configures `NetworkManager` with the specified base URL and app key used to authenticate with the remote service.
     
@@ -31,6 +33,7 @@ public class NetworkManager {
     }
     
     func sendEvent(event: Event) {
+        guard !uploading else { return }
         guard (self.session != nil) else { return }
         guard event.sent == false else {
             print("Desman: event already sent, won't upload it again")
@@ -45,6 +48,7 @@ public class NetworkManager {
         request.HTTPMethod = "POST"
         request.HTTPBody = data
         let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            self.uploading = false
             if let error = error {
                 print("Desman: cannot send event - \(error)")
             } else {
@@ -72,9 +76,11 @@ public class NetworkManager {
             }
         })
         task.resume()
+        uploading = true
     }
     
     func sendEvents(events: Set<Event>) {
+        guard !uploading else { return }
         guard (self.session != nil) else { return }
         let pendingEvents = events.filter{ $0.sent == false }
         let url = NSURL(string: "/batch", relativeToURL: baseURL)!
@@ -88,6 +94,7 @@ public class NetworkManager {
             let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
             request.HTTPBody = data
             let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                self.uploading = false
                 if let error = error {
                     print("Desman: cannot send event - \(error)")
                 } else {
@@ -130,6 +137,7 @@ public class NetworkManager {
                 }
             })
             task.resume()
+            uploading = true
         } catch let error {
             print("Desman: cannot serialize events \(error)")
         }
@@ -248,7 +256,7 @@ public class NetworkManager {
     func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
         // TODO: use cache in production
         // UseProtocolCachePolicy
-        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 10)
+        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 30)
         for type in contentTypes {
             request.addValue(type, forHTTPHeaderField: "Content-Type")
             request.addValue(type, forHTTPHeaderField: "Accept")
