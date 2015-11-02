@@ -130,8 +130,11 @@ public class EventManager : NSObject {
     
     func processEvents() {
         guard eventsQueue.count > 0 else  {
+            // We only need to upload events already avaiable but not sent.
+            NetworkManager.sharedInstance.sendEvents(self.events)
             return
         }
+        
         let eventsUnion = self.events.union(eventsQueue)
         var sortedEvents = eventsUnion.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
         

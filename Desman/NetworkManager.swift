@@ -83,6 +83,9 @@ public class NetworkManager {
         guard !uploading else { return }
         guard (self.session != nil) else { return }
         let pendingEvents = events.filter{ $0.sent == false }
+        guard pendingEvents.count > 0 else {
+            return
+        }
         let url = NSURL(string: "/batch", relativeToURL: baseURL)!
         let request = forgeRequest(url: url, contentTypes: ["application/json"])
         request.HTTPMethod = "POST"
