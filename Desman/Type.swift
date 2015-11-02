@@ -39,11 +39,12 @@ import Foundation
     }
     
     override public var description : String {
-        return "\(className.componentsSeparatedByString(".").last!) \(subtype)"
+        return "\(type) \(subtype)"
     }
     
     public var type : String {
-        return "\(className.componentsSeparatedByString(".").last!)"
+        let dotString = "."
+        return "\(className.componentsSeparatedByString(dotString).last!)"
     }
     
     class public func new(dictionary : [String : String]) -> AnyObject? {
