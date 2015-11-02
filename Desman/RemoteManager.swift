@@ -11,10 +11,19 @@ import Foundation
 public class RemoteManager : NSObject {
     var lastSync : NSDate?
     var app : App?
-    var user : User?
-
+    var user : User? {
+        didSet {
+            ws.close()
+            connectionId = nil
+            channelToken = nil
+        }
+    }
+    
+    let ws = WebSocket("ws://desman.dimension.it/websocket")
     var connectionId : String?
     var channelToken : String?
+    
+    // TODO: need to implement a method to unsubscribe from a channel
     
     /**
      A shared instance of `RemoteManager`.
@@ -47,10 +56,13 @@ public class RemoteManager : NSObject {
         }
     }
     
+    public func stopFetchingEvents() {
+        self.ws.close()
+    }
+    
     func subscribeSocket() {
-        var messageNum = 0
-        let ws = WebSocket("ws://desman.dimension.it/websocket")
-
+        self.ws.open()
+        
         let pong : ()->() = {
             let emptyDictionary = [String: AnyObject]()
             if let id = self.connectionId {
@@ -59,7 +71,7 @@ public class RemoteManager : NSObject {
                     let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
                     if let json = String(data: data, encoding: NSUTF8StringEncoding) {
                         // print("pong")
-                        ws.send(json)
+                        self.ws.send(json)
                     }
                 } catch _ {
                     
@@ -68,16 +80,17 @@ public class RemoteManager : NSObject {
         }
         
         func subscribe(string: String) {
+            var channel = "\(self.app!.bundle)-\(self.user!.uuid)".stringByReplacingOccurrencesOfString(" ", withString: "+")
+            channel = channel.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
+            channel = channel.stringByReplacingOccurrencesOfString("'", withString: "%27")
 
-            // FIXME: be sure of what I'm doing
-            let channel = "\(self.app!.bundle)-\(self.user!.uuid)".stringByReplacingOccurrencesOfString(" ", withString: "+")
-            
+            print("channel \(channel)")
             let msg = ["websocket_rails.subscribe", ["data": ["channel": channel]], string]
             do {
                 let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
                 if let json = String(data: data, encoding: NSUTF8StringEncoding) {
                     ws.send(json)
-                    print(json)
+                    print("subscribe")
                 }
             } catch _ {
                 
@@ -125,14 +138,13 @@ public class RemoteManager : NSObject {
                                         if let data = content["data"] as? [String: Coding] {
                                             if let token = data["token"] as? String {
                                                 self.channelToken = token
-                                                print("channel token: \(token)")
+                                                // print("channel token: \(token)")
                                             }
                                         }
                                     }
                                 } else if name == "websocket_rails.subscribe" {
                                     // TODO: check for error
                                 } else if name == "websocket_rails.ping" {
-                                    // TODO: probably need to reply with a pong
                                     pong()
                                 }
                             }
