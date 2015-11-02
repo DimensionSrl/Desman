@@ -38,4 +38,13 @@ public class App: NSCoder {
     override public var description : String {
         return "App: \(bundle)"
     }
+    
+    public class func currentAppIcon() -> UIImage? {
+        let infoPlist : NSDictionary = NSBundle.mainBundle().infoDictionary!
+        if let icon = infoPlist.valueForKeyPath("CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles")?.lastObject as? String {
+            let image = UIImage(named: icon)
+            return image
+        }
+        return nil
+    }
 }

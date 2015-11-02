@@ -107,7 +107,7 @@ class UsersTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath)
         let user = users[indexPath.row]
-        cell.textLabel?.text = user.uuid
+        cell.textLabel?.text = user.device
         return cell
     }
     

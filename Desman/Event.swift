@@ -18,7 +18,7 @@ let currentDeviceName = UIDevice.currentDevice().name
 
 public class Event: NSCoder {
     public let type : Type
-    public var payload : [String : AnyObject]?
+    public var payload : [String : Coding]?
     public var timestamp : NSDate
     public var sent : Bool = false
     // TODO: decide how to manage images
@@ -28,6 +28,7 @@ public class Event: NSCoder {
     var id : String?
     var uuid : NSUUID?
     let dateFormatter = NSDateFormatter()
+    var device : String = currentDeviceName
     
     func commonInit() {
         dateFormatter.dateStyle = .ShortStyle
@@ -55,6 +56,10 @@ public class Event: NSCoder {
         
         if let id = dictionary["id"] as? String {
             self.id = id
+        }
+        
+        if let device = dictionary["device"] as? String {
+            self.device = device
         }
         
         if let uuid = dictionary["uuid"] as? String {
@@ -109,6 +114,9 @@ public class Event: NSCoder {
         if let id = decoder.decodeObjectForKey("id") as? String {
             self.id = id
         }
+        if let device = decoder.decodeObjectForKey("device") as? String {
+            self.device = device
+        }
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
@@ -122,6 +130,7 @@ public class Event: NSCoder {
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
+        coder.encodeObject(device, forKey: "device")
         coder.encodeBool(sent, forKey: "sent")
     }
     
@@ -132,6 +141,7 @@ public class Event: NSCoder {
         dict["timestamp"] = timestamp.timeIntervalSince1970
         dict["uuid"] = identifier
         dict["user"] = userIdentifier
+        dict["device"] = currentDeviceName
         dict["app"] = currentAppIdentifier
         if let id = self.id {
             dict["id"] = id
@@ -163,7 +173,7 @@ public class Event: NSCoder {
     }
     
     public var userIdentifier : String {
-        return "\(currentUserIdentifier) - \(currentDeviceName)"
+        return "\(currentUserIdentifier)"
     }
     
     override public var description : String {

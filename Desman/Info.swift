@@ -14,8 +14,8 @@ import Foundation
         payload = infoDictionary
     }
     
-    var infoDictionary : [String : AnyObject] {
-        var info = [String : AnyObject]()
+    var infoDictionary : [String : Coding] {
+        var info = [String : Coding]()
         
         var appData = [String : NSObject]()
         appData["bundleIdentifier"] = NSBundle.mainBundle().bundleIdentifier

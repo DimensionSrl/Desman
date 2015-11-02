@@ -10,19 +10,23 @@ import UIKit
 
 public class User: NSCoder {
     public let uuid : String
+    public let device : String
     
-    public init(uuid: String) {
+    public init(uuid: String, device: String) {
         self.uuid = uuid
+        self.device = device
     }
     
     public init?(dictionary: [String : Coding]) {
-        guard let uuid = dictionary["user"] as? String else {
+        guard let uuid = dictionary["user"] as? String, let device = dictionary["device"] as? String else {
             self.uuid = ""
+            self.device = ""
             super.init()
             return nil
         }
         
         self.uuid = uuid
+        self.device = device
         super.init()
     }
     
@@ -34,10 +38,10 @@ public class User: NSCoder {
     }
     
     override public var hash: Int {
-        return "\(uuid)".hashValue
+        return "\(uuid)\(device)".hashValue
     }
     
     override public var description : String {
-        return "User: \(uuid)"
+        return "User: \(device) - \(uuid)"
     }
 }
