@@ -12,6 +12,10 @@ public class RemoteManager : NSObject {
     var lastSync : NSDate?
     var app : App?
     var user : User?
+
+    var connectionId : String?
+    var channelToken : String?
+    
     /**
      A shared instance of `RemoteManager`.
      */
@@ -46,23 +50,20 @@ public class RemoteManager : NSObject {
     func subscribeSocket() {
         var messageNum = 0
         let ws = WebSocket("ws://desman.dimension.it/websocket")
-        
-        let send : ()->() = {
-            let msg = "\(++messageNum): \(NSDate().description)"
-            print("send: \(msg)")
-            ws.send(msg)
-        }
-        
+
         let pong : ()->() = {
-            let msg = ["websocket_rails.pong"]
-            do {
-                let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
-                if let json = String(data: data, encoding: NSUTF8StringEncoding) {
-                    print("pong")
-                    ws.send(json)
+            let emptyDictionary = [String: AnyObject]()
+            if let id = self.connectionId {
+                let msg : [AnyObject] = ["websocket_rails.pong", emptyDictionary, id]
+                do {
+                    let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
+                    if let json = String(data: data, encoding: NSUTF8StringEncoding) {
+                        // print("pong")
+                        ws.send(json)
+                    }
+                } catch _ {
+                    
                 }
-            } catch _ {
-                
             }
         }
         
@@ -89,32 +90,33 @@ public class RemoteManager : NSObject {
         }
         ws.event.close = { code, reason, clean in
             print("close")
+            self.channelToken = nil
+            self.connectionId = nil
         }
         ws.event.error = { error in
             print("error \(error)")
         }
         ws.event.message = { message in
             if let text = message as? String {
-                print("recv: \(text)")
+                // print("recv: \(text)")
                 
                 do {
                     if let jsonParent = try NSJSONSerialization.JSONObjectWithData(text.dataUsingEncoding(NSUTF8StringEncoding)!, options: .AllowFragments) as? [AnyObject] {
                         if let json = jsonParent.first as? [AnyObject] {
                             if let name = json.first as? String {
-                                var connection_id : String? = nil
                                 if let content = json[1] as? [String: AnyObject] {
                                     if let data = content["data"] as? [String: AnyObject], id = data["connection_id"] as? String {
-                                        connection_id = id
+                                        self.connectionId = id
                                     }
                                 }
-                                if name == "client_connected" && (connection_id != nil) {
-                                    subscribe(connection_id!)
+                                if name == "client_connected", let id = self.connectionId {
+                                    subscribe(id)
                                 } else if name == "new_event" {
                                     if let content = json[1] as? [String: AnyObject] {
                                         if let data = content["data"] as? [String: Coding] {
                                             if let event = Event(dictionary: data) {
                                                 self.events.insert(event)
-                                                print(event)
+                                                // print(event)
                                             }
                                         }
                                     }
@@ -122,6 +124,7 @@ public class RemoteManager : NSObject {
                                     if let content = json[1] as? [String: AnyObject] {
                                         if let data = content["data"] as? [String: Coding] {
                                             if let token = data["token"] as? String {
+                                                self.channelToken = token
                                                 print("channel token: \(token)")
                                             }
                                         }
