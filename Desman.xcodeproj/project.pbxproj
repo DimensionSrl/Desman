@@ -188,7 +188,6 @@
 		956AF1AC1BD4F09200464E9E = {
 			isa = PBXGroup;
 			children = (
-				95661BD11BE6A21300046E4D /* libz.tbd */,
 				9508719E1BE0BF45000C54AE /* README.md */,
 				95271F2F1BE26D8800187A1C /* Features.md */,
 				956AF1B71BD4F09200464E9E /* Desman iOS Sample */,
@@ -265,6 +264,7 @@
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				95661BCF1BE6A1FE00046E4D /* WebSocket.swift */,
+				95661BD11BE6A21300046E4D /* libz.tbd */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,

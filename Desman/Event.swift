@@ -49,7 +49,7 @@ public class Event: NSCoder {
             self.timestamp = NSDate()
         }
         
-        if let payload = dictionary["payload"] as? [String : AnyObject] {
+        if let payload = dictionary["payload"] as? [String : Coding] {
             self.payload = payload
         }
         

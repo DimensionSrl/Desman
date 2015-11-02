@@ -53,6 +53,11 @@ import Foundation
                 let type = TypeClass.init()
                 type.subtype = subtypeString
                 return type
+            } else {
+                // Generic type if doesn't match with a known class
+                let type = Type()
+                type.subtype = subtypeString
+                return type
             }
         }
         return nil
@@ -63,8 +68,12 @@ import Foundation
             let type = TypeClass.init()
             type.subtype = subtype
             return type
+        } else {
+            // Generic type if doesn't match with a known class
+            let type = Type()
+            type.subtype = subtype
+            return type
         }
-        return nil
     }
 }
 

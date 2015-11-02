@@ -141,14 +141,6 @@ public class RemoteManager : NSObject {
                 } catch _ {
                     
                 }
-                
-                
-//                if messageNum == 10 {
-//                    ws.close()
-//                } else {
-//                    // subscribe("01bde16950644aee5da1")
-//                    // send()
-//                }
             }
         }
     }
