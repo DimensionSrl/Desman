@@ -84,13 +84,13 @@ public class RemoteManager : NSObject {
             channel = channel.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
             channel = channel.stringByReplacingOccurrencesOfString("'", withString: "%27")
 
-            print("channel \(channel)")
+            // print("channel \(channel)")
             let msg = ["websocket_rails.subscribe", ["data": ["channel": channel]], string]
             do {
                 let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
                 if let json = String(data: data, encoding: NSUTF8StringEncoding) {
                     ws.send(json)
-                    print("subscribe")
+                    // print("subscribe")
                 }
             } catch _ {
                 
@@ -98,7 +98,7 @@ public class RemoteManager : NSObject {
         }
         
         ws.event.open = {
-            print("opened")
+            // print("opened")
             // send()
         }
         ws.event.close = { code, reason, clean in

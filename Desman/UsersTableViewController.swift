@@ -24,6 +24,11 @@ class UsersTableViewController: UITableViewController {
         self.users = Array(RemoteManager.sharedInstance.users)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        RemoteManager.sharedInstance.stopFetchingEvents()
+    }
+    
     @IBAction func dismissController(sender: UIBarButtonItem) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
