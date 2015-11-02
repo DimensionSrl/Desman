@@ -78,8 +78,12 @@ import Foundation
             return "iPad"
         case .Unspecified:
             return "Unspecified"
+        default:
+            return "Unknown"
+        /* Requires Xcode 7.1
         case .TV:
             return "TV"
+        */
         }
     }
     

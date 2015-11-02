@@ -104,12 +104,14 @@ extension UIViewController {
     
     var module : String {
         let className = NSStringFromClass(self.dynamicType)
-        return "\(className.componentsSeparatedByString(".").first!)"
+        let dotString = "."
+        return "\(className.componentsSeparatedByString(dotString).first!)"
     }
     
     var name : String {
         let className = NSStringFromClass(self.dynamicType)
-        return "\(className.componentsSeparatedByString(".").last!)"
+        let dotString = "."
+        return "\(className.componentsSeparatedByString(dotString).last!)"
     }
 }
 
