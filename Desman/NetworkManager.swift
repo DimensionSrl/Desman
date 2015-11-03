@@ -30,10 +30,99 @@ public class NetworkManager {
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         sessionConfiguration.HTTPAdditionalHeaders = ["Authorization": "Token \(appKey)"]
         self.session = NSURLSession(configuration: sessionConfiguration)
+        
+        // We immediately upload app icon and its name
+        // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
+        sendEventWithAttachment(AppInfo())
+    }
+    
+    func sendEventWithAttachment(event: Event) {
+        // TODO: use a separate queue
+        guard (self.session != nil) else { return }
+        guard event.sent == false else {
+            print("Desman: event already sent, won't upload it again")
+            return
+        }
+        guard let attachment = event.attachment else { return }
+        let url = NSURL(string: "/events.json", relativeToURL: baseURL)!
+        let request = forgeRequest(url: url, contentTypes: [])
+        let boundary = "Boundary-\(NSUUID().UUIDString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.HTTPMethod = "POST"
+        
+        request.HTTPBody = createBodyWithParameters(event.dictionary, filePathKey: "attachment", attachment: attachment, boundary: boundary)
+        
+        let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("Desman: cannot send event - \(error)")
+            } else {
+                // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
+                if let data = data {
+                    do {
+                        let eventDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                        if let id = eventDictionary["id"] as? String {
+                            event.id = id
+                        } else if let id = eventDictionary["id"] as? Int {
+                            event.id = "\(id)"
+                        }
+                    } catch let parseError as NSError {
+                        // TODO: Should mark the event as sent, but with failure
+                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: NSUTF8StringEncoding))")
+                    }
+                }
+                
+                event.sent = true
+                dispatch_async(dispatch_get_main_queue()) {
+                    EventManager.sharedInstance.sentEvents.insert(event)
+                }
+            }
+            dispatch_async(dispatch_get_main_queue()) {
+                EventManager.sharedInstance.serializeEvents()
+            }
+        })
+        task.resume()
+    }
+    
+    func createBodyWithParameters(parameters: [String : Coding]?, filePathKey: String?, attachment: NSData, boundary: String) -> NSData {
+        let body = NSMutableData();
+        if parameters != nil {
+            for (key, value) in parameters! {
+                if key != "payload" {
+                    body.appendString("--\(boundary)\r\n")
+                    body.appendString("Content-Disposition: form-data; name=\"event[\(key)]\"\r\n\r\n")
+                    body.appendString("\(value)\r\n")
+                } else {
+                    do {
+                        let payloadJson = try NSJSONSerialization.dataWithJSONObject(value, options: NSJSONWritingOptions(rawValue: 0))
+                        if let stringPayload = String(data: payloadJson, encoding: NSUTF8StringEncoding) {
+                            body.appendString("--\(boundary)\r\n")
+                            body.appendString("Content-Disposition: form-data; name=\"event[\(key)]\"\r\n\r\n")
+                            body.appendString("\(stringPayload)\r\n")
+                        }
+                    } catch _ {
+                        
+                    }
+                }
+            }
+        }
+        let filename = "image.png"
+        let mimetype = "image/png"
+        body.appendString("--\(boundary)\r\n")
+        body.appendString("Content-Disposition: form-data; name=\"event[\(filePathKey!)]\"; filename=\"\(filename)\"\r\n")
+        body.appendString("Content-Type: \(mimetype)\r\n\r\n")
+        body.appendData(attachment)
+        body.appendString("\r\n")
+        body.appendString("--\(boundary)--\r\n")
+        
+        return body
     }
     
     func sendEvent(event: Event) {
         guard !uploading else { return }
+        guard event.attachment == nil else {
+            self.sendEventWithAttachment(event)
+            return
+        }
         guard (self.session != nil) else { return }
         guard event.sent == false else {
             print("Desman: event already sent, won't upload it again")
@@ -62,7 +151,8 @@ public class NetworkManager {
                             event.id = "\(id)"
                         }
                     } catch let parseError as NSError {
-                        print("Desman: cannot parse event response \(parseError.description)")
+                        // TODO: Should mark the event as sent, but with failure
+                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: NSUTF8StringEncoding))")
                     }
                 }
                 
@@ -82,7 +172,13 @@ public class NetworkManager {
     func sendEvents(events: Set<Event>) {
         guard !uploading else { return }
         guard (self.session != nil) else { return }
-        let pendingEvents = events.filter{ $0.sent == false }
+        var pendingEvents = events.filter{ $0.sent == false }
+        let eventsWithAttachments = pendingEvents.filter{ $0.attachment != nil }
+        for event in eventsWithAttachments {
+            sendEventWithAttachment(event)
+        }
+        pendingEvents = pendingEvents.filter{ $0.attachment == nil }
+        
         guard pendingEvents.count > 0 else {
             return
         }
@@ -265,5 +361,12 @@ public class NetworkManager {
             request.addValue(type, forHTTPHeaderField: "Accept")
         }
         return request
+    }
+}
+
+extension NSMutableData {
+    func appendString(string: String) {
+        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
+        appendData(data!)
     }
 }

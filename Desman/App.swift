@@ -60,13 +60,24 @@ public class App: NSCoder {
         return "App: \(bundle)"
     }
     
-    public class func currentAppIcon() -> UIImage? {
+    public class var currentAppIcon : NSData? {
         let infoPlist : NSDictionary = NSBundle.mainBundle().infoDictionary!
         if let icon = infoPlist.valueForKeyPath("CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles")?.lastObject as? String {
-            let image = UIImage(named: icon)
-            return image
+            if let image = UIImage(named: icon) {
+                let data = UIImagePNGRepresentation(image)
+                return data
+                
+            }
         }
         return nil
+    }
+    
+    public class var currentAppName : String {
+        let infoPlist : NSDictionary = NSBundle.mainBundle().infoDictionary!
+        if let name = infoPlist.valueForKeyPath("CFBundleName") as? String {
+            return name
+        }
+        return "Unknown"
     }
     
     public var title : String {

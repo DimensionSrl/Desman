@@ -108,9 +108,9 @@ class UsersTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
         cell.userTitleLabel.text = user.title
+        cell.userImageView.isUser()
         if let imageUrl = user.imageUrl {
             cell.userImageView.loadFromURL(imageUrl)
-            cell.userImageView.isUser()
         }
         return cell
     }

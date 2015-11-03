@@ -30,7 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         EventManager.sharedInstance.startLogging()
         // D is an alias for EventManager.sharedInstance
         D.logType(Application.DidFinishLaunching)
-        D.log(Info())
+        D.log(DeviceInfo())
+        D.log(DeviceUserInfo())
         NotificationCenterListener.sharedInstance.listenToAppLifecicleActivity()
         NotificationCenterListener.sharedInstance.listenToScreenshots()
     }

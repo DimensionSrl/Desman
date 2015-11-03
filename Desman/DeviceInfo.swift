@@ -8,9 +8,9 @@
 
 import Foundation
 
-@objc public class Info : Event {
+@objc public class DeviceInfo : Event {
     public init () {
-        super.init(Device.Info)
+        super.init(Device.Hardware)
         payload = infoDictionary
     }
     

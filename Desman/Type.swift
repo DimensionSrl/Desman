@@ -88,6 +88,7 @@ public class Application : Type {
     public static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
     public static let LogEnable = Application(subtype: "LogEnable")
     public static let LogDisable = Application(subtype: "LogDisable")
+    public static let Info = Application(subtype: "Info")
 
     override var imageName : String {
         get {
@@ -180,7 +181,8 @@ public class Connection : Type {
 }
 
 public class Device : Type {
-    public static let Info = Device(subtype: "Info")
+    public static let Hardware = Device(subtype: "Hardware")
+    public static let User = Device(subtype: "User")
     
     override var imageName : String {
         get { return "Device" }
