@@ -19,7 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func logEvents() {
-        EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
+        // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
+        // EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.local:3000")!, appKey: "", serialization: .UserDefaults)
+        EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.dimension.it")!, appKey: "", serialization: .UserDefaults)
         // EventManager.sharedInstance.takeOff(.UserDefaults)
         EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
         EventManager.sharedInstance.consoleLog = false

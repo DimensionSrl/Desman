@@ -8,9 +8,22 @@
 
 public class App: NSCoder {
     public let bundle : String
+    public var name : String?
+    public var iconUrl : NSURL?
     
     public init(bundle: String) {
         self.bundle = bundle
+    }
+
+    public init(bundle: String, name: String) {
+        self.bundle = bundle
+        self.name = name
+    }
+    
+    public init(bundle: String, name: String, icon: String) {
+        self.bundle = bundle
+        self.name = name
+        self.iconUrl = NSURL(string: icon)
     }
     
     public init?(dictionary: [String : Coding]) {
@@ -18,6 +31,14 @@ public class App: NSCoder {
             self.bundle = ""
             super.init()
             return nil
+        }
+        
+        if let name = dictionary["name"] as? String {
+            self.name = name
+        }
+        
+        if let icon = dictionary["icon"] as? String {
+            self.iconUrl = NSURL(string: icon)
         }
         
         self.bundle = bundle
@@ -46,5 +67,12 @@ public class App: NSCoder {
             return image
         }
         return nil
+    }
+    
+    public var title : String {
+        if let name = name {
+            return name
+        }
+        return bundle
     }
 }

@@ -15,6 +15,9 @@
 		95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */; };
 		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
+		953B3BA81BE8C43700C9F853 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */; };
+		953B3BAA1BE8C54800C9F853 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */; };
+		953B3BAC1BE8C9CD00C9F853 /* SimpleImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
 		95661BD01BE6A1FE00046E4D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95661BCF1BE6A1FE00046E4D /* WebSocket.swift */; };
 		95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95661BD11BE6A21300046E4D /* libz.tbd */; };
@@ -107,6 +110,9 @@
 		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
+		953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageCache.swift; sourceTree = "<group>"; };
 		95661BCF1BE6A1FE00046E4D /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,8 +268,11 @@
 				95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */,
 				95DFA09B1BE129B700428805 /* EventDetailTableViewController.swift */,
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
+				953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */,
+				953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				95661BCF1BE6A1FE00046E4D /* WebSocket.swift */,
+				953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */,
 				95661BD11BE6A21300046E4D /* libz.tbd */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
@@ -395,6 +404,7 @@
 		956AF1AD1BD4F09200464E9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "DIMENSION S.r.l.";
@@ -516,9 +526,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				953B3BA81BE8C43700C9F853 /* AppTableViewCell.swift in Sources */,
 				9580CF7D1BE4CEC0008AC4A2 /* App.swift in Sources */,
 				95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */,
 				952D19F71BDE910400988338 /* Type.swift in Sources */,
+				953B3BAA1BE8C54800C9F853 /* UserTableViewCell.swift in Sources */,
 				9580CF871BE51C58008AC4A2 /* AppsTableViewController.swift in Sources */,
 				956AF2171BD51CD000464E9E /* NetworkManager.swift in Sources */,
 				95271F341BE27D0200187A1C /* Info.swift in Sources */,
@@ -529,6 +541,7 @@
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
+				953B3BAC1BE8C9CD00C9F853 /* SimpleImageCache.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */,

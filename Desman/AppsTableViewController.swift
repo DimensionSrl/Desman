@@ -100,9 +100,13 @@ class AppsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("appCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("appCell", forIndexPath: indexPath) as! AppTableViewCell
         let app = apps[indexPath.row]
-        cell.textLabel?.text = app.bundle
+        cell.appTitleLabel.text = app.title
+        if let iconUrl = app.iconUrl {
+            cell.appImageView.loadFromURL(iconUrl)
+            cell.appImageView.isIcon()
+        }
         return cell
     }
     
@@ -119,4 +123,29 @@ class AppsTableViewController: UITableViewController {
     deinit {
         objectToObserve.removeObserver(self, forKeyPath: "apps", context: &desmanAppsContext)
     }
+}
+
+extension UIImageView {
+    // Loads image asynchronously
+    func loadFromURL(url: NSURL) {
+        // TODO: replace with placeholder icon
+        self.image = UIImage(named: "Desman")
+        
+        SimpleCache.sharedInstance.getImage(url) { (image, error) -> () in
+            if let image = image {
+                self.image = image
+            }
+        }
+    }
+    
+    func isIcon() {
+        self.layer.cornerRadius = self.frame.size.height / 5
+        self.clipsToBounds = true
+    }
+    
+    func isUser() {
+        self.layer.cornerRadius = self.frame.size.height / 2
+        self.clipsToBounds = true
+    }
+
 }

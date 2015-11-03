@@ -105,9 +105,13 @@ class UsersTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
-        cell.textLabel?.text = user.device
+        cell.userTitleLabel.text = user.title
+        if let imageUrl = user.imageUrl {
+            cell.userImageView.loadFromURL(imageUrl)
+            cell.userImageView.isUser()
+        }
         return cell
     }
     
