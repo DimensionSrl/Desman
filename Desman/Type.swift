@@ -121,6 +121,7 @@ public class Controller : Type {
     public static let ViewWillAppear = Controller(subtype: "ViewWillAppear")
     public static let ViewDidAppear = Controller(subtype: "ViewDidAppear")
     public static let ViewWillDisappear = Controller(subtype: "ViewWillDisappear")
+    public static let Screenshot = Controller(subtype: "Screenshot")
     override var imageName : String {
         get { return "View Controller" }
         set { self.imageName = newValue }

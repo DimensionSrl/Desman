@@ -29,11 +29,7 @@ public class NetworkManager {
         self.baseURL = baseURL
         let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
         sessionConfiguration.HTTPAdditionalHeaders = ["Authorization": "Token \(appKey)"]
-        self.session = NSURLSession(configuration: sessionConfiguration)
-        
-        // We immediately upload app icon and its name
-        // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
-        sendEventWithAttachment(AppInfo())
+        self.session = NSURLSession(configuration: sessionConfiguration)        
     }
     
     func sendEventWithAttachment(event: Event) {

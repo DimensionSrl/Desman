@@ -19,5 +19,3 @@ import Foundation
         return ["name": App.currentAppName]
     }
 }
-
-    

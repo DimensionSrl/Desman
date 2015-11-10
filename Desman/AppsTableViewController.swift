@@ -128,11 +128,11 @@ class AppsTableViewController: UITableViewController {
 extension UIImageView {
     // Loads image asynchronously
     func loadFromURL(url: NSURL) {
-        // TODO: replace with placeholder icon
-        // self.image = UIImage(named: "Desman")
-        
         ImageCache.sharedInstance.getImage(url) { (image, error) -> () in
             if let image = image {
+                if image.size.height < self.bounds.size.height / self.contentScaleFactor && image.size.width < self.bounds.size.width / self.contentScaleFactor {
+                    self.contentMode = .Center
+                }
                 self.image = image
             }
         }

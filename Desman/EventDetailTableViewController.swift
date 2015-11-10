@@ -19,9 +19,15 @@ class EventDetailTableViewController: UITableViewController {
     @IBOutlet var payloadTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var payloadLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet var attachmentImageView: UIImageView!
+    
+    @IBAction func attachmentTapped(sender: UITapGestureRecognizer) {
+        performSegueWithIdentifier("showImageAttachmentSegue", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Event"
+        self.title = "Event Details"
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 44.0;
     }
@@ -59,6 +65,16 @@ class EventDetailTableViewController: UITableViewController {
             } else {
                 payloadTextView.text = ""
             }
+            
+            if let attachmentUrl = event.attachmentUrl {
+                attachmentImageView.userInteractionEnabled = true
+                attachmentImageView.loadFromURL(attachmentUrl)
+            } else if let attachment = event.attachment, let image = UIImage(data: attachment) {
+                attachmentImageView.userInteractionEnabled = true
+                attachmentImageView.image = image
+            } else {
+                attachmentImageView.userInteractionEnabled = false
+            }
         }
     }
     
@@ -66,9 +82,35 @@ class EventDetailTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 4 {
+            if payloadTextView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
+                return 44
+            }
             let size = payloadTextView.sizeThatFits(CGSize(width: self.view.frame.size.width - payloadLeadingConstraint.constant - payloadTrailingConstraint.constant, height: CGFloat.max))
             return size.height + 1
+        } else if indexPath.row == 5 {
+            if (event?.attachmentUrl != nil) || (event?.attachment != nil) {
+                return tableView.frame.size.width / 3.0
+            } else {
+                return 0
+            }
         }
         return 44
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let event = event {
+            if segue.identifier == "showImageAttachmentSegue" {
+                if let destination = segue.destinationViewController as? ImageViewController {
+                    if let attachmentUrl = event.attachmentUrl {
+                        destination.imageUrl = attachmentUrl
+                    } else if let attachment = event.attachment, let image = UIImage(data: attachment) {
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.10 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                            destination.imageView.image = image
+                        }
+                    }
+                    destination.title = event.title
+                }
+            }
+        }
     }
 }

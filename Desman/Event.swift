@@ -22,6 +22,9 @@ public class Event: NSCoder {
     public var timestamp : NSDate
     public var sent : Bool = false
     public var attachment : NSData?
+    public var attachmentUrl : NSURL?
+    
+    // TODO: support remote attachment url with caching
     
     var id : String?
     var uuid : NSUUID?
@@ -59,6 +62,10 @@ public class Event: NSCoder {
             self.uuid = NSUUID(UUIDString: uuid)
         }
         
+        if let attachmentString = dictionary["attachment"] as? String {
+            self.attachmentUrl = NSURL(string: attachmentString)
+        }
+        
         self.type = type
         super.init()
         self.commonInit()
@@ -77,6 +84,16 @@ public class Event: NSCoder {
         self.timestamp = NSDate()
         self.payload = payload
         self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(type: Type, payload: [String : Coding], attachment: NSData) {
+        self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.uuid = NSUUID()
+        self.attachment = attachment
         super.init()
         self.commonInit()
     }
@@ -110,6 +127,11 @@ public class Event: NSCoder {
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
+        if let attachmentString = decoder.decodeObjectForKey("attachment") as? String {
+            // TODO: support file url or remote url
+            self.attachmentUrl = NSURL(string: attachmentString)
+        }
+
         self.sent = decoder.decodeBoolForKey("sent")
         self.commonInit()
     }
@@ -120,6 +142,7 @@ public class Event: NSCoder {
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
+        coder.encodeObject(attachmentUrl, forKey: "attachment")
         coder.encodeBool(sent, forKey: "sent")
     }
     

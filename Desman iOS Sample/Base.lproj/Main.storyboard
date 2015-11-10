@@ -40,6 +40,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6F-V9-W76">
                                 <rect key="frame" x="64" y="117" width="68" height="30"/>
                                 <animations/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Feedback"/>
                                 <connections>
                                     <action selector="feedbackCompose:" destination="82m-NS-lbf" eventType="touchUpInside" id="3we-I7-xNK"/>
@@ -48,14 +49,24 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-Yu-yXX">
                                 <rect key="frame" x="61" y="181" width="53" height="30"/>
                                 <animations/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Remote"/>
                                 <connections>
                                     <action selector="showRemote:" destination="82m-NS-lbf" eventType="touchUpInside" id="SSM-Di-Qev"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igc-kY-IjQ">
+                                <rect key="frame" x="67" y="270" width="48" height="30"/>
+                                <animations/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Screen"/>
+                                <connections>
+                                    <action selector="takeScreenshot:" destination="82m-NS-lbf" eventType="touchUpInside" id="sH0-rg-fgR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.60392156860000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="qiF-gn-Xgu">
                         <barButtonItem key="rightBarButtonItem" image="Desman" id="qv2-Kq-hfA">

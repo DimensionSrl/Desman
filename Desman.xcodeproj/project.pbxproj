@@ -10,6 +10,8 @@
 		9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF21A1BD5469B00464E9E /* EventsTableViewController.swift */; };
 		950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 950871A01BE0BF76000C54AE /* Desman.storyboard */; };
 		950871A31BE0C006000C54AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950871A21BE0C006000C54AE /* ViewController.swift */; };
+		951691121BF20D9400280EC2 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951691111BF20D9400280EC2 /* Event.storyboard */; };
+		951691141BF20F1A00280EC2 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951691131BF20F1A00280EC2 /* ImageViewController.swift */; };
 		95271F321BE26F5900187A1C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F311BE26F5900187A1C /* EventTableViewCell.swift */; };
 		95271F341BE27D0200187A1C /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F331BE27D0200187A1C /* DeviceInfo.swift */; };
 		95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F3B1BE294FD00187A1C /* GlobalSplitViewController.swift */; };
@@ -105,6 +107,8 @@
 		9508719E1BE0BF45000C54AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		950871A01BE0BF76000C54AE /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
 		950871A21BE0C006000C54AE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		951691111BF20D9400280EC2 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		951691131BF20F1A00280EC2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		95271F311BE26F5900187A1C /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		95271F331BE27D0200187A1C /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
@@ -276,12 +280,14 @@
 				95271F311BE26F5900187A1C /* EventTableViewCell.swift */,
 				953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */,
 				953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */,
+				951691131BF20F1A00280EC2 /* ImageViewController.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				95661BCF1BE6A1FE00046E4D /* WebSocket.swift */,
 				953B3BAB1BE8C9CD00C9F853 /* ImageCache.swift */,
 				95661BD11BE6A21300046E4D /* libz.tbd */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
+				951691111BF20D9400280EC2 /* Event.storyboard */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
 				952D19F41BDE88EA00988338 /* Media.xcassets */,
@@ -487,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9580CF851BE51A21008AC4A2 /* Remote.storyboard in Resources */,
+				951691121BF20D9400280EC2 /* Event.storyboard in Resources */,
 				950871A11BE0BF76000C54AE /* Desman.storyboard in Resources */,
 				952D19F51BDE88EA00988338 /* Media.xcassets in Resources */,
 			);
@@ -554,6 +561,7 @@
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */,
 				9580CF891BE51EDB008AC4A2 /* UsersTableViewController.swift in Sources */,
+				951691141BF20F1A00280EC2 /* ImageViewController.swift in Sources */,
 				956AF2121BD5186700464E9E /* UIViewController-Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

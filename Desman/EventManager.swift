@@ -59,6 +59,11 @@ public class EventManager : NSObject {
             deserializeEvents()
         }
         scheduleProcessTimer()
+        
+        // We immediately upload app icon and its name
+        // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
+        self.forceLog(AppInfo())
+
         // TODO: support other databases
     }
     
@@ -105,6 +110,13 @@ public class EventManager : NSObject {
             if consoleLog {
                 print(event.description)
             }
+        }
+    }
+    
+    func forceLog(event: Event){
+        self.eventsQueue.insert(event)
+        if consoleLog {
+            print(event.description)
         }
     }
     
