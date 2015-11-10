@@ -17,7 +17,7 @@
 		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
 		953B3BA81BE8C43700C9F853 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */; };
 		953B3BAA1BE8C54800C9F853 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */; };
-		953B3BAC1BE8C9CD00C9F853 /* SimpleImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */; };
+		953B3BAC1BE8C9CD00C9F853 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BAB1BE8C9CD00C9F853 /* ImageCache.swift */; };
 		953B3BAE1BE8CFF400C9F853 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BAD1BE8CFF400C9F853 /* AppInfo.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
 		95661BD01BE6A1FE00046E4D /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95661BCF1BE6A1FE00046E4D /* WebSocket.swift */; };
@@ -114,7 +114,7 @@
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		953B3BA71BE8C43700C9F853 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleImageCache.swift; sourceTree = "<group>"; };
+		953B3BAB1BE8C9CD00C9F853 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		953B3BAD1BE8CFF400C9F853 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		95661BCF1BE6A1FE00046E4D /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -278,7 +278,7 @@
 				953B3BA91BE8C54800C9F853 /* UserTableViewCell.swift */,
 				95FB15211BE375B7002C8793 /* FeedbackComposeViewController.swift */,
 				95661BCF1BE6A1FE00046E4D /* WebSocket.swift */,
-				953B3BAB1BE8C9CD00C9F853 /* SimpleImageCache.swift */,
+				953B3BAB1BE8C9CD00C9F853 /* ImageCache.swift */,
 				95661BD11BE6A21300046E4D /* libz.tbd */,
 				950871A01BE0BF76000C54AE /* Desman.storyboard */,
 				9580CF841BE51A21008AC4A2 /* Remote.storyboard */,
@@ -549,7 +549,7 @@
 				956AF20C1BD4F11200464E9E /* Event.swift in Sources */,
 				95DFA09C1BE129B700428805 /* EventDetailTableViewController.swift in Sources */,
 				956AF2101BD5003A00464E9E /* NotificationCenterListener.swift in Sources */,
-				953B3BAC1BE8C9CD00C9F853 /* SimpleImageCache.swift in Sources */,
+				953B3BAC1BE8C9CD00C9F853 /* ImageCache.swift in Sources */,
 				956AF20A1BD4F0DE00464E9E /* EventManager.swift in Sources */,
 				9508719F1BE0BF5E000C54AE /* EventsTableViewController.swift in Sources */,
 				95271F3C1BE294FD00187A1C /* GlobalSplitViewController.swift in Sources */,

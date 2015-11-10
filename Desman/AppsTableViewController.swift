@@ -131,7 +131,7 @@ extension UIImageView {
         // TODO: replace with placeholder icon
         // self.image = UIImage(named: "Desman")
         
-        SimpleCache.sharedInstance.getImage(url) { (image, error) -> () in
+        ImageCache.sharedInstance.getImage(url) { (image, error) -> () in
             if let image = image {
                 self.image = image
             }
