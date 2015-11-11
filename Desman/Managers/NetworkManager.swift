@@ -39,6 +39,10 @@ public class NetworkManager {
             print("Desman: event already sent, won't upload it again")
             return
         }
+        guard event.uploading == false else {
+            return
+        }
+        event.uploading = true
         guard let attachment = event.attachment else { return }
         let url = NSURL(string: "/events.json", relativeToURL: baseURL)!
         let request = forgeRequest(url: url, contentTypes: [])
@@ -50,6 +54,7 @@ public class NetworkManager {
         
         let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             if let error = error {
+                event.uploading = false
                 print("Desman: cannot send event - \(error)")
             } else {
                 // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
@@ -58,18 +63,26 @@ public class NetworkManager {
                         let eventDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
                         if let id = eventDictionary["id"] as? String {
                             event.id = id
+                            event.sent = true
+                            event.uploading = false
+                            dispatch_async(dispatch_get_main_queue()) {
+                                EventManager.sharedInstance.sentEvents.insert(event)
+                            }
                         } else if let id = eventDictionary["id"] as? Int {
                             event.id = "\(id)"
+                            event.sent = true
+                            event.uploading = false
+                            dispatch_async(dispatch_get_main_queue()) {
+                                EventManager.sharedInstance.sentEvents.insert(event)
+                            }
                         }
                     } catch let parseError as NSError {
+                        event.uploading = false
                         // TODO: Should mark the event as sent, but with failure
                         print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: NSUTF8StringEncoding))")
                     }
-                }
-                
-                event.sent = true
-                dispatch_async(dispatch_get_main_queue()) {
-                    EventManager.sharedInstance.sentEvents.insert(event)
+                } else {
+                    event.uploading = false
                 }
             }
             dispatch_async(dispatch_get_main_queue()) {
@@ -101,7 +114,7 @@ public class NetworkManager {
                 }
             }
         }
-        let filename = "image.png"
+        let filename = "attachment"
         let mimetype = "image/png"
         body.appendString("--\(boundary)\r\n")
         body.appendString("Content-Disposition: form-data; name=\"event[\(filePathKey!)]\"; filename=\"\(filename)\"\r\n")

@@ -21,6 +21,7 @@ public class Event: NSCoder {
     public var payload : [String : Coding]?
     public var timestamp : NSDate
     public var sent : Bool = false
+    var uploading : Bool = false
     public var attachment : NSData?
     public var attachmentUrl : NSURL?
     
