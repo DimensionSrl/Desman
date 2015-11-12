@@ -13,13 +13,17 @@ public class RemoteManager : NSObject {
     var app : App?
     var user : User? {
         didSet {
+#if DESMAN_INCLUDES_REALTIME
             ws.close()
             connectionId = nil
             channelToken = nil
+#endif
         }
     }
-    
+#if DESMAN_INCLUDES_REALTIME
     let ws = WebSocket("ws://desman.dimension.it/websocket")
+#endif
+    
     var connectionId : String?
     var channelToken : String?
     
@@ -50,19 +54,22 @@ public class RemoteManager : NSObject {
         self.user = user
         if let app = app {
             NetworkManager.sharedInstance.fetchEvents(app, user: user)
+#if DESMAN_INCLUDES_REALTIME
             subscribeSocket()
+#endif
         } else {
             print("Desman: you need to select an app first")
         }
     }
-    
+
+#if DESMAN_INCLUDES_REALTIME
     public func stopFetchingEvents() {
         self.ws.close()
     }
-    
+
     func subscribeSocket() {
+
         self.ws.open()
-        
         let pong : ()->() = {
             let emptyDictionary = [String: AnyObject]()
             if let id = self.connectionId {
@@ -78,7 +85,7 @@ public class RemoteManager : NSObject {
                 }
             }
         }
-        
+    
         func subscribe(string: String) {
             var channel = "\(self.app!.bundle)-\(self.user!.uuid)".stringByReplacingOccurrencesOfString(" ", withString: "+")
             channel = channel.stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())!
@@ -156,4 +163,5 @@ public class RemoteManager : NSObject {
             }
         }
     }
+#endif
 }

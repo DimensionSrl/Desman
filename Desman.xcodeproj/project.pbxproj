@@ -34,7 +34,6 @@
 		954B61451BF3BA9D004FA6F2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61411BF3BA9D004FA6F2 /* ImageCache.swift */; };
 		954B61461BF3BA9D004FA6F2 /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */; };
 		954B61471BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */; };
-		954B61481BF3BA9D004FA6F2 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61441BF3BA9D004FA6F2 /* WebSocket.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
 		95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95661BD11BE6A21300046E4D /* libz.tbd */; };
 		956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1B81BD4F09200464E9E /* AppDelegate.swift */; };
@@ -134,7 +133,6 @@
 		954B61411BF3BA9D004FA6F2 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterListener.swift; sourceTree = "<group>"; };
 		954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
-		954B61441BF3BA9D004FA6F2 /* WebSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebSocket.swift; sourceTree = "<group>"; };
 		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1B81BD4F09200464E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -263,7 +261,6 @@
 				954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */,
 				954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */,
 				954B61411BF3BA9D004FA6F2 /* ImageCache.swift */,
-				954B61441BF3BA9D004FA6F2 /* WebSocket.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -596,7 +593,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterListener.swift in Sources */,
-				954B61481BF3BA9D004FA6F2 /* WebSocket.swift in Sources */,
 				954B613E1BF3BA65004FA6F2 /* NetworkManager.swift in Sources */,
 				954B61281BF3B9FF004FA6F2 /* EventTableViewCell.swift in Sources */,
 				954B61321BF3BA2C004FA6F2 /* AppsTableViewController.swift in Sources */,
@@ -852,6 +848,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = it.dimension.Desman;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -875,6 +872,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "";
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = it.dimension.Desman;
 				PRODUCT_NAME = "$(TARGET_NAME)";

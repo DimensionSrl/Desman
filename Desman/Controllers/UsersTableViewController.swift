@@ -26,7 +26,9 @@ class UsersTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+#if DESMAN_INCLUDES_REALTIME
         RemoteManager.sharedInstance.stopFetchingEvents()
+#endif
     }
     
     @IBAction func dismissController(sender: UIBarButtonItem) {
