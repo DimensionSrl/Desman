@@ -114,21 +114,3 @@ extension UIViewController {
         return "\(className.componentsSeparatedByString(dotString).last!)"
     }
 }
-
-import ObjectiveC
-
-private var desmanControllerAssociationKey: UInt8 = 0
-
-extension UIViewController {
-    @IBInspectable var log: Bool {
-        get {
-            if let log = objc_getAssociatedObject(self, &desmanControllerAssociationKey) as? Bool {
-                return log
-            }
-            return false
-        }
-        set(newValue) {
-            objc_setAssociatedObject(self, &desmanControllerAssociationKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
-        }
-    }
-}

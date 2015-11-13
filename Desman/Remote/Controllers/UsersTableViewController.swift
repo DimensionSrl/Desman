@@ -94,8 +94,10 @@ class UsersTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedUser = users[indexPath.row]
-        RemoteManager.sharedInstance.fetchEvents(selectedUser)
-        self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
+        if let app = app {
+            RemoteManager.sharedInstance.fetchEvents(app, user: selectedUser)
+            self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

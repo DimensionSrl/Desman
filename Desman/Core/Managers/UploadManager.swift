@@ -1,5 +1,5 @@
 //
-//  NetworkManager.swift
+//  UploadManager.swift
 //  Desman iOS Sample
 //
 //  Created by Matteo Gavagnin on 19/10/15.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class NetworkManager {
+public class UploadManager {
     /**
-    A shared instance of `NetworkManager`.
+    A shared instance of `UploadManager`.
     */
-    static public let sharedInstance = NetworkManager()
+    static public let sharedInstance = UploadManager()
     
     var baseURL: NSURL?
     var session: NSURLSession?
@@ -255,112 +255,7 @@ public class NetworkManager {
         let operation : [String : AnyObject] = ["method": "post", "url": "/events", "params": event.dictionary]
         return operation
     }
-    
-    func fetchApps() {
-        guard (self.session != nil) else { return }
-        let url = NSURL(string: "/apps", relativeToURL: baseURL)!
-        let request = forgeRequest(url: url, contentTypes: ["application/json"])
-        request.HTTPMethod = "GET"
-        let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-            if let error = error {
-                print("Desman: cannot get apps - \(error)")
-            } else {
-                if let data = data {
-                    do {
-                        if let appsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                            var apps = Set<App>()
-                            for appDictionary in appsArray {
-                                if let app = App(dictionary: appDictionary) {
-                                    apps.insert(app)
-                                }
-                            }
-                            dispatch_async(dispatch_get_main_queue()) {
-                                RemoteManager.sharedInstance.apps = apps
-                            }
-                        } else {
-                            print("Desman: cannot parse apps array")
-                        }
-                    } catch let parseError as NSError {
-                        print("Desman: cannot parse apps response \(parseError.description)")
-                    }
-                }
-            }
-        })
-        task.resume()
-    }
-    
-    func fetchUsers(app: App) {
-        guard (self.session != nil) else { return }
-        let url = NSURL(string: "/apps/\(app.bundle)/users", relativeToURL: baseURL)!
-        let request = forgeRequest(url: url, contentTypes: ["application/json"])
-        request.HTTPMethod = "GET"
-        let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-            if let error = error {
-                print("Desman: cannot get users for \(app) - \(error)")
-            } else {
-                if let data = data {
-                    do {
-                        if let usersArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                            var users = Set<User>()
-                            for userDictionary in usersArray {
-                                if let user = User(dictionary: userDictionary) {
-                                    users.insert(user)
-                                }
-                            }
-                            dispatch_async(dispatch_get_main_queue()) {
-                                RemoteManager.sharedInstance.users = users
-                            }
-                        } else {
-                            print("Desman: cannot parse users array")
-                        }
-                    } catch let parseError as NSError {
-                        print("Desman: cannot parse users response \(parseError.description)")
-                    }
-                }
-            }
-        })
-        task.resume()
-    }
-
-    func fetchEvents(app: App, user: User) {
-        guard (self.session != nil) else { return }
-        let escapedUserUUID = user.uuid.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
-        let urlString = "/apps/\(app.bundle)/users/\(escapedUserUUID)/events"
-        if let url = NSURL(string: urlString, relativeToURL: baseURL) {
-            let request = forgeRequest(url: url, contentTypes: ["application/json"])
-            request.HTTPMethod = "GET"
-            let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                if let error = error {
-                    print("Desman: cannot get events for \(user) of \(app) - \(error)")
-                } else {
-                    if let data = data {
-                        do {
-                            if let eventsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                                var events = Set<Event>()
-                                for eventDictionary in eventsArray {
-                                    if let event = Event(dictionary: eventDictionary) {
-                                        events.insert(event)
-                                    }
-                                }
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    RemoteManager.sharedInstance.events = events
-                                }
-                            } else {
-                                print("Desman: cannot parse events array")
-                            }
-                        } catch let parseError as NSError {
-                            print("Desman: cannot parse events response \(parseError.description)")
-                        }
-                    }
-                }
-            })
-            task.resume()
-        } else {
-            print("Desman: cannot create users url \(urlString)")
-        }
-    }
-
-    
+        
     func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
         // TODO: use cache in production
         // UseProtocolCachePolicy
