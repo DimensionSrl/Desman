@@ -13,7 +13,7 @@
 		9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E61BF5FB2D00F3465A /* Type.swift */; };
 		9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E71BF5FB2D00F3465A /* User.swift */; };
 		9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5ED1BF5FB7300F3465A /* EventManager.swift */; };
-		9509B5F01BF5FB7300F3465A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5EE1BF5FB7300F3465A /* NetworkManager.swift */; };
+		9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5EE1BF5FB7300F3465A /* UploadManager.swift */; };
 		9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F21BF5FBB900F3465A /* AppInfo.swift */; };
 		9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */; };
 		9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F41BF5FBB900F3465A /* UserInfo.swift */; };
@@ -110,7 +110,7 @@
 		9509B5E61BF5FB2D00F3465A /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		9509B5E71BF5FB2D00F3465A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9509B5ED1BF5FB7300F3465A /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		9509B5EE1BF5FB7300F3465A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9509B5EE1BF5FB7300F3465A /* UploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
 		9509B5F21BF5FBB900F3465A /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9509B5F41BF5FBB900F3465A /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				9509B5ED1BF5FB7300F3465A /* EventManager.swift */,
-				9509B5EE1BF5FB7300F3465A /* NetworkManager.swift */,
+				9509B5EE1BF5FB7300F3465A /* UploadManager.swift */,
 				954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */,
 			);
 			path = Managers;
@@ -671,7 +671,7 @@
 				9509B60F1BF5FEB700F3465A /* ImageCache.swift in Sources */,
 				954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */,
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
-				9509B5F01BF5FB7300F3465A /* NetworkManager.swift in Sources */,
+				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
 				954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,

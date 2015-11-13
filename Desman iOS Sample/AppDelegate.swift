@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func logEvents() {
-        EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
+        // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
+        EventManager.sharedInstance.takeOff(.UserDefaults)
         EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
         EventManager.sharedInstance.consoleLog = false
         EventManager.sharedInstance.limit = 40

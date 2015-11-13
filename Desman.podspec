@@ -9,27 +9,32 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
   s.source                = { :git => 'http://10.10.1.4/ios/desman.git', :tag => "v#{s.version}" }
   s.requires_arc          = true
+  s.framework             = 'Photos'
   s.default_subspec       = 'Core'
 
   s.subspec 'Core' do |core|
-    core.framework        = 'Photos'
-    core.source_files     = 'Desman/Core/**/*.swift'
+    s.source_files          = 'Desman/Core/**/*.swift'
+  end
 
-    core.subspec 'Interface' do |interface|
-      interface.source_files  = 'Desman/Interface/**/*.swift'
-      interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
-    end
+  s.subspec 'Interface' do |interface|
+    interface.dependency 'Core'
+    interface.source_files  = 'Desman/Interface/**/*.swift'
+    interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
+  end
 
-    core.subspec 'Debatable' do |debatable|
-      debatable.source_files = 'Desman/Debatable/**/*.swift'
-    end
+  s.subspec 'Debatable' do |debatable|
+    debatable.dependency 'Core'
+    debatable.source_files = 'Desman/Debatable/**/*.swift'
+  end
 
-    core.subspec 'Remote' do |remote|
-      remote.source_files = 'Desman/Remote/**/*.swift'
-      remote.subspec 'Realtime' do |realtime|
-        realtime.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
-        realtime.dependency "SwiftWebSocket", "~> 2.3.0"
-      end
-    end
+  s.subspec 'Remote' do |remote|
+    remote.dependency 'Interface'
+    remote.source_files = 'Desman/Remote/**/*.swift'
+  end
+
+  s.subspec 'Realtime' do |realtime|
+    realtime.dependency 'Remote'
+    realtime.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
+    realtime.dependency "SwiftWebSocket", "~> 2.3.0"
   end
 end

@@ -40,28 +40,116 @@ public class RemoteManager : NSObject {
     dynamic internal(set) public var events = Set<Event>()
     
     public func fetchApps() {
-        NetworkManager.sharedInstance.fetchApps()
+        guard (UploadManager.sharedInstance.session != nil) else { return }
+        let url = NSURL(string: "/apps", relativeToURL: UploadManager.sharedInstance.baseURL)!
+        let request = UploadManager.sharedInstance.forgeRequest(url: url, contentTypes: ["application/json"])
+        request.HTTPMethod = "GET"
+        let task = UploadManager.sharedInstance.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("Desman: cannot get apps - \(error)")
+            } else {
+                if let data = data {
+                    do {
+                        if let appsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
+                            var apps = Set<App>()
+                            for appDictionary in appsArray {
+                                if let app = App(dictionary: appDictionary) {
+                                    apps.insert(app)
+                                }
+                            }
+                            dispatch_async(dispatch_get_main_queue()) {
+                                RemoteManager.sharedInstance.apps = apps
+                            }
+                        } else {
+                            print("Desman: cannot parse apps array")
+                        }
+                    } catch let parseError as NSError {
+                        print("Desman: cannot parse apps response \(parseError.description)")
+                    }
+                }
+            }
+        })
+        task.resume()
     }
     
     public func fetchUsers(app: App) {
+        guard (UploadManager.sharedInstance.session != nil) else { return }
         self.app = app
         users.removeAll()
-        NetworkManager.sharedInstance.fetchUsers(app)
+        let url = NSURL(string: "/apps/\(app.bundle)/users", relativeToURL: UploadManager.sharedInstance.baseURL)!
+        let request = UploadManager.sharedInstance.forgeRequest(url: url, contentTypes: ["application/json"])
+        request.HTTPMethod = "GET"
+        let task = UploadManager.sharedInstance.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            if let error = error {
+                print("Desman: cannot get users for \(app) - \(error)")
+            } else {
+                if let data = data {
+                    do {
+                        if let usersArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
+                            var users = Set<User>()
+                            for userDictionary in usersArray {
+                                if let user = User(dictionary: userDictionary) {
+                                    users.insert(user)
+                                }
+                            }
+                            dispatch_async(dispatch_get_main_queue()) {
+                                self.users = users
+                            }
+                        } else {
+                            print("Desman: cannot parse users array")
+                        }
+                    } catch let parseError as NSError {
+                        print("Desman: cannot parse users response \(parseError.description)")
+                    }
+                }
+            }
+        })
+        task.resume()
     }
     
-    public func fetchEvents(user: User) {
+    public func fetchEvents(app: App, user: User) {
+        guard (UploadManager.sharedInstance.session != nil) else { return }
         events.removeAll()
         self.user = user
-        if let app = app {
-            NetworkManager.sharedInstance.fetchEvents(app, user: user)
-#if DESMAN_INCLUDES_REALTIME
-            subscribeSocket()
-#endif
+        let escapedUserUUID = user.uuid.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+        let urlString = "/apps/\(app.bundle)/users/\(escapedUserUUID)/events"
+        if let url = NSURL(string: urlString, relativeToURL: UploadManager.sharedInstance.baseURL) {
+            let request = UploadManager.sharedInstance.forgeRequest(url: url, contentTypes: ["application/json"])
+            request.HTTPMethod = "GET"
+            let task = UploadManager.sharedInstance.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+                if let error = error {
+                    print("Desman: cannot get events for \(user) of \(app) - \(error)")
+                } else {
+                    if let data = data {
+                        do {
+                            if let eventsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
+                                var events = Set<Event>()
+                                for eventDictionary in eventsArray {
+                                    if let event = Event(dictionary: eventDictionary) {
+                                        events.insert(event)
+                                    }
+                                }
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    RemoteManager.sharedInstance.events = events
+                                }
+                            } else {
+                                print("Desman: cannot parse events array")
+                            }
+                        } catch let parseError as NSError {
+                            print("Desman: cannot parse events response \(parseError.description)")
+                        }
+                    }
+                }
+            })
+            task.resume()
         } else {
-            print("Desman: you need to select an app first")
+            print("Desman: cannot create users url \(urlString)")
         }
+        #if DESMAN_INCLUDES_REALTIME
+            subscribeSocket()
+        #endif
     }
-
+    
 #if DESMAN_INCLUDES_REALTIME
     public func stopFetchingEvents() {
         self.ws.close()

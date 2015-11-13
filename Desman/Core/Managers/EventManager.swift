@@ -54,7 +54,7 @@ public class EventManager : NSObject {
     public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization) {
         self.type = serialization
         self.upload = true
-        NetworkManager.sharedInstance.takeOff(baseURL, appKey: appKey)
+        UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
         if type == .UserDefaults {
             deserializeEvents()
         }
@@ -143,7 +143,7 @@ public class EventManager : NSObject {
     func processEvents() {
         guard eventsQueue.count > 0 else  {
             // We only need to upload events already avaiable but not sent.
-            NetworkManager.sharedInstance.sendEvents(self.events)
+            UploadManager.sharedInstance.sendEvents(self.events)
             return
         }
         
@@ -159,7 +159,7 @@ public class EventManager : NSObject {
         
         if self.upload {
             self.sentEvents.removeAll()
-            NetworkManager.sharedInstance.sendEvents(self.events)
+            UploadManager.sharedInstance.sendEvents(self.events)
         }
         
         if self.type == .UserDefaults {
@@ -192,6 +192,6 @@ public class EventManager : NSObject {
     }
     
     public func uploadEvents() {
-        NetworkManager.sharedInstance.sendEvents(events)
+        UploadManager.sharedInstance.sendEvents(events)
     }
 }
