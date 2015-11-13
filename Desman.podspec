@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'Desman'
-  s.version               = '0.1.4'
+  s.version               = '0.1.5'
   s.summary               = 'An event tracking tool for mobile apps.'
   s.homepage              = 'http://desman.dimension.it'
   s.license               = 'MIT'
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.default_subspec       = 'Core'
 
   s.subspec 'Core' do |core|
-    s.source_files          = 'Desman/Core/**/*.swift'
+    s.source_files = 'Desman/Core/**/*.swift'
   end
 
   s.subspec 'Interface' do |interface|
