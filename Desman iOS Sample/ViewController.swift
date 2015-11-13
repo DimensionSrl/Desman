@@ -1,49 +1,71 @@
 //
 //  ViewController.swift
-//  Desman iOS Sample
+//  Desman
 //
-//  Created by Matteo Gavagnin on 19/10/15.
+//  Created by Matteo Gavagnin on 28/10/15.
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
 
 import UIKit
 import Desman
 
-private var desmanEventsContext = 0
-
 class ViewController: UIViewController {
-    var objectToObserve = EventManager.sharedInstance
+    var objectToObserve = RemoteManager.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        objectToObserve.addObserver(self, forKeyPath: "addedEvents", options: .New, context: &desmanEventsContext)
-        objectToObserve.addObserver(self, forKeyPath: "removedEvents", options: .New, context: &desmanEventsContext)
+
+        // Do any additional setup after loading the view.
+        RemoteManager.sharedInstance.fetchApps()
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
-        if context == &desmanEventsContext {
-            if keyPath == "addedEvents" {
-                if let newValue = change?[NSKeyValueChangeNewKey] {
-                    print("Events added: \(newValue)")
-                }
-            } else if keyPath == "removedEvents" {
-                if let newValue = change?[NSKeyValueChangeNewKey] {
-                    print("Events removed: \(newValue)")
-                }
-            }
-        } else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
-        }
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    deinit {
-        objectToObserve.removeObserver(self, forKeyPath: "addedEvents", context: &desmanEventsContext)
-        objectToObserve.removeObserver(self, forKeyPath: "removedEvents", context: &desmanEventsContext)
+    @IBAction func showEvents(sender: UIBarButtonItem) {
+        D.log(Action.Button, payload: ["button": "show events"])
+        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
+        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
+        self.presentViewController(desmanController, animated: true, completion: nil)
     }
-}
+    
+    @IBAction func showRemote(sender: UIButton) {
+        D.log(Action.Button, payload: ["button": "show remote"])
+        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: EventManager.self))
+        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
+        self.presentViewController(desmanController, animated: true, completion: nil)
+    }
+    
+    @IBAction func feedbackCompose(sender: UIButton) {
+        D.log(Action.Button, payload: ["button": "feedback compose"])
+        let feedbackController = FeedbackComposeViewController()
+        feedbackController.placeholder = "Give your feedback"
+        feedbackController.modalPresentationStyle = .OverCurrentContext
+        self.presentViewController(feedbackController, animated: true) { () -> Void in
+        }
+    }
+    
+    @IBAction func takeScreenshot(sender: UIButton) {
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale)
+        self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if let compressedImage = UIImageJPEGRepresentation(image, 0.4) {
+            let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: compressedImage)
+            D.log(event)
+        }
+    }
+    
+    /*
+    // MARK: - Navigation
 
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
