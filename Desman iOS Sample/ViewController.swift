@@ -33,7 +33,7 @@ class ViewController: UIViewController {
     
     @IBAction func showRemote(sender: UIButton) {
         D.log(Action.Button, payload: ["button": "show remote"])
-        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: EventManager.self))
+        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: RemoteController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }

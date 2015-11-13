@@ -131,7 +131,6 @@
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
 		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
-		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
@@ -362,8 +361,8 @@
 		954B612A1BF3BA04004FA6F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
+				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */,
 				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
 			);
@@ -385,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				9508719E1BE0BF45000C54AE /* README.md */,
-				95271F2F1BE26D8800187A1C /* Features.md */,
 				956AF1B71BD4F09200464E9E /* Desman iOS Sample */,
 				956AF1EC1BD4F0AF00464E9E /* Desman */,
 				956AF1FA1BD4F0AF00464E9E /* DesmanTests */,
