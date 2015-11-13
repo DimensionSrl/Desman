@@ -11,12 +11,12 @@ import Photos
 
 let kNotificationCenterEvent = "notificationCenterEvent"
 
-public class NotificationCenterListener {
+public class NotificationCenterManager {
 
     /**
-    A shared instance of `NotificationCenterListener`.
+    A shared instance of `NotificationCenterManager`.
     */
-    static public let sharedInstance = NotificationCenterListener()
+    static public let sharedInstance = NotificationCenterManager()
     
     public func listenToScreenshots() {
         startListeningForScreenshots()

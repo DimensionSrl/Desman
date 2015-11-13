@@ -19,21 +19,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
         
     func logEvents() {
-        // EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
-        // EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.local:3000")!, appKey: "", serialization: .UserDefaults)
-        EventManager.sharedInstance.takeOff(NSURL(string: "http://desman.dimension.it")!, appKey: "", serialization: .UserDefaults)
-        // EventManager.sharedInstance.takeOff(.UserDefaults)
+        EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .UserDefaults)
         EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
         EventManager.sharedInstance.consoleLog = false
         EventManager.sharedInstance.limit = 40
-        EventManager.sharedInstance.timeInterval = 0.5
+        EventManager.sharedInstance.timeInterval = 1.0
         EventManager.sharedInstance.startLogging()
         // D is an alias for EventManager.sharedInstance
         D.logType(Application.DidFinishLaunching)
         D.log(DeviceInfo())
         D.log(DeviceUserInfo())
-        NotificationCenterListener.sharedInstance.listenToAppLifecicleActivity()
-        NotificationCenterListener.sharedInstance.listenToScreenshots()
+        NotificationCenterManager.sharedInstance.listenToAppLifecicleActivity()
+        NotificationCenterManager.sharedInstance.listenToScreenshots()
     }
 }
 

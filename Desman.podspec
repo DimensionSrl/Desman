@@ -13,16 +13,24 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.framework        = 'Photos'
-    core.source_files     = 'Desman/**/*.swift'
-    core.resources        = [ 'Desman/**/*.xcassets', 'Desman/Interface/*.storyboard' ]
-  end
+    core.source_files     = 'Desman/Core/**/*.swift'
 
-  s.subspec 'Realtime' do |realtime|
-    realtime.framework    = 'Photos'
-    realtime.source_files = 'Desman/**/*.swift'
-    realtime.resources    = [ 'Desman/**/*.xcassets', 'Desman/Interface/*.storyboard' ]
-    realtime.xcconfig	    = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
-    realtime.library      = 'z'
-    realtime.dependency     'SwiftWebSocket', '~> 2.3.0'
+    core.subspec 'Interface' do |interface|
+      interface.source_files     = 'Desman/Interface/**/*.swift'
+      interface.resources        = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
+    end
+
+    core.subspec 'Debatable' do |debatable|
+      debatable.source_files     = 'Desman/Debatable/**/*.swift'
+    end
+
+    core.subspec 'Remote' do |remote|
+      remote.source_files = 'Desman/Remote/**/*.swift'
+      remote.subspec 'Realtime' do |realtime|
+        realtime.xcconfig	    = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
+        realtime.library      = 'z'
+        realtime.dependency     'SwiftWebSocket'
+      end
+    end
   end
 end
