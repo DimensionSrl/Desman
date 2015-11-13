@@ -24,6 +24,13 @@ class UsersTableViewController: UITableViewController {
         self.users = Array(RemoteManager.sharedInstance.users)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+#if DESMAN_INCLUDES_REALTIME
+        RemoteManager.sharedInstance.stopFetchingEvents()
+#endif
+    }
+    
     @IBAction func dismissController(sender: UIBarButtonItem) {
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -100,9 +107,13 @@ class UsersTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
         let user = users[indexPath.row]
-        cell.textLabel?.text = user.uuid
+        cell.userTitleLabel.text = user.title
+        cell.userImageView.isUser()
+        if let imageUrl = user.imageUrl {
+            cell.userImageView.loadFromURL(imageUrl)
+        }
         return cell
     }
     

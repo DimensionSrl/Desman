@@ -47,6 +47,17 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func takeScreenshot(sender: UIButton) {
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale)
+        self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        if let compressedImage = UIImageJPEGRepresentation(image, 0.4) {
+            let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: compressedImage)
+            D.log(event)
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

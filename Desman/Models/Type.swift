@@ -53,6 +53,11 @@ import Foundation
                 let type = TypeClass.init()
                 type.subtype = subtypeString
                 return type
+            } else {
+                // Generic type if doesn't match with a known class
+                let type = Type()
+                type.subtype = subtypeString
+                return type
             }
         }
         return nil
@@ -63,8 +68,12 @@ import Foundation
             let type = TypeClass.init()
             type.subtype = subtype
             return type
+        } else {
+            // Generic type if doesn't match with a known class
+            let type = Type()
+            type.subtype = subtype
+            return type
         }
-        return nil
     }
 }
 
@@ -79,6 +88,7 @@ public class Application : Type {
     public static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
     public static let LogEnable = Application(subtype: "LogEnable")
     public static let LogDisable = Application(subtype: "LogDisable")
+    public static let Info = Application(subtype: "Info")
 
     override var imageName : String {
         get {
@@ -111,6 +121,7 @@ public class Controller : Type {
     public static let ViewWillAppear = Controller(subtype: "ViewWillAppear")
     public static let ViewDidAppear = Controller(subtype: "ViewDidAppear")
     public static let ViewWillDisappear = Controller(subtype: "ViewWillDisappear")
+    public static let Screenshot = Controller(subtype: "Screenshot")
     override var imageName : String {
         get { return "View Controller" }
         set { self.imageName = newValue }
@@ -171,7 +182,8 @@ public class Connection : Type {
 }
 
 public class Device : Type {
-    public static let Info = Device(subtype: "Info")
+    public static let Hardware = Device(subtype: "Hardware")
+    public static let User = Device(subtype: "User")
     
     override var imageName : String {
         get { return "Device" }

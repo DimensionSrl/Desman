@@ -10,16 +10,34 @@ import UIKit
 
 public class User: NSCoder {
     public let uuid : String
+    public var name : String?
+    public var imageUrl : NSURL?
     
-    public init(uuid: String) {
+    public init(uuid: String, name: String) {
         self.uuid = uuid
+        self.name = name
+    }
+    
+    public init(uuid: String, name: String, image: String) {
+        self.uuid = uuid
+        self.name = name
+        self.imageUrl = NSURL(string: image)
     }
     
     public init?(dictionary: [String : Coding]) {
         guard let uuid = dictionary["user"] as? String else {
-            self.uuid = ""
+            self.uuid = "Unknown"
+            self.name = "Unknown"
             super.init()
-            return nil
+            return
+        }
+
+        if let name = dictionary["name"] as? String {
+            self.name = name
+        }
+        
+        if let image = dictionary["image"] as? String {
+            self.imageUrl = NSURL(string: image)
         }
         
         self.uuid = uuid
@@ -38,6 +56,13 @@ public class User: NSCoder {
     }
     
     override public var description : String {
-        return "User: \(uuid)"
+        return "User: \(name) - \(uuid)"
+    }
+    
+    public var title : String {
+        if let name = name {
+            return name
+        }
+        return uuid
     }
 }

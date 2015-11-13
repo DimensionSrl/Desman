@@ -59,6 +59,11 @@ public class EventManager : NSObject {
             deserializeEvents()
         }
         scheduleProcessTimer()
+        
+        // We immediately upload app icon and its name
+        // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
+        self.forceLog(AppInfo())
+
         // TODO: support other databases
     }
     
@@ -108,6 +113,13 @@ public class EventManager : NSObject {
         }
     }
     
+    func forceLog(event: Event){
+        self.eventsQueue.insert(event)
+        if consoleLog {
+            print(event.description)
+        }
+    }
+    
     public func logType(type: Type){
         if shouldLog {
             let event = Event(type)
@@ -130,8 +142,11 @@ public class EventManager : NSObject {
     
     func processEvents() {
         guard eventsQueue.count > 0 else  {
+            // We only need to upload events already avaiable but not sent.
+            NetworkManager.sharedInstance.sendEvents(self.events)
             return
         }
+        
         let eventsUnion = self.events.union(eventsQueue)
         var sortedEvents = eventsUnion.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
         

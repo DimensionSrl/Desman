@@ -8,14 +8,14 @@
 
 import Foundation
 
-@objc public class Info : Event {
+@objc public class DeviceInfo : Event {
     public init () {
-        super.init(Device.Info)
+        super.init(Device.Hardware)
         payload = infoDictionary
     }
     
-    var infoDictionary : [String : AnyObject] {
-        var info = [String : AnyObject]()
+    var infoDictionary : [String : Coding] {
+        var info = [String : Coding]()
         
         var appData = [String : NSObject]()
         appData["bundleIdentifier"] = NSBundle.mainBundle().bundleIdentifier

@@ -18,12 +18,14 @@ let currentDeviceName = UIDevice.currentDevice().name
 
 public class Event: NSCoder {
     public let type : Type
-    public var payload : [String : AnyObject]?
+    public var payload : [String : Coding]?
     public var timestamp : NSDate
     public var sent : Bool = false
-    // TODO: decide how to manage images
-    // Biggest problem is the serialization
-    // var iconFile : NSURL?
+    var uploading : Bool = false
+    public var attachment : NSData?
+    public var attachmentUrl : NSURL?
+    
+    // TODO: support remote attachment url with caching
     
     var id : String?
     var uuid : NSUUID?
@@ -49,7 +51,7 @@ public class Event: NSCoder {
             self.timestamp = NSDate()
         }
         
-        if let payload = dictionary["payload"] as? [String : AnyObject] {
+        if let payload = dictionary["payload"] as? [String : Coding] {
             self.payload = payload
         }
         
@@ -59,6 +61,10 @@ public class Event: NSCoder {
         
         if let uuid = dictionary["uuid"] as? String {
             self.uuid = NSUUID(UUIDString: uuid)
+        }
+        
+        if let attachmentString = dictionary["attachment"] as? String {
+            self.attachmentUrl = NSURL(string: attachmentString)
         }
         
         self.type = type
@@ -79,6 +85,16 @@ public class Event: NSCoder {
         self.timestamp = NSDate()
         self.payload = payload
         self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(type: Type, payload: [String : Coding], attachment: NSData) {
+        self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.uuid = NSUUID()
+        self.attachment = attachment
         super.init()
         self.commonInit()
     }
@@ -112,6 +128,11 @@ public class Event: NSCoder {
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
+        if let attachmentString = decoder.decodeObjectForKey("attachment") as? String {
+            // TODO: support file url or remote url
+            self.attachmentUrl = NSURL(string: attachmentString)
+        }
+
         self.sent = decoder.decodeBoolForKey("sent")
         self.commonInit()
     }
@@ -122,6 +143,7 @@ public class Event: NSCoder {
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
+        coder.encodeObject(attachmentUrl, forKey: "attachment")
         coder.encodeBool(sent, forKey: "sent")
     }
     
@@ -163,7 +185,7 @@ public class Event: NSCoder {
     }
     
     public var userIdentifier : String {
-        return "\(currentUserIdentifier) - \(currentDeviceName)"
+        return "\(currentUserIdentifier)"
     }
     
     override public var description : String {
