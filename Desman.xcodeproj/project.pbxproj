@@ -29,6 +29,7 @@
 		9509B61C1BF6273300F3465A /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B61A1BF6273300F3465A /* UsersTableViewController.swift */; };
 		9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B61E1BF6275300F3465A /* Remote.storyboard */; };
 		9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
+		9509B6231BF62A8000F3465A /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */; };
 		954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
 		954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
@@ -127,6 +128,7 @@
 		9509B61A1BF6273300F3465A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				9509B60E1BF5FEB700F3465A /* ImageCache.swift */,
+				9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */,
 			);
 			name = Utilities;
 			path = Interface/Utilities;
@@ -691,6 +694,7 @@
 				954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */,
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
+				9509B6231BF62A8000F3465A /* UIImageView+Desman.swift in Sources */,
 				9509B61B1BF6273300F3465A /* AppsTableViewController.swift in Sources */,
 				954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
