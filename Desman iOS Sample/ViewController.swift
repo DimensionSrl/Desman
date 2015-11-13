@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
         D.log(Action.Button, payload: ["button": "show events"])
-        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
+        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventsController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }

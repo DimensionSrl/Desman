@@ -10,6 +10,11 @@ import UIKit
 
 private var desmanEventsContext = 0
 
+// Just a fake controller to be invoked and obtain the right Bundle containing Desman storyboards.
+public class EventsController {
+
+}
+
 class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var events = [Event]()
     

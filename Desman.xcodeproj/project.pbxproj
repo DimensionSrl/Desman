@@ -30,6 +30,7 @@
 		9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B61E1BF6275300F3465A /* Remote.storyboard */; };
 		9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
 		9509B6231BF62A8000F3465A /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */; };
+		9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520297A1BF630460067AB29 /* UIViewController+Desman.swift */; };
 		954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
 		954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
@@ -129,6 +130,7 @@
 		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
+		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,8 @@
 		9509B5E21BF5FA8900F3465A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				9520297C1BF634A70067AB29 /* Controllers */,
+				952029791BF630190067AB29 /* Utilities */,
 				9509B5F11BF5FBA400F3465A /* Templates */,
 				9509B5EC1BF5FB3E00F3465A /* Managers */,
 				954B61151BF3B4A6004FA6F2 /* Model */,
@@ -233,10 +237,10 @@
 		9509B5F81BF5FBD000F3465A /* Interface */ = {
 			isa = PBXGroup;
 			children = (
+				954B612A1BF3BA04004FA6F2 /* Controllers */,
 				9509B5FA1BF5FC1100F3465A /* Utilities */,
 				9509B5F91BF5FBF100F3465A /* Views */,
 				954B611D1BF3B52D004FA6F2 /* Assets */,
-				954B612A1BF3BA04004FA6F2 /* Controllers */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -317,6 +321,22 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
+		952029791BF630190067AB29 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9520297A1BF630460067AB29 /* UIViewController+Desman.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9520297C1BF634A70067AB29 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		954B61151BF3B4A6004FA6F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +364,6 @@
 			children = (
 				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
-				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
 				954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */,
 				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
 			);
@@ -680,6 +699,7 @@
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
 				9509B5FD1BF5FE1400F3465A /* UIViewController-Swizzle.swift in Sources */,
 				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
+				9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */,
 				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
 				9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */,
 				954B61371BF3BA2C004FA6F2 /* ImageViewController.swift in Sources */,
