@@ -10,6 +10,10 @@ import UIKit
 
 private var desmanAppsContext = 0
 
+public class RemoteController {
+
+}
+
 class AppsTableViewController: UITableViewController {
     var objectToObserve = RemoteManager.sharedInstance
     var apps = [App]()
