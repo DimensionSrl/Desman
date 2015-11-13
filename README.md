@@ -3,6 +3,8 @@
 An event tracking tool for mobile apps.
 *Currently in early development.*
 
+[![Cocoapods](https://img.shields.io/cocoapods/v/Desman.svg)](https://cocoapods.org/?q=desman) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![License MIT](https://img.shields.io/cocoapods/l/desman.svg)](https://raw.githubusercontent.com/DimensionSrl/Desman/master/LICENSE) [![Platforms](https://img.shields.io/cocoapods/p/desman.svg)](http://cocoadocs.org/docsets/Desman) 
+
 ## Desman iOS
 
 Desman implementation to collect, send, serialize and show events on a iOS app.
