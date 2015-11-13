@@ -18,22 +18,22 @@
 		9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */; };
 		9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F41BF5FBB900F3465A /* UserInfo.swift */; };
 		9509B5FD1BF5FE1400F3465A /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */; };
-		9509B6011BF5FE4F00F3465A /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6001BF5FE4F00F3465A /* RemoteManager.swift */; };
 		9509B6051BF5FE7700F3465A /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */; };
 		9509B6061BF5FE7700F3465A /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */; };
 		9509B6071BF5FE7700F3465A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */; };
 		9509B60B1BF5FE8B00F3465A /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6081BF5FE8B00F3465A /* Desman.storyboard */; };
 		9509B60C1BF5FE8B00F3465A /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6091BF5FE8B00F3465A /* Event.storyboard */; };
-		9509B60D1BF5FE8B00F3465A /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B60A1BF5FE8B00F3465A /* Remote.storyboard */; };
 		9509B60F1BF5FEB700F3465A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B60E1BF5FEB700F3465A /* ImageCache.swift */; };
 		9509B6111BF5FEEC00F3465A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6101BF5FEEC00F3465A /* Media.xcassets */; };
-		954B61321BF3BA2C004FA6F2 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */; };
+		9509B61B1BF6273300F3465A /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6191BF6273300F3465A /* AppsTableViewController.swift */; };
+		9509B61C1BF6273300F3465A /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B61A1BF6273300F3465A /* UsersTableViewController.swift */; };
+		9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B61E1BF6275300F3465A /* Remote.storyboard */; };
+		9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
 		954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
 		954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
 		954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */; };
 		954B61371BF3BA2C004FA6F2 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */; };
-		954B61381BF3BA2C004FA6F2 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */; };
 		954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
 		95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95661BD11BE6A21300046E4D /* libz.tbd */; };
@@ -115,25 +115,25 @@
 		9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9509B5F41BF5FBB900F3465A /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
-		9509B6001BF5FE4F00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
 		9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		9509B6081BF5FE8B00F3465A /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
 		9509B6091BF5FE8B00F3465A /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
-		9509B60A1BF5FE8B00F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
 		9509B60E1BF5FEB700F3465A /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		9509B6101BF5FEEC00F3465A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		9509B6131BF6014300F3465A /* Desman.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Desman.podspec; sourceTree = SOURCE_ROOT; };
+		9509B6191BF6273300F3465A /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
+		9509B61A1BF6273300F3465A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
+		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
-		954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 		954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -270,18 +270,22 @@
 		9509B5FE1BF5FE3200F3465A /* Remote */ = {
 			isa = PBXGroup;
 			children = (
+				9509B61D1BF6273500F3465A /* Assets */,
+				9509B6141BF626E000F3465A /* Controllers */,
 				9509B6121BF6011E00F3465A /* Support */,
 				9509B5FF1BF5FE4000F3465A /* Managers */,
 			);
-			path = Remote;
+			name = Remote;
+			path = Remote/Assets;
 			sourceTree = "<group>";
 		};
 		9509B5FF1BF5FE4000F3465A /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				9509B6001BF5FE4F00F3465A /* RemoteManager.swift */,
+				9509B6201BF627CD00F3465A /* RemoteManager.swift */,
 			);
-			path = Managers;
+			name = Managers;
+			path = ../Managers;
 			sourceTree = "<group>";
 		};
 		9509B6121BF6011E00F3465A /* Support */ = {
@@ -290,6 +294,24 @@
 				95661BD11BE6A21300046E4D /* libz.tbd */,
 			);
 			name = Support;
+			sourceTree = "<group>";
+		};
+		9509B6141BF626E000F3465A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9509B6191BF6273300F3465A /* AppsTableViewController.swift */,
+				9509B61A1BF6273300F3465A /* UsersTableViewController.swift */,
+			);
+			name = Controllers;
+			path = ../Controllers;
+			sourceTree = "<group>";
+		};
+		9509B61D1BF6273500F3465A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9509B61E1BF6275300F3465A /* Remote.storyboard */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		954B61151BF3B4A6004FA6F2 /* Model */ = {
@@ -309,7 +331,6 @@
 				9509B6101BF5FEEC00F3465A /* Media.xcassets */,
 				9509B6081BF5FE8B00F3465A /* Desman.storyboard */,
 				9509B6091BF5FE8B00F3465A /* Event.storyboard */,
-				9509B60A1BF5FE8B00F3465A /* Remote.storyboard */,
 			);
 			name = Assets;
 			path = Interface/Assets;
@@ -318,15 +339,14 @@
 		954B612A1BF3BA04004FA6F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */,
 				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
 				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
 				954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */,
 				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
-				954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */,
 			);
-			path = Controllers;
+			name = Controllers;
+			path = Interface/Controllers;
 			sourceTree = "<group>";
 		};
 		954B61491BF3BAA9004FA6F2 /* Support */ = {
@@ -606,7 +626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9509B60D1BF5FE8B00F3465A /* Remote.storyboard in Resources */,
+				9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */,
 				9509B60B1BF5FE8B00F3465A /* Desman.storyboard in Resources */,
 				9509B6111BF5FEEC00F3465A /* Media.xcassets in Resources */,
 				9509B60C1BF5FE8B00F3465A /* Event.storyboard in Resources */,
@@ -653,25 +673,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9509B6011BF5FE4F00F3465A /* RemoteManager.swift in Sources */,
 				9509B6071BF5FE7700F3465A /* UserTableViewCell.swift in Sources */,
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
-				954B61321BF3BA2C004FA6F2 /* AppsTableViewController.swift in Sources */,
 				9509B5FD1BF5FE1400F3465A /* UIViewController-Swizzle.swift in Sources */,
 				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
-				954B61381BF3BA2C004FA6F2 /* UsersTableViewController.swift in Sources */,
 				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
 				9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */,
 				954B61371BF3BA2C004FA6F2 /* ImageViewController.swift in Sources */,
 				9509B5E81BF5FB2D00F3465A /* App.swift in Sources */,
 				954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */,
 				9509B6061BF5FE7700F3465A /* EventTableViewCell.swift in Sources */,
+				9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */,
 				954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */,
 				9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */,
 				9509B60F1BF5FEB700F3465A /* ImageCache.swift in Sources */,
+				9509B61C1BF6273300F3465A /* UsersTableViewController.swift in Sources */,
 				954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */,
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
+				9509B61B1BF6273300F3465A /* AppsTableViewController.swift in Sources */,
 				954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,

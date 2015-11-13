@@ -17,23 +17,24 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Interface' do |interface|
-    interface.dependency 'Core'
+    interface.dependency 'Desman/Core'
     interface.source_files  = 'Desman/Interface/**/*.swift'
     interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
   end
 
   s.subspec 'Debatable' do |debatable|
-    debatable.dependency 'Core'
+    debatable.dependency 'Desman/Core'
     debatable.source_files = 'Desman/Debatable/**/*.swift'
   end
 
   s.subspec 'Remote' do |remote|
-    remote.dependency 'Interface'
+    remote.dependency 'Desman/Interface'
     remote.source_files = 'Desman/Remote/**/*.swift'
+    remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]
   end
 
   s.subspec 'Realtime' do |realtime|
-    realtime.dependency 'Remote'
+    realtime.dependency 'Desman/Remote'
     realtime.xcconfig = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
     realtime.dependency "SwiftWebSocket", "~> 2.3.0"
   end
