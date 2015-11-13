@@ -28,7 +28,7 @@ class ImageCache: NSObject, NSURLSessionTaskDelegate {
 	
 	var session:NSURLSession!
 	var URLCache = NSURLCache(memoryCapacity: 20 * 1024 * 1024, diskCapacity: 100 * 1024 * 1024, diskPath: "ImageDownloadCache")
-	var downloadQueue = Dictionary<NSURL, (UIImage?, NSError?)->()?>()
+	var downloadQueue = Dictionary<NSURL, (UIImage?, NSError?)->()>()
 	
 	override init() {
 		super.init()

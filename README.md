@@ -1,28 +1,111 @@
+![](https://raw.github.com/DimensionSrl/Desman/Assets/Icon-Bordered.svg)
+
 # Desman
 
 An event tracking tool for mobile apps.
+
+[![Cocoapods](https://img.shields.io/cocoapods/v/Desman.svg)](https://cocoapods.org/?q=desman) [![License MIT](https://img.shields.io/cocoapods/l/desman.svg)](https://raw.githubusercontent.com/DimensionSrl/Desman/master/LICENSE) [![Platforms](https://img.shields.io/cocoapods/p/desman.svg)](http://cocoadocs.org/docsets/Desman) [![Version](https://img.shields.io/cocoapods/v/desman.svg)](http://cocoadocs.org/docsets/Desman) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+
 *Currently in early development.*
 
-## Desman iOS
+![Events](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Events.png) ![Events](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Event.png)
 
-Desman implementation to collect, send, serialize and show events on a iOS app.
+## Features
 
-### Integration
+- [x] Remote logging in realtime.
+- [x] Events serialization.
+- [x] Custom events and types.
+- [x] Event templates with types.
+- [x] Automatic screenshot detection and upload.
+- [x] Automatically upload app icon.
+- [x] Customizable payload can be set on each event.
+- [x] Event attachments as `NSData`.
+- [x] On device events list interface.
+- [x] Optional convenience features at your own risk (swizzling).
+- [x] Curated images associated to events.
+- [ ] Opportunistic events upload.
+- [ ] Authentication.
+- [ ] Detect network status (Reachability).
+- [ ] User image upload.
 
-We don't support CocoaPods or Carthage yet. Please choose the old way and add the *Desman* Xcode project to your own. Then add the `Desman` framework to the embedded binaries of your app's target. This method works on iOS 8 and later.
+## Requirements
 
-Remember to whitelist your endpoint on iOS 9 to fulfill *App Transport Security* requirements to match the required security level. Otherwise the server logging won't work and you'll get many errors on the console.
+- iOS 8.0+
+- Xcode 7.0+
 
-### Sample Code
+## Installation
+
+### CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+> CocoaPods 0.39.0+ is required to build Desman.
+
+To integrate Desman into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+use_frameworks!
+
+pod 'Desman', '~> 0.2.0'
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+#### Subspecs
+
+Desman is packaged with many subspecs to limit the number of classes and assets that needs to be included in your shipping app.
+
+The **Core** default subspec is included by default and contains only the basic classes (and no assets) to log, serialize and upload events.
+The **Debatable** subspec includes classes that can change the behavior of your application like method swizzling. Please take a look at the source code and decide if it fits your needs or not.
+The **Interface** subspec let you present to the user a list of `Event`s logged on the current device.
+The **Remote** subspec includes the ability to select another application or another user and receive the previously logged `Event`s.
+The **Realtime** subspec let you also receive remotely logged `Event`s in realtime through a websocket.
+
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Desman into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "DimensionSrl/Desman" ~> 0.2.0
+```
+
+Run `carthage` to build the framework and drag the built `Desman.framework` into your Xcode project.
+
+> If you choose this method you won't have the flexibility offered by CocoaPods to integrate only the part of code of your interest: everything will be included.
+
+### Manually
+
+Add the *Desman* Xcode project to your own. Then add the `Desman` framework to the embedded binaries of your app's target.
+
+## Sample Code
 
 In this repository you can find a sample code project with few lines of code in the `AppDelegate`'s `application:didFinishLaunchingWithOptions:` to setup `EventManager`.
 You can choose to send the events to an endpoint, serialize them into `NSUserDefaults` or just keep them in memory.
 
-### Usage
+## Usage
 
-#### Integration
+### Integration
 
-*Sample code is written in Swift but Objective-C should be supported too, if you find an incompability please open an issue.*
+*Sample code is written in Swift but Objective-C should be supported too, if you find an incompatibility please open an issue.*
 
 Import Desman framework into your Swift classes
 
@@ -63,7 +146,7 @@ To stop the collection use `stopLogging:`.
 
 To delete every previously serialized `Event` you can use the `EventManager`'s `purgeLogs:` method.
 
-#### Logging
+### Logging
 
 Create an `Event`:
 
@@ -75,6 +158,12 @@ Log the `Event` with the `EventManager`:
 
 ```swift
 EventManager.sharedInstance.log(event)
+```
+
+or using the `EventManager.sharedInstance` shorter `D` alias
+
+```swift
+D.log(event)
 ```
 
 There is also a convenience method to speed up event logging without the need to create an `Event` first:
@@ -115,17 +204,40 @@ override var image : UIImage? {
 }
 ```
 
-### Events View Controller
+### Interface
 
-There's also a convenience `EventsTableViewController` that can be instantiated and presented modally from your application to identify and inspect the `Event`s.
+There's also some classes to represent the events logged on the local device, mostly useful during development, that can be summoned and presented modally from your application to identify and inspect the `Event`s.
 
 ```swift
-let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
+let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventsController.self))
 let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
 self.presentViewController(desmanController, animated: true, completion: nil)
 ```
 
+### Remote Logging
+
+Desman includes the ability to observe the events occurring in realtime on a remote device. To summon the remote logging interface to be integrated in your application, you need to include the `Remote` (or `Realtime`) CocoaPods subspecs, or use Carthage, or use the manual process and:
+
+```swift
+let desmanBundle = NSBundle(forClass: RemoteController.self)
+let desmanStoryboard = UIStoryboard(name: "Remote", bundle: desmanBundle)
+let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
+self.presentViewController(desmanController, animated: true, completion: nil)
+
+```
+
+### Dependancies
+
+Desman has no dependancies at the moment, except if you choose the `Realtime` CocoaPods subspec (or the Carthage integration), that requires the [SwiftWebSocket](https://github.com/tidwall/SwiftWebSocket) to open a websocket channel to receive events from the server.
+
+We've also included directly as class a modified copy of [SimpleImageCache](https://github.com/m2d2/SimpleImageCache) originally written by [m2d2](https://github.com/m2d2) and released under the MIT License.
+
 ## Acknowledgements
 
-Matteo Gavagnin [@macteo](http://twitter.com/macteo) - [DIMENSION](http://www.dimension.it)
-Matteo Vidotto - [DIMENSION](http://www.dimension.it)
+Matteo Gavagnin [@macteo](http://twitter.com/macteo) – [DIMENSION](http://www.dimension.it) – Design, implementation and documentation.
+Daniele Dalledonne - [DIMENSION](http://www.dimension.it) – Initial idea.
+Matteo Vidotto - [DIMENSION](http://www.dimension.it) – First integrations and manual testing.
+
+## License
+
+Desman is released under the MIT license. See LICENSE for details.

@@ -10,6 +10,11 @@ import UIKit
 
 private var desmanEventsContext = 0
 
+// Just a fake controller to be invoked and obtain the right Bundle containing Desman storyboards.
+public class EventsController {
+
+}
+
 class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var events = [Event]()
     
@@ -18,10 +23,12 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.splitViewController?.preferredDisplayMode = .AllVisible
-    
+            
         if remote {
+#if DESMAN_INCLUDES_REALTIME
             RemoteManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
             self.events = RemoteManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+#endif
         } else {
             EventManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
             EventManager.sharedInstance.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
@@ -165,7 +172,9 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
 
     deinit {
         if remote {
+#if DESMAN_INCLUDES_REALTIME
             RemoteManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
+#endif
         } else {
             EventManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
             EventManager.sharedInstance.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
@@ -184,7 +193,6 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     
     @IBAction func infoButtonPressed(sender: UIBarButtonItem) {
         let alertController = UIAlertController(title: NSLocalizedString("Desman \(DesmanVersionNumber)", comment: ""), message: "\n\(currentUserIdentifier)\n\(currentDeviceName)", preferredStyle: .ActionSheet)
-        alertController.log = false
         alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: { (action) -> Void in
             alertController.dismissViewControllerAnimated(true, completion: nil)
         }))

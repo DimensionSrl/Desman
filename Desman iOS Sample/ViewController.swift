@@ -26,14 +26,14 @@ class ViewController: UIViewController {
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
         D.log(Action.Button, payload: ["button": "show events"])
-        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventManager.self))
+        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventsController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     
     @IBAction func showRemote(sender: UIButton) {
         D.log(Action.Button, payload: ["button": "show remote"])
-        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: EventManager.self))
+        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: RemoteController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }

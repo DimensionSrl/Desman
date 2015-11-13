@@ -8,32 +8,35 @@
 
 /* Begin PBXBuildFile section */
 		950871A31BE0C006000C54AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950871A21BE0C006000C54AE /* ViewController.swift */; };
-		95271F341BE27D0200187A1C /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95271F331BE27D0200187A1C /* DeviceInfo.swift */; };
-		952D19F51BDE88EA00988338 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 952D19F41BDE88EA00988338 /* Media.xcassets */; };
-		952D19F71BDE910400988338 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F61BDE910400988338 /* Type.swift */; };
-		953B3BAE1BE8CFF400C9F853 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953B3BAD1BE8CFF400C9F853 /* AppInfo.swift */; };
-		954B61191BF3B4F3004FA6F2 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61161BF3B4F3004FA6F2 /* App.swift */; };
-		954B611A1BF3B4F3004FA6F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61171BF3B4F3004FA6F2 /* Event.swift */; };
-		954B611B1BF3B4F3004FA6F2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61181BF3B4F3004FA6F2 /* User.swift */; };
-		954B61211BF3B9E4004FA6F2 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B611E1BF3B9E4004FA6F2 /* Desman.storyboard */; };
-		954B61221BF3B9E4004FA6F2 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B611F1BF3B9E4004FA6F2 /* Event.storyboard */; };
-		954B61231BF3B9E4004FA6F2 /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 954B61201BF3B9E4004FA6F2 /* Remote.storyboard */; };
-		954B61271BF3B9FF004FA6F2 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61241BF3B9FF004FA6F2 /* AppTableViewCell.swift */; };
-		954B61281BF3B9FF004FA6F2 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61251BF3B9FF004FA6F2 /* EventTableViewCell.swift */; };
-		954B61291BF3B9FF004FA6F2 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61261BF3B9FF004FA6F2 /* UserTableViewCell.swift */; };
-		954B61321BF3BA2C004FA6F2 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */; };
+		9509B5E81BF5FB2D00F3465A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E41BF5FB2D00F3465A /* App.swift */; };
+		9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E51BF5FB2D00F3465A /* Event.swift */; };
+		9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E61BF5FB2D00F3465A /* Type.swift */; };
+		9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E71BF5FB2D00F3465A /* User.swift */; };
+		9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5ED1BF5FB7300F3465A /* EventManager.swift */; };
+		9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5EE1BF5FB7300F3465A /* UploadManager.swift */; };
+		9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F21BF5FBB900F3465A /* AppInfo.swift */; };
+		9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */; };
+		9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F41BF5FBB900F3465A /* UserInfo.swift */; };
+		9509B5FD1BF5FE1400F3465A /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */; };
+		9509B6051BF5FE7700F3465A /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */; };
+		9509B6061BF5FE7700F3465A /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */; };
+		9509B6071BF5FE7700F3465A /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */; };
+		9509B60B1BF5FE8B00F3465A /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6081BF5FE8B00F3465A /* Desman.storyboard */; };
+		9509B60C1BF5FE8B00F3465A /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6091BF5FE8B00F3465A /* Event.storyboard */; };
+		9509B60F1BF5FEB700F3465A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B60E1BF5FEB700F3465A /* ImageCache.swift */; };
+		9509B6111BF5FEEC00F3465A /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6101BF5FEEC00F3465A /* Media.xcassets */; };
+		9509B61B1BF6273300F3465A /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6191BF6273300F3465A /* AppsTableViewController.swift */; };
+		9509B61C1BF6273300F3465A /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B61A1BF6273300F3465A /* UsersTableViewController.swift */; };
+		9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B61E1BF6275300F3465A /* Remote.storyboard */; };
+		9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
+		9509B6231BF62A8000F3465A /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */; };
+		9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520297A1BF630460067AB29 /* UIViewController+Desman.swift */; };
 		954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
 		954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
 		954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */; };
 		954B61371BF3BA2C004FA6F2 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */; };
-		954B61381BF3BA2C004FA6F2 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */; };
-		954B613D1BF3BA65004FA6F2 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B613A1BF3BA65004FA6F2 /* EventManager.swift */; };
-		954B613E1BF3BA65004FA6F2 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B613B1BF3BA65004FA6F2 /* NetworkManager.swift */; };
-		954B613F1BF3BA65004FA6F2 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B613C1BF3BA65004FA6F2 /* RemoteManager.swift */; };
-		954B61451BF3BA9D004FA6F2 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61411BF3BA9D004FA6F2 /* ImageCache.swift */; };
-		954B61461BF3BA9D004FA6F2 /* NotificationCenterListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */; };
-		954B61471BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */; };
+		954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */; };
 		955A58A01BDFD3D70046A781 /* SampleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952D19F81BDE9A8300988338 /* SampleType.swift */; };
 		95661BD31BE6A22600046E4D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 95661BD11BE6A21300046E4D /* libz.tbd */; };
 		956AF1B91BD4F09200464E9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1B81BD4F09200464E9E /* AppDelegate.swift */; };
@@ -47,7 +50,6 @@
 		956AF1FC1BD4F0AF00464E9E /* DesmanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956AF1FB1BD4F0AF00464E9E /* DesmanTests.swift */; };
 		956AF2001BD4F0AF00464E9E /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
 		956AF2011BD4F0AF00464E9E /* Desman.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		95A427811BE918A700698427 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A427801BE918A700698427 /* UserInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,34 +107,37 @@
 /* Begin PBXFileReference section */
 		9508719E1BE0BF45000C54AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		950871A21BE0C006000C54AE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		95271F2F1BE26D8800187A1C /* Features.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Features.md; sourceTree = "<group>"; };
-		95271F331BE27D0200187A1C /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		952D19F41BDE88EA00988338 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		952D19F61BDE910400988338 /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		9509B5E41BF5FB2D00F3465A /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9509B5E51BF5FB2D00F3465A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		9509B5E61BF5FB2D00F3465A /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		9509B5E71BF5FB2D00F3465A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9509B5ED1BF5FB7300F3465A /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		9509B5EE1BF5FB7300F3465A /* UploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
+		9509B5F21BF5FBB900F3465A /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		9509B5F41BF5FBB900F3465A /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
+		9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		9509B6081BF5FE8B00F3465A /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
+		9509B6091BF5FE8B00F3465A /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		9509B60E1BF5FEB700F3465A /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		9509B6101BF5FEEC00F3465A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		9509B6131BF6014300F3465A /* Desman.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Desman.podspec; sourceTree = SOURCE_ROOT; };
+		9509B6191BF6273300F3465A /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
+		9509B61A1BF6273300F3465A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
+		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
+		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
 		952D19F81BDE9A8300988338 /* SampleType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleType.swift; sourceTree = "<group>"; };
-		953B3BAD1BE8CFF400C9F853 /* AppInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
-		954B61161BF3B4F3004FA6F2 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
-		954B61171BF3B4F3004FA6F2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		954B61181BF3B4F3004FA6F2 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		954B611E1BF3B9E4004FA6F2 /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
-		954B611F1BF3B9E4004FA6F2 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
-		954B61201BF3B9E4004FA6F2 /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
-		954B61241BF3B9FF004FA6F2 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
-		954B61251BF3B9FF004FA6F2 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		954B61261BF3B9FF004FA6F2 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 		954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
-		954B613A1BF3BA65004FA6F2 /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		954B613B1BF3BA65004FA6F2 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		954B613C1BF3BA65004FA6F2 /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
-		954B61411BF3BA9D004FA6F2 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterListener.swift; sourceTree = "<group>"; };
-		954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
+		954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		95661BD11BE6A21300046E4D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		956AF1B51BD4F09200464E9E /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1B81BD4F09200464E9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -152,7 +157,6 @@
 		956AF1F41BD4F0AF00464E9E /* DesmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DesmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1FB1BD4F0AF00464E9E /* DesmanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesmanTests.swift; sourceTree = "<group>"; };
 		956AF1FD1BD4F0AF00464E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95A427801BE918A700698427 /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,81 +201,181 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		954B61141BF3B460004FA6F2 /* Templates */ = {
+		9509B5E21BF5FA8900F3465A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				95271F331BE27D0200187A1C /* DeviceInfo.swift */,
-				953B3BAD1BE8CFF400C9F853 /* AppInfo.swift */,
-				95A427801BE918A700698427 /* UserInfo.swift */,
+				9520297C1BF634A70067AB29 /* Controllers */,
+				952029791BF630190067AB29 /* Utilities */,
+				9509B5F11BF5FBA400F3465A /* Templates */,
+				9509B5EC1BF5FB3E00F3465A /* Managers */,
+				954B61151BF3B4A6004FA6F2 /* Model */,
 			);
-			path = Templates;
+			path = Core;
 			sourceTree = "<group>";
 		};
-		954B61151BF3B4A6004FA6F2 /* Models */ = {
+		9509B5EC1BF5FB3E00F3465A /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				952D19F61BDE910400988338 /* Type.swift */,
-				954B61161BF3B4F3004FA6F2 /* App.swift */,
-				954B61171BF3B4F3004FA6F2 /* Event.swift */,
-				954B61181BF3B4F3004FA6F2 /* User.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		954B611C1BF3B4F9004FA6F2 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				954B613A1BF3BA65004FA6F2 /* EventManager.swift */,
-				954B613B1BF3BA65004FA6F2 /* NetworkManager.swift */,
-				954B613C1BF3BA65004FA6F2 /* RemoteManager.swift */,
+				9509B5ED1BF5FB7300F3465A /* EventManager.swift */,
+				9509B5EE1BF5FB7300F3465A /* UploadManager.swift */,
+				954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
 		};
-		954B611D1BF3B52D004FA6F2 /* Interface */ = {
+		9509B5F11BF5FBA400F3465A /* Templates */ = {
 			isa = PBXGroup;
 			children = (
-				954B611E1BF3B9E4004FA6F2 /* Desman.storyboard */,
-				954B611F1BF3B9E4004FA6F2 /* Event.storyboard */,
-				954B61201BF3B9E4004FA6F2 /* Remote.storyboard */,
-				954B61241BF3B9FF004FA6F2 /* AppTableViewCell.swift */,
-				954B61251BF3B9FF004FA6F2 /* EventTableViewCell.swift */,
-				954B61261BF3B9FF004FA6F2 /* UserTableViewCell.swift */,
+				9509B5F21BF5FBB900F3465A /* AppInfo.swift */,
+				9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */,
+				9509B5F41BF5FBB900F3465A /* UserInfo.swift */,
 			);
-			path = Interface;
+			path = Templates;
+			sourceTree = "<group>";
+		};
+		9509B5F81BF5FBD000F3465A /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				954B612A1BF3BA04004FA6F2 /* Controllers */,
+				9509B5FA1BF5FC1100F3465A /* Utilities */,
+				9509B5F91BF5FBF100F3465A /* Views */,
+				954B611D1BF3B52D004FA6F2 /* Assets */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		9509B5F91BF5FBF100F3465A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */,
+				9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */,
+				9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */,
+			);
+			name = Views;
+			path = Interface/Views;
+			sourceTree = "<group>";
+		};
+		9509B5FA1BF5FC1100F3465A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9509B60E1BF5FEB700F3465A /* ImageCache.swift */,
+				9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */,
+			);
+			name = Utilities;
+			path = Interface/Utilities;
+			sourceTree = "<group>";
+		};
+		9509B5FB1BF5FD2100F3465A /* Debatable */ = {
+			isa = PBXGroup;
+			children = (
+				9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */,
+			);
+			path = Debatable;
+			sourceTree = "<group>";
+		};
+		9509B5FE1BF5FE3200F3465A /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				9509B61D1BF6273500F3465A /* Assets */,
+				9509B6141BF626E000F3465A /* Controllers */,
+				9509B6121BF6011E00F3465A /* Support */,
+				9509B5FF1BF5FE4000F3465A /* Managers */,
+			);
+			name = Remote;
+			path = Remote/Assets;
+			sourceTree = "<group>";
+		};
+		9509B5FF1BF5FE4000F3465A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9509B6201BF627CD00F3465A /* RemoteManager.swift */,
+			);
+			name = Managers;
+			path = ../Managers;
+			sourceTree = "<group>";
+		};
+		9509B6121BF6011E00F3465A /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				95661BD11BE6A21300046E4D /* libz.tbd */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		9509B6141BF626E000F3465A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9509B6191BF6273300F3465A /* AppsTableViewController.swift */,
+				9509B61A1BF6273300F3465A /* UsersTableViewController.swift */,
+			);
+			name = Controllers;
+			path = ../Controllers;
+			sourceTree = "<group>";
+		};
+		9509B61D1BF6273500F3465A /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9509B61E1BF6275300F3465A /* Remote.storyboard */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		952029791BF630190067AB29 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				9520297A1BF630460067AB29 /* UIViewController+Desman.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		9520297C1BF634A70067AB29 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		954B61151BF3B4A6004FA6F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9509B5E41BF5FB2D00F3465A /* App.swift */,
+				9509B5E51BF5FB2D00F3465A /* Event.swift */,
+				9509B5E61BF5FB2D00F3465A /* Type.swift */,
+				9509B5E71BF5FB2D00F3465A /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		954B611D1BF3B52D004FA6F2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9509B6101BF5FEEC00F3465A /* Media.xcassets */,
+				9509B6081BF5FE8B00F3465A /* Desman.storyboard */,
+				9509B6091BF5FE8B00F3465A /* Event.storyboard */,
+			);
+			name = Assets;
+			path = Interface/Assets;
 			sourceTree = "<group>";
 		};
 		954B612A1BF3BA04004FA6F2 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				954B612B1BF3BA2C004FA6F2 /* AppsTableViewController.swift */,
-				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
-				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
+				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
 				954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */,
 				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
-				954B61311BF3BA2C004FA6F2 /* UsersTableViewController.swift */,
 			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		954B61401BF3BA72004FA6F2 /* Others */ = {
-			isa = PBXGroup;
-			children = (
-				954B61421BF3BA9D004FA6F2 /* NotificationCenterListener.swift */,
-				954B61431BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift */,
-				954B61411BF3BA9D004FA6F2 /* ImageCache.swift */,
-			);
-			path = Others;
+			name = Controllers;
+			path = Interface/Controllers;
 			sourceTree = "<group>";
 		};
 		954B61491BF3BAA9004FA6F2 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				95661BD11BE6A21300046E4D /* libz.tbd */,
+				9509B6131BF6014300F3465A /* Desman.podspec */,
 				956AF1ED1BD4F0AF00464E9E /* Desman.h */,
 				956AF1EF1BD4F0AF00464E9E /* Info.plist */,
-				952D19F41BDE88EA00988338 /* Media.xcassets */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -280,7 +384,6 @@
 			isa = PBXGroup;
 			children = (
 				9508719E1BE0BF45000C54AE /* README.md */,
-				95271F2F1BE26D8800187A1C /* Features.md */,
 				956AF1B71BD4F09200464E9E /* Desman iOS Sample */,
 				956AF1EC1BD4F0AF00464E9E /* Desman */,
 				956AF1FA1BD4F0AF00464E9E /* DesmanTests */,
@@ -337,12 +440,10 @@
 		956AF1EC1BD4F0AF00464E9E /* Desman */ = {
 			isa = PBXGroup;
 			children = (
-				954B612A1BF3BA04004FA6F2 /* Controllers */,
-				954B611D1BF3B52D004FA6F2 /* Interface */,
-				954B611C1BF3B4F9004FA6F2 /* Managers */,
-				954B61151BF3B4A6004FA6F2 /* Models */,
-				954B61141BF3B460004FA6F2 /* Templates */,
-				954B61401BF3BA72004FA6F2 /* Others */,
+				9509B5E21BF5FA8900F3465A /* Core */,
+				9509B5F81BF5FBD000F3465A /* Interface */,
+				9509B5FE1BF5FE3200F3465A /* Remote */,
+				9509B5FB1BF5FD2100F3465A /* Debatable */,
 				954B61491BF3BAA9004FA6F2 /* Support */,
 			);
 			path = Desman;
@@ -545,10 +646,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954B61231BF3B9E4004FA6F2 /* Remote.storyboard in Resources */,
-				954B61211BF3B9E4004FA6F2 /* Desman.storyboard in Resources */,
-				952D19F51BDE88EA00988338 /* Media.xcassets in Resources */,
-				954B61221BF3B9E4004FA6F2 /* Event.storyboard in Resources */,
+				9509B61F1BF6275300F3465A /* Remote.storyboard in Resources */,
+				9509B60B1BF5FE8B00F3465A /* Desman.storyboard in Resources */,
+				9509B6111BF5FEEC00F3465A /* Media.xcassets in Resources */,
+				9509B60C1BF5FE8B00F3465A /* Event.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -592,29 +693,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				954B61461BF3BA9D004FA6F2 /* NotificationCenterListener.swift in Sources */,
-				954B613E1BF3BA65004FA6F2 /* NetworkManager.swift in Sources */,
-				954B61281BF3B9FF004FA6F2 /* EventTableViewCell.swift in Sources */,
-				954B61321BF3BA2C004FA6F2 /* AppsTableViewController.swift in Sources */,
-				954B613D1BF3BA65004FA6F2 /* EventManager.swift in Sources */,
-				954B61381BF3BA2C004FA6F2 /* UsersTableViewController.swift in Sources */,
-				953B3BAE1BE8CFF400C9F853 /* AppInfo.swift in Sources */,
-				952D19F71BDE910400988338 /* Type.swift in Sources */,
-				95A427811BE918A700698427 /* UserInfo.swift in Sources */,
-				954B61291BF3B9FF004FA6F2 /* UserTableViewCell.swift in Sources */,
+				9509B6071BF5FE7700F3465A /* UserTableViewCell.swift in Sources */,
+				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
+				9509B5FD1BF5FE1400F3465A /* UIViewController-Swizzle.swift in Sources */,
+				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
+				9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */,
+				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
+				9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */,
 				954B61371BF3BA2C004FA6F2 /* ImageViewController.swift in Sources */,
-				954B611A1BF3B4F3004FA6F2 /* Event.swift in Sources */,
-				95271F341BE27D0200187A1C /* DeviceInfo.swift in Sources */,
-				954B61451BF3BA9D004FA6F2 /* ImageCache.swift in Sources */,
-				954B61471BF3BA9D004FA6F2 /* UIViewController-Swizzle.swift in Sources */,
-				954B61271BF3B9FF004FA6F2 /* AppTableViewCell.swift in Sources */,
-				954B61191BF3B4F3004FA6F2 /* App.swift in Sources */,
+				9509B5E81BF5FB2D00F3465A /* App.swift in Sources */,
 				954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */,
+				9509B6061BF5FE7700F3465A /* EventTableViewCell.swift in Sources */,
+				9509B6211BF627CD00F3465A /* RemoteManager.swift in Sources */,
 				954B61331BF3BA2C004FA6F2 /* EventDetailTableViewController.swift in Sources */,
-				954B611B1BF3B4F3004FA6F2 /* User.swift in Sources */,
+				9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */,
+				9509B60F1BF5FEB700F3465A /* ImageCache.swift in Sources */,
+				9509B61C1BF6273300F3465A /* UsersTableViewController.swift in Sources */,
 				954B61341BF3BA2C004FA6F2 /* EventsTableViewController.swift in Sources */,
-				954B613F1BF3BA65004FA6F2 /* RemoteManager.swift in Sources */,
+				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
+				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
+				9509B6231BF62A8000F3465A /* UIImageView+Desman.swift in Sources */,
+				9509B61B1BF6273300F3465A /* AppsTableViewController.swift in Sources */,
 				954B61361BF3BA2C004FA6F2 /* GlobalSplitViewController.swift in Sources */,
+				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
+				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,
+				9509B6051BF5FE7700F3465A /* AppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

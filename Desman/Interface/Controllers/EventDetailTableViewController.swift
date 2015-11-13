@@ -81,13 +81,13 @@ class EventDetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 4 {
+        if indexPath.row == 5 {
             if payloadTextView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
                 return 44
             }
             let size = payloadTextView.sizeThatFits(CGSize(width: self.view.frame.size.width - payloadLeadingConstraint.constant - payloadTrailingConstraint.constant, height: CGFloat.max))
             return size.height + 1
-        } else if indexPath.row == 5 {
+        } else if indexPath.row == 4 {
             if (event?.attachmentUrl != nil) || (event?.attachment != nil) {
                 return tableView.frame.size.width / 3.0
             } else {
