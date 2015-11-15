@@ -22,6 +22,7 @@
 //    SOFTWARE.
 
 import Foundation
+import UIKit
 
 class ImageCache: NSObject, NSURLSessionTaskDelegate {
     static let sharedInstance = ImageCache()

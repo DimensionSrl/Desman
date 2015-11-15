@@ -25,7 +25,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
         self.splitViewController?.preferredDisplayMode = .AllVisible
             
         if remote {
-#if DESMAN_INCLUDES_REALTIME
+#if DESMAN_INCLUDES_REMOTE
             RemoteManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
             self.events = RemoteManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
 #endif
@@ -172,7 +172,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
 
     deinit {
         if remote {
-#if DESMAN_INCLUDES_REALTIME
+#if DESMAN_INCLUDES_REMOTE
             RemoteManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
 #endif
         } else {

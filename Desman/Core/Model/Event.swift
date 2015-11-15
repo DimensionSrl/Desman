@@ -8,6 +8,7 @@
 
 import Foundation
 import AdSupport
+import UIKit
 
 public typealias Coding = protocol<NSCoding>
 

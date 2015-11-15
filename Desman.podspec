@@ -13,13 +13,15 @@ Pod::Spec.new do |s|
   s.default_subspec       = 'Core'
 
   s.subspec 'Core' do |core|
-    core.source_files = 'Desman/Core/**/*.swift'
+    core.source_files  = 'Desman/Core/**/*.swift'
+    core.exclude_files = 'Desman/Core/Vendor/*'
   end
 
   s.subspec 'Interface' do |interface|
-    interface.dependency     'Desman/Core'
-    interface.source_files = 'Desman/Interface/**/*.swift'
-    interface.resources    = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
+    interface.dependency      'Desman/Core'
+    interface.exclude_files = 'Desman/Core/Vendor/*'
+    interface.source_files  = 'Desman/Interface/**/*.swift'
+    interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
   end
 
   s.subspec 'Debatable' do |debatable|
@@ -27,16 +29,22 @@ Pod::Spec.new do |s|
     debatable.source_files = 'Desman/Debatable/**/*.swift'
   end
 
+  s.subspec 'Crash' do |crash|
+    crash.source_files  = 'Desman/Crash/**/*.swift'
+    crash.dependency      'PLCrashReporter', '~> 1.2.0'
+    crash.xcconfig      = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER' }
+  end
+
   s.subspec 'Remote' do |remote|
     remote.dependency      'Desman/Interface'
     remote.source_files  = 'Desman/Remote/**/*.swift'
     remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]
-    remote.xcconfig      = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REMOTE' }
+    remote.xcconfig      = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_REMOTE' }
   end
 
   s.subspec 'Realtime' do |realtime|
     realtime.dependency 'Desman/Remote'
     realtime.dependency 'SwiftWebSocket', '~> 2.3.0'
-    realtime.xcconfig   = { 'OTHER_CFLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
+    realtime.xcconfig   = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
   end
 end

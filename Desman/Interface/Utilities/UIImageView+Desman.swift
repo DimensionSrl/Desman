@@ -6,6 +6,8 @@
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
 
+import UIKit
+
 extension UIImageView {
     // Loads image asynchronously
     func loadFromURL(url: NSURL) {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @objc public class DeviceUserInfo : Event {
     public init () {

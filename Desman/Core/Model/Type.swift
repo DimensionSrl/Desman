@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @objc public class Type : NSObject {
     override required public init() {}

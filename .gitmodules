@@ -1,0 +1,2 @@
+[submodule "Carthage/Checkouts/SwiftWebSocket"]
+	url = https://github.com/tidwall/SwiftWebSocket.git

@@ -7,6 +7,7 @@
 //
 
 import ObjectiveC
+import UIKit
 
 private var desmanControllerAssociationKey: UInt8 = 0
 

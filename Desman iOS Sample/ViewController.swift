@@ -10,15 +10,6 @@ import UIKit
 import Desman
 
 class ViewController: UIViewController {
-    var objectToObserve = RemoteManager.sharedInstance
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        RemoteManager.sharedInstance.fetchApps()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

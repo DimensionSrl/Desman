@@ -7,6 +7,9 @@
 //
 
 import Foundation
+#if DESMAN_INCLUDES_REALTIME
+import SwiftWebSocket
+#endif
 
 public class RemoteManager : NSObject {
     var lastSync : NSDate?
