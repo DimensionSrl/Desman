@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.requires_arc          = true
   s.framework             = 'Photos'
   s.default_subspec       = 'Core'
+  s.xcconfig              = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_AS_COCOAPOD' }
 
   s.subspec 'Core' do |core|
     core.source_files  = 'Desman/Core/**/*.swift'

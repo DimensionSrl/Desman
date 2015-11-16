@@ -49,7 +49,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="appCell" id="3tm-Z7-0uB" customClass="AppTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="appCell" id="3tm-Z7-0uB" customClass="AppTableViewCell" customModule="DesmanInterface">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3tm-Z7-0uB" id="PYn-8z-x5v">
@@ -134,7 +134,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="userCell" id="15m-RN-Mt2" customClass="UserTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="userCell" id="15m-RN-Mt2" customClass="UserTableViewCell" customModule="DesmanInterface">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15m-RN-Mt2" id="mjM-AP-YQq">
@@ -211,7 +211,7 @@
         <!--Global Split View Controller-->
         <scene sceneID="w5M-uP-bLJ">
             <objects>
-                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="DesmanInterface" sceneMemberID="viewController">
                     <connections>
                         <segue destination="P22-qH-2n2" kind="relationship" relationship="masterViewController" id="SSq-Vw-dSY"/>
                         <segue destination="mcI-Wx-QC3" kind="relationship" relationship="detailViewController" id="o9N-qH-hsv"/>
@@ -231,7 +231,7 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ji9-or-AM0" customClass="EventTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ji9-or-AM0" customClass="EventTableViewCell" customModule="DesmanInterface">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ji9-or-AM0" id="24o-wL-rla">
