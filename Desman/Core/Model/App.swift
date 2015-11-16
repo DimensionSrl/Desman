@@ -6,6 +6,9 @@
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
 
+import Foundation
+import UIKit
+
 public class App: NSCoder {
     public let bundle : String
     public var name : String?

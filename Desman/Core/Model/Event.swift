@@ -8,13 +8,14 @@
 
 import Foundation
 import AdSupport
+import UIKit
 
 public typealias Coding = protocol<NSCoding>
 
 // This way we are able to track the current user and current device between app installations
-let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
-let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
-let currentDeviceName = UIDevice.currentDevice().name
+public let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+public let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
+public let currentDeviceName = UIDevice.currentDevice().name
 
 public class Event: NSCoder {
     public let type : Type
@@ -28,8 +29,8 @@ public class Event: NSCoder {
     // TODO: support remote attachment url with caching
     
     var id : String?
-    var uuid : NSUUID?
-    let dateFormatter = NSDateFormatter()
+    public var uuid : NSUUID?
+    public let dateFormatter = NSDateFormatter()
     
     func commonInit() {
         dateFormatter.dateStyle = .ShortStyle

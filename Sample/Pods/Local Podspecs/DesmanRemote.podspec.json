@@ -1,0 +1,55 @@
+{
+  "name": "DesmanRemote",
+  "version": "0.2.0",
+  "summary": "An event tracking tool for mobile apps.",
+  "homepage": "http://desman.dimension.it",
+  "license": "MIT",
+  "authors": [
+    {
+      "Matteo Gavagnin": "m@macteo.it",
+      "Dimension S.r.l.": "info@dimension.it"
+    }
+  ],
+  "social_media_url": "http://twitter.com/macteo",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://10.10.1.4/ios/desman.git",
+    "tag": "v0.2.0"
+  },
+  "requires_arc": true,
+  "default_subspecs": "Remote",
+  "subspecs": [
+    {
+      "name": "Remote",
+      "dependencies": {
+        "DesmanInterface": [
+
+        ]
+      },
+      "source_files": "Desman/Remote/**/*.swift",
+      "resources": [
+        "Desman/Remote/Assets/**/*.xcassets",
+        "Desman/Remote/Assets/*.storyboard"
+      ],
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REMOTE"
+      }
+    },
+    {
+      "name": "Realtime",
+      "dependencies": {
+        "DesmanRemote/Remote": [
+
+        ],
+        "SwiftWebSocket": [
+          "~> 2.3.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REALTIME"
+      }
+    }
+  ]
+}

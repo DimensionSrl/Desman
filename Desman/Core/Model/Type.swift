@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 @objc public class Type : NSObject {
     override required public init() {}
@@ -19,7 +20,10 @@ import Foundation
         if imageName == "" {
             name = "Unknown"
         }
-        return UIImage(named: name, inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        if let classForImage = NSClassFromString("Desman.EventsTableViewController") {
+            return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
+        }
+        return nil
     }
     
     var rawValue: String {
