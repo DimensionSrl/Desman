@@ -23,13 +23,13 @@ public extension UIImageView {
     }
     
     public func isIcon() {
-        self.image = UIImage(named: "Icon Placeholder", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        self.image = UIImage(named: "Icon Placeholder", inBundle: NSBundle(forClass: EventsTableViewController.self), compatibleWithTraitCollection: nil)
         self.layer.cornerRadius = self.frame.size.height / 5
         self.clipsToBounds = true
     }
     
     public func isUser() {
-        self.image = UIImage(named: "User Placeholder", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        self.image = UIImage(named: "User Placeholder", inBundle: NSBundle(forClass: EventsTableViewController.self), compatibleWithTraitCollection: nil)
         self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true
     }

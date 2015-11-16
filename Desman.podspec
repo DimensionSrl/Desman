@@ -16,6 +16,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.source_files  = 'Desman/Core/**/*.swift'
     core.exclude_files = 'Desman/Core/Vendor/*'
+    core.module_name   = 'Desman'
   end
 
   s.subspec 'Interface' do |interface|
@@ -23,11 +24,13 @@ Pod::Spec.new do |s|
     interface.exclude_files = 'Desman/Core/Vendor/*'
     interface.source_files  = 'Desman/Interface/**/*.swift'
     interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
+    interface.module_name   = 'DesmanInterface'
   end
 
   s.subspec 'Debatable' do |debatable|
     debatable.dependency     'Desman/Core'
     debatable.source_files = 'Desman/Debatable/**/*.swift'
+    debatable.module_name  = 'Desman'
   end
 
   s.subspec 'Crash' do |crash|
@@ -35,6 +38,7 @@ Pod::Spec.new do |s|
     crash.vendored_framework = 'Desman/Crash/Vendor/CrashReporter.framework'
     crash.resource           = 'Desman/Crash/Vendor/CrashReporter.framework'
     crash.xcconfig           = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER', 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
+    crash.module_name        = 'Desman'
   end
 
   s.subspec 'Remote' do |remote|
@@ -42,11 +46,13 @@ Pod::Spec.new do |s|
     remote.source_files  = 'Desman/Remote/**/*.swift'
     remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]
     remote.xcconfig      = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_REMOTE' }
+    remote.module_name   = 'DesmanRemote'
   end
 
   s.subspec 'Realtime' do |realtime|
-    realtime.dependency 'Desman/Remote'
-    realtime.dependency 'SwiftWebSocket', '~> 2.3.0'
-    realtime.xcconfig   = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
+    realtime.dependency  'Desman/Remote'
+    realtime.dependency  'SwiftWebSocket', '~> 2.3.0'
+    realtime.xcconfig    = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_REALTIME' }
+    realtime.module_name = 'DesmanRemote'
   end
 end

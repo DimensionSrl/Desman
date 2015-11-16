@@ -101,7 +101,8 @@ class UsersTableViewController: UITableViewController {
             // self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
             
             let desmanCoreStoryboard = UIStoryboard(name: "Event", bundle: NSBundle(forClass: EventsController.self))
-            let desmanEventController = desmanCoreStoryboard.instantiateViewControllerWithIdentifier("EventDetailTableViewController")
+            // let desmanEventController = desmanCoreStoryboard.instantiateViewControllerWithIdentifier("EventDetailTableViewController")
+            let desmanEventController = desmanCoreStoryboard.instantiateInitialViewController()!
             self.showDetailViewController(desmanEventController, sender: self) // presentViewController(desmanEventController, animated: true, completion: nil)
         }
     }
