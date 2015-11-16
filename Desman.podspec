@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name                  = 'Desman'
-  s.version               = '0.2.1'
+  s.version               = '0.2.2'
   s.summary               = 'An event tracking tool for mobile apps.'
   s.homepage              = 'http://desman.dimension.it'
   s.license               = 'MIT'
-  s.authors               = [ 'Matteo Gavagnin' => 'm@macteo.it', 'Dimension S.r.l.' => 'info@dimension.it' ]
+  s.authors               = [ 'Matteo Gavagnin' => 'matteo.gavagnin@dimension.it', 'Dimension S.r.l.' => 'info@dimension.it' ]
   s.social_media_url      = 'http://twitter.com/macteo'
   s.ios.deployment_target = '8.0'
-  s.source                = { :git => 'http://10.10.1.4/ios/desman.git', :tag => "v#{s.version}"} # , :branch => 'feature/carthage'
+  s.source                = { :git => 'http://10.10.1.4/ios/desman.git', :tag => "v#{s.version}"}
   s.requires_arc          = true
   s.framework             = 'Photos'
   s.default_subspec       = 'Core'

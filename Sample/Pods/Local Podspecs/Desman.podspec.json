@@ -1,6 +1,6 @@
 {
   "name": "Desman",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "summary": "An event tracking tool for mobile apps.",
   "homepage": "http://desman.dimension.it",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "http://10.10.1.4/ios/desman.git",
-    "tag": "v0.2.0"
+    "tag": "v0.2.1"
   },
   "requires_arc": true,
   "frameworks": "Photos",
@@ -28,7 +28,6 @@
     {
       "name": "Core",
       "source_files": "Desman/Core/**/*.swift",
-      "exclude_files": "Desman/Core/Vendor/*",
       "resources": [
         "Desman/Core/Assets/**/*.xcassets",
         "Desman/Core/Assets/*.storyboard"
@@ -42,15 +41,6 @@
         ]
       },
       "source_files": "Desman/Debatable/**/*.swift"
-    },
-    {
-      "name": "Crash",
-      "source_files": "Desman/Crash/**/*.swift",
-      "vendored_frameworks": "Desman/Crash/Vendor/CrashReporter.framework",
-      "resources": "Desman/Crash/Vendor/CrashReporter.framework",
-      "xcconfig": {
-        "LD_RUNPATH_SEARCH_PATHS": "@loader_path/../Frameworks"
-      }
     },
     {
       "name": "Remote",

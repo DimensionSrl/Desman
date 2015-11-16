@@ -1,5 +1,4 @@
 platform :ios, '8.0'
 use_frameworks!
 pod 'Desman/Debatable', :path => '..'
-pod 'Desman/Crash', :path => '..'
 pod 'Desman/Remote', :path => '..'
