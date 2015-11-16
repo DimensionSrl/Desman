@@ -155,7 +155,17 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
     
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEvent = events[indexPath.row]
-        self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
+        if remote {
+            let desmanCoreStoryboard = UIStoryboard(name: "Event", bundle: NSBundle(forClass: EventsController.self))
+            let desmanNavigationEventController = desmanCoreStoryboard.instantiateInitialViewController()!
+            
+            if let detailNavigationController = desmanNavigationEventController as? UINavigationController, detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
+                detailController.event = selectedEvent
+                self.showDetailViewController(detailController, sender: self)
+            }
+        } else {
+            self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
+        }
     }
 
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
