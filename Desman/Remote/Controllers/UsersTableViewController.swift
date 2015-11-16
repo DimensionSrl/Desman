@@ -7,9 +7,10 @@
 //
 
 import UIKit
+#if !DESMAN_AS_COCOAPOD
 import Desman
 import DesmanInterface
-
+#endif
 private var desmanUsersContext = 0
 
 class UsersTableViewController: UITableViewController {
@@ -99,14 +100,6 @@ class UsersTableViewController: UITableViewController {
         if let app = app {
             RemoteManager.sharedInstance.fetchEvents(app, user: selectedUser)
             self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
-        }
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showEventsSegue" {
-            if let detailController = segue.destinationViewController as? EventsTableViewController {
-                detailController.remote = true
-            }
         }
     }
     

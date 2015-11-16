@@ -7,8 +7,10 @@
 //
 
 import UIKit
-import Desman
-import DesmanInterface
+#if !DESMAN_AS_COCOAPOD
+    import Desman
+    import DesmanInterface
+#endif
 
 private var desmanAppsContext = 0
 

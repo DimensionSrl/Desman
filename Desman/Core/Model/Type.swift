@@ -20,7 +20,12 @@ import UIKit
         if imageName == "" {
             name = "Unknown"
         }
-        if let classForImage = NSClassFromString("DesmanInterface.EventsTableViewController") {
+#if !DESMAN_AS_COCOAPOD
+    let moduleName = "DesmanInterface"
+#else
+    let moduleName = "Desman"
+#endif
+        if let classForImage = NSClassFromString("\(moduleName).EventsTableViewController") {
             return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
         }
         return nil

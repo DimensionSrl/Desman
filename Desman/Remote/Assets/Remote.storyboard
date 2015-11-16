@@ -42,7 +42,7 @@
         <!--Apps-->
         <scene sceneID="pfa-hC-wgt">
             <objects>
-                <tableViewController id="pDo-RE-cR2" customClass="AppsTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pDo-RE-cR2" customClass="AppsTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="hd7-bk-TDU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
         <!--Users-->
         <scene sceneID="mlj-P4-YZS">
             <objects>
-                <tableViewController storyboardIdentifier="usersTableViewController" id="YRz-I8-DEb" customClass="UsersTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="usersTableViewController" id="YRz-I8-DEb" customClass="UsersTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="mHI-KN-OiV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,7 +211,7 @@
         <!--Global Split View Controller-->
         <scene sceneID="w5M-uP-bLJ">
             <objects>
-                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="DesmanInterface" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="P22-qH-2n2" kind="relationship" relationship="masterViewController" id="SSq-Vw-dSY"/>
                         <segue destination="mcI-Wx-QC3" kind="relationship" relationship="detailViewController" id="o9N-qH-hsv"/>
@@ -224,7 +224,7 @@
         <!--Events-->
         <scene sceneID="UEJ-en-Wfu">
             <objects>
-                <tableViewController id="kdw-pK-Xce" customClass="EventsTableViewController" customModule="DesmanInterface" sceneMemberID="viewController">
+                <tableViewController id="kdw-pK-Xce" customClass="RemoteEventsTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="CUk-ga-Lwt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

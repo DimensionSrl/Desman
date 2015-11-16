@@ -34,7 +34,6 @@
 		95EE6B7B1BF9D216000BA0F6 /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */; };
 		95EE6B7C1BF9D219000BA0F6 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
 		95EE6B7D1BF9D219000BA0F6 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
-		95EE6B7E1BF9D219000BA0F6 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */; };
 		95EE6B7F1BF9D219000BA0F6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */; };
 		95EE6B801BF9D221000BA0F6 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
 		95EE6B811BF9D224000BA0F6 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6191BF6273300F3465A /* AppsTableViewController.swift */; };
@@ -46,6 +45,8 @@
 		95EE6B871BF9D249000BA0F6 /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
 		95EE6B881BF9D24C000BA0F6 /* DesmanInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */; };
 		95EE6B891BF9D29F000BA0F6 /* DesmanRemote.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		95EE6BEB1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BEA1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift */; };
+		95EE6BF01BFA1A43000BA0F6 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,7 +81,6 @@
 		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
 		954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
-		954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 		954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		956AF1EB1BD4F0AF00464E9E /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +94,8 @@
 		95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BD435F1BF9D10B00477CB6 /* DesmanInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesmanInterface.h; sourceTree = "<group>"; };
 		95EE6B6C1BF9D1D7000BA0F6 /* DesmanRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95EE6BEA1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteEventsTableViewController.swift; sourceTree = "<group>"; };
+		95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +241,7 @@
 			children = (
 				9509B6191BF6273300F3465A /* AppsTableViewController.swift */,
 				9509B61A1BF6273300F3465A /* UsersTableViewController.swift */,
+				95EE6BEA1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift */,
 			);
 			name = Controllers;
 			path = ../Controllers;
@@ -263,6 +266,7 @@
 		9520297C1BF634A70067AB29 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */,
 				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
 			);
 			path = Controllers;
@@ -320,7 +324,6 @@
 			children = (
 				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
 				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
-				954B612F1BF3BA2C004FA6F2 /* GlobalSplitViewController.swift */,
 				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
 			);
 			name = Controllers;
@@ -547,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
+				95EE6BF01BFA1A43000BA0F6 /* GlobalSplitViewController.swift in Sources */,
 				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
 				9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */,
 				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
@@ -574,7 +578,6 @@
 				95EE6B7C1BF9D219000BA0F6 /* EventsTableViewController.swift in Sources */,
 				95EE6B7A1BF9D216000BA0F6 /* ImageCache.swift in Sources */,
 				95EE6B7B1BF9D216000BA0F6 /* UIImageView+Desman.swift in Sources */,
-				95EE6B7E1BF9D219000BA0F6 /* GlobalSplitViewController.swift in Sources */,
 				95EE6B771BF9D214000BA0F6 /* AppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -585,6 +588,7 @@
 			files = (
 				95EE6B801BF9D221000BA0F6 /* RemoteManager.swift in Sources */,
 				95EE6B811BF9D224000BA0F6 /* AppsTableViewController.swift in Sources */,
+				95EE6BEB1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift in Sources */,
 				95EE6B821BF9D224000BA0F6 /* UsersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -790,6 +794,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDESMAN_INCLUDES_REALTIME -DDESMAN_INCLUDES_REMOTE";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
@@ -814,6 +819,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDESMAN_INCLUDES_REALTIME -DDESMAN_INCLUDES_REMOTE";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
@@ -859,6 +865,7 @@
 				95EE6B731BF9D1D7000BA0F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

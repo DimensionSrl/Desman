@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ImageViewController: UIViewController {
-    var imageUrl : NSURL?
-    @IBOutlet var imageView: UIImageView!
+public class ImageViewController: UIViewController {
+    public var imageUrl : NSURL?
+    @IBOutlet public var imageView: UIImageView!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         if let imageUrl = imageUrl {
             imageView.loadFromURL(imageUrl)

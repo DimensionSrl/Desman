@@ -7,27 +7,23 @@
 //
 
 import Foundation
+#if !DESMAN_AS_COCOAPOD
 import Desman
-
-#if DESMAN_INCLUDES_REALTIME
-import SwiftWebSocket
 #endif
+
+import SwiftWebSocket
 
 public class RemoteManager : NSObject {
     var lastSync : NSDate?
     var app : App?
     var user : User? {
         didSet {
-#if DESMAN_INCLUDES_REALTIME
             ws.close()
             connectionId = nil
             channelToken = nil
-#endif
         }
     }
-#if DESMAN_INCLUDES_REALTIME
     let ws = WebSocket("ws://desman.dimension.it/websocket")
-#endif
     
     var connectionId : String?
     var channelToken : String?
@@ -119,7 +115,6 @@ public class RemoteManager : NSObject {
         let escapedUserUUID = user.uuid.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlString = "/apps/\(app.bundle)/users/\(escapedUserUUID)/events"
         if let url = NSURL(string: urlString, relativeToURL: UploadManager.sharedInstance.baseURL) {
-            print("Desman: fetch Events")
             let request = UploadManager.sharedInstance.forgeRequest(url: url, contentTypes: ["application/json"])
             request.HTTPMethod = "GET"
             let task = UploadManager.sharedInstance.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
@@ -151,12 +146,9 @@ public class RemoteManager : NSObject {
         } else {
             print("Desman: cannot create users url \(urlString)")
         }
-        #if DESMAN_INCLUDES_REALTIME
-            subscribeSocket()
-        #endif
+        subscribeSocket()
     }
     
-#if DESMAN_INCLUDES_REALTIME
     public func stopFetchingEvents() {
         self.ws.close()
     }
@@ -257,5 +249,4 @@ public class RemoteManager : NSObject {
             }
         }
     }
-#endif
 }

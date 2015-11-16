@@ -1,45 +1,41 @@
 //
 //  EventsTableViewController.swift
-//  Desman iOS Sample
+//  Desman
 //
-//  Created by Matteo Gavagnin on 19/10/15.
+//  Created by Matteo Gavagnin on 16/11/15.
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
 
 import UIKit
 #if !DESMAN_AS_COCOAPOD
-import Desman
+    import Desman
+    import DesmanInterface
 #endif
 
 private var desmanEventsContext = 0
 
-// Just a fake controller to be invoked and obtain the right Bundle containing Desman storyboards.
-public class EventsController {
 
-}
-
-public class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
+public class RemoteEventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var events = [Event]()
     
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.splitViewController?.preferredDisplayMode = .AllVisible
         
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
-        self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        RemoteManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
+        self.events = RemoteManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
         
         if #available(iOS 9.0, *) {
             // FIXME: should check for forceTouchCapability but for some reason it doesn't work
             registerForPreviewingWithDelegate(self, sourceView: view)
             /*
             if traitCollection.forceTouchCapability == .Available {
-                registerForPreviewingWithDelegate(self, sourceView: view)
+            registerForPreviewingWithDelegate(self, sourceView: view)
             }
             */
         }
     }
-
+    
     @available(iOS 9.0, *)
     public func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRowAtPoint(location) else { return nil }
@@ -132,22 +128,28 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
-
+    
     override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-
+    
     override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
     
     override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEvent = events[indexPath.row]
-        self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
+        let desmanCoreStoryboard = UIStoryboard(name: "Event", bundle: NSBundle(forClass: EventsTableViewController.self))
+        let desmanNavigationEventController = desmanCoreStoryboard.instantiateInitialViewController()!
+        
+        if let detailNavigationController = desmanNavigationEventController as? UINavigationController, detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
+            detailController.event = selectedEvent
+            self.showDetailViewController(detailController, sender: self)
+        }
     }
-
+    
     override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! EventTableViewCell
         let event = events[indexPath.row]
@@ -163,10 +165,9 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
         
         return cell
     }
-
+    
     deinit {
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+        RemoteManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
     }
     
     override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

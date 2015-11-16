@@ -7,10 +7,11 @@
 //
 
 import UIKit
+#if !DESMAN_AS_COCOAPOD
 import Desman
-
-class EventDetailTableViewController: UITableViewController {
-    var event : Event?
+#endif
+public class EventDetailTableViewController: UITableViewController {
+    public var event : Event?
     @IBOutlet weak var uuidLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
@@ -26,14 +27,14 @@ class EventDetailTableViewController: UITableViewController {
         performSegueWithIdentifier("showImageAttachmentSegue", sender: self)
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Event Details"
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.tableView.estimatedRowHeight = 44.0;
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let event = event {
             typeLabel.text = event.title
@@ -81,7 +82,7 @@ class EventDetailTableViewController: UITableViewController {
     
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 5 {
             if payloadTextView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
                 return 44
@@ -98,7 +99,7 @@ class EventDetailTableViewController: UITableViewController {
         return 44
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let event = event {
             if segue.identifier == "showImageAttachmentSegue" {
                 if let destination = segue.destinationViewController as? ImageViewController {

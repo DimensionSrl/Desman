@@ -28,8 +28,7 @@
     {
       "name": "Core",
       "source_files": "Desman/Core/**/*.swift",
-      "exclude_files": "Desman/Core/Vendor/*",
-      "module_name": "Desman"
+      "exclude_files": "Desman/Core/Vendor/*"
     },
     {
       "name": "Interface",
@@ -43,8 +42,7 @@
       "resources": [
         "Desman/Interface/Assets/**/*.xcassets",
         "Desman/Interface/Assets/*.storyboard"
-      ],
-      "module_name": "DesmanInterface"
+      ]
     },
     {
       "name": "Debatable",
@@ -53,8 +51,7 @@
 
         ]
       },
-      "source_files": "Desman/Debatable/**/*.swift",
-      "module_name": "Desman"
+      "source_files": "Desman/Debatable/**/*.swift"
     },
     {
       "name": "Crash",
@@ -62,42 +59,24 @@
       "vendored_frameworks": "Desman/Crash/Vendor/CrashReporter.framework",
       "resources": "Desman/Crash/Vendor/CrashReporter.framework",
       "xcconfig": {
-        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER",
         "LD_RUNPATH_SEARCH_PATHS": "@loader_path/../Frameworks"
-      },
-      "module_name": "Desman"
+      }
     },
     {
       "name": "Remote",
       "dependencies": {
         "Desman/Interface": [
 
+        ],
+        "SwiftWebSocket": [
+          "~> 2.3.0"
         ]
       },
       "source_files": "Desman/Remote/**/*.swift",
       "resources": [
         "Desman/Remote/Assets/**/*.xcassets",
         "Desman/Remote/Assets/*.storyboard"
-      ],
-      "xcconfig": {
-        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REMOTE"
-      },
-      "module_name": "DesmanRemote"
-    },
-    {
-      "name": "Realtime",
-      "dependencies": {
-        "Desman/Remote": [
-
-        ],
-        "SwiftWebSocket": [
-          "~> 2.3.0"
-        ]
-      },
-      "xcconfig": {
-        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REALTIME"
-      },
-      "module_name": "DesmanRemote"
+      ]
     }
   ]
 }

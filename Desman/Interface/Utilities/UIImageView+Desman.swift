@@ -7,8 +7,9 @@
 //
 
 import UIKit
+#if !DESMAN_AS_COCOAPOD
 import Desman
-
+#endif
 public extension UIImageView {
     // Loads image asynchronously
     func loadFromURL(url: NSURL) {
