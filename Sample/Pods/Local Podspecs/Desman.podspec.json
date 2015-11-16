@@ -21,11 +21,15 @@
   "requires_arc": true,
   "frameworks": "Photos",
   "default_subspecs": "Core",
+  "xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_AS_COCOAPOD"
+  },
   "subspecs": [
     {
       "name": "Core",
       "source_files": "Desman/Core/**/*.swift",
-      "exclude_files": "Desman/Core/Vendor/*"
+      "exclude_files": "Desman/Core/Vendor/*",
+      "module_name": "Desman"
     },
     {
       "name": "Interface",
@@ -39,7 +43,8 @@
       "resources": [
         "Desman/Interface/Assets/**/*.xcassets",
         "Desman/Interface/Assets/*.storyboard"
-      ]
+      ],
+      "module_name": "DesmanInterface"
     },
     {
       "name": "Debatable",
@@ -48,7 +53,8 @@
 
         ]
       },
-      "source_files": "Desman/Debatable/**/*.swift"
+      "source_files": "Desman/Debatable/**/*.swift",
+      "module_name": "Desman"
     },
     {
       "name": "Crash",
@@ -58,7 +64,8 @@
       "xcconfig": {
         "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER",
         "LD_RUNPATH_SEARCH_PATHS": "@loader_path/../Frameworks"
-      }
+      },
+      "module_name": "Desman"
     },
     {
       "name": "Remote",
@@ -74,7 +81,8 @@
       ],
       "xcconfig": {
         "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REMOTE"
-      }
+      },
+      "module_name": "DesmanRemote"
     },
     {
       "name": "Realtime",
@@ -88,7 +96,8 @@
       },
       "xcconfig": {
         "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REALTIME"
-      }
+      },
+      "module_name": "DesmanRemote"
     }
   ]
 }

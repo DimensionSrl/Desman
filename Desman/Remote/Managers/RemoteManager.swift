@@ -119,6 +119,7 @@ public class RemoteManager : NSObject {
         let escapedUserUUID = user.uuid.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
         let urlString = "/apps/\(app.bundle)/users/\(escapedUserUUID)/events"
         if let url = NSURL(string: urlString, relativeToURL: UploadManager.sharedInstance.baseURL) {
+            print("Desman: fetch Events")
             let request = UploadManager.sharedInstance.forgeRequest(url: url, contentTypes: ["application/json"])
             request.HTTPMethod = "GET"
             let task = UploadManager.sharedInstance.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in

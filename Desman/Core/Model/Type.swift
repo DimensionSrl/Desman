@@ -20,7 +20,10 @@ import UIKit
         if imageName == "" {
             name = "Unknown"
         }
-        return UIImage(named: name, inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+        if let classForImage = NSClassFromString("DesmanInterface.EventsTableViewController") {
+            return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
+        }
+        return nil
     }
     
     var rawValue: String {

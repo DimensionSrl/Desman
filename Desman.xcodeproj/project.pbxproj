@@ -94,8 +94,6 @@
 		95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95BD435F1BF9D10B00477CB6 /* DesmanInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesmanInterface.h; sourceTree = "<group>"; };
 		95EE6B6C1BF9D1D7000BA0F6 /* DesmanRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95EE6BC91BF9EB4B000BA0F6 /* DesmanInterface.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DesmanInterface.podspec; sourceTree = SOURCE_ROOT; };
-		95EE6BCA1BF9EB4B000BA0F6 /* DesmanRemote.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = DesmanRemote.podspec; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -334,8 +332,6 @@
 			children = (
 				9535C1521BF8CB97008F6FA2 /* Cartfile */,
 				9509B6131BF6014300F3465A /* Desman.podspec */,
-				95EE6BC91BF9EB4B000BA0F6 /* DesmanInterface.podspec */,
-				95EE6BCA1BF9EB4B000BA0F6 /* DesmanRemote.podspec */,
 			);
 			name = Support;
 			sourceTree = "<group>";
