@@ -30,9 +30,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Crash' do |crash|
-    crash.source_files  = 'Desman/Crash/**/*.swift'
-    crash.dependency      'PLCrashReporter', '~> 1.2.0'
-    crash.xcconfig      = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER' }
+    crash.source_files       = 'Desman/Crash/**/*.swift'
+    crash.vendored_framework = 'Desman/Crash/Vendor/CrashReporter.framework'
+    crash.resource           = 'Desman/Crash/Vendor/CrashReporter.framework'
+    crash.xcconfig           = { 'OTHER_SWIFT_FLAGS' => '$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER', 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }
   end
 
   s.subspec 'Remote' do |remote|
