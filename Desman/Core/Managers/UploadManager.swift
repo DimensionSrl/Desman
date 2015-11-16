@@ -1,6 +1,6 @@
 //
 //  UploadManager.swift
-//  Desman iOS Sample
+//  Desman
 //
 //  Created by Matteo Gavagnin on 19/10/15.
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
@@ -14,8 +14,8 @@ public class UploadManager {
     */
     static public let sharedInstance = UploadManager()
     
-    var baseURL: NSURL?
-    var session: NSURLSession?
+    public var baseURL: NSURL?
+    public var session: NSURLSession?
     
     var uploading = false
     
@@ -256,7 +256,7 @@ public class UploadManager {
         return operation
     }
         
-    func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
+    public func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
         // TODO: use cache in production
         // UseProtocolCachePolicy
         let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 30)

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+#if !DESMAN_AS_COCOAPOD
+    import Desman
+#endif
 
 private var desmanAppsContext = 0
 
@@ -104,7 +107,7 @@ class AppsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("appCell", forIndexPath: indexPath) as! AppTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("appCell", forIndexPath: indexPath) as! Desman.AppTableViewCell
         let app = apps[indexPath.row]
         cell.appTitleLabel.text = app.title
         cell.appImageView.isIcon()

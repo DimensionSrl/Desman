@@ -1,0 +1,62 @@
+{
+  "name": "Desman",
+  "version": "0.2.1",
+  "summary": "An event tracking tool for mobile apps.",
+  "homepage": "http://desman.dimension.it",
+  "license": "MIT",
+  "authors": [
+    {
+      "Matteo Gavagnin": "m@macteo.it",
+      "Dimension S.r.l.": "info@dimension.it"
+    }
+  ],
+  "social_media_url": "http://twitter.com/macteo",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://10.10.1.4/ios/desman.git",
+    "tag": "v0.2.1"
+  },
+  "requires_arc": true,
+  "frameworks": "Photos",
+  "default_subspecs": "Core",
+  "xcconfig": {
+    "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_AS_COCOAPOD"
+  },
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Desman/Core/**/*.swift",
+      "resources": [
+        "Desman/Core/Assets/**/*.xcassets",
+        "Desman/Core/Assets/*.storyboard"
+      ]
+    },
+    {
+      "name": "Debatable",
+      "dependencies": {
+        "Desman/Core": [
+
+        ]
+      },
+      "source_files": "Desman/Debatable/**/*.swift"
+    },
+    {
+      "name": "Remote",
+      "dependencies": {
+        "Desman/Core": [
+
+        ],
+        "SwiftWebSocket": [
+          "~> 2.3.0"
+        ]
+      },
+      "source_files": "Desman/Remote/**/*.swift",
+      "resources": [
+        "Desman/Remote/Assets/**/*.xcassets",
+        "Desman/Remote/Assets/*.storyboard"
+      ]
+    }
+  ]
+}

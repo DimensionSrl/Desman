@@ -7,6 +7,9 @@
 //
 
 import UIKit
+#if !DESMAN_AS_COCOAPOD
+import Desman
+#endif
 
 private var desmanUsersContext = 0
 
@@ -26,9 +29,7 @@ class UsersTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-#if DESMAN_INCLUDES_REALTIME
         RemoteManager.sharedInstance.stopFetchingEvents()
-#endif
     }
     
     @IBAction func dismissController(sender: UIBarButtonItem) {
@@ -100,16 +101,8 @@ class UsersTableViewController: UITableViewController {
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showEventsSegue" {
-            if let detailController = segue.destinationViewController as? EventsTableViewController {
-                detailController.remote = true
-            }
-        }
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! Desman.UserTableViewCell
         let user = users[indexPath.row]
         cell.userTitleLabel.text = user.title
         cell.userImageView.isUser()

@@ -6,6 +6,8 @@
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
 
+import UIKit
+
 extension UIViewController {
     public override class func initialize() {
         struct Static {
