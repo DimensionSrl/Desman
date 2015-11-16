@@ -7,9 +7,7 @@
 //
 
 import UIKit
-#if !DESMAN_AS_COCOAPOD
-import Desman
-#endif
+
 public class EventDetailTableViewController: UITableViewController {
     public var event : Event?
     @IBOutlet weak var uuidLabel: UILabel!

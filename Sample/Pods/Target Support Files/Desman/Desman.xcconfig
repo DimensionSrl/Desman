@@ -3,6 +3,6 @@ GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Desman" "${PODS_ROOT}/Headers/Public"
 LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
 OTHER_LDFLAGS = -framework "CrashReporter" -framework "Photos"
-OTHER_SWIFT_FLAGS = $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) "-D" "COCOAPODS"
+OTHER_SWIFT_FLAGS = $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) -DDESMAN_AS_COCOAPOD $(inherited) "-D" "COCOAPODS"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

@@ -28,20 +28,10 @@
     {
       "name": "Core",
       "source_files": "Desman/Core/**/*.swift",
-      "exclude_files": "Desman/Core/Vendor/*"
-    },
-    {
-      "name": "Interface",
-      "dependencies": {
-        "Desman/Core": [
-
-        ]
-      },
       "exclude_files": "Desman/Core/Vendor/*",
-      "source_files": "Desman/Interface/**/*.swift",
       "resources": [
-        "Desman/Interface/Assets/**/*.xcassets",
-        "Desman/Interface/Assets/*.storyboard"
+        "Desman/Core/Assets/**/*.xcassets",
+        "Desman/Core/Assets/*.storyboard"
       ]
     },
     {
@@ -65,7 +55,7 @@
     {
       "name": "Remote",
       "dependencies": {
-        "Desman/Interface": [
+        "Desman/Core": [
 
         ],
         "SwiftWebSocket": [

@@ -16,13 +16,7 @@ Pod::Spec.new do |s|
   s.subspec 'Core' do |core|
     core.source_files  = 'Desman/Core/**/*.swift'
     core.exclude_files = 'Desman/Core/Vendor/*'
-  end
-
-  s.subspec 'Interface' do |interface|
-    interface.dependency      'Desman/Core'
-    interface.exclude_files = 'Desman/Core/Vendor/*'
-    interface.source_files  = 'Desman/Interface/**/*.swift'
-    interface.resources     = [ 'Desman/Interface/Assets/**/*.xcassets', 'Desman/Interface/Assets/*.storyboard' ]
+    core.resources     = [ 'Desman/Core/Assets/**/*.xcassets', 'Desman/Core/Assets/*.storyboard' ]
   end
 
   s.subspec 'Debatable' do |debatable|
@@ -38,7 +32,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Remote' do |remote|
-    remote.dependency      'Desman/Interface'
+    remote.dependency      'Desman/Core'
     remote.dependency      'SwiftWebSocket', '~> 2.3.0'
     remote.source_files  = 'Desman/Remote/**/*.swift'
     remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]

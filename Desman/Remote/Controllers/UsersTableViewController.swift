@@ -9,8 +9,8 @@
 import UIKit
 #if !DESMAN_AS_COCOAPOD
 import Desman
-import DesmanInterface
 #endif
+
 private var desmanUsersContext = 0
 
 class UsersTableViewController: UITableViewController {

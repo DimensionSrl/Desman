@@ -7,9 +7,6 @@
 //
 
 import UIKit
-#if !DESMAN_AS_COCOAPOD
-import Desman
-#endif
 
 private var desmanEventsContext = 0
 

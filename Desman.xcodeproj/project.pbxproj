@@ -23,30 +23,27 @@
 		954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */; };
 		956AF1EE1BD4F0AF00464E9E /* Desman.h in Headers */ = {isa = PBXBuildFile; fileRef = 956AF1ED1BD4F0AF00464E9E /* Desman.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9595973F1BF8E63F00BCB8A2 /* CrashReporter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9595973E1BF8E63F00BCB8A2 /* CrashReporter.framework */; };
-		95BD43601BF9D13400477CB6 /* DesmanInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BD435F1BF9D10B00477CB6 /* DesmanInterface.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		95EE6B741BF9D211000BA0F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6101BF5FEEC00F3465A /* Media.xcassets */; };
-		95EE6B751BF9D211000BA0F6 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6081BF5FE8B00F3465A /* Desman.storyboard */; };
-		95EE6B761BF9D211000BA0F6 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B6091BF5FE8B00F3465A /* Event.storyboard */; };
-		95EE6B771BF9D214000BA0F6 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */; };
-		95EE6B781BF9D214000BA0F6 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */; };
-		95EE6B791BF9D214000BA0F6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */; };
-		95EE6B7A1BF9D216000BA0F6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B60E1BF5FEB700F3465A /* ImageCache.swift */; };
-		95EE6B7B1BF9D216000BA0F6 /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */; };
-		95EE6B7C1BF9D219000BA0F6 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */; };
-		95EE6B7D1BF9D219000BA0F6 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */; };
-		95EE6B7F1BF9D219000BA0F6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */; };
 		95EE6B801BF9D221000BA0F6 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
 		95EE6B811BF9D224000BA0F6 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6191BF6273300F3465A /* AppsTableViewController.swift */; };
 		95EE6B821BF9D224000BA0F6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B61A1BF6273300F3465A /* UsersTableViewController.swift */; };
 		95EE6B831BF9D227000BA0F6 /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9509B61E1BF6275300F3465A /* Remote.storyboard */; };
 		95EE6B841BF9D22C000BA0F6 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD431F1BF9C3B700477CB6 /* SwiftWebSocket.framework */; };
 		95EE6B851BF9D231000BA0F6 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9535C0C41BF8C1FF008F6FA2 /* libz.tbd */; };
-		95EE6B861BF9D245000BA0F6 /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
 		95EE6B871BF9D249000BA0F6 /* Desman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */; };
-		95EE6B881BF9D24C000BA0F6 /* DesmanInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */; };
 		95EE6B891BF9D29F000BA0F6 /* DesmanRemote.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		95EE6BEB1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BEA1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift */; };
 		95EE6BF01BFA1A43000BA0F6 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */; };
+		95EE6BF41BFA41A2000BA0F6 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BF11BFA41A2000BA0F6 /* EventDetailTableViewController.swift */; };
+		95EE6BF51BFA41A2000BA0F6 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BF21BFA41A2000BA0F6 /* EventsTableViewController.swift */; };
+		95EE6BF61BFA41A2000BA0F6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BF31BFA41A2000BA0F6 /* ImageViewController.swift */; };
+		95EE6BF91BFA41C0000BA0F6 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BF71BFA41C0000BA0F6 /* ImageCache.swift */; };
+		95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BF81BFA41C0000BA0F6 /* UIImageView+Desman.swift */; };
+		95EE6BFF1BFA41ED000BA0F6 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BFC1BFA41ED000BA0F6 /* AppTableViewCell.swift */; };
+		95EE6C001BFA41ED000BA0F6 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BFD1BFA41ED000BA0F6 /* EventTableViewCell.swift */; };
+		95EE6C011BFA41ED000BA0F6 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE6BFE1BFA41ED000BA0F6 /* UserTableViewCell.swift */; };
+		95EE6C061BFA421F000BA0F6 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EE6C031BFA421F000BA0F6 /* Desman.storyboard */; };
+		95EE6C071BFA421F000BA0F6 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95EE6C041BFA421F000BA0F6 /* Event.storyboard */; };
+		95EE6C081BFA421F000BA0F6 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95EE6C051BFA421F000BA0F6 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,41 +58,38 @@
 		9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
 		9509B5F41BF5FBB900F3465A /* UserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
-		9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
-		9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		9509B6081BF5FE8B00F3465A /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
-		9509B6091BF5FE8B00F3465A /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
-		9509B60E1BF5FEB700F3465A /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		9509B6101BF5FEEC00F3465A /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		9509B6131BF6014300F3465A /* Desman.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Desman.podspec; sourceTree = SOURCE_ROOT; };
 		9509B6191BF6273300F3465A /* AppsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
 		9509B61A1BF6273300F3465A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
-		9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
 		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
 		9535C08C1BF889F9008F6FA2 /* CrashManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashManager.swift; sourceTree = "<group>"; };
 		9535C0C41BF8C1FF008F6FA2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9535C1521BF8CB97008F6FA2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
-		954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
-		954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
 		956AF1EB1BD4F0AF00464E9E /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1ED1BD4F0AF00464E9E /* Desman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desman.h; sourceTree = "<group>"; };
 		956AF1EF1BD4F0AF00464E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9595973E1BF8E63F00BCB8A2 /* CrashReporter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CrashReporter.framework; sourceTree = "<group>"; };
 		95BD431F1BF9C3B700477CB6 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = ../../../Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
-		95BD434D1BF9CF5400477CB6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesmanRemote.h; sourceTree = "<group>"; };
 		95BD43511BF9CF9A00477CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanInterface.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		95BD435F1BF9D10B00477CB6 /* DesmanInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DesmanInterface.h; sourceTree = "<group>"; };
 		95EE6B6C1BF9D1D7000BA0F6 /* DesmanRemote.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DesmanRemote.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		95EE6BEA1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteEventsTableViewController.swift; sourceTree = "<group>"; };
 		95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
+		95EE6BF11BFA41A2000BA0F6 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		95EE6BF21BFA41A2000BA0F6 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		95EE6BF31BFA41A2000BA0F6 /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		95EE6BF71BFA41C0000BA0F6 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		95EE6BF81BFA41C0000BA0F6 /* UIImageView+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
+		95EE6BFC1BFA41ED000BA0F6 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		95EE6BFD1BFA41ED000BA0F6 /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		95EE6BFE1BFA41ED000BA0F6 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		95EE6C031BFA421F000BA0F6 /* Desman.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
+		95EE6C041BFA421F000BA0F6 /* Event.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		95EE6C051BFA421F000BA0F6 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,19 +101,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		95BD43531BF9D0B200477CB6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95EE6B861BF9D245000BA0F6 /* Desman.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		95EE6B681BF9D1D7000BA0F6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95EE6B881BF9D24C000BA0F6 /* DesmanInterface.framework in Frameworks */,
 				95EE6B871BF9D249000BA0F6 /* Desman.framework in Frameworks */,
 				95EE6B841BF9D22C000BA0F6 /* SwiftWebSocket.framework in Frameworks */,
 				95EE6B851BF9D231000BA0F6 /* libz.tbd in Frameworks */,
@@ -132,6 +117,8 @@
 		9509B5E21BF5FA8900F3465A /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				95EE6C021BFA4208000BA0F6 /* Assets */,
+				95EE6BFB1BFA41D0000BA0F6 /* Views */,
 				9520297C1BF634A70067AB29 /* Controllers */,
 				952029791BF630190067AB29 /* Utilities */,
 				9509B5F11BF5FBA400F3465A /* Templates */,
@@ -160,39 +147,6 @@
 				9509B5F41BF5FBB900F3465A /* UserInfo.swift */,
 			);
 			path = Templates;
-			sourceTree = "<group>";
-		};
-		9509B5F81BF5FBD000F3465A /* Interface */ = {
-			isa = PBXGroup;
-			children = (
-				954B612A1BF3BA04004FA6F2 /* Controllers */,
-				9509B5FA1BF5FC1100F3465A /* Utilities */,
-				9509B5F91BF5FBF100F3465A /* Views */,
-				954B611D1BF3B52D004FA6F2 /* Assets */,
-				95BD434A1BF9CEEF00477CB6 /* Support */,
-			);
-			name = Interface;
-			sourceTree = "<group>";
-		};
-		9509B5F91BF5FBF100F3465A /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				9509B6021BF5FE7700F3465A /* AppTableViewCell.swift */,
-				9509B6031BF5FE7700F3465A /* EventTableViewCell.swift */,
-				9509B6041BF5FE7700F3465A /* UserTableViewCell.swift */,
-			);
-			name = Views;
-			path = Interface/Views;
-			sourceTree = "<group>";
-		};
-		9509B5FA1BF5FC1100F3465A /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				9509B60E1BF5FEB700F3465A /* ImageCache.swift */,
-				9509B6221BF62A8000F3465A /* UIImageView+Desman.swift */,
-			);
-			name = Utilities;
-			path = Interface/Utilities;
 			sourceTree = "<group>";
 		};
 		9509B5FB1BF5FD2100F3465A /* Debatable */ = {
@@ -259,6 +213,8 @@
 			isa = PBXGroup;
 			children = (
 				9520297A1BF630460067AB29 /* UIViewController+Desman.swift */,
+				95EE6BF71BFA41C0000BA0F6 /* ImageCache.swift */,
+				95EE6BF81BFA41C0000BA0F6 /* UIImageView+Desman.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -268,6 +224,9 @@
 			children = (
 				95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */,
 				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
+				95EE6BF11BFA41A2000BA0F6 /* EventDetailTableViewController.swift */,
+				95EE6BF21BFA41A2000BA0F6 /* EventsTableViewController.swift */,
+				95EE6BF31BFA41A2000BA0F6 /* ImageViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,31 +267,10 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		954B611D1BF3B52D004FA6F2 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				9509B6101BF5FEEC00F3465A /* Media.xcassets */,
-				9509B6081BF5FE8B00F3465A /* Desman.storyboard */,
-				9509B6091BF5FE8B00F3465A /* Event.storyboard */,
-			);
-			name = Assets;
-			path = Interface/Assets;
-			sourceTree = "<group>";
-		};
-		954B612A1BF3BA04004FA6F2 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				954B612D1BF3BA2C004FA6F2 /* EventsTableViewController.swift */,
-				954B612C1BF3BA2C004FA6F2 /* EventDetailTableViewController.swift */,
-				954B61301BF3BA2C004FA6F2 /* ImageViewController.swift */,
-			);
-			name = Controllers;
-			path = Interface/Controllers;
-			sourceTree = "<group>";
-		};
 		954B61491BF3BAA9004FA6F2 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				956AF1B61BD4F09200464E9E /* Products */,
 				9535C1521BF8CB97008F6FA2 /* Cartfile */,
 				9509B6131BF6014300F3465A /* Desman.podspec */,
 			);
@@ -344,7 +282,6 @@
 			children = (
 				9508719E1BE0BF45000C54AE /* README.md */,
 				956AF1EC1BD4F0AF00464E9E /* Desman */,
-				956AF1B61BD4F09200464E9E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -352,17 +289,16 @@
 			isa = PBXGroup;
 			children = (
 				956AF1EB1BD4F0AF00464E9E /* Desman.framework */,
-				95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */,
 				95EE6B6C1BF9D1D7000BA0F6 /* DesmanRemote.framework */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		956AF1EC1BD4F0AF00464E9E /* Desman */ = {
 			isa = PBXGroup;
 			children = (
 				9509B5E21BF5FA8900F3465A /* Core */,
-				9509B5F81BF5FBD000F3465A /* Interface */,
 				9509B5FE1BF5FE3200F3465A /* Remote */,
 				9509B5FB1BF5FD2100F3465A /* Debatable */,
 				9535C08A1BF889A0008F6FA2 /* Crash */,
@@ -380,14 +316,24 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		95BD434A1BF9CEEF00477CB6 /* Support */ = {
+		95EE6BFB1BFA41D0000BA0F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				95BD435F1BF9D10B00477CB6 /* DesmanInterface.h */,
-				95BD434D1BF9CF5400477CB6 /* Info.plist */,
+				95EE6BFC1BFA41ED000BA0F6 /* AppTableViewCell.swift */,
+				95EE6BFD1BFA41ED000BA0F6 /* EventTableViewCell.swift */,
+				95EE6BFE1BFA41ED000BA0F6 /* UserTableViewCell.swift */,
 			);
-			name = Support;
-			path = Interface/Support;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95EE6C021BFA4208000BA0F6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				95EE6C031BFA421F000BA0F6 /* Desman.storyboard */,
+				95EE6C041BFA421F000BA0F6 /* Event.storyboard */,
+				95EE6C051BFA421F000BA0F6 /* Media.xcassets */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -398,14 +344,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				956AF1EE1BD4F0AF00464E9E /* Desman.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95BD43541BF9D0B200477CB6 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95BD43601BF9D13400477CB6 /* DesmanInterface.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,24 +374,6 @@
 			name = "Desman Core iOS";
 			productName = Desman;
 			productReference = 956AF1EB1BD4F0AF00464E9E /* Desman.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		95BD43561BF9D0B200477CB6 /* Desman Interface iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 95BD435C1BF9D0B200477CB6 /* Build configuration list for PBXNativeTarget "Desman Interface iOS" */;
-			buildPhases = (
-				95BD43521BF9D0B200477CB6 /* Sources */,
-				95BD43531BF9D0B200477CB6 /* Frameworks */,
-				95BD43541BF9D0B200477CB6 /* Headers */,
-				95BD43551BF9D0B200477CB6 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Desman Interface iOS";
-			productName = "Desman Interface iOS";
-			productReference = 95BD43571BF9D0B200477CB6 /* DesmanInterface.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		95EE6B6B1BF9D1D7000BA0F6 /* Desman Remote iOS */ = {
@@ -488,9 +408,6 @@
 					956AF1EA1BD4F0AF00464E9E = {
 						CreatedOnToolsVersion = 7.0.1;
 					};
-					95BD43561BF9D0B200477CB6 = {
-						CreatedOnToolsVersion = 7.1;
-					};
 					95EE6B6B1BF9D1D7000BA0F6 = {
 						CreatedOnToolsVersion = 7.1;
 					};
@@ -510,7 +427,6 @@
 			projectRoot = "";
 			targets = (
 				956AF1EA1BD4F0AF00464E9E /* Desman Core iOS */,
-				95BD43561BF9D0B200477CB6 /* Desman Interface iOS */,
 				95EE6B6B1BF9D1D7000BA0F6 /* Desman Remote iOS */,
 			);
 		};
@@ -521,16 +437,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95BD43551BF9D0B200477CB6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95EE6B751BF9D211000BA0F6 /* Desman.storyboard in Resources */,
-				95EE6B741BF9D211000BA0F6 /* Media.xcassets in Resources */,
-				95EE6B761BF9D211000BA0F6 /* Event.storyboard in Resources */,
+				95EE6C061BFA421F000BA0F6 /* Desman.storyboard in Resources */,
+				95EE6C081BFA421F000BA0F6 /* Media.xcassets in Resources */,
+				95EE6C071BFA421F000BA0F6 /* Event.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,35 +459,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
+				95EE6C011BFA41ED000BA0F6 /* UserTableViewCell.swift in Sources */,
 				95EE6BF01BFA1A43000BA0F6 /* GlobalSplitViewController.swift in Sources */,
 				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
 				9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */,
 				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
+				95EE6BF51BFA41A2000BA0F6 /* EventsTableViewController.swift in Sources */,
 				9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */,
 				9509B5E81BF5FB2D00F3465A /* App.swift in Sources */,
 				954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */,
+				95EE6BF91BFA41C0000BA0F6 /* ImageCache.swift in Sources */,
 				9535C1381BF8C6C4008F6FA2 /* CrashManager.swift in Sources */,
+				95EE6BF61BFA41A2000BA0F6 /* ImageViewController.swift in Sources */,
+				95EE6C001BFA41ED000BA0F6 /* EventTableViewCell.swift in Sources */,
 				9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */,
 				9535C1351BF8C6B9008F6FA2 /* UIViewController-Swizzle.swift in Sources */,
+				95EE6BF41BFA41A2000BA0F6 /* EventDetailTableViewController.swift in Sources */,
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
+				95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		95BD43521BF9D0B200477CB6 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				95EE6B7D1BF9D219000BA0F6 /* EventDetailTableViewController.swift in Sources */,
-				95EE6B7F1BF9D219000BA0F6 /* ImageViewController.swift in Sources */,
-				95EE6B781BF9D214000BA0F6 /* EventTableViewCell.swift in Sources */,
-				95EE6B791BF9D214000BA0F6 /* UserTableViewCell.swift in Sources */,
-				95EE6B7C1BF9D219000BA0F6 /* EventsTableViewController.swift in Sources */,
-				95EE6B7A1BF9D216000BA0F6 /* ImageCache.swift in Sources */,
-				95EE6B7B1BF9D216000BA0F6 /* UIImageView+Desman.swift in Sources */,
-				95EE6B771BF9D214000BA0F6 /* AppTableViewCell.swift in Sources */,
+				95EE6BFF1BFA41ED000BA0F6 /* AppTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,46 +640,6 @@
 			};
 			name = Release;
 		};
-		95BD435D1BF9D0B200477CB6 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Desman/Interface/Support/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Interface-iOS";
-				PRODUCT_NAME = DesmanInterface;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		95BD435E1BF9D0B200477CB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Desman/Interface/Support/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Interface-iOS";
-				PRODUCT_NAME = DesmanInterface;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		95EE6B721BF9D1D7000BA0F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -794,7 +656,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDESMAN_INCLUDES_REALTIME -DDESMAN_INCLUDES_REMOTE";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
@@ -819,7 +681,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				OTHER_SWIFT_FLAGS = "-DDESMAN_INCLUDES_REALTIME -DDESMAN_INCLUDES_REMOTE";
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
@@ -845,15 +707,6 @@
 			buildConfigurations = (
 				956AF2031BD4F0AF00464E9E /* Debug */,
 				956AF2041BD4F0AF00464E9E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		95BD435C1BF9D0B200477CB6 /* Build configuration list for PBXNativeTarget "Desman Interface iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				95BD435D1BF9D0B200477CB6 /* Debug */,
-				95BD435E1BF9D0B200477CB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
