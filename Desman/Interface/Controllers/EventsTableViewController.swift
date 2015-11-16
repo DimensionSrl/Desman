@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Desman
 
 private var desmanEventsContext = 0
 
@@ -15,12 +16,12 @@ public class EventsController {
 
 }
 
-class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
+public class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var events = [Event]()
     
-    var remote : Bool = false
+    public var remote : Bool = false
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         self.splitViewController?.preferredDisplayMode = .AllVisible
             
@@ -48,7 +49,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
     }
 
     @available(iOS 9.0, *)
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+    public func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         guard let indexPath = tableView.indexPathForRowAtPoint(location) else { return nil }
         guard let cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
         guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("EventDetailTableViewController") as? EventDetailTableViewController else { return nil }
@@ -63,7 +64,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
         return detailVC
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    public func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         showViewController(viewControllerToCommit, sender: self)
     }
     
@@ -71,7 +72,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &desmanEventsContext {
             if keyPath == "events" {
                 if let updatedEvents = change?[NSKeyValueChangeNewKey] as? Set<Event> {
@@ -135,27 +136,27 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
         }
     }
     
-    override func didReceiveMemoryWarning() {
+    override public func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedEvent = events[indexPath.row]
         self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! EventTableViewCell
         let event = events[indexPath.row]
         cell.eventTitleLabel?.text = event.title
@@ -165,7 +166,8 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
             cell.accessoryType = .None
         }
         cell.eventImageView?.image = event.image
-        cell.eventSubtitleLabel?.text = event.dateFormatter.stringFromDate(event.timestamp)
+        cell.eventSubtitleLabel?.text =
+            event.dateFormatter.stringFromDate(event.timestamp)
         
         return cell
     }
@@ -181,7 +183,7 @@ class EventsTableViewController: UITableViewController, UIViewControllerPreviewi
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showEventDetailSegue" {
             if let detailNavigationController = segue.destinationViewController as? UINavigationController, detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
                 if let event = sender as? Event {

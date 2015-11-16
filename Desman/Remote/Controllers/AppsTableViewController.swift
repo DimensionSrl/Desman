@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Desman
+import DesmanInterface
 
 private var desmanAppsContext = 0
 

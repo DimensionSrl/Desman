@@ -8,8 +8,8 @@
 
 import UIKit
 
-class EventTableViewCell: UITableViewCell {
-    @IBOutlet var eventTitleLabel: UILabel!
-    @IBOutlet var eventSubtitleLabel: UILabel!
-    @IBOutlet var eventImageView: UIImageView!
+public class EventTableViewCell: UITableViewCell {
+    @IBOutlet public var eventTitleLabel: UILabel!
+    @IBOutlet public var eventSubtitleLabel: UILabel!
+    @IBOutlet public var eventImageView: UIImageView!
 }

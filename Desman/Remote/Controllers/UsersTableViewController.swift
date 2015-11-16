@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Desman
+import DesmanInterface
 
 private var desmanUsersContext = 0
 
@@ -96,7 +98,11 @@ class UsersTableViewController: UITableViewController {
         let selectedUser = users[indexPath.row]
         if let app = app {
             RemoteManager.sharedInstance.fetchEvents(app, user: selectedUser)
-            self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
+            // self.performSegueWithIdentifier("showEventsSegue", sender: selectedUser)
+            
+            let desmanCoreStoryboard = UIStoryboard(name: "Event", bundle: NSBundle(forClass: EventsController.self))
+            let desmanEventController = desmanCoreStoryboard.instantiateViewControllerWithIdentifier("EventDetailTableViewController")
+            self.showDetailViewController(desmanEventController, sender: self) // presentViewController(desmanEventController, animated: true, completion: nil)
         }
     }
     

@@ -42,18 +42,18 @@
         <!--Apps-->
         <scene sceneID="pfa-hC-wgt">
             <objects>
-                <tableViewController id="pDo-RE-cR2" customClass="AppsTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="pDo-RE-cR2" customClass="AppsTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="hd7-bk-TDU">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="appCell" id="3tm-Z7-0uB" customClass="AppTableViewCell" customModule="Desman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="appCell" id="3tm-Z7-0uB" customClass="AppTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3tm-Z7-0uB" id="PYn-8z-x5v">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="evE-CM-zgE">
@@ -127,18 +127,18 @@
         <!--Users-->
         <scene sceneID="mlj-P4-YZS">
             <objects>
-                <tableViewController storyboardIdentifier="usersTableViewController" id="YRz-I8-DEb" customClass="UsersTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="usersTableViewController" id="YRz-I8-DEb" customClass="UsersTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="mHI-KN-OiV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="userCell" id="15m-RN-Mt2" customClass="UserTableViewCell" customModule="Desman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="userCell" id="15m-RN-Mt2" customClass="UserTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="15m-RN-Mt2" id="mjM-AP-YQq">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lYV-4O-zQ1">
@@ -211,7 +211,7 @@
         <!--Global Split View Controller-->
         <scene sceneID="w5M-uP-bLJ">
             <objects>
-                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController storyboardIdentifier="remoteController" id="Fm9-vh-btA" customClass="GlobalSplitViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="P22-qH-2n2" kind="relationship" relationship="masterViewController" id="SSq-Vw-dSY"/>
                         <segue destination="mcI-Wx-QC3" kind="relationship" relationship="detailViewController" id="o9N-qH-hsv"/>
@@ -224,18 +224,18 @@
         <!--Events-->
         <scene sceneID="UEJ-en-Wfu">
             <objects>
-                <tableViewController id="kdw-pK-Xce" customClass="EventsTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kdw-pK-Xce" customClass="EventsTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="CUk-ga-Lwt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ji9-or-AM0" customClass="EventTableViewCell" customModule="Desman" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reuseIdentifier" id="ji9-or-AM0" customClass="EventTableViewCell" customModule="DesmanRemote" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="48"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ji9-or-AM0" id="24o-wL-rla">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="47.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="47"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="713-iX-t9X">
@@ -311,9 +311,6 @@
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="log" value="NO"/>
                     </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="vD8-Us-Vxi" kind="showDetail" identifier="showEventDetailSegue" id="hpg-jW-x2k"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mD0-Jw-b34" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -342,14 +339,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CaH-Zb-QO9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1392" y="553"/>
-        </scene>
-        <!--Event-->
-        <scene sceneID="6rS-r0-hvI">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Event" id="vD8-Us-Vxi" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wB3-sP-E2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2797" y="258"/>
         </scene>
     </scenes>
 </document>

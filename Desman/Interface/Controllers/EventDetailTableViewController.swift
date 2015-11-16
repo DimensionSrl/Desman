@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Desman
 
 class EventDetailTableViewController: UITableViewController {
     var event : Event?

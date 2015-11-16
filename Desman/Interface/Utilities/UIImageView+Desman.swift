@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import Desman
 
-extension UIImageView {
+public extension UIImageView {
     // Loads image asynchronously
     func loadFromURL(url: NSURL) {
         ImageCache.sharedInstance.getImage(url) { (image, error) -> () in
@@ -21,13 +22,13 @@ extension UIImageView {
         }
     }
     
-    func isIcon() {
+    public func isIcon() {
         self.image = UIImage(named: "Icon Placeholder", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
         self.layer.cornerRadius = self.frame.size.height / 5
         self.clipsToBounds = true
     }
     
-    func isUser() {
+    public func isUser() {
         self.image = UIImage(named: "User Placeholder", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
         self.layer.cornerRadius = self.frame.size.height / 2
         self.clipsToBounds = true

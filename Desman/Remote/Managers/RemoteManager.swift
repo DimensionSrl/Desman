@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import Desman
+
 #if DESMAN_INCLUDES_REALTIME
 import SwiftWebSocket
 #endif
