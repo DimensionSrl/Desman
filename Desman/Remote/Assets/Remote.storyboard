@@ -224,7 +224,7 @@
         <!--Events-->
         <scene sceneID="UEJ-en-Wfu">
             <objects>
-                <tableViewController id="kdw-pK-Xce" customClass="EventsTableViewController" customModule="DesmanRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kdw-pK-Xce" customClass="EventsTableViewController" customModule="DesmanInterface" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="48" sectionHeaderHeight="28" sectionFooterHeight="28" id="CUk-ga-Lwt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
