@@ -1,0 +1,94 @@
+{
+  "name": "Desman",
+  "version": "0.2.0",
+  "summary": "An event tracking tool for mobile apps.",
+  "homepage": "http://desman.dimension.it",
+  "license": "MIT",
+  "authors": [
+    {
+      "Matteo Gavagnin": "m@macteo.it",
+      "Dimension S.r.l.": "info@dimension.it"
+    }
+  ],
+  "social_media_url": "http://twitter.com/macteo",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "http://10.10.1.4/ios/desman.git",
+    "tag": "v0.2.0"
+  },
+  "requires_arc": true,
+  "frameworks": "Photos",
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "Desman/Core/**/*.swift",
+      "exclude_files": "Desman/Core/Vendor/*"
+    },
+    {
+      "name": "Interface",
+      "dependencies": {
+        "Desman/Core": [
+
+        ]
+      },
+      "exclude_files": "Desman/Core/Vendor/*",
+      "source_files": "Desman/Interface/**/*.swift",
+      "resources": [
+        "Desman/Interface/Assets/**/*.xcassets",
+        "Desman/Interface/Assets/*.storyboard"
+      ]
+    },
+    {
+      "name": "Debatable",
+      "dependencies": {
+        "Desman/Core": [
+
+        ]
+      },
+      "source_files": "Desman/Debatable/**/*.swift"
+    },
+    {
+      "name": "Crash",
+      "source_files": "Desman/Crash/**/*.swift",
+      "vendored_frameworks": "Desman/Crash/Vendor/CrashReporter.framework",
+      "resources": "Desman/Crash/Vendor/CrashReporter.framework",
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_CRASH_REPORTER",
+        "LD_RUNPATH_SEARCH_PATHS": "@loader_path/../Frameworks"
+      }
+    },
+    {
+      "name": "Remote",
+      "dependencies": {
+        "Desman/Interface": [
+
+        ]
+      },
+      "source_files": "Desman/Remote/**/*.swift",
+      "resources": [
+        "Desman/Remote/Assets/**/*.xcassets",
+        "Desman/Remote/Assets/*.storyboard"
+      ],
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REMOTE"
+      }
+    },
+    {
+      "name": "Realtime",
+      "dependencies": {
+        "Desman/Remote": [
+
+        ],
+        "SwiftWebSocket": [
+          "~> 2.3.0"
+        ]
+      },
+      "xcconfig": {
+        "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_INCLUDES_REALTIME"
+      }
+    }
+  ]
+}
