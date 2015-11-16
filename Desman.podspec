@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |core|
     core.source_files  = 'Desman/Core/**/*.swift'
-    core.exclude_files = 'Desman/Core/Vendor/*'
     core.resources     = [ 'Desman/Core/Assets/**/*.xcassets', 'Desman/Core/Assets/*.storyboard' ]
   end
 
@@ -26,6 +25,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Crash' do |crash|
     crash.source_files       = 'Desman/Crash/**/*.swift'
+    crash.exclude_files      = 'Desman/Crash/Vendor/*'
     crash.vendored_framework = 'Desman/Crash/Vendor/CrashReporter.framework'
     crash.resource           = 'Desman/Crash/Vendor/CrashReporter.framework'
     crash.xcconfig           = { 'LD_RUNPATH_SEARCH_PATHS' => '@loader_path/../Frameworks' }

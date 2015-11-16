@@ -29,9 +29,7 @@ class UsersTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-#if DESMAN_INCLUDES_REALTIME
         RemoteManager.sharedInstance.stopFetchingEvents()
-#endif
     }
     
     @IBAction func dismissController(sender: UIBarButtonItem) {
@@ -104,7 +102,7 @@ class UsersTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! UserTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("userCell", forIndexPath: indexPath) as! Desman.UserTableViewCell
         let user = users[indexPath.row]
         cell.userTitleLabel.text = user.title
         cell.userImageView.isUser()
