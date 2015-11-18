@@ -8,8 +8,6 @@ An event tracking tool for mobile apps.
 
 *Currently in early development.*
 
-![Events](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Events.png) ![Events](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Event.png)
-
 ## Features
 
 - [x] Remote logging in realtime.
@@ -17,17 +15,23 @@ An event tracking tool for mobile apps.
 - [x] Custom events and types.
 - [x] Event templates with types.
 - [x] Automatic screenshot detection and upload.
-- [x] Automatically upload app icon.
+- [x] App icon upload.
 - [x] Customizable payload can be set on each event.
 - [x] Event attachments as `NSData`.
 - [x] On device events list interface.
 - [x] Optional convenience features at your own risk (swizzling).
 - [x] Curated images associated to events.
+- [ ] `print` and `NSLog` replacement.
 - [ ] Opportunistic events upload.
 - [ ] Authentication.
-- [ ] Detect network status (Reachability).
-- [ ] User image upload.
 - [ ] Well documented.
+- [ ] Tested.
+- [ ] User activated remote logging visiting a web page.
+- [ ] SSL encryption.
+- [ ] Crash log detection and upload.
+- [ ] Event filter and search.
+
+![Event](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Events.png) ![Events](https://raw.github.com/DimensionSrl/Desman/Assets/screenshots/Event.png) ![Event gif](https://raw.github.com/DimensionSrl/Desman/Assets/gifs/Event.gif)
 
 ## Requirements
 
@@ -260,8 +264,8 @@ and check if it builds.
 ## Acknowledgements
 
 Matteo Gavagnin [@macteo](http://twitter.com/macteo) – [DIMENSION](http://www.dimension.it) – Design, implementation and documentation.
-Daniele Dalledonne - [DIMENSION](http://www.dimension.it) – Initial idea.
-Matteo Vidotto - [DIMENSION](http://www.dimension.it) – First integrations and manual testing.
+Daniele Dalledonne [@ddalledo](http://twitter.com/ddalledo) – [DIMENSION](http://www.dimension.it) – Initial idea.
+Matteo Vidotto – [DIMENSION](http://www.dimension.it) – First integrations and manual testing.
 
 ## License
 
