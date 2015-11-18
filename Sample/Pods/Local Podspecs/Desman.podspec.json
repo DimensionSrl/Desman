@@ -1,12 +1,12 @@
 {
   "name": "Desman",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "summary": "An event tracking tool for mobile apps.",
   "homepage": "http://desman.dimension.it",
   "license": "MIT",
   "authors": [
     {
-      "Matteo Gavagnin": "m@macteo.it",
+      "Matteo Gavagnin": "matteo.gavagnin@dimension.it",
       "Dimension S.r.l.": "info@dimension.it"
     }
   ],
@@ -16,10 +16,13 @@
   },
   "source": {
     "git": "http://10.10.1.4/ios/desman.git",
-    "tag": "v0.2.1"
+    "tag": "v0.2.3"
   },
   "requires_arc": true,
-  "frameworks": "Photos",
+  "frameworks": [
+    "Photos",
+    "CoreData"
+  ],
   "default_subspecs": "Core",
   "xcconfig": {
     "OTHER_SWIFT_FLAGS": "$(inherited) -DDESMAN_AS_COCOAPOD"
@@ -30,7 +33,8 @@
       "source_files": "Desman/Core/**/*.swift",
       "resources": [
         "Desman/Core/Assets/**/*.xcassets",
-        "Desman/Core/Assets/*.storyboard"
+        "Desman/Core/Assets/*.storyboard",
+        "Desman/Core/Resources/**"
       ]
     },
     {
