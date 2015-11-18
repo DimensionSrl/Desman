@@ -90,7 +90,7 @@
                                 <action selector="dismissController:" destination="291-08-6qy" id="x6m-zJ-nyi"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="Info" id="IRN-gm-7Rc">
+                        <barButtonItem key="rightBarButtonItem" image="InfoButton" id="IRN-gm-7Rc">
                             <connections>
                                 <action selector="infoButtonPressed:" destination="291-08-6qy" id="sNX-L6-FMs"/>
                             </connections>
@@ -201,6 +201,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Info" width="32" height="32"/>
+        <image name="InfoButton" width="32" height="32"/>
     </resources>
 </document>

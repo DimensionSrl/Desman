@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'D9103F8ED15356C238306BC8'
+               BlueprintIdentifier = 'B9373956DD3B76487031ADE7'
                BlueprintName = 'Desman'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Desman.framework'>

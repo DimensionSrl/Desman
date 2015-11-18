@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+        D.logType(Warning(subtype: "memory"))
     }
 
     @IBAction func showEvents(sender: UIBarButtonItem) {

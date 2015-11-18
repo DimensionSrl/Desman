@@ -29,7 +29,7 @@
         <!--Event Detail Table View Controller-->
         <scene sceneID="bHU-Q8-QHd">
             <objects>
-                <tableViewController storyboardIdentifier="EventDetailTableViewController" id="0a1-8x-Ret" customClass="EventDetailTableViewController" customModule="DesmanInterface" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EventDetailTableViewController" id="0a1-8x-Ret" customClass="EventDetailTableViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dAU-15-arP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -234,7 +234,7 @@
         <!--Image Attachment Detail-->
         <scene sceneID="cDb-qp-2T8">
             <objects>
-                <viewController title="Image Attachment Detail" id="VfV-d2-pSb" customClass="ImageViewController" customModule="DesmanInterface" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Image Attachment Detail" id="VfV-d2-pSb" customClass="ImageViewController" customModule="Desman" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7jd-gl-cvZ"/>
                         <viewControllerLayoutGuide type="bottom" id="eFE-Fy-Ni6"/>

@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         D.logType(Application.DidFinishLaunching)
         D.log(DeviceInfo())
         D.log(DeviceUserInfo())
-        NotificationCenterManager.sharedInstance.listenToAppLifecicleActivity()
+        NotificationCenterManager.sharedInstance.listenToAppLifecycleActivity()
         NotificationCenterManager.sharedInstance.listenToScreenshots()
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "Desman",
-  "version": "0.2.3",
+  "version": "0.2.5",
   "summary": "An event tracking tool for mobile apps.",
   "homepage": "http://desman.dimension.it",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "http://10.10.1.4/ios/desman.git",
-    "tag": "v0.2.3"
+    "tag": "v0.2.5"
   },
   "requires_arc": true,
   "frameworks": [

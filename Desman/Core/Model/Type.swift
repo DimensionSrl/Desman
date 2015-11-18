@@ -113,6 +113,27 @@ public class Notification : Type {
     }
 }
 
+public class Error : Type {
+    override var imageName : String {
+        get { return "Error" }
+        set { self.imageName = newValue }
+    }
+}
+
+public class Warning : Type {
+    override var imageName : String {
+        get { return "Warning" }
+        set { self.imageName = newValue }
+    }
+}
+
+public class Info : Type {
+    override var imageName : String {
+        get { return "Info" }
+        set { self.imageName = newValue }
+    }
+}
+
 public class Table : Type {
     public static let DidSelectRow = Table(subtype: "DidSelectRow")
     override var imageName : String {
