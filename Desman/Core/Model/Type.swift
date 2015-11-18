@@ -67,7 +67,7 @@ import UIKit
         return nil
     }
     
-    class public func new(type : String, subtype: String) -> AnyObject? {
+    class public func new(type: String, subtype: String) -> AnyObject? {
         if let TypeClass = NSClassFromString(type) as? Type.Type {
             let type = TypeClass.init()
             type.subtype = subtype

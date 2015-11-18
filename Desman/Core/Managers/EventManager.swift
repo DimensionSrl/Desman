@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import CoreData
 
 public let D = EventManager.sharedInstance
 
 @objc public enum Serialization : Int {
     case None
     case UserDefaults
+    case CoreData
 }
 
 @objc public enum Swizzle : Int {
@@ -55,16 +57,13 @@ public class EventManager : NSObject {
         self.type = serialization
         self.upload = true
         UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
-        if type == .UserDefaults {
-            deserializeEvents()
-        }
+        deserializeEvents()
+        
         scheduleProcessTimer()
         
         // We immediately upload app icon and its name
         // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
         self.forceLog(AppInfo())
-
-        // TODO: support other databases
     }
     
     public func startLogging() {
@@ -80,9 +79,7 @@ public class EventManager : NSObject {
     
     public func purgeLogs() {
         self.events.removeAll()
-        if self.type == .UserDefaults {
-            self.serializeEvents()
-        }
+        self.serializeEvents()
         // TODO: remove every online log linked to this device and user
     }
     
@@ -95,9 +92,7 @@ public class EventManager : NSObject {
     
     public func takeOff(serialization: Serialization) {
         self.type = serialization
-        if type == .UserDefaults {
-            deserializeEvents()
-        }
+        deserializeEvents()
         scheduleProcessTimer()
         // TODO: support other databases
     }
@@ -172,10 +167,19 @@ public class EventManager : NSObject {
         guard sortedEvents.count > 0 else  {
             return
         }
-        let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(eventsData, forKey: "events")
-        defaults.synchronize()
+        if type == .UserDefaults {
+            let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(eventsData, forKey: "events")
+            defaults.synchronize()
+        } else if type == .CoreData {
+            for event in sortedEvents {
+                event.saveCDEvent()
+            }
+            // Delete everything and create new events
+            
+            // TODO: update events and add new ones
+        }
     }
     
     public func resetEvents() {
@@ -183,10 +187,18 @@ public class EventManager : NSObject {
     }
     
     func deserializeEvents() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if let eventsData = defaults.objectForKey("events") as? NSData {
-            if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? [Event] {
-                self.eventsQueue.unionInPlace(events)
+        if type == .UserDefaults {
+            let defaults = NSUserDefaults.standardUserDefaults()
+            if let eventsData = defaults.objectForKey("events") as? NSData {
+                if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? [Event] {
+                    self.eventsQueue.unionInPlace(events)
+                }
+            }
+        } else if type == .CoreData {
+            let request: NSFetchRequest = NSFetchRequest(entityName: "CDEvent")
+            if let fetchedEvents = CoreDataSerializerManager.sharedInstance.executeFetchRequest(request) {
+                let mappedEvents = fetchedEvents.map{Event(cdevent: $0 as! CDEvent)}
+                self.eventsQueue.unionInPlace(mappedEvents)
             }
         }
     }
