@@ -20,7 +20,6 @@ public class ImageViewController: UIViewController {
     }
     @IBAction func imageViewTapped(sender: UITapGestureRecognizer) {
         let hide = !navigationController!.navigationBarHidden
-        UIApplication.sharedApplication().setStatusBarHidden(hide, withAnimation: .Slide)
         navigationController!.setNavigationBarHidden(hide, animated: true)
     }
 }
