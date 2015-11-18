@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="1" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="15B42" minimumToolsVersion="Xcode 7.0">
+    <entity name="CDEvent" representedClassName=".CDEvent" syncable="YES">
+        <attribute name="attachmentUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="payload" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="sent" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="subtype" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+        <attribute name="uuid" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="CDEvent" positionX="-63" positionY="-18" width="128" height="165"/>
+    </elements>
+</model>

@@ -155,8 +155,7 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
             cell.accessoryType = .None
         }
         cell.eventImageView?.image = event.image
-        cell.eventSubtitleLabel?.text =
-            event.dateFormatter.stringFromDate(event.timestamp)
+        cell.eventSubtitleLabel?.text = event.dateFormatter.stringFromDate(event.timestamp)
         
         return cell
     }

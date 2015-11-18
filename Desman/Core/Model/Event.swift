@@ -9,6 +9,7 @@
 import Foundation
 import AdSupport
 import UIKit
+import CoreData
 
 public typealias Coding = protocol<NSCoding>
 
@@ -98,6 +99,49 @@ public class Event: NSCoder {
         self.attachment = attachment
         super.init()
         self.commonInit()
+    }
+    
+    init(cdevent: CDEvent) {
+        if let type = Type.new(cdevent.type, subtype: cdevent.subtype) as? Type {
+            self.type = type
+        } else {
+            self.type = Type.Unknown
+        }
+        self.timestamp = cdevent.timestamp
+        
+        if let p = cdevent.payload, let payload = NSKeyedUnarchiver.unarchiveObjectWithData(p) as? [String : Coding] {
+            self.payload = payload
+        }
+        if let id = cdevent.id {
+            self.id = id
+        }
+        self.uuid = NSUUID(UUIDString: cdevent.uuid)
+        
+        if let url = cdevent.attachmentUrl,  let attachmentUrl = NSURL(string: url) {
+            self.attachmentUrl = attachmentUrl
+        }
+        self.sent = cdevent.sent
+        super.init()
+        self.commonInit()
+    }
+    
+    func saveCDEvent() {
+        let event = CoreDataSerializerManager.sharedInstance.event(self.identifier)
+        event.type = self.type.className
+        event.subtype = self.type.subtype
+        if let payload = self.payload {
+            event.payload = NSKeyedArchiver.archivedDataWithRootObject(payload)
+        }
+        event.uuid = identifier
+        event.sent = self.sent
+        event.timestamp = self.timestamp
+        if let attachmentUrl = self.attachmentUrl {
+            event.attachmentUrl = attachmentUrl.absoluteString
+        }
+        if let id = self.id {
+            event.id = id
+        }
+        CoreDataSerializerManager.sharedInstance.save()
     }
     
     public convenience init(coder decoder: NSCoder) {
