@@ -120,15 +120,15 @@
 		9509B5E21BF5FA8900F3465A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				957CE8631BFC7C9700C716F9 /* Resources */,
 				95EE6C021BFA4208000BA0F6 /* Assets */,
-				95EE6BFB1BFA41D0000BA0F6 /* Views */,
 				9520297C1BF634A70067AB29 /* Controllers */,
-				952029791BF630190067AB29 /* Utilities */,
-				9509B5F11BF5FBA400F3465A /* Templates */,
 				9509B5EC1BF5FB3E00F3465A /* Managers */,
 				954B61151BF3B4A6004FA6F2 /* Model */,
+				957CE8631BFC7C9700C716F9 /* Resources */,
 				95BD43491BF9CE8000477CB6 /* Support */,
+				9509B5F11BF5FBA400F3465A /* Templates */,
+				952029791BF630190067AB29 /* Utilities */,
+				95EE6BFB1BFA41D0000BA0F6 /* Views */,
 			);
 			path = Core;
 			sourceTree = "<group>";

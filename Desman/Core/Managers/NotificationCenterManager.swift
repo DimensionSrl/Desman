@@ -26,7 +26,7 @@ public class NotificationCenterManager {
         stopListening(UIApplicationUserDidTakeScreenshotNotification)
     }
     
-    public func listenToAppLifecicleActivity() {
+    public func listenToAppLifecycleActivity() {
         startListening(UIApplicationDidBecomeActiveNotification, type: Application.DidBecomeActive)
         startListening(UIApplicationDidEnterBackgroundNotification, type: Application.DidEnterBackground)
         // startListening(UIApplicationDidFinishLaunchingNotification, type: Application.DidFinishLaunching)
