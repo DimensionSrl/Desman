@@ -40,6 +40,8 @@ An event tracking tool for mobile apps.
 
 ## Installation
 
+Desman is extremely lightweight. Even including the resource files and interface, your app will increase of just 1.4 MB or only 1.2 MB if you also enable [bitcode](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html).
+
 ### CocoaPods
 
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
@@ -57,7 +59,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Desman', '~> 0.2.3'
+pod 'Desman'
 ```
 
 Then, run the following command:
@@ -88,7 +90,7 @@ $ brew install carthage
 To integrate Desman into your Xcode project using [Carthage](https://github.com/Carthage/Carthage), specify it in your `Cartfile`:
 
 ```ogdl
-github "DimensionSrl/Desman" ~> 0.2.3
+github "DimensionSrl/Desman"
 ```
 
 Run `carthage update --platform iOS` to build the framework and drag the built `Desman.framework` into your Xcode project to include only the **Core** features.
@@ -112,7 +114,7 @@ You can choose to send the events to an endpoint, serialize them into `NSUserDef
 
 *Sample code is written in Swift but Objective-C should be supported too, if you find an incompatibility please open an issue.*
 
-Import Desman framework into your Swift classes
+Import *Desman* and optionally *DesmanRemote* modules into your Swift classes
 
 ```swift
 import Desman
@@ -122,6 +124,8 @@ or if you are writing in Objective-C
 ```objc
 #import <Desman/Desman-Swift.h>
 ```
+
+If you integrate Desman with CocoaPods, you don't have to include *DesmanRemote* (only *Desman* is enough) as a single module will be produced, with everything included.
 
 > Keep in mind the you have to let the project generate the Bridging Header otherwise the integration may fail.
 
@@ -138,7 +142,7 @@ EventManager.sharedInstance.takeOff(.UserDefaults)
 If you have a remote web service instance you can provide the url, otherwise you can simply log events locally.
 
 ```swift
-EventManager.sharedInstance.takeOff(NSURL(string: "https://example.com")!, appKey: "", serialization: .UserDefaults)
+EventManager.sharedInstance.takeOff(NSURL(string: "https://example.com")!, appKey: "1234567890abcdef", serialization: .UserDefaults)
 ```
 
 In order to collect events you also need to call the `startLogging:` method.
