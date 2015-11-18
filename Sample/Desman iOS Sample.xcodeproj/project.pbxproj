@@ -62,10 +62,10 @@
 			isa = PBXGroup;
 			children = (
 				9595972C1BF8DD8600BCB8A2 /* AppDelegate.swift */,
-				9595972E1BF8DD8600BCB8A2 /* ViewController.swift */,
 				959597301BF8DD8600BCB8A2 /* Main.storyboard */,
 				959597331BF8DD8600BCB8A2 /* Assets.xcassets */,
 				959597351BF8DD8600BCB8A2 /* LaunchScreen.storyboard */,
+				9595972E1BF8DD8600BCB8A2 /* ViewController.swift */,
 				959597381BF8DD8600BCB8A2 /* Info.plist */,
 			);
 			path = "Desman iOS Sample";
