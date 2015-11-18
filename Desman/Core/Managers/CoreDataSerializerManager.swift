@@ -5,6 +5,7 @@
 //  Created by Matteo Gavagnin on 18/11/15.
 //  Copyright © 2015 DIMENSION S.r.l. All rights reserved.
 //
+//  Heaviliy based on https://github.com/mdelamata/CoreDataManager-Swift
 
 import Foundation
 import CoreData
