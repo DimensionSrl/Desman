@@ -65,15 +65,21 @@ public class UploadManager {
                             event.id = id
                             event.sent = true
                             event.uploading = false
+                            if EventManager.sharedInstance.type == .CoreData {
+                                event.saveCDEvent()
+                            }
                             dispatch_async(dispatch_get_main_queue()) {
-                                EventManager.sharedInstance.sentEvents.insert(event)
+                                EventManager.sharedInstance.sentEvents.append(event)
                             }
                         } else if let id = eventDictionary["id"] as? Int {
                             event.id = "\(id)"
                             event.sent = true
                             event.uploading = false
+                            if EventManager.sharedInstance.type == .CoreData {
+                                event.saveCDEvent()
+                            }
                             dispatch_async(dispatch_get_main_queue()) {
-                                EventManager.sharedInstance.sentEvents.insert(event)
+                                EventManager.sharedInstance.sentEvents.append(event)
                             }
                         }
                     } catch let parseError as NSError {
@@ -166,8 +172,11 @@ public class UploadManager {
                 }
                 
                 event.sent = true
+                if EventManager.sharedInstance.type == .CoreData {
+                    event.saveCDEvent()
+                }
                 dispatch_async(dispatch_get_main_queue()) {
-                    EventManager.sharedInstance.sentEvents.insert(event)
+                    EventManager.sharedInstance.sentEvents.append(event)
                 }
             }
             dispatch_async(dispatch_get_main_queue()) {
@@ -178,7 +187,7 @@ public class UploadManager {
         uploading = true
     }
     
-    func sendEvents(events: Set<Event>) {
+    func sendEvents(events: [Event]) {
         guard !uploading else { return }
         guard (self.session != nil) else { return }
         var pendingEvents = events.filter{ $0.sent == false }
@@ -220,8 +229,11 @@ public class UploadManager {
                                                 if let event = filteredEvents.first {
                                                     event.id = "\(id)"
                                                     event.sent = true
+                                                    if EventManager.sharedInstance.type == .CoreData {
+                                                        event.saveCDEvent()
+                                                    }
                                                     dispatch_async(dispatch_get_main_queue()) {
-                                                        EventManager.sharedInstance.sentEvents.insert(event)
+                                                        EventManager.sharedInstance.sentEvents.append(event)
                                                     }
                                                 }
                                             }

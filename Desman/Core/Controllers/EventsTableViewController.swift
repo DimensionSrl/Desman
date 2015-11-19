@@ -64,11 +64,11 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
     override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &desmanEventsContext {
             if keyPath == "events" {
-                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? Set<Event> {
+                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? [Event] {
                     // We need to compare the updatedEvents with the events Array
                     // After the comparison we need to add, update and remove cells
-                    let removedEvents = Set<Event>(events).subtract(updatedEvents)
-                    let addedEvents = updatedEvents.subtract(events)
+                    let removedEvents = events.removeObjectsInArray(updatedEvents)
+                    let addedEvents = updatedEvents.removeObjectsInArray(events)
                     
                     var removeIndexPaths = [NSIndexPath]()
                     var index = 1
@@ -98,7 +98,7 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
                     tableView.endUpdates()
                 }
             } else if keyPath == "sentEvents" {
-                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? Set<Event> {
+                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? [Event] {
                     var potentiallyUpdatedEventsDict = [Int : Event]()
                     for event in updatedEvents {
                         potentiallyUpdatedEventsDict[event.hash] = event

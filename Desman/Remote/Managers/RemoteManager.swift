@@ -36,9 +36,9 @@ public class RemoteManager : NSObject {
     static public let sharedInstance = RemoteManager()
     
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
-    dynamic internal(set) public var apps = Set<App>()
-    dynamic internal(set) public var users = Set<User>()
-    dynamic internal(set) public var events = Set<Event>()
+    dynamic internal(set) public var apps = [App]()
+    dynamic internal(set) public var users = [User]()
+    dynamic internal(set) public var events = [Event]()
     
     public func fetchApps() {
         guard (UploadManager.sharedInstance.session != nil) else { return }
@@ -52,14 +52,14 @@ public class RemoteManager : NSObject {
                 if let data = data {
                     do {
                         if let appsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                            var apps = Set<App>()
+                            var apps = [App]()
                             for appDictionary in appsArray {
                                 if let app = App(dictionary: appDictionary) {
-                                    apps.insert(app)
+                                    apps.append(app)
                                 }
                             }
                             dispatch_async(dispatch_get_main_queue()) {
-                                RemoteManager.sharedInstance.apps = apps
+                                self.apps = apps
                             }
                         } else {
                             print("Desman: cannot parse apps array")
@@ -87,10 +87,10 @@ public class RemoteManager : NSObject {
                 if let data = data {
                     do {
                         if let usersArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                            var users = Set<User>()
+                            var users = [User]()
                             for userDictionary in usersArray {
                                 if let user = User(dictionary: userDictionary) {
-                                    users.insert(user)
+                                    users.append(user)
                                 }
                             }
                             dispatch_async(dispatch_get_main_queue()) {
@@ -124,10 +124,10 @@ public class RemoteManager : NSObject {
                     if let data = data {
                         do {
                             if let eventsArray = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0)) as? [[String : Coding]] {
-                                var events = Set<Event>()
+                                var events = [Event]()
                                 for eventDictionary in eventsArray {
                                     if let event = Event(dictionary: eventDictionary) {
-                                        events.insert(event)
+                                        events.append(event)
                                     }
                                 }
                                 dispatch_async(dispatch_get_main_queue()) {
@@ -221,7 +221,7 @@ public class RemoteManager : NSObject {
                                     if let content = json[1] as? [String: AnyObject] {
                                         if let data = content["data"] as? [String: Coding] {
                                             if let event = Event(dictionary: data) {
-                                                self.events.insert(event)
+                                                self.events.append(event)
                                                 // print(event)
                                             }
                                         }

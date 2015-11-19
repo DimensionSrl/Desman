@@ -43,7 +43,7 @@ public class EventManager : NSObject {
         }
     }
     var timer : NSTimer?
-    var eventsQueue = Set<Event>()
+    var eventsQueue = [Event]()
     var type = Serialization.None
     
     /**
@@ -52,8 +52,8 @@ public class EventManager : NSObject {
     static public let sharedInstance = EventManager()
 
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
-    dynamic private(set) public var events = Set<Event>()
-    dynamic internal(set) public var sentEvents = Set<Event>()
+    dynamic private(set) public var events = [Event]()
+    dynamic internal(set) public var sentEvents = [Event]()
     
     public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization) {
         self.type = serialization
@@ -103,7 +103,7 @@ public class EventManager : NSObject {
     
     public func log(event: Event){
         if shouldLog {
-            self.eventsQueue.insert(event)
+            self.eventsQueue.append(event)
             if type == .CoreData {
                 event.saveCDEvent()
             }
@@ -114,7 +114,7 @@ public class EventManager : NSObject {
     }
     
     func forceLog(event: Event){
-        self.eventsQueue.insert(event)
+        self.eventsQueue.append(event)
         if type == .CoreData {
             event.saveCDEvent()
         }
@@ -126,7 +126,7 @@ public class EventManager : NSObject {
     public func logType(type: Type){
         if shouldLog {
             let event = Event(type)
-            self.eventsQueue.insert(event)
+            self.eventsQueue.append(event)
             if self.type == .CoreData {
                 event.saveCDEvent()
             }
@@ -139,7 +139,7 @@ public class EventManager : NSObject {
     public func log(type: Type, payload: [String : Coding]){
         if shouldLog {
             let event = Event(type: type, payload: payload)
-            self.eventsQueue.insert(event)
+            self.eventsQueue.append(event)
             if self.type == .CoreData {
                 event.saveCDEvent()
             }
@@ -156,15 +156,16 @@ public class EventManager : NSObject {
             return
         }
         
-        let eventsUnion = self.events.union(eventsQueue)
-        var sortedEvents = eventsUnion.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        self.events.appendContentsOf(eventsQueue)
+        
+        var sortedEvents = self.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
         
         if sortedEvents.count > self.limit {
             sortedEvents.removeRange(self.limit..<sortedEvents.count)
         }
         
         eventsQueue.removeAll()
-        self.events = Set<Event>(sortedEvents)
+        self.events = sortedEvents
         
         if self.upload {
             self.sentEvents.removeAll()
@@ -184,14 +185,6 @@ public class EventManager : NSObject {
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject(eventsData, forKey: "events")
             defaults.synchronize()
-        } else if type == .CoreData {
-            for event in sortedEvents {
-                event.saveCDEvent()
-            }
-            CoreDataSerializerManager.sharedInstance.save()
-            // Delete everything and create new events
-            
-            // TODO: update events and add new ones
         }
     }
     
@@ -204,14 +197,14 @@ public class EventManager : NSObject {
             let defaults = NSUserDefaults.standardUserDefaults()
             if let eventsData = defaults.objectForKey("events") as? NSData {
                 if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? [Event] {
-                    self.eventsQueue.unionInPlace(events)
+                    self.eventsQueue.appendContentsOf(events)
                 }
             }
         } else if type == .CoreData {
             let request: NSFetchRequest = NSFetchRequest(entityName: "CDEvent")
             if let fetchedEvents = CoreDataSerializerManager.sharedInstance.executeFetchRequest(request) {
                 let mappedEvents = fetchedEvents.map{Event(cdevent: $0 as! CDEvent)}
-                self.eventsQueue.unionInPlace(mappedEvents)
+                self.eventsQueue.appendContentsOf(mappedEvents)
             }
         }
     }
