@@ -39,12 +39,11 @@ class UsersTableViewController: UITableViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &desmanUsersContext {
             if keyPath == "users" {
-                if let updated = change?[NSKeyValueChangeNewKey] as? Set<User> {
-                    // We need to compare the updatedEvents with the events Array
-                    // After the comparison we need to add, update and remove cells
-                    let removed = Set<User>(users).subtract(updated)
-                    let added = updated.subtract(users)
-                    
+                if let updated = change?[NSKeyValueChangeNewKey] as? [User] {
+
+                    let removed = users.removeObjectsInArray(updated)
+                    let added = updated.removeObjectsInArray(users)
+                                        
                     var removeIndexPaths = [NSIndexPath]()
                     var index = 1
                     let count = users.count

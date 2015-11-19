@@ -46,11 +46,10 @@ class AppsTableViewController: UITableViewController {
     override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
         if context == &desmanAppsContext {
             if keyPath == "apps" {
-                if let updatedApps = change?[NSKeyValueChangeNewKey] as? Set<App> {
-                    // We need to compare the updatedEvents with the events Array
-                    // After the comparison we need to add, update and remove cells
-                    let removedApps = Set<App>(apps).subtract(updatedApps)
-                    let addedApps = updatedApps.subtract(apps)
+                if let updatedApps = change?[NSKeyValueChangeNewKey] as? [App] {
+
+                    let removedApps = apps.removeObjectsInArray(updatedApps)
+                    let addedApps = updatedApps.removeObjectsInArray(apps)
                     
                     var removeIndexPaths = [NSIndexPath]()
                     var index = 1

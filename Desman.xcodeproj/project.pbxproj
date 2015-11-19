@@ -16,6 +16,8 @@
 		9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F21BF5FBB900F3465A /* AppInfo.swift */; };
 		9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F31BF5FBB900F3465A /* DeviceInfo.swift */; };
 		9509B5F71BF5FBB900F3465A /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5F41BF5FBB900F3465A /* UserInfo.swift */; };
+		951F50CA1BFDD9B30099FED6 /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F50C91BFDD9B30099FED6 /* Array+Desman.swift */; };
+		951F50CB1BFDDA6A0099FED6 /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F50C91BFDD9B30099FED6 /* Array+Desman.swift */; };
 		9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520297A1BF630460067AB29 /* UIViewController+Desman.swift */; };
 		9535C1351BF8C6B9008F6FA2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
@@ -65,6 +67,7 @@
 		9509B61A1BF6273300F3465A /* UsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		9509B61E1BF6275300F3465A /* Remote.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
+		951F50C91BFDD9B30099FED6 /* Array+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Desman.swift"; sourceTree = "<group>"; };
 		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
 		9535C0C41BF8C1FF008F6FA2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9535C1521BF8CB97008F6FA2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
@@ -217,6 +220,7 @@
 		952029791BF630190067AB29 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				951F50C91BFDD9B30099FED6 /* Array+Desman.swift */,
 				9520297A1BF630460067AB29 /* UIViewController+Desman.swift */,
 				95EE6BF71BFA41C0000BA0F6 /* ImageCache.swift */,
 				95EE6BF81BFA41C0000BA0F6 /* UIImageView+Desman.swift */,
@@ -471,6 +475,7 @@
 				957CE86A1BFC7E6F00C716F9 /* CDEvent.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
 				95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */,
+				951F50CA1BFDD9B30099FED6 /* Array+Desman.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,
 				95EE6BFF1BFA41ED000BA0F6 /* AppTableViewCell.swift in Sources */,
 			);
@@ -482,6 +487,7 @@
 			files = (
 				95EE6B801BF9D221000BA0F6 /* RemoteManager.swift in Sources */,
 				95EE6B811BF9D224000BA0F6 /* AppsTableViewController.swift in Sources */,
+				951F50CB1BFDDA6A0099FED6 /* Array+Desman.swift in Sources */,
 				95EE6BEB1BFA0F71000BA0F6 /* RemoteEventsTableViewController.swift in Sources */,
 				95EE6B821BF9D224000BA0F6 /* UsersTableViewController.swift in Sources */,
 			);
