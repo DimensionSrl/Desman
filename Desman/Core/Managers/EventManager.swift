@@ -30,14 +30,16 @@ public class EventManager : NSObject {
     public var consoleLog = false
     public var swizzles = Set<Swizzle>()
     
-    public var limit = 10
+    public var limit = 100
     public var timeInterval = 1.0 {
         didSet {
             if timeInterval < 0.25 {
                 timeInterval = 0.25
             }
-            self.timer?.invalidate()
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+            dispatch_async(dispatch_get_main_queue()) {
+                self.timer?.invalidate()
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+            }
         }
     }
     var timer : NSTimer?
@@ -84,10 +86,12 @@ public class EventManager : NSObject {
     }
     
     func scheduleProcessTimer() {
-        if let timer = timer {
-            timer.invalidate()
+        dispatch_async(dispatch_get_main_queue()) {
+            if let timer = self.timer {
+                timer.invalidate()
+            }
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
         }
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
     }
     
     public func takeOff(serialization: Serialization) {
@@ -97,11 +101,12 @@ public class EventManager : NSObject {
         // TODO: support other databases
     }
     
-    // If you connect a KVO controller the updates can be too fast to manage
-    
     public func log(event: Event){
         if shouldLog {
             self.eventsQueue.insert(event)
+            if type == .CoreData {
+                event.saveCDEvent()
+            }
             if consoleLog {
                 print(event.description)
             }
@@ -110,6 +115,9 @@ public class EventManager : NSObject {
     
     func forceLog(event: Event){
         self.eventsQueue.insert(event)
+        if type == .CoreData {
+            event.saveCDEvent()
+        }
         if consoleLog {
             print(event.description)
         }
@@ -119,6 +127,9 @@ public class EventManager : NSObject {
         if shouldLog {
             let event = Event(type)
             self.eventsQueue.insert(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
             if consoleLog {
                 print(event.description)
             }
@@ -129,6 +140,9 @@ public class EventManager : NSObject {
         if shouldLog {
             let event = Event(type: type, payload: payload)
             self.eventsQueue.insert(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
             if consoleLog {
                 print(event.description)
             }
@@ -157,9 +171,7 @@ public class EventManager : NSObject {
             UploadManager.sharedInstance.sendEvents(self.events)
         }
         
-        if self.type == .UserDefaults {
-            self.serializeEvents()
-        }
+        self.serializeEvents()
     }
     
     func serializeEvents() {
@@ -176,6 +188,7 @@ public class EventManager : NSObject {
             for event in sortedEvents {
                 event.saveCDEvent()
             }
+            CoreDataSerializerManager.sharedInstance.save()
             // Delete everything and create new events
             
             // TODO: update events and add new ones

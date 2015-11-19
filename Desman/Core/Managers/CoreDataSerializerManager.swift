@@ -36,9 +36,7 @@ class CoreDataSerializerManager: NSObject {
     }
     
     var managedObjectContext: NSManagedObjectContext{
-        
         if NSThread.isMainThread() {
-            
             if (_managedObjectContext == nil) {
                 let coordinator = self.persistentStoreCoordinator
                 _managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
@@ -46,14 +44,16 @@ class CoreDataSerializerManager: NSObject {
                 
                 return _managedObjectContext!
             }
-            
         } else {
             
             var threadContext : NSManagedObjectContext? = NSThread.currentThread().threadDictionary["NSManagedObjectContext"] as? NSManagedObjectContext;
-            
-            print(NSThread.currentThread().threadDictionary)
-            
             if threadContext == nil {
+                if (_managedObjectContext == nil) {
+                    let coordinator = self.persistentStoreCoordinator
+                    _managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+                    _managedObjectContext!.persistentStoreCoordinator = coordinator
+                }
+
                 threadContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
                 threadContext!.parentContext = _managedObjectContext
                 threadContext!.name = NSThread.currentThread().description
@@ -61,7 +61,6 @@ class CoreDataSerializerManager: NSObject {
                 NSThread.currentThread().threadDictionary["NSManagedObjectContext"] = threadContext
                 
                 NSNotificationCenter.defaultCenter().addObserver(self, selector:"contextWillSave:" , name: NSManagedObjectContextWillSaveNotification, object: threadContext)
-                
             }
             return threadContext!;
         }
