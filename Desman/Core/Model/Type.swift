@@ -113,6 +113,13 @@ public class Notification : Type {
     }
 }
 
+public class Crash : Type {
+    override var imageName : String {
+        get { return "Error" }
+        set { self.imageName = newValue }
+    }
+}
+
 public class Error : Type {
     override var imageName : String {
         get { return "Error" }
