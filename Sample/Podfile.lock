@@ -1,8 +1,8 @@
 PODS:
-  - Desman/Core (0.2.7)
-  - Desman/Debatable (0.2.7):
+  - Desman/Core (0.2.8)
+  - Desman/Debatable (0.2.8):
     - Desman/Core
-  - Desman/Remote (0.2.7):
+  - Desman/Remote (0.2.8):
     - Desman/Core
     - SwiftWebSocket (~> 2.3.0)
   - SwiftWebSocket (2.3.0)
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
     :path: ".."
 
 SPEC CHECKSUMS:
-  Desman: e1f6d9a4d7158c92bf5eedb173b8abd5eb262095
+  Desman: ac300b51eac14ebb5880be3560db38e59f6e2f28
   SwiftWebSocket: 8acd8af800bc124228639ace0e295319a1ff6e48
 
 COCOAPODS: 0.39.0
