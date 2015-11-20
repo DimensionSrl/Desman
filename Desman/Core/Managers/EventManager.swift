@@ -28,7 +28,7 @@ public class EventManager : NSObject {
     var upload = false
     var shouldLog = false
     public var consoleLog = false
-    public var swizzles = Set<Swizzle>()
+    public var swizzles = [Swizzle]()
     
     public var limit = 100
     public var timeInterval = 1.0 {

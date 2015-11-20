@@ -11,7 +11,7 @@ import Photos
 
 let kNotificationCenterEvent = "notificationCenterEvent"
 
-public class NotificationCenterManager {
+public class NotificationCenterManager : NSObject {
 
     /**
     A shared instance of `NotificationCenterManager`.
