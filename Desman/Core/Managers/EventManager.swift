@@ -108,7 +108,7 @@ public class EventManager : NSObject {
                 event.saveCDEvent()
             }
             if consoleLog {
-                print(event.description)
+                print("Event: \(event.description)")
             }
         }
     }
@@ -119,7 +119,7 @@ public class EventManager : NSObject {
             event.saveCDEvent()
         }
         if consoleLog {
-            print(event.description)
+            print("Event: \(event.description)")
         }
     }
     
@@ -131,7 +131,7 @@ public class EventManager : NSObject {
                 event.saveCDEvent()
             }
             if consoleLog {
-                print(event.description)
+                print("Event: \(event.description)")
             }
         }
     }
@@ -144,7 +144,7 @@ public class EventManager : NSObject {
                 event.saveCDEvent()
             }
             if consoleLog {
-                print(event.description)
+                print("Event: \(event.description)")
             }
         }
     }
