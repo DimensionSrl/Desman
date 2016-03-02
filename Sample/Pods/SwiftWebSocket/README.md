@@ -4,29 +4,29 @@
 <a href="https://developer.apple.com/swift/"><img src="https://tidwall.github.io/SwiftWebSocket/swift2.png" alt="" width="65" height="20" border="0" /></a>
 <a href="https://tidwall.github.io/SwiftWebSocket/docs/"><img src="https://tidwall.github.io/SwiftWebSocket/docs.png" alt="" width="65" height="20" border="0" /></a>
 
-Conforming WebSocket ([RFC 6455](https://tools.ietf.org/html/rfc6455)) client library implemented in pure Swift.
+Conforming WebSocket ([RFC 6455](https://tools.ietf.org/html/rfc6455)) client library implemented in Swift.
 
-[Test results for SwiftWebSocket](https://tidwall.github.io/SwiftWebSocket/results/). You can compare to the popular [Objective-C Library](http://square.github.io/SocketRocket/results/)
-
-SwiftWebSocket currently passes all 521 of the Autobahn's fuzzing tests, including strict UTF-8, and message compression.
+SwiftWebSocket passes all 521 of the Autobahn's fuzzing tests, including strict UTF-8, and message compression.
 
 ## Features
 
 - High performance.
+- 100% conforms to [Autobahn Tests](http://autobahn.ws/testsuite/#test-suite-coverage). Including base, limits, compression, etc. [Test results](https://tidwall.github.io/SwiftWebSocket/results/).
 - TLS / WSS support. Self-signed certificate option.
 - The API is modeled after the [Javascript API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
-- Reads compressed messages (`permessage-deflate`). [IETF Draft](https://tools.ietf.org/html/draft-ietf-hybi-permessage-compression-21)
+- Reads compressed messages (`permessage-deflate`). [RFC 7692](https://tools.ietf.org/html/rfc7692)
 - Send pings and receive pong events.
 - Strict UTF-8 processing. 
 - `binaryType` property to choose between `[UInt8]` or `NSData` messages.
 - Zero asserts. All networking, stream, and protocol errors are routed through the `error` event.
+- Objective-C compatibility.
 
 ## Example
 
 ```swift
 func echoTest(){
     var messageNum = 0
-    unowned let ws = WebSocket("wss://echo.websocket.org")
+    let ws = WebSocket("wss://echo.websocket.org")
     let send : ()->() = {
         let msg = "\(++messageNum): \(NSDate().description)"
         print("send: \(msg)")
@@ -55,19 +55,26 @@ func echoTest(){
 }
 ```
 
+## Custom Headers
+```swift
+let request = NSMutableURLRequest(URL: NSURL(string:"ws://url")!)
+request.addValue("AUTH_TOKEN", forHTTPHeaderField: "Authorization")
+request.addValue("Value", forHTTPHeaderField: "X-Another-Header")
+let ws = WebSocket(request: request)
+```
+
 ## Reuse and Delaying WebSocket Connections
 v2.3.0+ makes available an optional `open` method. This will allow for a `WebSocket` object to be instantiated without an immediate connection to the server. It can also be used to reconnect to a server following the `close` event.
 
 For example,
 
 ```swift
-    let ws = WebSocket()
-    ws.event.close = { _ in
-        ws.open()                 // reopen the socket to the previous url
-        ws.open("ws://otherurl")  // or, reopen the socket to a new url
-    }
-    ws.open("ws://url") // call with url
+let ws = WebSocket()
+ws.event.close = { _ in
+    ws.open()                 // reopen the socket to the previous url
+    ws.open("ws://otherurl")  // or, reopen the socket to a new url
 }
+ws.open("ws://url") // call with url
 ```
 
 ## Compression
@@ -77,6 +84,20 @@ The `compression` flag may be used to request compressed messages from the serve
 ```swift
 let ws = WebSocket("ws://url")
 ws.compression.on = true
+```
+
+## Self-signed SSL Certificate
+
+```swift
+let ws = WebSocket("ws://url")
+ws.allowSelfSignedSSL = true
+```
+
+## Network Services (VoIP, Video, Background, Voice)
+
+```swift
+// Allow socket to handle VoIP in the background.
+ws.services = [.VoIP, .Background] 
 ```
 
 ##Installation (iOS and OS X)
@@ -117,7 +138,7 @@ The `import SwiftWebSocket` directive is required in order to access SwiftWebSoc
 
 ###Manually
 
-Copy the `SwiftWebSocket\WebSocket.swift` file into your project.  
+Copy the `SwiftWebSocket/WebSocket.swift` file into your project.  
 You must also add the `libz.dylib` library. `Project -> Target -> Build Phases -> Link Binary With Libraries`
 
 There is no need for `import SwiftWebSocket` when manually installing.

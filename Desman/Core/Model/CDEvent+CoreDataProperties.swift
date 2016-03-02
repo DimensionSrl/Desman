@@ -16,6 +16,7 @@ extension CDEvent {
 
     @NSManaged var type: String
     @NSManaged var subtype: String
+    @NSManaged var value: String
     @NSManaged var timestamp: NSDate
     @NSManaged var uuid: String
     @NSManaged var id: String?

@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09D75E8D9E92217341754451 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 357D610693D230848623C0ED /* Pods.framework */; };
 		9595972D1BF8DD8600BCB8A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595972C1BF8DD8600BCB8A2 /* AppDelegate.swift */; };
 		9595972F1BF8DD8600BCB8A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9595972E1BF8DD8600BCB8A2 /* ViewController.swift */; };
 		959597321BF8DD8600BCB8A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959597301BF8DD8600BCB8A2 /* Main.storyboard */; };
 		959597341BF8DD8600BCB8A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 959597331BF8DD8600BCB8A2 /* Assets.xcassets */; };
 		959597371BF8DD8600BCB8A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 959597351BF8DD8600BCB8A2 /* LaunchScreen.storyboard */; };
+		D044F62623A906F465685033 /* Pods_Desman_iOS_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0230706AB698BC9C76841C8B /* Pods_Desman_iOS_Sample.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0230706AB698BC9C76841C8B /* Pods_Desman_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desman_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		357D610693D230848623C0ED /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3650D020A097CAD44C2994E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		8F76132904A141DE12364DA1 /* Pods-Desman iOS Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desman iOS Sample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.debug.xcconfig"; sourceTree = "<group>"; };
 		959597291BF8DD8600BCB8A2 /* Desman iOS Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Desman iOS Sample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595972C1BF8DD8600BCB8A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9595972E1BF8DD8600BCB8A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +26,7 @@
 		959597331BF8DD8600BCB8A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		959597361BF8DD8600BCB8A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		959597381BF8DD8600BCB8A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B080541061D5808A22E43CB0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		C1023F89792F957B1B1C80F5 /* Pods-Desman iOS Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Desman iOS Sample.release.xcconfig"; path = "Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,20 +34,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09D75E8D9E92217341754451 /* Pods.framework in Frameworks */,
+				D044F62623A906F465685033 /* Pods_Desman_iOS_Sample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F035AE2F0B624D962E5E25D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F76132904A141DE12364DA1 /* Pods-Desman iOS Sample.debug.xcconfig */,
+				C1023F89792F957B1B1C80F5 /* Pods-Desman iOS Sample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		959597201BF8DD8500BCB8A2 = {
 			isa = PBXGroup;
 			children = (
 				9595972B1BF8DD8600BCB8A2 /* Desman iOS Sample */,
 				9595972A1BF8DD8600BCB8A2 /* Products */,
-				A9217C712940A11E4152F72B /* Pods */,
 				E38FBD755F43BD5317430FF7 /* Frameworks */,
+				7F035AE2F0B624D962E5E25D /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,19 +81,11 @@
 			path = "Desman iOS Sample";
 			sourceTree = "<group>";
 		};
-		A9217C712940A11E4152F72B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				B080541061D5808A22E43CB0 /* Pods.debug.xcconfig */,
-				3650D020A097CAD44C2994E0 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		E38FBD755F43BD5317430FF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				357D610693D230848623C0ED /* Pods.framework */,
+				0230706AB698BC9C76841C8B /* Pods_Desman_iOS_Sample.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -95,12 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595973B1BF8DD8600BCB8A2 /* Build configuration list for PBXNativeTarget "Desman iOS Sample" */;
 			buildPhases = (
-				D23DA7804E7B200B53598692 /* Check Pods Manifest.lock */,
+				81A59F515E617AC3065881F1 /* Check Pods Manifest.lock */,
 				959597251BF8DD8600BCB8A2 /* Sources */,
 				959597261BF8DD8600BCB8A2 /* Frameworks */,
 				959597271BF8DD8600BCB8A2 /* Resources */,
-				6957A3223FF3A946AA36864C /* Embed Pods Frameworks */,
-				830D333AC1CB66D7D816214E /* Copy Pods Resources */,
+				A6C8F3B78BB464D8BA773393 /* Embed Pods Frameworks */,
+				FCBF9528F0E676E9E73BE603 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +125,7 @@
 				TargetAttributes = {
 					959597281BF8DD8600BCB8A2 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = GXH4K8J6KR;
 					};
 				};
 			};
@@ -158,37 +161,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6957A3223FF3A946AA36864C /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		830D333AC1CB66D7D816214E /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D23DA7804E7B200B53598692 /* Check Pods Manifest.lock */ = {
+		81A59F515E617AC3065881F1 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -201,6 +174,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A6C8F3B78BB464D8BA773393 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCBF9528F0E676E9E73BE603 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -322,27 +325,33 @@
 		};
 		9595973C1BF8DD8600BCB8A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B080541061D5808A22E43CB0 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 8F76132904A141DE12364DA1 /* Pods-Desman iOS Sample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Desman iOS Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		9595973D1BF8DD8600BCB8A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3650D020A097CAD44C2994E0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = C1023F89792F957B1B1C80F5 /* Pods-Desman iOS Sample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Desman iOS Sample/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

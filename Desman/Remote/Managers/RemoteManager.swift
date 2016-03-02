@@ -218,6 +218,25 @@ public class RemoteManager : NSObject {
                                 if name == "client_connected", let id = self.connectionId {
                                     subscribe(id)
                                 } else if name == "new_event" {
+                                    // print("We got a new_event")
+                                    if let content = json[1] as? [String: AnyObject] {
+                                        if let data = content["data"] as? [String: Coding] {
+                                            if let event = Event(dictionary: data) {
+                                                self.events.append(event)
+                                                // print(event)
+                                            }
+                                        }
+                                    }
+                                } else if name == "enter_event" {
+                                    if let content = json[1] as? [String: AnyObject] {
+                                        if let data = content["data"] as? [String: Coding] {
+                                            if let event = Event(dictionary: data) {
+                                                self.events.append(event)
+                                                // print(event)
+                                            }
+                                        }
+                                    }
+                                } else if name == "exit_event" {
                                     if let content = json[1] as? [String: AnyObject] {
                                         if let data = content["data"] as? [String: Coding] {
                                             if let event = Event(dictionary: data) {
