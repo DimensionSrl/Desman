@@ -13,13 +13,13 @@ import CoreData
 
 public typealias Coding = protocol<NSCoding>
 
-// This way we are able to track the current user and current device between app installations
-public let currentUserIdentifier = ASIdentifierManager.sharedManager().advertisingIdentifier.UUIDString
+public let currentUserIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
 public let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
 public let currentDeviceName = UIDevice.currentDevice().name
 
 public class Event: NSCoder {
     public let type : Type
+    public var value: String?
     public var payload : [String : Coding]?
     public var timestamp : NSDate
     public var sent : Bool = false
@@ -61,6 +61,10 @@ public class Event: NSCoder {
             self.id = id
         }
         
+        if let value = dictionary["value"] as? String {
+            self.value = value
+        }
+        
         if let uuid = dictionary["uuid"] as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
@@ -82,6 +86,25 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
+    public init(_ type: Type, value: String) {
+        self.type = type
+        self.value = value
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+
+    public init(type: Type, value: String, payload: [String : Coding]) {
+        self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.value = value
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
     public init(type: Type, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
@@ -90,9 +113,21 @@ public class Event: NSCoder {
         super.init()
         self.commonInit()
     }
+
     
     public init(type: Type, payload: [String : Coding], attachment: NSData) {
         self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.uuid = NSUUID()
+        self.attachment = attachment
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(type: Type, value: String, payload: [String : Coding], attachment: NSData) {
+        self.type = type
+        self.value = value
         self.timestamp = NSDate()
         self.payload = payload
         self.uuid = NSUUID()
@@ -115,6 +150,9 @@ public class Event: NSCoder {
         if let id = cdevent.id {
             self.id = id
         }
+        
+        self.value = cdevent.value
+        
         self.uuid = NSUUID(UUIDString: cdevent.uuid)
         
         if let url = cdevent.attachmentUrl,  let attachmentUrl = NSURL(string: url) {
@@ -133,6 +171,9 @@ public class Event: NSCoder {
             event.payload = NSKeyedArchiver.archivedDataWithRootObject(payload)
         }
         event.uuid = identifier
+        if let value = value {
+            event.value = value
+        }
         event.sent = self.sent
         event.timestamp = self.timestamp
         if let attachmentUrl = self.attachmentUrl {
@@ -170,6 +211,10 @@ public class Event: NSCoder {
         if let id = decoder.decodeObjectForKey("id") as? String {
             self.id = id
         }
+        if let value = decoder.decodeObjectForKey("value") as? String {
+            self.value = value
+        }
+
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
         }
@@ -185,6 +230,7 @@ public class Event: NSCoder {
     func encodeWithCoder(coder: NSCoder) {
         coder.encodeObject(type.dictionary, forKey: "type")
         coder.encodeObject(timestamp, forKey: "timestamp")
+        coder.encodeObject(value, forKey: "value")
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
@@ -200,6 +246,9 @@ public class Event: NSCoder {
         dict["uuid"] = identifier
         dict["user"] = userIdentifier
         dict["app"] = currentAppIdentifier
+        if let value = self.value {
+            dict["value"] = value
+        }
         if let id = self.id {
             dict["id"] = id
         }

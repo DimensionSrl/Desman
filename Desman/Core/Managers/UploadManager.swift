@@ -55,7 +55,7 @@ public class UploadManager {
         let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             if let error = error {
                 event.uploading = false
-                print("Desman: cannot send event - \(error)")
+                print("Desman: cannot send event - \(error.localizedDescription)")
             } else {
                 // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                 if let data = data {
@@ -154,7 +154,7 @@ public class UploadManager {
         let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
             self.uploading = false
             if let error = error {
-                print("Desman: cannot send event - \(error)")
+                print("Desman: cannot send event \(error.localizedDescription)")
             } else {
                 // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                 if let data = data {
@@ -213,7 +213,7 @@ public class UploadManager {
             let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
                 self.uploading = false
                 if let error = error {
-                    print("Desman: cannot send event - \(error)")
+                    print("Desman: cannot send event - \(error.localizedDescription)")
                 } else {
                     // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                     if let data = data {

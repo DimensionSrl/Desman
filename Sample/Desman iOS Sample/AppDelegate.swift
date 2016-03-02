@@ -20,18 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     func logEvents() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            EventManager.sharedInstance.takeOff(NSURL(string: "http://example.com")!, appKey: "", serialization: .CoreData)
+            EventManager.sharedInstance.takeOff(NSURL(string: "http://localhost:3000")!, appKey: "aa", serialization: .CoreData)
             // EventManager.sharedInstance.takeOff(.CoreData)
             EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
             EventManager.sharedInstance.startLogging()
-            EventManager.sharedInstance.consoleLog = false
+            EventManager.sharedInstance.consoleLog = true
             EventManager.sharedInstance.limit = 40
-            EventManager.sharedInstance.timeInterval = 0.5
+            EventManager.sharedInstance.timeInterval = 1.0
     
             // D is an alias for EventManager.sharedInstance
             D.logType(Application.DidFinishLaunching)
             D.log(DeviceInfo())
             D.log(DeviceUserInfo())
+            let event = Event(Type(subtype: "user"), value: "m@macteo.it")
+            D.log(event)
             NotificationCenterManager.sharedInstance.listenToAppLifecycleActivity()
             NotificationCenterManager.sharedInstance.listenToScreenshots()
         }        

@@ -84,10 +84,10 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods/Desman.framework"
-  install_framework "Pods/SwiftWebSocket.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Desman/Desman.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftWebSocket/SwiftWebSocket.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods/Desman.framework"
-  install_framework "Pods/SwiftWebSocket.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Desman/Desman.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/SwiftWebSocket/SwiftWebSocket.framework"
 fi

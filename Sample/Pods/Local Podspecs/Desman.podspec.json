@@ -53,7 +53,7 @@
 
         ],
         "SwiftWebSocket": [
-          "~> 2.3.0"
+          "~> 2.4.4"
         ]
       },
       "source_files": "Desman/Remote/**/*.swift",
