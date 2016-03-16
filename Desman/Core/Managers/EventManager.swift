@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public let D = EventManager.sharedInstance
+public let Des = EventManager.sharedInstance
 
 @objc public enum Serialization : Int {
     case None
@@ -46,6 +46,23 @@ public class EventManager : NSObject {
     var eventsQueue = [Event]()
     var type = Serialization.None
     
+    public func listenToAppLifecycleActivity() {
+        NotificationCenterManager.sharedInstance.listenToAppLifecycleActivity()
+    }
+    
+    public func listenToScreenshots() {
+        NotificationCenterManager.sharedInstance.listenToScreenshots()
+    }
+
+    public func stopListeningToAppLifecycleActivity() {
+        NotificationCenterManager.sharedInstance.stopListeningToAppLifecycleActivity()
+    }
+    
+    public func stopListeningToScreenshots() {
+        NotificationCenterManager.sharedInstance.stopListeningToScreenshots()
+    }
+
+    
     /**
     A shared instance of `EventManager`.
     */
@@ -66,6 +83,12 @@ public class EventManager : NSObject {
         // We immediately upload app icon and its name
         // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
         self.forceLog(AppInfo())
+    }
+    
+    public func takeOff(appKey appKey: String) {
+        let baseURL = NSURL(string: "https://desman.dimension.it")!
+        let serialization : Serialization = .CoreData
+        takeOff(baseURL, appKey: appKey, serialization: serialization)
     }
     
     public func startLogging() {

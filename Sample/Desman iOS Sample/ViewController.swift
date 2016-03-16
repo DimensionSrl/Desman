@@ -14,25 +14,25 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        D.logType(Warning(subtype: "memory"))
+        Des.logType(Warning(subtype: "memory"))
     }
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
-        D.log(Action.Button, payload: ["button": "show events"])
+        Des.log(Action.Button, payload: ["button": "show events"])
         let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventsController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     
     @IBAction func showRemote(sender: UIButton) {
-        D.log(Action.Button, payload: ["button": "show remote"])
+        Des.log(Action.Button, payload: ["button": "show remote"])
         let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: RemoteController.self))
         let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
         self.presentViewController(desmanController, animated: true, completion: nil)
     }
     
     @IBAction func feedbackCompose(sender: UIButton) {
-        D.log(Action.Button, payload: ["button": "feedback compose"])
+        Des.log(Action.Button, payload: ["button": "feedback compose"])
         let feedbackController = FeedbackComposeViewController()
         feedbackController.placeholder = "Give your feedback"
         feedbackController.modalPresentationStyle = .OverCurrentContext
@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         UIGraphicsEndImageContext()
         if let compressedImage = UIImageJPEGRepresentation(image, 0.4) {
             let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: compressedImage)
-            D.log(event)
+            Des.log(event)
         }
     }
     
