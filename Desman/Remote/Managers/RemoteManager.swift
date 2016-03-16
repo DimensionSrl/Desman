@@ -23,7 +23,7 @@ public class RemoteManager : NSObject {
             channelToken = nil
         }
     }
-    let ws = WebSocket("ws://desman.dimension.it/websocket")
+    let ws = WebSocket("wss://desman.dimension.it/websocket")
     
     var connectionId : String?
     var channelToken : String?
@@ -195,12 +195,12 @@ public class RemoteManager : NSObject {
             // send()
         }
         ws.event.close = { code, reason, clean in
-            print("close")
+            print("Websocket close")
             self.channelToken = nil
             self.connectionId = nil
         }
         ws.event.error = { error in
-            print("error \(error)")
+            print("Websocket error \(error)")
         }
         ws.event.message = { message in
             if let text = message as? String {

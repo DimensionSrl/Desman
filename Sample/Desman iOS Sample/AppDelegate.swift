@@ -20,8 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
     func logEvents() {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            EventManager.sharedInstance.takeOff(NSURL(string: "http://localhost:3000")!, appKey: "aa", serialization: .CoreData)
-            // EventManager.sharedInstance.takeOff(.CoreData)
+            EventManager.sharedInstance.takeOff(NSURL(string: "https://desman.dimension.it")!, appKey: "HIre5w9XvBFEYt3yIizCN01CeManBsEx37lKQbiQ7BE=", serialization: .CoreData)
             EventManager.sharedInstance.swizzles = [.ViewWillAppear, .ViewWillDisappear]
             EventManager.sharedInstance.startLogging()
             EventManager.sharedInstance.consoleLog = true
