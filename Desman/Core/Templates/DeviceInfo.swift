@@ -34,6 +34,12 @@ import UIKit
         deviceData["idiom"] = idiom
         deviceData["batteryState"] = batteryState
         deviceData["batteryLevel"] = batteryLevel
+        deviceData["availableSpace"] = availableSpace
+        deviceData["totalSpace"] = totalSpace
+        deviceData["usedMemory"] = usedMemory
+        
+        let physicalMemoryMB = NSProcessInfo.processInfo().physicalMemory / 1024 / 1024
+        deviceData["totalMemory"] = NSNumber(unsignedLongLong: physicalMemoryMB)
         
         info["device"] = deviceData
         
@@ -45,10 +51,13 @@ import UIKit
         
         info["env"] = envData
         
+        // Detect wifi SSID? http://www.enigmaticape.com/blog/determine-wifi-enabled-ios-one-weird-trick
+        
         return info
     }
     
     var batteryLevel : Int {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         let level = Double(UIDevice.currentDevice().batteryLevel)
         if level >= 0 {
             return Int(level * 100.0)
@@ -58,6 +67,7 @@ import UIKit
     }
     
     var batteryState : String {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         switch UIDevice.currentDevice().batteryState {
         case .Unknown:
             return "Unknown"
@@ -122,6 +132,52 @@ import UIKit
         case "i386", "x86_64":                          return "Simulator"
         default:                                        return identifier
         }
+    }
+    
+    
+    var availableSpace : NSNumber {
+        var availableSpace : NSNumber = 999999
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
+            if let freeSize = dictionary[NSFileSystemFreeSize] as? NSNumber {
+                availableSpace = freeSize
+            }
+        } else {
+            print("Error Obtaining System Memory Info:")
+        }
+        return availableSpace
+    }
+
+    var totalSpace : NSNumber {
+        var totalSpace : NSNumber = 999999
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
+            if let freeSize = dictionary[NSFileSystemSize] as? NSNumber {
+                totalSpace = freeSize
+            }
+        } else {
+            print("Error Obtaining System Memory Info:")
+        }
+        return totalSpace
+    }
+    
+    var usedMemory : NSNumber {
+        var info = task_basic_info()
+        var count = mach_msg_type_number_t(sizeofValue(info))/4
+        
+        let kerr: kern_return_t = withUnsafeMutablePointer(&info) {
+            
+            task_info(mach_task_self_,
+                task_flavor_t(TASK_BASIC_INFO),
+                task_info_t($0),
+                &count)
+        }
+        
+        if kerr == KERN_SUCCESS {
+            let memoryUsedMB = info.resident_size / 1024 / 1024
+            return NSNumber(unsignedInteger: memoryUsedMB)
+        }
+        return NSNumber(int: -1)
     }
 }
 
