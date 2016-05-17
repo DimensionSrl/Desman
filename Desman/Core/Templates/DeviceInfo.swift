@@ -178,7 +178,7 @@ import CoreBluetooth
         
         if kerr == KERN_SUCCESS {
             let memoryUsedMB = info.resident_size / 1024 / 1024
-            return NSNumber(unsignedInteger: memoryUsedMB)
+            return NSNumber(unsignedInteger: UInt(memoryUsedMB))
         }
         return NSNumber(int: -1)
     }
