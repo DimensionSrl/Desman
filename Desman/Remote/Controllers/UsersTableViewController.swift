@@ -50,7 +50,7 @@ class UsersTableViewController: UITableViewController {
                     for _ in removed {
                         let indexPath = NSIndexPath(forRow: count - index, inSection: 0)
                         removeIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     
                     var addedIndexPaths = [NSIndexPath]()
@@ -58,7 +58,7 @@ class UsersTableViewController: UITableViewController {
                     for _ in added {
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         addedIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     var rowAnimation : UITableViewRowAnimation = .Right
                     if users.count == 0 {

@@ -10,6 +10,7 @@
 		0478F77DFD1E25E95EC0319BD5ED57CE /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F96DB80BBCFD82A29D87FBBEFF6F8D1 /* GlobalSplitViewController.swift */; };
 		072F88EC9A7E7169BB1DDDB135C6AB1C /* SwiftWebSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F51EBB9321B9DEFAD37EEE5AE868CBCC /* SwiftWebSocket-dummy.m */; };
 		085367D02248AA80FAFAC82F8848D16D /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2EBDB154A18C307DDC57ECE6D82041 /* UserInfo.swift */; };
+		0957AD109126E530C59BE9D9D3D2751B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
 		0EDB843C8A3830DCF9EFAF203D346DDE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B638FAB68EB674B0152FE018778819FF /* User.swift */; };
 		153323EF1F14BBF3CB8645FD1E3E8EF6 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888DCC2349A105B8FD19BE14C7ADBF14 /* NotificationCenterManager.swift */; };
 		16F2A3207140328A6CF3D90090CFFF59 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B42CE879226729AEAC200C7E8F83F69D /* AppTableViewCell.swift */; };
@@ -18,34 +19,34 @@
 		2E1AA1E6276ED5FB0A23F64F5EC51734 /* Pods-Desman iOS Sample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91450B0E89C058A26E7A640A1108881B /* Pods-Desman iOS Sample-dummy.m */; };
 		30B83D79E41F1956A4A6BBED659326E9 /* Desman-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A063F49136F857E63FDC93598703614C /* Desman-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		369FCC8C94ABC3F1965D51770B7158F4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27916513BB9B7BAFB1A6F5A72B8406B4 /* Event.swift */; };
+		3A3A2AE384C55FFE03B22191B1AB0AD7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
 		3BF4E3249019D566BB0F5DA5E509F929 /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E92FC4EF5147D900BCBC074C09FA5DF7 /* UIImageView+Desman.swift */; };
 		3C7C46D1AC9D03D9DF61F47494419A59 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B1C99CAA4655F8F75B7749ADB9541E2 /* App.swift */; };
 		46AE21D089D855984653E62A78BCF5BA /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCC6B9306ECE255F4BAD8D954657E10D /* UploadManager.swift */; };
 		4BA5B16A4C846E133E0E37A254FE546D /* Desman.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 8C68C8576751F5185C349AA343EA7936 /* Desman.xcdatamodeld */; };
 		5117E9B91ADFC98BCF4349A28F7C523D /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEBBB7294C6EF90AF3EA8D1B1E26205 /* UserTableViewCell.swift */; };
+		51FCEB94AFCBB6FDBCC3677937742FE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
 		548D4F8B07C2EBBE0D325782698EB47C /* SwiftWebSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD759019C6D253CE57FC78E04A9EB32 /* SwiftWebSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5497DD5F680A1094593972528C733F10 /* Pods-Desman iOS Sample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6919ED0157938CF300728B3A8288BF33 /* Pods-Desman iOS Sample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		58C5CF9FE3354FD5605B91A547E32977 /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = E20DE806F4774EC5B61FE1F942E1909C /* Array+Desman.swift */; };
 		62AFC3A001DBD02C5A381DD08988DD92 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175B4A6F1B50A9EAE326801D55EB232A /* Desman.storyboard */; };
 		6699D6ABA00D6A062F4DBE64B5901C76 /* CoreDataSerializerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2029AF06F06E41A34E2384B928C496A9 /* CoreDataSerializerManager.swift */; };
-		6F88ACF6745BAA81360B66113D9A8036 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9289A2B0EA33A729AC79FDFB60095CC7 /* Foundation.framework */; };
 		6FD7FA0C0528239B09253D17A0761255 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D59027D64EA914AA6F93A555C0E6F8B /* Media.xcassets */; };
 		8043D956DE88E062C59B1FB6505B3847 /* CDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F416FB62458BFCA6CC024404F5AADC2 /* CDEvent.swift */; };
 		8546C9120436B89DA92F9CF715A3AB9E /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = D573D43E81061BB2BC6961EC40087AB5 /* Type.swift */; };
 		862FF73674A196279127100656F3EE9A /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6509172355879CDC0D431E1A47B65B /* WebSocket.swift */; };
 		8F9A0C3EB43D4641037A60AC65AEE139 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C99C555620CA5B667AC0F672680158 /* EventTableViewCell.swift */; };
-		93176195B8F6443C1BCCF9BF57F73FE7 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F146A0FB0169E7DCC3B5D31BB2F7553 /* Photos.framework */; };
 		9527B233D1BA6DFF8B02E523DF55D918 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9347286588C6F6A5DDDD39DCAF8F6248 /* AppInfo.swift */; };
 		967979117B45D1424DC5053A521F9017 /* RemoteEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E627CFA7237318271071252DB714338 /* RemoteEventsTableViewController.swift */; };
 		997F9A0209114D54892B09F8FBDAAB34 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06381F2621D21ACCAFF2C1F495380A3A /* ImageViewController.swift */; };
 		9F6723C879982BD6BD00449FAD511C6B /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CFC608C850ADBFB143D7FBA01C5826F /* EventDetailTableViewController.swift */; };
 		A27C247ADA4461F42BDD7278D35B3C0E /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE7E55414E535F487F317A53CDF4B7 /* AppsTableViewController.swift */; };
 		B95CFA1D424C4FE18E03BEAD6D806998 /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0292B83105FC017772D6B8C7034DB /* CDEvent+CoreDataProperties.swift */; };
-		C11C9ADCE88CDDED009D38324548FD13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46187B494D82C2FA79EBFA0A92DBF705 /* CoreData.framework */; };
-		C1AAB94A580BA5EB64572AB8A245C5C4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9289A2B0EA33A729AC79FDFB60095CC7 /* Foundation.framework */; };
+		C692005AB718733B86376E3978E57410 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */; };
 		D37E7CFD77FBE01047B08EB7F72101B2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421924A7A57F1BB6B2BF55AC8C3A036B /* UIViewController-Swizzle.swift */; };
 		D4125D50A9D2C0CF74C2A2FCAA5A80C2 /* Desman-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C337147ED25B155C3C4215576EC1DC6 /* Desman-dummy.m */; };
 		E5DD9E63A39667E3F8C3DE129FEDDFC0 /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60A3DF342E8534D89461FE1307DFC2E6 /* UIViewController+Desman.swift */; };
+		E8252526DD2BA0BC5C25132B828D9D97 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */; };
 		E9366B1BD057ACE306C1AF3845AAD7F7 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BCFC6DCC393955BF5F691588A7CC37E /* Event.storyboard */; };
 		E9968D88A1F4AA362D0CE3F1B6B8CC6B /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEB893598DB9417A3B7DA300FB153A2 /* FeedbackComposeViewController.swift */; };
 		EA9709844D4BE11DA2E0AD15A241A6C2 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF8FCD3C57439211974EC618D0F3F2CE /* DeviceInfo.swift */; };
@@ -54,7 +55,6 @@
 		EF188DBECA5AC39C50AF4204E1AB4DD5 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5372B9809FC09583437EFD66BA4DD0E9 /* EventsTableViewController.swift */; };
 		F2EEA2811AAF2636DF354CDF455AF147 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DB454F4732C991BD8E6AB89E2C8C29 /* ImageCache.swift */; };
 		F63DA9292CD031C91109CE017D942C7E /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2763D0562104B48236219938A8824B /* Remote.storyboard */; };
-		FD7D75491FED6E8A5F7A0357C178B366 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9289A2B0EA33A729AC79FDFB60095CC7 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,15 +102,15 @@
 		389FEA8F8DF08DD5D226F8AD7F65AE39 /* Desman.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
 		3C337147ED25B155C3C4215576EC1DC6 /* Desman-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Desman-dummy.m"; sourceTree = "<group>"; };
 		3CF5E40A5087242123586BE13F60B587 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3F146A0FB0169E7DCC3B5D31BB2F7553 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
 		3F6509172355879CDC0D431E1A47B65B /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Source/WebSocket.swift; sourceTree = "<group>"; };
 		421924A7A57F1BB6B2BF55AC8C3A036B /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
 		43127F22411714DB684FE5801D1F00D2 /* Pods-Desman iOS Sample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Desman iOS Sample-resources.sh"; sourceTree = "<group>"; };
-		46187B494D82C2FA79EBFA0A92DBF705 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		4969B4ADB80AE4277704621D03613A35 /* EventManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		52CE00AB6C5E2400698EF323696B947A /* SwiftWebSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftWebSocket-prefix.pch"; sourceTree = "<group>"; };
 		5372B9809FC09583437EFD66BA4DD0E9 /* EventsTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		5B4EEF975BE8D012AF6D48F8E1C89B43 /* Pods-Desman iOS Sample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Desman iOS Sample-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
 		60A3DF342E8534D89461FE1307DFC2E6 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
 		63EF95E610BDB77AACEFE94E05986BDD /* SwiftWebSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftWebSocket.modulemap; sourceTree = "<group>"; };
 		6919ED0157938CF300728B3A8288BF33 /* Pods-Desman iOS Sample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Desman iOS Sample-umbrella.h"; sourceTree = "<group>"; };
@@ -125,7 +125,6 @@
 		8BE0292B83105FC017772D6B8C7034DB /* CDEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CDEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8CF1C7C919562D1A99D1099C9BDF2388 /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91450B0E89C058A26E7A640A1108881B /* Pods-Desman iOS Sample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Desman iOS Sample-dummy.m"; sourceTree = "<group>"; };
-		9289A2B0EA33A729AC79FDFB60095CC7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		9347286588C6F6A5DDDD39DCAF8F6248 /* AppInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F16CB15E125EE7E471626D789D05B4F /* Pods-Desman iOS Sample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Desman iOS Sample.modulemap"; sourceTree = "<group>"; };
@@ -146,6 +145,7 @@
 		E364898D93E43F978500247FB02873C8 /* Desman 2.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 2.xcdatamodel"; sourceTree = "<group>"; };
 		E92FC4EF5147D900BCBC074C09FA5DF7 /* UIImageView+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
 		EA2763D0562104B48236219938A8824B /* Remote.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
+		EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
 		F51EBB9321B9DEFAD37EEE5AE868CBCC /* SwiftWebSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftWebSocket-dummy.m"; sourceTree = "<group>"; };
 		F66653903EB17A0AE274046BCED471BC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE52D52E2D564CD44720E47AEFCCF99A /* Pods-Desman iOS Sample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Desman iOS Sample-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6F88ACF6745BAA81360B66113D9A8036 /* Foundation.framework in Frameworks */,
+				51FCEB94AFCBB6FDBCC3677937742FE9 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1AAB94A580BA5EB64572AB8A245C5C4 /* Foundation.framework in Frameworks */,
+				0957AD109126E530C59BE9D9D3D2751B /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,9 +172,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C11C9ADCE88CDDED009D38324548FD13 /* CoreData.framework in Frameworks */,
-				FD7D75491FED6E8A5F7A0357C178B366 /* Foundation.framework in Frameworks */,
-				93176195B8F6443C1BCCF9BF57F73FE7 /* Photos.framework in Frameworks */,
+				C692005AB718733B86376E3978E57410 /* CoreData.framework in Frameworks */,
+				3A3A2AE384C55FFE03B22191B1AB0AD7 /* Foundation.framework in Frameworks */,
+				E8252526DD2BA0BC5C25132B828D9D97 /* Photos.framework in Frameworks */,
 				2419E3EB0CCBE6A06E6AB85BDD9621C6 /* SwiftWebSocket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				6DCDD9DA1BFCB0BA53E6E18BEA6B2445 /* SwiftWebSocket.framework */,
-				47D0D3C24D95AEA5E4A443472C4E7329 /* iOS */,
+				EDCA9408CCDF736BCB4F9F96A6B36DA2 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -276,16 +276,6 @@
 				BA2EBDB154A18C307DDC57ECE6D82041 /* UserInfo.swift */,
 			);
 			path = Templates;
-			sourceTree = "<group>";
-		};
-		47D0D3C24D95AEA5E4A443472C4E7329 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				46187B494D82C2FA79EBFA0A92DBF705 /* CoreData.framework */,
-				9289A2B0EA33A729AC79FDFB60095CC7 /* Foundation.framework */,
-				3F146A0FB0169E7DCC3B5D31BB2F7553 /* Photos.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		49360DF59207474CAFCE6BA30BBBA574 /* Targets Support Files */ = {
@@ -529,6 +519,16 @@
 			path = "Sample/Pods/Target Support Files/Desman";
 			sourceTree = "<group>";
 		};
+		EDCA9408CCDF736BCB4F9F96A6B36DA2 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */,
+				505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */,
+				EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		F03E6F30D276933D596E471A8FFE319E /* Desman */ = {
 			isa = PBXGroup;
 			children = (
@@ -645,7 +645,7 @@
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
@@ -854,110 +854,11 @@
 			};
 			name = Release;
 		};
-		78848B41477313B02FD496B8F181BC81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = A832F7157FAF273066DA8CB0EA7B0537 /* Pods-Desman iOS Sample.debug.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Desman iOS Sample/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Desman_iOS_Sample;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		811519CB8F683AC06F9C98B55AC40F11 /* Release */ = {
+		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"POD_CONFIGURATION_RELEASE=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				STRIP_INSTALLED_PRODUCT = NO;
-				SYMROOT = "${SRCROOT}/../build";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		85ABFF9672CA0CB05B07678528B186CF /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Desman/Desman-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Desman/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Desman/Desman.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Desman;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		882EB4391EC2E701934974DA86F7343F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -995,6 +896,69 @@
 			};
 			name = Debug;
 		};
+		78848B41477313B02FD496B8F181BC81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A832F7157FAF273066DA8CB0EA7B0537 /* Pods-Desman iOS Sample.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-Desman iOS Sample/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Desman_iOS_Sample;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		85ABFF9672CA0CB05B07678528B186CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Desman/Desman-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Desman/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Desman/Desman.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Desman;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9EEB11361CE65FFD0BD713FC7E8B1C2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */;
@@ -1025,14 +989,52 @@
 			};
 			name = Debug;
 		};
+		AAF678CED40D3499169D10F63CA0719E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				882EB4391EC2E701934974DA86F7343F /* Debug */,
-				811519CB8F683AC06F9C98B55AC40F11 /* Release */,
+				47BEF9D903506B003EA5C2B249729489 /* Debug */,
+				AAF678CED40D3499169D10F63CA0719E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

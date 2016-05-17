@@ -1,6 +1,6 @@
 {
   "name": "Desman",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "summary": "An event tracking tool for mobile apps.",
   "homepage": "http://desman.dimension.it",
   "license": "MIT",
@@ -16,7 +16,7 @@
   },
   "source": {
     "git": "http://10.10.1.4/ios/desman.git",
-    "tag": "v0.3.0"
+    "tag": "v0.3.1"
   },
   "requires_arc": true,
   "frameworks": [
@@ -53,7 +53,7 @@
 
         ],
         "SwiftWebSocket": [
-          "~> 2.4.4"
+          "~> 2.6.1"
         ]
       },
       "source_files": "Desman/Remote/**/*.swift",

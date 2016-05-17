@@ -20,8 +20,8 @@ extension UIViewController {
         }
         
         dispatch_once(&Static.token) {
-            var originalSelector = Selector("viewWillAppear:")
-            var swizzledSelector = Selector("desman_viewWillAppear:")
+            var originalSelector = #selector(UIViewController.viewWillAppear(_:))
+            var swizzledSelector = #selector(UIViewController.desman_viewWillAppear(_:))
             
             var originalMethod = class_getInstanceMethod(self, originalSelector)
             var swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
@@ -34,8 +34,8 @@ extension UIViewController {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
             
-            originalSelector = Selector("viewDidAppear:")
-            swizzledSelector = Selector("desman_viewDidAppear:")
+            originalSelector = #selector(UIViewController.viewDidAppear(_:))
+            swizzledSelector = #selector(UIViewController.desman_viewDidAppear(_:))
             
             originalMethod = class_getInstanceMethod(self, originalSelector)
             swizzledMethod = class_getInstanceMethod(self, swizzledSelector)
@@ -48,8 +48,8 @@ extension UIViewController {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
             
-            originalSelector = Selector("viewWillDisappear:")
-            swizzledSelector = Selector("desman_viewWillDisappear:")
+            originalSelector = #selector(UIViewController.viewWillDisappear(_:))
+            swizzledSelector = #selector(UIViewController.desman_viewWillDisappear(_:))
             
             originalMethod = class_getInstanceMethod(self, originalSelector)
             swizzledMethod = class_getInstanceMethod(self, swizzledSelector)

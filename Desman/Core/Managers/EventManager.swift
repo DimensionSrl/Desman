@@ -38,7 +38,7 @@ public class EventManager : NSObject {
             }
             dispatch_async(dispatch_get_main_queue()) {
                 self.timer?.invalidate()
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
             }
         }
     }
@@ -113,7 +113,7 @@ public class EventManager : NSObject {
             if let timer = self.timer {
                 timer.invalidate()
             }
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: Selector("processEvents"), userInfo: nil, repeats: true)
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
         }
     }
     
