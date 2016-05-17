@@ -11,22 +11,22 @@ import Photos
 
 let kNotificationCenterEvent = "notificationCenterEvent"
 
-public class NotificationCenterManager : NSObject {
+internal class NotificationCenterManager : NSObject {
 
     /**
     A shared instance of `NotificationCenterManager`.
     */
-    static public let sharedInstance = NotificationCenterManager()
+    static internal let sharedInstance = NotificationCenterManager()
     
-    public func listenToScreenshots() {
+    internal func listenToScreenshots() {
         startListeningForScreenshots()
     }
     
-    public func stopListeningToScreenshots() {
+    internal func stopListeningToScreenshots() {
         stopListening(UIApplicationUserDidTakeScreenshotNotification)
     }
     
-    public func listenToAppLifecycleActivity() {
+    internal func listenToAppLifecycleActivity() {
         startListening(UIApplicationDidBecomeActiveNotification, type: Application.DidBecomeActive)
         startListening(UIApplicationDidEnterBackgroundNotification, type: Application.DidEnterBackground)
         // startListening(UIApplicationDidFinishLaunchingNotification, type: Application.DidFinishLaunching)
@@ -35,7 +35,7 @@ public class NotificationCenterManager : NSObject {
         startListening(UIApplicationWillTerminateNotification, type: Application.WillTerminate)
     }
     
-    public func stopListeningToAppLifecycleActivity() {
+    internal func stopListeningToAppLifecycleActivity() {
         stopListening(UIApplicationDidBecomeActiveNotification)
         stopListening(UIApplicationDidEnterBackgroundNotification)
         // stopListening(UIApplicationDidFinishLaunchingNotification)
@@ -44,7 +44,7 @@ public class NotificationCenterManager : NSObject {
         stopListening(UIApplicationWillTerminateNotification)
     }
     
-    public func startListening(name: String, type: Type) {
+    internal func startListening(name: String, type: Type) {
         stopListening(name)
         NSNotificationCenter.defaultCenter().addObserverForName(name, object: nil, queue: nil) { (notification) -> Void in
             var payload = [String: Coding]()
@@ -79,7 +79,7 @@ public class NotificationCenterManager : NSObject {
                         imgManager.requestImageDataForAsset(assetResult, options: nil, resultHandler: { (data, string, orientation, userInfo) -> Void in
                             if let data = data {
                                 let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: data)
-                                D.log(event)
+                                Des.log(event)
                             }
                         })
                     }
@@ -88,7 +88,7 @@ public class NotificationCenterManager : NSObject {
         }
     }
     
-    public func stopListening(name: String) {
+    internal func stopListening(name: String) {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: name, object: nil)
     }
 }

@@ -57,7 +57,7 @@ class AppsTableViewController: UITableViewController {
                     for _ in removedApps {
                         let indexPath = NSIndexPath(forRow: appsCount - index, inSection: 0)
                         removeIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     
                     var addedIndexPaths = [NSIndexPath]()
@@ -65,7 +65,7 @@ class AppsTableViewController: UITableViewController {
                     for _ in addedApps {
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         addedIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     var rowAnimation : UITableViewRowAnimation = .Right
                     if apps.count == 0 {

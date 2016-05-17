@@ -60,7 +60,7 @@ class CoreDataSerializerManager: NSObject {
                 
                 NSThread.currentThread().threadDictionary["NSManagedObjectContext"] = threadContext
                 
-                NSNotificationCenter.defaultCenter().addObserver(self, selector:"contextWillSave:" , name: NSManagedObjectContextWillSaveNotification, object: threadContext)
+                NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CoreDataSerializerManager.contextWillSave(_:)) , name: NSManagedObjectContextWillSaveNotification, object: threadContext)
             }
             return threadContext!;
         }

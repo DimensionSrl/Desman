@@ -76,7 +76,7 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
                     for _ in removedEvents {
                         let indexPath = NSIndexPath(forRow: eventsCount - index, inSection: 0)
                         removeIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     
                     var addedIndexPaths = [NSIndexPath]()
@@ -84,7 +84,7 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
                     for _ in addedEvents {
                         let indexPath = NSIndexPath(forRow: index, inSection: 0)
                         addedIndexPaths.append(indexPath)
-                        index++
+                        index += 1
                     }
                     var rowAnimation : UITableViewRowAnimation = .Right
                     if events.count == 0 {
@@ -110,7 +110,7 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
                             let indexPath = NSIndexPath(forRow: index, inSection: 0)
                             updatedIndexPaths.append(indexPath)
                         }
-                        index++
+                        index += 1
                     }
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.10 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {

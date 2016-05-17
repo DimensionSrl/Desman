@@ -18,12 +18,14 @@ public class RemoteManager : NSObject {
     var app : App?
     var user : User? {
         didSet {
+            guard let ws = ws else { return }
             ws.close()
             connectionId = nil
             channelToken = nil
         }
     }
-    let ws = WebSocket("ws://desman.dimension.it/websocket")
+    
+    var ws : WebSocket?
     
     var connectionId : String?
     var channelToken : String?
@@ -34,6 +36,18 @@ public class RemoteManager : NSObject {
      A shared instance of `RemoteManager`.
      */
     static public let sharedInstance = RemoteManager()
+    
+    private override init() {
+        if let uploadUrl = UploadManager.sharedInstance.baseURL {
+            var scheme = "ws"
+            if uploadUrl.scheme.hasSuffix("s") {
+                scheme.appendContentsOf("s")
+            }
+            guard let host = uploadUrl.host else { return }
+            let socketString = "\(scheme)://\(host)/websocket"
+            ws = WebSocket(socketString)
+        }
+    }
     
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
     dynamic internal(set) public var apps = [App]()
@@ -150,12 +164,13 @@ public class RemoteManager : NSObject {
     }
     
     public func stopFetchingEvents() {
-        self.ws.close()
+        guard let ws = self.ws else { return }
+        ws.close()
     }
 
     func subscribeSocket() {
-
-        self.ws.open()
+        guard let ws = self.ws else { return }
+        ws.open()
         let pong : ()->() = {
             let emptyDictionary = [String: AnyObject]()
             if let id = self.connectionId {
@@ -164,7 +179,7 @@ public class RemoteManager : NSObject {
                     let data = try NSJSONSerialization.dataWithJSONObject(msg, options: .PrettyPrinted)
                     if let json = String(data: data, encoding: NSUTF8StringEncoding) {
                         // print("pong")
-                        self.ws.send(json)
+                        ws.send(json)
                     }
                 } catch _ {
                     
@@ -195,12 +210,12 @@ public class RemoteManager : NSObject {
             // send()
         }
         ws.event.close = { code, reason, clean in
-            print("close")
+            print("Websocket close")
             self.channelToken = nil
             self.connectionId = nil
         }
         ws.event.error = { error in
-            print("error \(error)")
+            print("Websocket error \(error)")
         }
         ws.event.message = { message in
             if let text = message as? String {

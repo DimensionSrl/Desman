@@ -97,12 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595973B1BF8DD8600BCB8A2 /* Build configuration list for PBXNativeTarget "Desman iOS Sample" */;
 			buildPhases = (
-				81A59F515E617AC3065881F1 /* Check Pods Manifest.lock */,
+				81A59F515E617AC3065881F1 /* 📦 Check Pods Manifest.lock */,
 				959597251BF8DD8600BCB8A2 /* Sources */,
 				959597261BF8DD8600BCB8A2 /* Frameworks */,
 				959597271BF8DD8600BCB8A2 /* Resources */,
-				A6C8F3B78BB464D8BA773393 /* Embed Pods Frameworks */,
-				FCBF9528F0E676E9E73BE603 /* Copy Pods Resources */,
+				A6C8F3B78BB464D8BA773393 /* 📦 Embed Pods Frameworks */,
+				FCBF9528F0E676E9E73BE603 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -161,14 +161,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		81A59F515E617AC3065881F1 /* Check Pods Manifest.lock */ = {
+		81A59F515E617AC3065881F1 /* 📦 Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,14 +176,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A6C8F3B78BB464D8BA773393 /* Embed Pods Frameworks */ = {
+		A6C8F3B78BB464D8BA773393 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,14 +191,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCBF9528F0E676E9E73BE603 /* Copy Pods Resources */ = {
+		FCBF9528F0E676E9E73BE603 /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "📦 Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

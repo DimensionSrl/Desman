@@ -8,10 +8,16 @@
 
 import Foundation
 import UIKit
+import CoreBluetooth
 
-@objc public class DeviceInfo : Event {
+@objc public class DeviceInfo : Event, CBPeripheralManagerDelegate {
+    var bluetoothPeripheralManager : CBPeripheralManager?
+    
     public init () {
         super.init(Device.Hardware)
+        let options = [CBCentralManagerOptionShowPowerAlertKey:0]
+        bluetoothPeripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: options)
+        
         payload = infoDictionary
     }
     
@@ -34,6 +40,12 @@ import UIKit
         deviceData["idiom"] = idiom
         deviceData["batteryState"] = batteryState
         deviceData["batteryLevel"] = batteryLevel
+        deviceData["availableSpace"] = availableSpace
+        deviceData["totalSpace"] = totalSpace
+        deviceData["usedMemory"] = usedMemory
+        deviceData["totalMemory"] = physicalMemory
+        
+        deviceData["bluetoothState"] = bluetoothState
         
         info["device"] = deviceData
         
@@ -49,6 +61,7 @@ import UIKit
     }
     
     var batteryLevel : Int {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         let level = Double(UIDevice.currentDevice().batteryLevel)
         if level >= 0 {
             return Int(level * 100.0)
@@ -58,6 +71,7 @@ import UIKit
     }
     
     var batteryState : String {
+        UIDevice.currentDevice().batteryMonitoringEnabled = true
         switch UIDevice.currentDevice().batteryState {
         case .Unknown:
             return "Unknown"
@@ -119,9 +133,81 @@ import UIKit
         case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad Mini 2"
         case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad Mini 3"
         case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
+        case "iPad6,7", "iPad6,8":                      return "iPad Pro"
         case "i386", "x86_64":                          return "Simulator"
         default:                                        return identifier
         }
+    }
+    
+    
+    var availableSpace : NSNumber {
+        var availableSpace : NSNumber = 999999
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
+            if let freeSize = dictionary[NSFileSystemFreeSize] as? NSNumber {
+                let freeSizeMB = freeSize.longLongValue / 1024 / 1024
+                availableSpace = NSNumber(longLong: freeSizeMB)
+            }
+        }
+        return availableSpace
+    }
+
+    var totalSpace : NSNumber {
+        var totalSpace : NSNumber = 999999
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
+            if let size = dictionary[NSFileSystemSize] as? NSNumber {
+                let sizeMB = size.longLongValue / 1024 / 1024
+                totalSpace = NSNumber(longLong: sizeMB)
+            }
+        }
+        return totalSpace
+    }
+    
+    var usedMemory : NSNumber {
+        var info = task_basic_info()
+        var count = mach_msg_type_number_t(sizeofValue(info))/4
+        
+        let kerr: kern_return_t = withUnsafeMutablePointer(&info) {
+            
+            task_info(mach_task_self_,
+                task_flavor_t(TASK_BASIC_INFO),
+                task_info_t($0),
+                &count)
+        }
+        
+        if kerr == KERN_SUCCESS {
+            let memoryUsedMB = info.resident_size / 1024 / 1024
+            return NSNumber(unsignedInteger: memoryUsedMB)
+        }
+        return NSNumber(int: -1)
+    }
+    
+    var physicalMemory : NSNumber {
+        let physicalMemoryMB = NSProcessInfo.processInfo().physicalMemory / 1024 / 1024
+        return NSNumber(unsignedLongLong: physicalMemoryMB)
+    }
+    
+    var bluetoothState : String {
+        guard let state = bluetoothPeripheralManager?.state else { return "Unknown" }
+        switch state {
+        case .Unknown:
+            return "Unknown"
+        case .Resetting:
+            return "Resetting"
+        case .Unsupported:
+            return "Unsupported"
+        case .Unauthorized:
+            return "Unauthorized"
+        case .PoweredOff:
+            return "PoweredOff"
+        case .PoweredOn:
+            return "PoweredOn"
+        }
+    }
+    
+    public func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
+    
     }
 }
 
