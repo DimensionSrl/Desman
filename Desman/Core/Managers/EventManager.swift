@@ -199,11 +199,9 @@ public class EventManager : NSObject {
     }
     
     func serializeEvents() {
-        let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
-        guard sortedEvents.count > 0 else  {
-            return
-        }
+        guard events.count > 0 else { return }
         if type == .UserDefaults {
+            let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
             let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
             let defaults = NSUserDefaults.standardUserDefaults()
             defaults.setObject(eventsData, forKey: "events")
