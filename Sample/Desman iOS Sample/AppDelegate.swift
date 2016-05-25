@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        logEvents()
+        // logEvents()
+        logFlow()
         return true
     }
         
@@ -37,6 +38,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Des.listenToAppLifecycleActivity()
             Des.listenToScreenshots()
         }        
+    }
+    
+    func logFlow() {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            Des.takeOff(appKey: "E3128D2E-9C65-44F0-9AF4-F69DD49448DC", endpoint: .Flow)
+            
+            Des.swizzles = [.ViewWillAppear, .ViewWillDisappear]
+            Des.startLogging()
+            Des.consoleLog = false
+            Des.limit = 40
+            Des.timeInterval = 1.0
+            
+            // D is an alias for EventManager.sharedInstance
+            Des.logType(Application.DidFinishLaunching)
+            Des.log(DeviceInfo())
+            Des.log(DeviceUserInfo())
+            let event = Event(Type(subtype: "user"), value: "m@macteo.it")
+            Des.log(event)
+            Des.listenToAppLifecycleActivity()
+            Des.listenToScreenshots()
+        }
     }
 }
 

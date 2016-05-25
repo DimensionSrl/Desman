@@ -17,6 +17,11 @@ public let Des = EventManager.sharedInstance
     case CoreData
 }
 
+@objc public enum Endpoint : Int {
+    case Desman
+    case Flow
+}
+
 @objc public enum Swizzle : Int {
     case ViewWillAppear
     case ViewDidAppear
@@ -29,6 +34,7 @@ public class EventManager : NSObject {
     var shouldLog = false
     public var consoleLog = false
     public var swizzles = [Swizzle]()
+    private var currentSession = NSUUID().UUIDString
     
     public var limit = 100
     public var timeInterval = 1.0 {
@@ -45,6 +51,34 @@ public class EventManager : NSObject {
     var timer : NSTimer?
     var eventsQueue = [Event]()
     var type = Serialization.None
+    var endpoint = Endpoint.Desman
+    
+    private var _flowFormatter : NSDateFormatter?
+    
+    var flowDateFormatter : NSDateFormatter {
+        if (_flowFormatter == nil) {
+            createFlowFormatter()
+        }
+        
+        return _flowFormatter!
+    }
+    
+    private func createFlowFormatter() {
+        let flowFormatter = NSDateFormatter()
+        flowFormatter.locale = NSLocale(localeIdentifier: "it_IT")
+        flowFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        flowFormatter.timeZone = NSTimeZone.systemTimeZone()
+        _flowFormatter = flowFormatter
+    }
+    
+    public func resetSession() -> String {
+        currentSession = NSUUID().UUIDString
+        return currentSession
+    }
+    
+    var session : String {
+        return currentSession
+    }
     
     public func listenToAppLifecycleActivity() {
         NotificationCenterManager.sharedInstance.listenToAppLifecycleActivity()
@@ -85,9 +119,42 @@ public class EventManager : NSObject {
         self.forceLog(AppInfo())
     }
     
+    public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization, endpoint: Endpoint) {
+        self.type = serialization
+        self.upload = true
+        
+        self.endpoint = endpoint
+        
+        if endpoint == .Desman {
+            UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
+        } else if endpoint == .Flow {
+            FlowManager.sharedInstance.takeOff(appKey)
+        }
+        
+        deserializeEvents()
+        
+        scheduleProcessTimer()
+        
+        // We immediately upload app icon and its name
+        // TODO: optimize querying the remote server if the app exists, if it doesn't, upload name and icon
+        self.forceLog(AppInfo())
+    }
+    
     public func takeOff(appKey appKey: String) {
         let baseURL = NSURL(string: "https://desman.dimension.it")!
         let serialization : Serialization = .CoreData
+        takeOff(baseURL, appKey: appKey, serialization: serialization)
+    }
+    
+    public func takeOff(appKey appKey: String, endpoint: Endpoint) {
+        let baseURL = NSURL(string: "https://desman.dimension.it")!
+        let serialization : Serialization = .CoreData
+        self.endpoint = endpoint
+        if endpoint == .Desman {
+            UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
+        } else if endpoint == .Flow {
+            FlowManager.sharedInstance.takeOff(appKey)
+        }
         takeOff(baseURL, appKey: appKey, serialization: serialization)
     }
     
@@ -175,7 +242,12 @@ public class EventManager : NSObject {
     func processEvents() {
         guard eventsQueue.count > 0 else  {
             // We only need to upload events already avaiable but not sent.
-            UploadManager.sharedInstance.sendEvents(self.events)
+            if endpoint == .Desman {
+                UploadManager.sharedInstance.sendEvents(self.events)
+            } else if endpoint == .Flow {
+                FlowManager.sharedInstance.sendEvents(self.events)
+            }
+            
             return
         }
         
@@ -192,7 +264,11 @@ public class EventManager : NSObject {
         
         if self.upload {
             self.sentEvents.removeAll()
-            UploadManager.sharedInstance.sendEvents(self.events)
+            if endpoint == .Desman {
+                UploadManager.sharedInstance.sendEvents(self.events)
+            } else if endpoint == .Flow {
+                FlowManager.sharedInstance.sendEvents(self.events)
+            }
         }
         
         self.serializeEvents()
@@ -231,6 +307,10 @@ public class EventManager : NSObject {
     }
     
     public func uploadEvents() {
-        UploadManager.sharedInstance.sendEvents(events)
+        if endpoint == .Desman {
+            UploadManager.sharedInstance.sendEvents(self.events)
+        } else if endpoint == .Flow {
+            FlowManager.sharedInstance.sendEvents(self.events)
+        }
     }
 }

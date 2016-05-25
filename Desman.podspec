@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                  = 'Desman'
-  s.version               = '0.3.3'
+  s.version               = '0.4.0'
   s.summary               = 'An event tracking tool for mobile apps.'
   s.homepage              = 'http://desman.dimension.it'
   s.license               = 'MIT'

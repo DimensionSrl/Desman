@@ -169,10 +169,10 @@ Log the `Event` with the `EventManager`:
 EventManager.sharedInstance.log(event)
 ```
 
-or using the `EventManager.sharedInstance` shorter `D` alias
+or using the `EventManager.sharedInstance` shorter `Des` alias
 
 ```swift
-D.log(event)
+Des.log(event)
 ```
 
 There is also a convenience method to speed up event logging without the need to create an `Event` first:

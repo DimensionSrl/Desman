@@ -2,6 +2,7 @@
 <model userDefinedModelVersionIdentifier="2" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15F34" minimumToolsVersion="Xcode 7.0">
     <entity name="CDEvent" representedClassName=".CDEvent" syncable="YES">
         <attribute name="attachmentUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="desc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="payload" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="sent" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
@@ -12,6 +13,6 @@
         <attribute name="value" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CDEvent" positionX="-63" positionY="-18" width="128" height="180"/>
+        <element name="CDEvent" positionX="-63" positionY="-18" width="128" height="195"/>
     </elements>
 </model>
