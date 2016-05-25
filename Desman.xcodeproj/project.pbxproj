@@ -27,6 +27,7 @@
 		957CE8691BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */; };
 		957CE86A1BFC7E6F00C716F9 /* CDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8681BFC7E6F00C716F9 /* CDEvent.swift */; };
 		957CE86C1BFC834300C716F9 /* CoreDataSerializerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE86B1BFC834300C716F9 /* CoreDataSerializerManager.swift */; };
+		95979BF61CF5809F004B26DF /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95979BF51CF5809F004B26DF /* FlowManager.swift */; };
 		95EE6B801BF9D221000BA0F6 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6201BF627CD00F3465A /* RemoteManager.swift */; };
 		95EE6B811BF9D224000BA0F6 /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B6191BF6273300F3465A /* AppsTableViewController.swift */; };
 		95EE6B821BF9D224000BA0F6 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B61A1BF6273300F3465A /* UsersTableViewController.swift */; };
@@ -81,6 +82,8 @@
 		957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		957CE8681BFC7E6F00C716F9 /* CDEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEvent.swift; sourceTree = "<group>"; };
 		957CE86B1BFC834300C716F9 /* CoreDataSerializerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSerializerManager.swift; sourceTree = "<group>"; };
+		95979BF51CF5809F004B26DF /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
+		95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
 		95BD431F1BF9C3B700477CB6 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = ../../../Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
 		95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesmanRemote.h; sourceTree = "<group>"; };
 		95BD43511BF9CF9A00477CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -142,6 +145,7 @@
 			children = (
 				9509B5ED1BF5FB7300F3465A /* EventManager.swift */,
 				9509B5EE1BF5FB7300F3465A /* UploadManager.swift */,
+				95979BF51CF5809F004B26DF /* FlowManager.swift */,
 				954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */,
 				957CE86B1BFC834300C716F9 /* CoreDataSerializerManager.swift */,
 			);
@@ -475,6 +479,7 @@
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
 				957CE86A1BFC7E6F00C716F9 /* CDEvent.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
+				95979BF61CF5809F004B26DF /* FlowManager.swift in Sources */,
 				95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */,
 				951F50CA1BFDD9B30099FED6 /* Array+Desman.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,
@@ -733,10 +738,11 @@
 		957CE8641BFC7CB500C716F9 /* Desman.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */,
 				952C21021C87341700F91D64 /* Desman 2.xcdatamodel */,
 				957CE8651BFC7CB500C716F9 /* Desman.xcdatamodel */,
 			);
-			currentVersion = 952C21021C87341700F91D64 /* Desman 2.xcdatamodel */;
+			currentVersion = 95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */;
 			path = Desman.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

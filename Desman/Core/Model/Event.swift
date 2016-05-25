@@ -26,6 +26,7 @@ public class Event: NSCoder {
     var uploading : Bool = false
     public var attachment : NSData?
     public var attachmentUrl : NSURL?
+    public var desc : String?
     
     // TODO: support remote attachment url with caching
     
@@ -61,6 +62,10 @@ public class Event: NSCoder {
             self.id = id
         }
         
+        if let desc = dictionary["desc"] as? String {
+            self.desc = desc
+        }
+        
         if let value = dictionary["value"] as? String {
             self.value = value
         }
@@ -94,6 +99,26 @@ public class Event: NSCoder {
         super.init()
         self.commonInit()
     }
+    
+    public init(_ type: Type, value: String, desc: String) {
+        self.type = type
+        self.value = value
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
+        self.desc = desc
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(_ type: Type, val: Double, desc: String) {
+        self.type = type
+        self.value = String(val)
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
+        self.desc = desc
+        super.init()
+        self.commonInit()
+    }
 
     public init(type: Type, value: String, payload: [String : Coding]) {
         self.type = type
@@ -104,6 +129,29 @@ public class Event: NSCoder {
         super.init()
         self.commonInit()
     }
+    
+    public init(type: Type, value: String, desc: String, payload: [String : Coding]) {
+        self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.value = value
+        self.desc = desc
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+
+    public init(type: Type, val: Double, desc: String, payload: [String : Coding]) {
+        self.type = type
+        self.timestamp = NSDate()
+        self.payload = payload
+        self.value = String(value)
+        self.desc = desc
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+
     
     public init(type: Type, payload: [String : Coding]) {
         self.type = type
@@ -152,6 +200,7 @@ public class Event: NSCoder {
         }
         
         self.value = cdevent.value
+        self.desc = cdevent.desc
         
         self.uuid = NSUUID(UUIDString: cdevent.uuid)
         
@@ -214,6 +263,9 @@ public class Event: NSCoder {
         if let value = decoder.decodeObjectForKey("value") as? String {
             self.value = value
         }
+        if let desc = decoder.decodeObjectForKey("desc") as? String {
+            self.desc = desc
+        }
 
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
@@ -231,6 +283,7 @@ public class Event: NSCoder {
         coder.encodeObject(type.dictionary, forKey: "type")
         coder.encodeObject(timestamp, forKey: "timestamp")
         coder.encodeObject(value, forKey: "value")
+        coder.encodeObject(desc, forKey: "desc")
         coder.encodeObject(payload, forKey: "payload")
         coder.encodeObject(id, forKey: "id")
         coder.encodeObject(uuid, forKey: "uuid")
@@ -255,7 +308,23 @@ public class Event: NSCoder {
         if let payload = self.payload {
             dict["payload"] = payload
         }
-
+        if let desc = self.desc {
+            dict["desc"] = desc
+        }
+        return dict
+    }
+    
+    var flowDictionary : [String : Coding] {
+        var dict = [String : Coding]()
+        dict["type"] = type.type
+        dict["name"] = type.subtype
+        dict["date"] = EventManager.sharedInstance.flowDateFormatter.stringFromDate(timestamp)
+        if let value = self.value, doubleValue = Double(value) {
+            dict["value"] = doubleValue
+        }
+        if let desc = self.desc {
+            dict["desc"] = desc
+        }
         return dict
     }
     
