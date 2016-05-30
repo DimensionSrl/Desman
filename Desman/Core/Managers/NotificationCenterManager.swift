@@ -69,22 +69,27 @@ internal class NotificationCenterManager : NSObject {
     func startListeningForScreenshots() {
         stopListening(UIApplicationUserDidTakeScreenshotNotification)
         NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification, object: nil, queue: nil) { (notification) -> Void in
-            let imgManager = PHImageManager.defaultManager()
-            let fetchOptions = PHFetchOptions()
-            fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.50 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-                if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions) {
-                    if fetchResult.count > 0 {
-                        let assetResult = fetchResult.objectAtIndex(fetchResult.count - 1) as! PHAsset
-                        imgManager.requestImageDataForAsset(assetResult, options: nil, resultHandler: { (data, string, orientation, userInfo) -> Void in
-                            if let data = data {
-                                let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: data)
-                                Des.log(event)
-                            }
-                        })
+            if #available(iOS 8.0, *) {
+                let imgManager = PHImageManager.defaultManager()
+                let fetchOptions = PHFetchOptions()
+                fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.50 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                    if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions) {
+                        if fetchResult.count > 0 {
+                            let assetResult = fetchResult.objectAtIndex(fetchResult.count - 1) as! PHAsset
+                            imgManager.requestImageDataForAsset(assetResult, options: nil, resultHandler: { (data, string, orientation, userInfo) -> Void in
+                                if let data = data {
+                                    let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: data)
+                                    Des.log(event)
+                                }
+                            })
+                        }
                     }
                 }
+            } else {
+                // Fallback on earlier versions
             }
+            
         }
     }
     

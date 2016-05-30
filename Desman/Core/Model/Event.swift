@@ -388,7 +388,12 @@ public class Event: NSCoder {
         if let image = self.type.image {
             return image
         } else {
-            return UIImage(named: "Unknown", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+            if #available(iOS 8.0, *) {
+                return UIImage(named: "Unknown", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+            } else {
+                return UIImage()
+                // Fallback on earlier versions
+            }
         }
     }
 }

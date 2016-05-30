@@ -56,7 +56,11 @@ class CoreDataSerializerManager: NSObject {
 
                 threadContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
                 threadContext!.parentContext = _managedObjectContext
-                threadContext!.name = NSThread.currentThread().description
+                if #available(iOS 8.0, *) {
+                    threadContext!.name = NSThread.currentThread().description
+                } else {
+                    // Fallback on earlier versions
+                }
                 
                 NSThread.currentThread().threadDictionary["NSManagedObjectContext"] = threadContext
                 
