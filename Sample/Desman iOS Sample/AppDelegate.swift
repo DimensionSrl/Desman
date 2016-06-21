@@ -14,8 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // logEvents()
-        logFlow()
+        logEvents()
+        // logFlow()
         return true
     }
         
@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             Des.swizzles = [.ViewWillAppear, .ViewWillDisappear]
             Des.startLogging()
-            Des.consoleLog = false
+            Des.consoleLog = true
             Des.limit = 40
             Des.timeInterval = 1.0
     
