@@ -123,7 +123,9 @@ public class Event: NSCoder {
     public init(type: Type, value: String, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.value = value
         self.uuid = NSUUID()
         super.init()
@@ -133,7 +135,9 @@ public class Event: NSCoder {
     public init(type: Type, value: String, desc: String, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.value = value
         self.desc = desc
         self.uuid = NSUUID()
@@ -144,7 +148,9 @@ public class Event: NSCoder {
     public init(type: Type, val: Double, desc: String, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.value = String(value)
         self.desc = desc
         self.uuid = NSUUID()
@@ -156,7 +162,9 @@ public class Event: NSCoder {
     public init(type: Type, payload: [String : Coding]) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.uuid = NSUUID()
         super.init()
         self.commonInit()
@@ -166,7 +174,9 @@ public class Event: NSCoder {
     public init(type: Type, payload: [String : Coding], attachment: NSData) {
         self.type = type
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.uuid = NSUUID()
         self.attachment = attachment
         super.init()
@@ -177,7 +187,9 @@ public class Event: NSCoder {
         self.type = type
         self.value = value
         self.timestamp = NSDate()
-        self.payload = payload
+        if NSJSONSerialization.isValidJSONObject(payload) {
+            self.payload = payload
+        }
         self.uuid = NSUUID()
         self.attachment = attachment
         super.init()
@@ -306,7 +318,9 @@ public class Event: NSCoder {
             dict["id"] = id
         }
         if let payload = self.payload {
-            dict["payload"] = payload
+            if NSJSONSerialization.isValidJSONObject(payload) {
+                dict["payload"] = self.payload
+            }
         }
         if let desc = self.desc {
             dict["desc"] = desc
