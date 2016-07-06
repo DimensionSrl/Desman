@@ -54,7 +54,6 @@ public class FlowManager {
             request.HTTPBody = data
             
             let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
-                NSString(data: data!, encoding: NSUTF8StringEncoding)
                 self.uploading = false
                 if let error = error {
                     print("Desman: cannot send event - \(error.localizedDescription)")

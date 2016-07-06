@@ -384,6 +384,17 @@ public class Event: NSCoder {
                 return "\(buttonName) \(type.subtype)"
             }
         }
+        
+        // If we have only one key in the payload and it's a string, print it
+        if let payload = self.payload {
+            let values = Array(payload.values)
+            if values.count == 1 {
+                if let value = values.first as? String {
+                    return "\(value) - \(type.description)"
+                }
+            }
+        }
+        
         return type.description
     }
     
