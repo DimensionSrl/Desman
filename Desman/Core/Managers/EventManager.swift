@@ -160,11 +160,21 @@ public class EventManager : NSObject {
     
     public func startLogging() {
         shouldLog = true
-        self.logType(Application.LogEnable)
+        
+        if endpoint == .Desman {
+            self.logType(Application.LogEnable)
+        } else if endpoint == .Flow {
+            self.log(FlowApp())
+            self.log(FlowDeviceName())
+            self.log(FlowDeviceType())
+        }
     }
     
     public func stopLogging() {
-        self.logType(Application.LogDisable)
+        if endpoint == .Desman {
+            self.logType(Application.LogDisable)
+        }
+        
         self.processEvents()
         shouldLog = false
     }
