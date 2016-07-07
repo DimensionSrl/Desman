@@ -248,6 +248,33 @@ public class EventManager : NSObject {
             }
         }
     }
+
+    public func log(type: Type, value: String, desc: String){
+        if shouldLog {
+            let event = Event(type, value: value, desc: desc)
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
+    
+    public func log(type: Type, desc: String){
+        if shouldLog {
+            let event = Event(type, desc: desc)
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
+
     
     func processEvents() {
         guard eventsQueue.count > 0 else  {

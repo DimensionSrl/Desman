@@ -100,6 +100,15 @@ public class Event: NSCoder {
         self.commonInit()
     }
     
+    public init(_ type: Type, desc: String) {
+        self.type = type
+        self.desc = desc
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
     public init(_ type: Type, value: String, desc: String) {
         self.type = type
         self.value = value
