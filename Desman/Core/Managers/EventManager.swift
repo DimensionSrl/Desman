@@ -274,6 +274,20 @@ public class EventManager : NSObject {
             }
         }
     }
+    
+    public func log(type: Type, desc: String, payload: [String : Coding]){
+        if shouldLog {
+            let event = Event(type, desc: desc)
+            event.payload = payload
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
 
     
     func processEvents() {

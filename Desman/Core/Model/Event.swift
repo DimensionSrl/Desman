@@ -383,6 +383,10 @@ public class Event: NSCoder {
     }
     
     public var title : String {
+        if let desc = self.desc {
+            return desc
+        }
+        
         if self.type.className == "Desman.Controller" {
             if let payload = self.payload, let controllerName = payload["controller"] as? String {
                 return "\(controllerName) \(type.subtype)"
