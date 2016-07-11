@@ -149,8 +149,30 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xoC-3K-pxX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" id="IjJ-RP-Hdh">
                                         <rect key="frame" x="0.0" y="284" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IjJ-RP-Hdh" id="ujE-98-A7Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LCq-ht-tbb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="0a1-8x-Ret" id="RvQ-mr-VpP"/>
+                                                    </connections>
+                                                </mapView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="LCq-ht-tbb" firstAttribute="leading" secondItem="ujE-98-A7Z" secondAttribute="leading" id="7UI-MT-AoA"/>
+                                                <constraint firstItem="LCq-ht-tbb" firstAttribute="top" secondItem="ujE-98-A7Z" secondAttribute="top" id="I19-Zn-j19"/>
+                                                <constraint firstAttribute="bottom" secondItem="LCq-ht-tbb" secondAttribute="bottom" id="ZPv-wc-pKt"/>
+                                                <constraint firstAttribute="trailing" secondItem="LCq-ht-tbb" secondAttribute="trailing" id="vsh-8F-iYM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xoC-3K-pxX">
+                                        <rect key="frame" x="0.0" y="328" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xoC-3K-pxX" id="5b6-mV-38E">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -173,25 +195,6 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="mapCell" id="IjJ-RP-Hdh">
-                                        <rect key="frame" x="0.0" y="284" width="600" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IjJ-RP-Hdh" id="ujE-98-A7Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LCq-ht-tbb">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                                </mapView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="LCq-ht-tbb" firstAttribute="leading" secondItem="ujE-98-A7Z" secondAttribute="leading" id="7UI-MT-AoA"/>
-                                                <constraint firstItem="LCq-ht-tbb" firstAttribute="top" secondItem="ujE-98-A7Z" secondAttribute="top" id="I19-Zn-j19"/>
-                                                <constraint firstAttribute="bottom" secondItem="LCq-ht-tbb" secondAttribute="bottom" id="ZPv-wc-pKt"/>
-                                                <constraint firstAttribute="trailing" secondItem="LCq-ht-tbb" secondAttribute="trailing" id="vsh-8F-iYM"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -209,6 +212,7 @@
                     <connections>
                         <outlet property="attachmentImageView" destination="cek-ZZ-X65" id="pYV-xj-tiB"/>
                         <outlet property="dateLabel" destination="cLo-Me-ToJ" id="YVV-ha-joI"/>
+                        <outlet property="mapView" destination="LCq-ht-tbb" id="wFi-31-Pam"/>
                         <outlet property="payloadLeadingConstraint" destination="HQi-JM-8Lz" id="tdj-lf-OUb"/>
                         <outlet property="payloadTextView" destination="5ea-WD-L0t" id="0NT-tn-0Od"/>
                         <outlet property="payloadTrailingConstraint" destination="nKI-Uj-bgp" id="Pbw-mE-J8I"/>

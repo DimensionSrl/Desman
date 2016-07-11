@@ -244,6 +244,9 @@ public class Event: NSCoder {
         if let value = value {
             event.value = value
         }
+        if let desc = desc {
+            event.desc = desc
+        }
         event.sent = self.sent
         event.timestamp = self.timestamp
         if let attachmentUrl = self.attachmentUrl {
@@ -348,6 +351,11 @@ public class Event: NSCoder {
         if let desc = self.desc {
             dict["desc"] = desc
         }
+        if let payload = self.payload {
+            if NSJSONSerialization.isValidJSONObject(payload) {
+                dict["payload"] = self.payload
+            }
+        }
         return dict
     }
     
@@ -384,7 +392,7 @@ public class Event: NSCoder {
     
     public var title : String {
         if let desc = self.desc {
-            return desc
+            return "\(type.subtype) \(desc)"
         }
         
         if self.type.className == "Desman.Controller" {
