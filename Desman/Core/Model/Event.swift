@@ -27,6 +27,7 @@ public class Event: NSCoder {
     public var attachment : NSData?
     public var attachmentUrl : NSURL?
     public var desc : String?
+    public var typeString : String?
     
     // TODO: support remote attachment url with caching
     
@@ -79,6 +80,18 @@ public class Event: NSCoder {
         }
         
         self.type = type
+        self.typeString = typeString
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(_ type: String, subtype: String, desc: String?, value: String?) {
+        self.type = Type(subtype: subtype)
+        self.typeString = type
+        self.desc = desc
+        self.value = value
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
         super.init()
         self.commonInit()
     }
@@ -94,6 +107,15 @@ public class Event: NSCoder {
     public init(_ type: Type, value: String) {
         self.type = type
         self.value = value
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(_ type: Type, desc: String) {
+        self.type = type
+        self.desc = desc
         self.timestamp = NSDate()
         self.uuid = NSUUID()
         super.init()
@@ -216,6 +238,8 @@ public class Event: NSCoder {
         
         self.uuid = NSUUID(UUIDString: cdevent.uuid)
         
+        self.typeString = cdevent.typeString
+        
         if let url = cdevent.attachmentUrl,  let attachmentUrl = NSURL(string: url) {
             self.attachmentUrl = attachmentUrl
         }
@@ -235,8 +259,14 @@ public class Event: NSCoder {
         if let value = value {
             event.value = value
         }
+        if let desc = desc {
+            event.desc = desc
+        }
         event.sent = self.sent
         event.timestamp = self.timestamp
+        if let typeString = typeString {
+            event.typeString = typeString
+        }
         if let attachmentUrl = self.attachmentUrl {
             event.attachmentUrl = attachmentUrl.absoluteString
         }
@@ -278,6 +308,10 @@ public class Event: NSCoder {
         if let desc = decoder.decodeObjectForKey("desc") as? String {
             self.desc = desc
         }
+        
+        if let typeString = decoder.decodeObjectForKey("type_string") as? String {
+            self.typeString = typeString
+        }
 
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
@@ -301,6 +335,7 @@ public class Event: NSCoder {
         coder.encodeObject(uuid, forKey: "uuid")
         coder.encodeObject(attachmentUrl, forKey: "attachment")
         coder.encodeBool(sent, forKey: "sent")
+        coder.encodeObject(typeString, forKey: "type_string")
     }
     
     var dictionary : [String : Coding] {
@@ -330,7 +365,11 @@ public class Event: NSCoder {
     
     var flowDictionary : [String : Coding] {
         var dict = [String : Coding]()
-        dict["type"] = type.type
+        // dict["type"] = type.type
+        if let typeString = typeString {
+            dict["type"] = typeString
+        }
+        
         dict["name"] = type.subtype
         dict["date"] = EventManager.sharedInstance.flowDateFormatter.stringFromDate(timestamp)
         if let value = self.value, doubleValue = Double(value) {
@@ -338,6 +377,11 @@ public class Event: NSCoder {
         }
         if let desc = self.desc {
             dict["desc"] = desc
+        }
+        if let payload = self.payload {
+            if NSJSONSerialization.isValidJSONObject(payload) {
+                dict["payload"] = self.payload
+            }
         }
         return dict
     }
@@ -374,6 +418,10 @@ public class Event: NSCoder {
     }
     
     public var title : String {
+        if let desc = self.desc {
+            return "\(type.subtype) \(desc)"
+        }
+        
         if self.type.className == "Desman.Controller" {
             if let payload = self.payload, let controllerName = payload["controller"] as? String {
                 return "\(controllerName) \(type.subtype)"
@@ -384,6 +432,17 @@ public class Event: NSCoder {
                 return "\(buttonName) \(type.subtype)"
             }
         }
+        
+        // If we have only one key in the payload and it's a string, print it
+        if let payload = self.payload {
+            let values = Array(payload.values)
+            if values.count == 1 {
+                if let value = values.first as? String {
+                    return "\(value) - \(type.description)"
+                }
+            }
+        }
+        
         return type.description
     }
     

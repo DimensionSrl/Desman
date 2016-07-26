@@ -24,5 +24,6 @@ extension CDEvent {
     @NSManaged var payload: NSData?
     @NSManaged var attachmentUrl: String?
     @NSManaged var sent: Bool
+    @NSManaged var typeString: String
 
 }

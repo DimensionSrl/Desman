@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import MapKit
 
-public class EventDetailTableViewController: UITableViewController {
+public class EventDetailTableViewController: UITableViewController, MKMapViewDelegate {
     public var event : Event?
     @IBOutlet weak var uuidLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var payloadTextView: UITextView!
     @IBOutlet var sentCell: UITableViewCell!
-    
+    @IBOutlet var mapView: MKMapView!
     @IBOutlet var payloadTrailingConstraint: NSLayoutConstraint!
     @IBOutlet var payloadLeadingConstraint: NSLayoutConstraint!
     
     @IBOutlet var attachmentImageView: UIImageView!
+    
+    var region : CLCircularRegion?
+    var location : CLLocationCoordinate2D?
+    var regionState : String?
     
     @IBAction func attachmentTapped(sender: UITapGestureRecognizer) {
         performSegueWithIdentifier("showImageAttachmentSegue", sender: self)
@@ -62,6 +67,25 @@ public class EventDetailTableViewController: UITableViewController {
                 } catch _ as NSError {
                     payloadTextView.text = NSLocalizedString("Error: cannot parse the Event Payload.", comment: "")
                 }
+                
+                // TODO: extension to support geofences
+                if let region = payload["region"] as? [String: AnyObject], lat = region["lat"] as? Double, lon = region["lon"] as? Double, radius = region["radius"] as? CLLocationDistance, state = region["state"] as? String {
+                    self.region = CLCircularRegion(center: CLLocationCoordinate2DMake(lat, lon), radius: radius, identifier: "region")
+                    self.regionState = state
+                    
+                    let location = CLLocation(latitude: lat, longitude: lon)
+                    let circle = MKCircle(centerCoordinate: location.coordinate, radius: radius)
+                    self.mapView.addOverlay(circle)
+                }
+                
+                if let location = payload["location"] as? [String: AnyObject], lat = location["lat"] as? Double, lon = location["lon"] as? Double {
+                    self.location = CLLocationCoordinate2DMake(lat, lon)
+                    let location = CLLocation(latitude: lat, longitude: lon)
+                    let circle = MKCircle(centerCoordinate: location.coordinate, radius: 5)
+                    self.mapView.addOverlay(circle)
+                }
+                
+                self.zoomToFitOverlays(self.mapView.overlays, animated: true, offsetProportion: 0.1)
             } else {
                 payloadTextView.text = ""
             }
@@ -81,7 +105,7 @@ public class EventDetailTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override public func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        if indexPath.row == 5 {
+        if indexPath.row == 6 {
             if payloadTextView.text.lengthOfBytesUsingEncoding(NSUTF8StringEncoding) == 0 {
                 return 44
             }
@@ -93,7 +117,14 @@ public class EventDetailTableViewController: UITableViewController {
             } else {
                 return 0
             }
+        } else if indexPath.row == 5 {
+            if region != nil || location != nil {
+                return 200
+            } else {
+                return 0
+            }
         }
+        
         return 44
     }
     
@@ -113,4 +144,44 @@ public class EventDetailTableViewController: UITableViewController {
             }
         }
     }
+    
+    public func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        if overlay is MKCircle {
+            let circle = MKCircleRenderer(overlay: overlay)
+            circle.strokeColor = UIColor.blueColor()
+            circle.fillColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.1)
+            circle.lineDashPattern = [4, 2]
+            circle.fillColor = UIColor(red: 0, green: 0, blue: 255, alpha: 0.1)
+            circle.lineWidth = 0.5
+            return circle
+        } else {
+            return MKCircleRenderer(overlay: overlay)
+        }
+    }
+    
+    func zoomToFitOverlays(overlays: [MKOverlay], animated:Bool, offsetProportion:Double) {
+        if overlays.count == 0 {
+            return
+        }
+        
+        var mapRect = MKMapRectNull
+        if overlays.count == 1 {
+            mapRect = overlays.last!.boundingMapRect
+        } else {
+            for overlay in overlays {
+                mapRect = MKMapRectUnion(mapRect, overlay.boundingMapRect)
+            }
+        }
+        
+        var proportion = offsetProportion
+        if offsetProportion > 1 {
+            proportion = 0.9
+        }
+        
+        let offset = mapRect.size.width * proportion
+        mapRect = mapView.mapRectThatFits(MKMapRectInset(mapRect, -offset, -offset))
+        let region = MKCoordinateRegionForMapRect(mapRect)
+        mapView.setRegion(region, animated: true)
+    }
+
 }

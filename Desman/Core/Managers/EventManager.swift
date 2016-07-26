@@ -160,11 +160,21 @@ public class EventManager : NSObject {
     
     public func startLogging() {
         shouldLog = true
-        self.logType(Application.LogEnable)
+        
+        if endpoint == .Desman {
+            self.logType(Application.LogEnable)
+        } else if endpoint == .Flow {
+            self.log(FlowApp())
+            self.log(FlowDeviceName())
+            self.log(FlowDeviceType())
+        }
     }
     
     public func stopLogging() {
-        self.logType(Application.LogDisable)
+        if endpoint == .Desman {
+            self.logType(Application.LogDisable)
+        }
+        
         self.processEvents()
         shouldLog = false
     }
@@ -238,6 +248,47 @@ public class EventManager : NSObject {
             }
         }
     }
+
+    public func log(type: Type, value: String, desc: String){
+        if shouldLog {
+            let event = Event(type, value: value, desc: desc)
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
+    
+    public func log(type: Type, desc: String){
+        if shouldLog {
+            let event = Event(type, desc: desc)
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
+    
+    public func log(type: Type, desc: String, payload: [String : Coding]){
+        if shouldLog {
+            let event = Event(type, desc: desc)
+            event.payload = payload
+            self.eventsQueue.append(event)
+            if self.type == .CoreData {
+                event.saveCDEvent()
+            }
+            if consoleLog {
+                print("Event: \(event.description)")
+            }
+        }
+    }
+
     
     func processEvents() {
         guard eventsQueue.count > 0 else  {

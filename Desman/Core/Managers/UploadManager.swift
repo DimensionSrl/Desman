@@ -236,6 +236,8 @@ public class UploadManager {
                                                         EventManager.sharedInstance.sentEvents.append(event)
                                                     }
                                                 }
+                                            } else {
+                                                print("Desman: cannot find id in body \(body)")
                                             }
                                         } catch let parseBodyError as NSError {
                                             print("Desman: cannot parse body event response \(parseBodyError.description)")
