@@ -16,7 +16,8 @@ public class FlowType : Type {
 
 @objc public class FlowApp : Event {
     public init () {
-        super.init(FlowType(subtype: "AppVersion"))
+        
+        super.init("Init", subtype: "AppVersion", desc: nil, value: nil)
         
         let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
         let buildNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
@@ -27,14 +28,14 @@ public class FlowType : Type {
 
 @objc public class FlowDeviceName : Event {
     public init () {
-        super.init(FlowType(subtype: "DeviceName"))
+        super.init("Init", subtype: "DeviceName", desc: nil, value: nil)
         self.desc = UIDevice.currentDevice().name
     }
 }
 
 @objc public class FlowDeviceType : Event {
     public init () {
-        super.init(FlowType(subtype: "DeviceType"))
+        super.init("Init", subtype: "DeviceType", desc: nil, value: nil)
         
         var systemInfo = utsname()
         uname(&systemInfo)
@@ -45,5 +46,15 @@ public class FlowType : Type {
         }
         
         self.desc = identifier
+    }
+}
+
+@objc public class FlowDeviceID : Event {
+    public init () {
+        super.init("Init", subtype: "DeviceID", desc: nil, value: nil)
+        
+        if let identifierForVendor = UIDevice.currentDevice().identifierForVendor {
+            self.desc = identifierForVendor.UUIDString
+        }
     }
 }

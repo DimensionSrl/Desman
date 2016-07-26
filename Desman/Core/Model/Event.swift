@@ -365,18 +365,18 @@ public class Event: NSCoder {
     
     var flowDictionary : [String : Coding] {
         var dict = [String : Coding]()
-        // dict["type"] = type.type
+
         if let typeString = typeString {
-            dict["type"] = typeString
+            dict["category"] = typeString
         }
         
-        dict["name"] = type.subtype
+        dict["action"] = type.subtype
         dict["date"] = EventManager.sharedInstance.flowDateFormatter.stringFromDate(timestamp)
         if let value = self.value, doubleValue = Double(value) {
             dict["value"] = doubleValue
         }
         if let desc = self.desc {
-            dict["desc"] = desc
+            dict["label"] = desc
         }
         if let payload = self.payload {
             if NSJSONSerialization.isValidJSONObject(payload) {
