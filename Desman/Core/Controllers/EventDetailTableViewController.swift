@@ -69,7 +69,7 @@ public class EventDetailTableViewController: UITableViewController, MKMapViewDel
                 }
                 
                 // TODO: extension to support geofences
-                if let region = payload["region"] as? [String: AnyObject], lat = region["lat"] as? Double, lon = region["lon"] as? Double, radius = region["radius"] as? CLLocationDistance, state = region["state"] as? String {
+                if let lat = payload["lat"] as? Double, lon = payload["lon"] as? Double, radius = payload["radius"] as? CLLocationDistance, state = payload["state"] as? String {
                     self.region = CLCircularRegion(center: CLLocationCoordinate2DMake(lat, lon), radius: radius, identifier: "region")
                     self.regionState = state
                     
@@ -78,7 +78,7 @@ public class EventDetailTableViewController: UITableViewController, MKMapViewDel
                     self.mapView.addOverlay(circle)
                 }
                 
-                if let location = payload["location"] as? [String: AnyObject], lat = location["lat"] as? Double, lon = location["lon"] as? Double {
+                if let lat = payload["userLat"] as? Double, lon = payload["userLon"] as? Double {
                     self.location = CLLocationCoordinate2DMake(lat, lon)
                     let location = CLLocation(latitude: lat, longitude: lon)
                     let circle = MKCircle(centerCoordinate: location.coordinate, radius: 5)

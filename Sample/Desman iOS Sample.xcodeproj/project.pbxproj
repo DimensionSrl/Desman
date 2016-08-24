@@ -97,12 +97,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595973B1BF8DD8600BCB8A2 /* Build configuration list for PBXNativeTarget "Desman iOS Sample" */;
 			buildPhases = (
-				81A59F515E617AC3065881F1 /* 📦 Check Pods Manifest.lock */,
+				81A59F515E617AC3065881F1 /* [CP] Check Pods Manifest.lock */,
 				959597251BF8DD8600BCB8A2 /* Sources */,
 				959597261BF8DD8600BCB8A2 /* Frameworks */,
 				959597271BF8DD8600BCB8A2 /* Resources */,
-				A6C8F3B78BB464D8BA773393 /* 📦 Embed Pods Frameworks */,
-				FCBF9528F0E676E9E73BE603 /* 📦 Copy Pods Resources */,
+				A6C8F3B78BB464D8BA773393 /* [CP] Embed Pods Frameworks */,
+				FCBF9528F0E676E9E73BE603 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,7 +120,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = DIMENSION;
 				TargetAttributes = {
 					959597281BF8DD8600BCB8A2 = {
@@ -161,14 +161,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		81A59F515E617AC3065881F1 /* 📦 Check Pods Manifest.lock */ = {
+		81A59F515E617AC3065881F1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,14 +176,14 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		A6C8F3B78BB464D8BA773393 /* 📦 Embed Pods Frameworks */ = {
+		A6C8F3B78BB464D8BA773393 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,14 +191,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FCBF9528F0E676E9E73BE603 /* 📦 Copy Pods Resources */ = {
+		FCBF9528F0E676E9E73BE603 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,8 +253,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -281,6 +283,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -298,8 +301,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -318,6 +323,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -327,6 +334,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8F76132904A141DE12364DA1 /* Pods-Desman iOS Sample.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -336,6 +344,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -343,6 +352,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C1023F89792F957B1B1C80F5 /* Pods-Desman iOS Sample.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -352,6 +362,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
