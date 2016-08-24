@@ -8,14 +8,14 @@
 
 import Foundation
 
-public class UploadManager {
+open class UploadManager {
     /**
     A shared instance of `UploadManager`.
     */
-    static public let sharedInstance = UploadManager()
+    static open let sharedInstance = UploadManager()
     
-    public var baseURL: NSURL?
-    public var session: NSURLSession?
+    open var baseURL: URL?
+    open var session: URLSession?
     
     var uploading = false
     
@@ -25,14 +25,14 @@ public class UploadManager {
     - parameter baseURL: The base URL to be used to construct requests;
     - parameter appKey: The Authorization token that will be used authenticate the application with the remote serive.
     */
-    func takeOff(baseURL: NSURL, appKey: String) {
+    func takeOff(_ baseURL: URL, appKey: String) {
         self.baseURL = baseURL
-        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        sessionConfiguration.HTTPAdditionalHeaders = ["Authorization": "Token \(appKey)"]
-        self.session = NSURLSession(configuration: sessionConfiguration)        
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.httpAdditionalHeaders = ["Authorization": "Token \(appKey)"]
+        self.session = URLSession(configuration: sessionConfiguration)        
     }
     
-    func sendEventWithAttachment(event: Event) {
+    func sendEventWithAttachment(_ event: Event) {
         // TODO: use a separate queue
         guard (self.session != nil) else { return }
         guard event.sent == false else {
@@ -44,15 +44,17 @@ public class UploadManager {
         }
         event.uploading = true
         guard let attachment = event.attachment else { return }
-        let url = NSURL(string: "/events.json", relativeToURL: baseURL)!
-        let request = forgeRequest(url: url, contentTypes: [])
-        let boundary = "Boundary-\(NSUUID().UUIDString)"
+        let url = URL(string: "/events.json", relativeTo: baseURL)!
+        var request = forgeRequest(url: url, contentTypes: [])
+        let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.HTTPMethod = "POST"
+        request.httpMethod = "POST"
         
-        request.HTTPBody = createBodyWithParameters(event.dictionary, filePathKey: "attachment", attachment: attachment, boundary: boundary)
+        request.httpBody = createBodyWithParameters(event.dictionary, filePathKey: "attachment", attachment: attachment as Data, boundary: boundary)
         
-        let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        guard let session = self.session else { return }
+        
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             if let error = error {
                 event.uploading = false
                 print("Desman: cannot send event - \(error.localizedDescription)")
@@ -60,45 +62,45 @@ public class UploadManager {
                 // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                 if let data = data {
                     do {
-                        let eventDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                        let eventDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! [String: Any]
                         if let id = eventDictionary["id"] as? String {
                             event.id = id
                             event.sent = true
                             event.uploading = false
-                            if EventManager.sharedInstance.type == .CoreData {
+                            if EventManager.sharedInstance.type == .coreData {
                                 event.saveCDEvent()
                             }
-                            dispatch_async(dispatch_get_main_queue()) {
+                            DispatchQueue.main.async {
                                 EventManager.sharedInstance.sentEvents.append(event)
                             }
                         } else if let id = eventDictionary["id"] as? Int {
                             event.id = "\(id)"
                             event.sent = true
                             event.uploading = false
-                            if EventManager.sharedInstance.type == .CoreData {
+                            if EventManager.sharedInstance.type == .coreData {
                                 event.saveCDEvent()
                             }
-                            dispatch_async(dispatch_get_main_queue()) {
+                            DispatchQueue.main.async {
                                 EventManager.sharedInstance.sentEvents.append(event)
                             }
                         }
                     } catch let parseError as NSError {
                         event.uploading = false
                         // TODO: Should mark the event as sent, but with failure
-                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: NSUTF8StringEncoding))")
+                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: String.Encoding.utf8))")
                     }
                 } else {
                     event.uploading = false
                 }
             }
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 EventManager.sharedInstance.serializeEvents()
             }
         })
         task.resume()
     }
     
-    func createBodyWithParameters(parameters: [String : Coding]?, filePathKey: String?, attachment: NSData, boundary: String) -> NSData {
+    func createBodyWithParameters(_ parameters: [String : Any]?, filePathKey: String?, attachment: Data, boundary: String) -> Data {
         let body = NSMutableData();
         if parameters != nil {
             for (key, value) in parameters! {
@@ -108,8 +110,8 @@ public class UploadManager {
                     body.appendString("\(value)\r\n")
                 } else {
                     do {
-                        let payloadJson = try NSJSONSerialization.dataWithJSONObject(value, options: NSJSONWritingOptions(rawValue: 0))
-                        if let stringPayload = String(data: payloadJson, encoding: NSUTF8StringEncoding) {
+                        let payloadJson = try JSONSerialization.data(withJSONObject: value, options: JSONSerialization.WritingOptions(rawValue: 0))
+                        if let stringPayload = String(data: payloadJson, encoding: String.Encoding.utf8) {
                             body.appendString("--\(boundary)\r\n")
                             body.appendString("Content-Disposition: form-data; name=\"event[\(key)]\"\r\n\r\n")
                             body.appendString("\(stringPayload)\r\n")
@@ -125,14 +127,14 @@ public class UploadManager {
         body.appendString("--\(boundary)\r\n")
         body.appendString("Content-Disposition: form-data; name=\"event[\(filePathKey!)]\"; filename=\"\(filename)\"\r\n")
         body.appendString("Content-Type: \(mimetype)\r\n\r\n")
-        body.appendData(attachment)
+        body.append(attachment)
         body.appendString("\r\n")
         body.appendString("--\(boundary)--\r\n")
         
-        return body
+        return body as Data
     }
     
-    func sendEvent(event: Event) {
+    func sendEvent(_ event: Event) {
         guard !uploading else { return }
         guard event.attachment == nil else {
             self.sendEventWithAttachment(event)
@@ -147,11 +149,11 @@ public class UploadManager {
             print("Desman: event cannot be converted to json, cannot send it")
             return
         }
-        let url = NSURL(string: "/events", relativeToURL: baseURL)!
-        let request = forgeRequest(url: url, contentTypes: ["application/json"])
-        request.HTTPMethod = "POST"
-        request.HTTPBody = data
-        let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+        let url = URL(string: "/events", relativeTo: baseURL)!
+        var request = forgeRequest(url: url, contentTypes: ["application/json"])
+        request.httpMethod = "POST"
+        request.httpBody = data as Data
+        let task = self.session!.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             self.uploading = false
             if let error = error {
                 print("Desman: cannot send event \(error.localizedDescription)")
@@ -159,7 +161,7 @@ public class UploadManager {
                 // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                 if let data = data {
                     do {
-                        let eventDictionary = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                        let eventDictionary = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! [String: Any]
                         if let id = eventDictionary["id"] as? String {
                             event.id = id
                         } else if let id = eventDictionary["id"] as? Int {
@@ -167,19 +169,19 @@ public class UploadManager {
                         }
                     } catch let parseError as NSError {
                         // TODO: Should mark the event as sent, but with failure
-                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: NSUTF8StringEncoding))")
+                        print("Desman: cannot parse event response \(parseError.description) - \(String(data: data, encoding: String.Encoding.utf8))")
                     }
                 }
                 
                 event.sent = true
-                if EventManager.sharedInstance.type == .CoreData {
+                if EventManager.sharedInstance.type == .coreData {
                     event.saveCDEvent()
                 }
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     EventManager.sharedInstance.sentEvents.append(event)
                 }
             }
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 EventManager.sharedInstance.serializeEvents()
             }
         })
@@ -187,7 +189,7 @@ public class UploadManager {
         uploading = true
     }
     
-    func sendEvents(events: [Event]) {
+    func sendEvents(_ events: [Event]) {
         guard !uploading else { return }
         guard (self.session != nil) else { return }
         var pendingEvents = events.filter{ $0.sent == false }
@@ -200,17 +202,17 @@ public class UploadManager {
         guard pendingEvents.count > 0 else {
             return
         }
-        let url = NSURL(string: "/batch", relativeToURL: baseURL)!
-        let request = forgeRequest(url: url, contentTypes: ["application/json"])
-        request.HTTPMethod = "POST"
+        let url = URL(string: "/batch", relativeTo: baseURL)!
+        var request = forgeRequest(url: url, contentTypes: ["application/json"])
+        request.httpMethod = "POST"
         
         let operations = pendingEvents.map{forgeSendEventOperation($0)}
-        let dictionary = ["ops": operations, "sequential": true]
+        let dictionary = ["ops": operations, "sequential": true] as [String : Any]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
-            request.HTTPBody = data
-            let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
+            request.httpBody = data
+            let task = self.session!.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 self.uploading = false
                 if let error = error {
                     print("Desman: cannot send event - \(error.localizedDescription)")
@@ -218,21 +220,21 @@ public class UploadManager {
                     // We should receive an identifier from the server to confirm save operation, we are going to overwrite the local one
                     if let data = data {
                         do {
-                            let parsedData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))
+                            let parsedData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! [String: Any]
                             if let results = parsedData["results"] as? [[String : AnyObject]] {
                                 for result in results {
-                                    if let bodyJson = result["body"] as? String, body = bodyJson.dataUsingEncoding(NSUTF8StringEncoding) {
+                                    if let bodyJson = result["body"] as? String, let body = bodyJson.data(using: String.Encoding.utf8) {
                                         do {
-                                            let body = try NSJSONSerialization.JSONObjectWithData(body, options: NSJSONReadingOptions(rawValue: 0))
-                                            if let id = body["id"] as? Int, let uuidString = body["uuid"] as? String, let uuid = NSUUID(UUIDString: uuidString) {
+                                            let body = try JSONSerialization.jsonObject(with: body, options: JSONSerialization.ReadingOptions(rawValue: 0)) as! [String: Any]
+                                            if let id = body["id"] as? Int, let uuidString = body["uuid"] as? String, let uuid = UUID(uuidString: uuidString) {
                                                 let filteredEvents = events.filter{$0.uuid == uuid}
                                                 if let event = filteredEvents.first {
                                                     event.id = "\(id)"
                                                     event.sent = true
-                                                    if EventManager.sharedInstance.type == .CoreData {
+                                                    if EventManager.sharedInstance.type == .coreData {
                                                         event.saveCDEvent()
                                                     }
-                                                    dispatch_async(dispatch_get_main_queue()) {
+                                                    DispatchQueue.main.async {
                                                         EventManager.sharedInstance.sentEvents.append(event)
                                                     }
                                                 }
@@ -254,7 +256,7 @@ public class UploadManager {
                         }
                     }
                 }
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     EventManager.sharedInstance.serializeEvents()
                 }
             })
@@ -265,15 +267,15 @@ public class UploadManager {
         }
     }
     
-    func forgeSendEventOperation(event: Event) -> [String : AnyObject] {
-        let operation : [String : AnyObject] = ["method": "post", "url": "/events", "params": event.dictionary]
+    func forgeSendEventOperation(_ event: Event) -> [String : AnyObject] {
+        let operation : [String : AnyObject] = ["method": "post" as AnyObject, "url": "/events" as AnyObject, "params": event.dictionary as AnyObject]
         return operation
     }
         
-    public func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
+    open func forgeRequest(url: URL, contentTypes: [String]) -> URLRequest {
         // TODO: use cache in production
         // UseProtocolCachePolicy
-        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 30)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         for type in contentTypes {
             request.addValue(type, forHTTPHeaderField: "Content-Type")
             request.addValue(type, forHTTPHeaderField: "Accept")
@@ -283,8 +285,8 @@ public class UploadManager {
 }
 
 extension NSMutableData {
-    func appendString(string: String) {
-        let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
-        appendData(data!)
+    func appendString(_ string: String) {
+        let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+        append(data!)
     }
 }

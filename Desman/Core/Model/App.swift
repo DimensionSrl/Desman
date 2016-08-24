@@ -9,10 +9,10 @@
 import Foundation
 import UIKit
 
-public class App: NSCoder {
-    public let bundle : String
-    public var name : String?
-    public var iconUrl : NSURL?
+open class App: NSCoder {
+    open let bundle : String
+    open var name : String?
+    open var iconUrl : URL?
     
     public init(bundle: String) {
         self.bundle = bundle
@@ -26,10 +26,10 @@ public class App: NSCoder {
     public init(bundle: String, name: String, icon: String) {
         self.bundle = bundle
         self.name = name
-        self.iconUrl = NSURL(string: icon)
+        self.iconUrl = URL(string: icon)
     }
     
-    public init?(dictionary: [String : Coding]) {
+    public init?(dictionary: [String : Any]) {
         guard let bundle = dictionary["bundle"] as? String else {
             self.bundle = ""
             super.init()
@@ -41,49 +41,51 @@ public class App: NSCoder {
         }
         
         if let icon = dictionary["icon"] as? String {
-            self.iconUrl = NSURL(string: icon)
+            self.iconUrl = URL(string: icon)
         }
         
         self.bundle = bundle
         super.init()
     }
     
-    override public func isEqual(object: AnyObject?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let object = object as? App {
             return hash == object.hash
         }
         return false
     }
     
-    override public var hash: Int {
+    override open var hash: Int {
         return "\(bundle)".hashValue
     }
     
-    override public var description : String {
+    override open var description : String {
         return "App: \(bundle)"
     }
     
-    public class var currentAppIcon : NSData? {
-        let infoPlist : NSDictionary = NSBundle.mainBundle().infoDictionary!
-        if let icon = infoPlist.valueForKeyPath("CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles")?.lastObject as? String {
-            if let image = UIImage(named: icon) {
-                let data = UIImagePNGRepresentation(image)
-                return data
-                
-            }
-        }
+    open class var currentAppIcon : Data? {
+        _ = Bundle.main.infoDictionary!
+        
+        // FIXME: should convert to swift 3 syntax
+//        if let icon = infoPlist.value(forKeyPath: "CFBundleIcons.CFBundlePrimaryIcon.CFBundleIconFiles")?.lastObject as? String {
+//            if let image = UIImage(named: icon) {
+//                let data = UIImagePNGRepresentation(image)
+//                return data
+//                
+//            }
+//        }
         return nil
     }
     
-    public class var currentAppName : String {
-        let infoPlist : NSDictionary = NSBundle.mainBundle().infoDictionary!
-        if let name = infoPlist.valueForKeyPath("CFBundleName") as? String {
+    open class var currentAppName : String {
+        let infoPlist = Bundle.main.infoDictionary!
+        if let name = infoPlist["CFBundleName"] as? String {
             return name
         }
         return "Unknown"
     }
     
-    public var title : String {
+    open var title : String {
         if let name = name {
             return name
         }

@@ -9,21 +9,21 @@
 import UIKit
 import Social
 
-public class FeedbackComposeViewController: SLComposeServiceViewController {
-    public var inputItems = [AnyObject]()
+open class FeedbackComposeViewController: SLComposeServiceViewController {
+    open var inputItems = [AnyObject]()
     let event = Event(Feedback.User)
     
-    override public func didSelectPost() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        self.event.payload = ["text": textView.text]
+    override open func didSelectPost() {
+        self.dismiss(animated: true, completion: nil)
+        self.event.payload = ["text": textView.text as NSCoding]
         EventManager.sharedInstance.log(event)
     }
     
-    override public func didSelectCancel() {
-        self.dismissViewControllerAnimated(true, completion: nil)
+    override open func didSelectCancel() {
+        self.dismiss(animated: true, completion: nil)
     }
     
-    public override func loadPreviewView() -> UIView! {
+    open override func loadPreviewView() -> UIView! {
         if let image = event.image {
             return UIImageView(image: image)
         }

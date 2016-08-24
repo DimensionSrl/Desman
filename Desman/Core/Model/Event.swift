@@ -11,51 +11,49 @@ import AdSupport
 import UIKit
 import CoreData
 
-public typealias Coding = protocol<NSCoding>
+public let currentUserIdentifier = UIDevice.current.identifierForVendor!.uuidString
+public let currentAppIdentifier = Bundle.main.bundleIdentifier
+public let currentDeviceName = UIDevice.current.name
 
-public let currentUserIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
-public let currentAppIdentifier = NSBundle.mainBundle().bundleIdentifier
-public let currentDeviceName = UIDevice.currentDevice().name
-
-public class Event: NSCoder {
-    public let type : Type
-    public var value: String?
-    public var payload : [String : Coding]?
-    public var timestamp : NSDate
-    public var sent : Bool = false
+open class Event: NSCoder {
+    open let type : Type
+    open var value: String?
+    open var payload : [String : Any]?
+    open var timestamp : Date
+    open var sent : Bool = false
     var uploading : Bool = false
-    public var attachment : NSData?
-    public var attachmentUrl : NSURL?
-    public var desc : String?
-    public var typeString : String?
+    open var attachment : Data?
+    open var attachmentUrl : URL?
+    open var desc : String?
+    open var typeString : String?
     
     // TODO: support remote attachment url with caching
     
     var id : String?
-    public var uuid : NSUUID?
-    public let dateFormatter = NSDateFormatter()
+    open var uuid : UUID?
+    open let dateFormatter = DateFormatter()
     
     func commonInit() {
-        dateFormatter.dateStyle = .ShortStyle
-        dateFormatter.timeStyle = .MediumStyle
-        dateFormatter.locale = NSLocale.currentLocale()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .medium
+        dateFormatter.locale = NSLocale.current
     }
     
-    public init?(dictionary: [String : Coding]) {
-        guard let typeString = dictionary["type"] as? String, subtypeString = dictionary["subtype"] as? String, type = Type.new(typeString, subtype: subtypeString) as? Type else {
+    public init?(dictionary: [String : Any]) {
+        guard let typeString = dictionary["type"] as? String, let subtypeString = dictionary["subtype"] as? String, let type = Type.new(typeString, subtype: subtypeString) as? Type else {
             self.type = Type()
-            self.timestamp = NSDate()
+            self.timestamp = Date()
             super.init()
             return nil
         }
         
-        if let timeInterval = dictionary["timestamp"] as? NSTimeInterval {
-            self.timestamp = NSDate(timeIntervalSince1970: timeInterval)
+        if let timeInterval = dictionary["timestamp"] as? TimeInterval {
+            self.timestamp = Date(timeIntervalSince1970: timeInterval)
         } else {
-            self.timestamp = NSDate()
+            self.timestamp = Date()
         }
         
-        if let payload = dictionary["payload"] as? [String : Coding] {
+        if let payload = dictionary["payload"] as? [String : Any] {
             self.payload = payload
         }
         
@@ -72,11 +70,11 @@ public class Event: NSCoder {
         }
         
         if let uuid = dictionary["uuid"] as? String {
-            self.uuid = NSUUID(UUIDString: uuid)
+            self.uuid = UUID(uuidString: uuid)
         }
         
         if let attachmentString = dictionary["attachment"] as? String {
-            self.attachmentUrl = NSURL(string: attachmentString)
+            self.attachmentUrl = URL(string: attachmentString)
         }
         
         self.type = type
@@ -90,16 +88,16 @@ public class Event: NSCoder {
         self.typeString = type
         self.desc = desc
         self.value = value
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
     
     public init(_ type: Type) {
         self.type = type
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
@@ -107,8 +105,8 @@ public class Event: NSCoder {
     public init(_ type: Type, value: String) {
         self.type = type
         self.value = value
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
@@ -116,8 +114,8 @@ public class Event: NSCoder {
     public init(_ type: Type, desc: String) {
         self.type = type
         self.desc = desc
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
@@ -125,8 +123,8 @@ public class Event: NSCoder {
     public init(_ type: Type, value: String, desc: String) {
         self.type = type
         self.value = value
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         self.desc = desc
         super.init()
         self.commonInit()
@@ -135,84 +133,84 @@ public class Event: NSCoder {
     public init(_ type: Type, val: Double, desc: String) {
         self.type = type
         self.value = String(val)
-        self.timestamp = NSDate()
-        self.uuid = NSUUID()
+        self.timestamp = Date()
+        self.uuid = UUID()
         self.desc = desc
         super.init()
         self.commonInit()
     }
 
-    public init(type: Type, value: String, payload: [String : Coding]) {
+    public init(type: Type, value: String, payload: [String : Any]) {
         self.type = type
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
         self.value = value
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
     
-    public init(type: Type, value: String, desc: String, payload: [String : Coding]) {
+    public init(type: Type, value: String, desc: String, payload: [String : Any]) {
         self.type = type
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
         self.value = value
         self.desc = desc
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
 
-    public init(type: Type, val: Double, desc: String, payload: [String : Coding]) {
+    public init(type: Type, val: Double, desc: String, payload: [String : Any]) {
         self.type = type
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
-        self.value = String(value)
+        self.value = String(describing: value)
         self.desc = desc
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
 
     
-    public init(type: Type, payload: [String : Coding]) {
+    public init(type: Type, payload: [String : Any]) {
         self.type = type
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         super.init()
         self.commonInit()
     }
 
     
-    public init(type: Type, payload: [String : Coding], attachment: NSData) {
+    public init(type: Type, payload: [String : Any], attachment: Data) {
         self.type = type
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         self.attachment = attachment
         super.init()
         self.commonInit()
     }
     
-    public init(type: Type, value: String, payload: [String : Coding], attachment: NSData) {
+    public init(type: Type, value: String, payload: [String : Any], attachment: Data) {
         self.type = type
         self.value = value
-        self.timestamp = NSDate()
-        if NSJSONSerialization.isValidJSONObject(payload) {
+        self.timestamp = Date()
+        if JSONSerialization.isValidJSONObject(payload) {
             self.payload = payload
         }
-        self.uuid = NSUUID()
+        self.uuid = UUID()
         self.attachment = attachment
         super.init()
         self.commonInit()
@@ -224,9 +222,9 @@ public class Event: NSCoder {
         } else {
             self.type = Type.Unknown
         }
-        self.timestamp = cdevent.timestamp
+        self.timestamp = cdevent.timestamp as Date
         
-        if let p = cdevent.payload, let payload = NSKeyedUnarchiver.unarchiveObjectWithData(p) as? [String : Coding] {
+        if let p = cdevent.payload, let payload = NSKeyedUnarchiver.unarchiveObject(with: p as Data) as? [String : Any] {
             self.payload = payload
         }
         if let id = cdevent.id {
@@ -236,11 +234,11 @@ public class Event: NSCoder {
         self.value = cdevent.value
         self.desc = cdevent.desc
         
-        self.uuid = NSUUID(UUIDString: cdevent.uuid)
+        self.uuid = UUID(uuidString: cdevent.uuid)
         
         self.typeString = cdevent.typeString
         
-        if let url = cdevent.attachmentUrl,  let attachmentUrl = NSURL(string: url) {
+        if let url = cdevent.attachmentUrl,  let attachmentUrl = URL(string: url) {
             self.attachmentUrl = attachmentUrl
         }
         self.sent = cdevent.sent
@@ -253,7 +251,7 @@ public class Event: NSCoder {
         event.type = self.type.className
         event.subtype = self.type.subtype
         if let payload = self.payload {
-            event.payload = NSKeyedArchiver.archivedDataWithRootObject(payload)
+            event.payload = NSKeyedArchiver.archivedData(withRootObject: payload)
         }
         event.uuid = identifier
         if let value = value {
@@ -277,10 +275,10 @@ public class Event: NSCoder {
     }
     
     public convenience init(coder decoder: NSCoder) {
-        if let typeDictionary = decoder.decodeObjectForKey("type") as? [String : String], type = Type.new(typeDictionary) as? Type  {
-            if let timestamp = decoder.decodeObjectForKey("timestamp") as? NSDate {
-                if let payloadData = decoder.decodeObjectForKey("payload") as? NSData {
-                    if let payload = NSKeyedUnarchiver.unarchiveObjectWithData(payloadData) as? [String : Coding] {
+        if let typeDictionary = decoder.decodeObject(forKey: "type") as? [String : String], let type = Type.new(typeDictionary) as? Type  {
+            if let timestamp = decoder.decodeObject(forKey: "timestamp") as? Date {
+                if let payloadData = decoder.decodeObject(forKey: "payload") as? Data {
+                    if let payload = NSKeyedUnarchiver.unarchiveObject(with: payloadData) as? [String : Any] {
                         self.init(type: type, payload: payload)
                         self.timestamp = timestamp
                     } else {
@@ -299,47 +297,47 @@ public class Event: NSCoder {
             self.init(Type())
         }
         
-        if let id = decoder.decodeObjectForKey("id") as? String {
+        if let id = decoder.decodeObject(forKey: "id") as? String {
             self.id = id
         }
-        if let value = decoder.decodeObjectForKey("value") as? String {
+        if let value = decoder.decodeObject(forKey: "value") as? String {
             self.value = value
         }
-        if let desc = decoder.decodeObjectForKey("desc") as? String {
+        if let desc = decoder.decodeObject(forKey: "desc") as? String {
             self.desc = desc
         }
         
-        if let typeString = decoder.decodeObjectForKey("type_string") as? String {
+        if let typeString = decoder.decodeObject(forKey: "type_string") as? String {
             self.typeString = typeString
         }
 
-        if let uuid = decoder.decodeObjectForKey("uuid") as? String {
-            self.uuid = NSUUID(UUIDString: uuid)
+        if let uuid = decoder.decodeObject(forKey: "uuid") as? String {
+            self.uuid = UUID(uuidString: uuid)
         }
-        if let attachmentString = decoder.decodeObjectForKey("attachment") as? String {
+        if let attachmentString = decoder.decodeObject(forKey: "attachment") as? String {
             // TODO: support file url or remote url
-            self.attachmentUrl = NSURL(string: attachmentString)
+            self.attachmentUrl = URL(string: attachmentString)
         }
 
-        self.sent = decoder.decodeBoolForKey("sent")
+        self.sent = decoder.decodeBool(forKey: "sent")
         self.commonInit()
     }
 
-    func encodeWithCoder(coder: NSCoder) {
-        coder.encodeObject(type.dictionary, forKey: "type")
-        coder.encodeObject(timestamp, forKey: "timestamp")
-        coder.encodeObject(value, forKey: "value")
-        coder.encodeObject(desc, forKey: "desc")
-        coder.encodeObject(payload, forKey: "payload")
-        coder.encodeObject(id, forKey: "id")
-        coder.encodeObject(uuid, forKey: "uuid")
-        coder.encodeObject(attachmentUrl, forKey: "attachment")
-        coder.encodeBool(sent, forKey: "sent")
-        coder.encodeObject(typeString, forKey: "type_string")
+    func encodeWithCoder(_ coder: NSCoder) {
+        coder.encode(type.dictionary, forKey: "type")
+        coder.encode(timestamp, forKey: "timestamp")
+        coder.encode(value, forKey: "value")
+        coder.encode(desc, forKey: "desc")
+        coder.encode(payload, forKey: "payload")
+        coder.encode(id, forKey: "id")
+        coder.encode(uuid, forKey: "uuid")
+        coder.encode(attachmentUrl, forKey: "attachment")
+        coder.encode(sent, forKey: "sent")
+        coder.encode(typeString, forKey: "type_string")
     }
     
-    var dictionary : [String : Coding] {
-        var dict = [String : Coding]()
+    var dictionary : [String : Any] {
+        var dict = [String : Any]()
         dict["type"] = type.className
         dict["subtype"] = type.subtype
         dict["timestamp"] = timestamp.timeIntervalSince1970
@@ -353,7 +351,7 @@ public class Event: NSCoder {
             dict["id"] = id
         }
         if let payload = self.payload {
-            if NSJSONSerialization.isValidJSONObject(payload) {
+            if JSONSerialization.isValidJSONObject(payload) {
                 dict["payload"] = self.payload
             }
         }
@@ -363,26 +361,26 @@ public class Event: NSCoder {
         return dict
     }
     
-    var flowDictionary : [String : Coding] {
-        var dict = [String : Coding]()
+    var flowDictionary : [String : Any] {
+        var dict = [String : Any]()
 
         if let typeString = typeString {
             dict["category"] = typeString
         }
         
         dict["action"] = type.subtype
-        dict["date"] = EventManager.sharedInstance.flowDateFormatter.stringFromDate(timestamp)
-        if let value = self.value, doubleValue = Double(value) {
+        dict["date"] = EventManager.sharedInstance.flowDateFormatter.string(from: timestamp)
+        if let value = self.value, let doubleValue = Double(value) {
             dict["value"] = doubleValue
         }
         if let desc = self.desc {
             dict["label"] = desc
         }
         if let payload = self.payload {
-            if NSJSONSerialization.isValidJSONObject(payload) {
+            if JSONSerialization.isValidJSONObject(payload) {
                 do {
-                    let payloadData = try NSJSONSerialization.dataWithJSONObject(payload, options: .PrettyPrinted)
-                    dict["payload"] = NSString(data: payloadData, encoding: NSUTF8StringEncoding)
+                    let payloadData = try JSONSerialization.data(withJSONObject: payload, options: .prettyPrinted)
+                    dict["payload"] = NSString(data: payloadData, encoding: String.Encoding.utf8.rawValue)
                 } catch _ {
                     
                 }
@@ -391,38 +389,38 @@ public class Event: NSCoder {
         return dict
     }
     
-    var data : NSData? {
+    var data : Data? {
         do {
             let dictionaryIncapsulated = ["event": dictionary]
-            return try NSJSONSerialization.dataWithJSONObject(dictionaryIncapsulated, options: .PrettyPrinted)
+            return try JSONSerialization.data(withJSONObject: dictionaryIncapsulated, options: .prettyPrinted)
         } catch let error {
             print("Desman Event, cannot create json representation \(error) - \(self.dictionary)")
             return nil
         }
     }
     
-    public var identifier : String {
+    open var identifier : String {
         if let uuid = self.uuid {
-            return uuid.UUIDString
+            return uuid.uuidString
         } else {
-            self.uuid = NSUUID()
-            return self.uuid!.UUIDString
+            self.uuid = UUID()
+            return self.uuid!.uuidString
         }
     }
     
-    public var userIdentifier : String {
+    open var userIdentifier : String {
         return "\(currentUserIdentifier)"
     }
     
-    override public var description : String {
+    override open var description : String {
         if let payload = payload {
-            return "\(dateFormatter.stringFromDate(timestamp)) - \(title) \(payload)"
+            return "\(dateFormatter.string(from: timestamp)) - \(title) \(payload)"
         } else {
-            return "\(dateFormatter.stringFromDate(timestamp)) - \(title)"
+            return "\(dateFormatter.string(from: timestamp)) - \(title)"
         }
     }
     
-    public var title : String {
+    open var title : String {
         if let desc = self.desc {
             return "\(type.subtype) \(desc)"
         }
@@ -451,23 +449,23 @@ public class Event: NSCoder {
         return type.description
     }
     
-    override public func isEqual(object: AnyObject?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let object = object as? Event {
             return hash == object.hash
         }
         return false
     }
     
-    override public var hash: Int {
+    override open var hash: Int {
         return "\(type)-\(timestamp.timeIntervalSince1970)-\(identifier)-\(userIdentifier)".hashValue
     }
     
-    public var image : UIImage? {
+    open var image : UIImage? {
         if let image = self.type.image {
             return image
         } else {
             if #available(iOS 8.0, *) {
-                return UIImage(named: "Unknown", inBundle: NSBundle(forClass: EventManager.self), compatibleWithTraitCollection: nil)
+                return UIImage(named: "Unknown", in: Bundle(for: EventManager.self), compatibleWith: nil)
             } else {
                 return UIImage()
                 // Fallback on earlier versions

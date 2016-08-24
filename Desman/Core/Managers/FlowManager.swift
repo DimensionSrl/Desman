@@ -8,12 +8,12 @@
 
 import Foundation
 
-public class FlowManager {
+open class FlowManager {
     /**
      A shared instance of `FlowManager`.
      */
-    static public let sharedInstance = FlowManager()
-    public var session: NSURLSession?
+    static open let sharedInstance = FlowManager()
+    open var session: URLSession?
     
     var uploading = false
     var appKey = ""
@@ -23,14 +23,14 @@ public class FlowManager {
      
      - parameter appKey: The Authorization token that will be used authenticate the application with the remote serive.
      */
-    func takeOff(appKey: String) {
+    func takeOff(_ appKey: String) {
         self.appKey = appKey
-        let sessionConfiguration = NSURLSessionConfiguration.defaultSessionConfiguration()
-        sessionConfiguration.HTTPAdditionalHeaders = ["Authorization": "Token \(appKey)"]
-        self.session = NSURLSession(configuration: sessionConfiguration)
+        let sessionConfiguration = URLSessionConfiguration.default
+        sessionConfiguration.httpAdditionalHeaders = ["Authorization": "Token \(appKey)"]
+        self.session = URLSession(configuration: sessionConfiguration)
     }
     
-    func sendEvents(events: [Event]) {
+    func sendEvents(_ events: [Event]) {
         guard !uploading else { return }
         guard (self.session != nil) else { return }
         var pendingEvents = events.filter{ $0.sent == false }
@@ -40,35 +40,35 @@ public class FlowManager {
             return
         }
         // TODO: expose it as configurable
-        let url = NSURL(string: "http://apps.dimension.it/appflow/tracker/v2/")!
+        let url = URL(string: "http://apps.dimension.it/appflow/tracker/v2/")!
 
-        let request = forgeRequest(url: url, contentTypes: ["application/json"])
-        request.HTTPMethod = "POST"
+        var request = forgeRequest(url: url, contentTypes: ["application/json"])
+        request.httpMethod = "POST"
         
         let operations = pendingEvents.map{$0.flowDictionary}
-        let dictionary = ["events": operations, "token": appKey, "session": EventManager.sharedInstance.session]
+        let dictionary = ["events": operations, "token": appKey, "session": EventManager.sharedInstance.session] as [String : Any]
         
         do {
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
             
-            request.HTTPBody = data
+            request.httpBody = data
             
-            let task = self.session!.dataTaskWithRequest(request, completionHandler: { (data, response, error) -> Void in
+            let task = self.session!.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
                 self.uploading = false
                 if let error = error {
                     print("Desman: cannot send event - \(error.localizedDescription)")
                 } else {
                     for event in pendingEvents {
                         event.sent = true
-                        if EventManager.sharedInstance.type == .CoreData {
+                        if EventManager.sharedInstance.type == .coreData {
                             event.saveCDEvent()
                         }
-                        dispatch_async(dispatch_get_main_queue()) {
+                        DispatchQueue.main.async {
                             EventManager.sharedInstance.sentEvents.append(event)
                         }
                     }
                 }
-                dispatch_async(dispatch_get_main_queue()) {
+                DispatchQueue.main.async {
                     EventManager.sharedInstance.serializeEvents()
                 }
             })
@@ -79,10 +79,10 @@ public class FlowManager {
         }
     }
     
-    public func forgeRequest(url url: NSURL, contentTypes: [String]) -> NSMutableURLRequest {
+    open func forgeRequest(url: URL, contentTypes: [String]) -> URLRequest {
         // TODO: use cache in production
         // UseProtocolCachePolicy
-        let request = NSMutableURLRequest(URL: url, cachePolicy: .ReloadIgnoringLocalCacheData, timeoutInterval: 30)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
         for type in contentTypes {
             request.addValue(type, forHTTPHeaderField: "Content-Type")
             request.addValue(type, forHTTPHeaderField: "Accept")

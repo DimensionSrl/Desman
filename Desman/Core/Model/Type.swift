@@ -9,20 +9,20 @@
 import Foundation
 import UIKit
 
-@objc public class Type : NSObject {
+@objc open class Type : NSObject {
     override required public init() {}
     static let Unknown = Type(subtype: "Unknown")
-    public var subtype : String = "Unknown"
-    private var imageName : String = ""
+    open var subtype : String = "Unknown"
+    fileprivate var imageName : String = ""
     
-    public var image : UIImage? {
+    open var image : UIImage? {
         var name = imageName
         if imageName == "" {
             name = "Unknown"
         }
         if let classForImage = NSClassFromString("Desman.EventsTableViewController") {
             if #available(iOS 8.0, *) {
-                return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
+                return UIImage(named: name, in: Bundle(for: classForImage), compatibleWith: nil)
             } else {
                 return UIImage()
                 // Fallback on earlier versions
@@ -35,29 +35,29 @@ import UIKit
         return "\(className).\(subtype)"
     }
     
-    public var className : String {
-        return NSStringFromClass(self.dynamicType)
+    open var className : String {
+        return NSStringFromClass(type(of: self))
     }
     
-    public var dictionary : [String : AnyObject] {
-        return ["type": className, "subtype": self.subtype]
+    open var dictionary : [String : AnyObject] {
+        return ["type": className as AnyObject, "subtype": self.subtype]
     }
     
     public init(subtype : String) {
         self.subtype = subtype
     }
     
-    override public var description : String {
+    override open var description : String {
         return "\(type) \(subtype)"
     }
     
-    public var type : String {
+    open var type : String {
         let dotString = "."
-        return "\(className.componentsSeparatedByString(dotString).last!)"
+        return "\(className.components(separatedBy: dotString).last!)"
     }
     
-    class public func new(dictionary : [String : String]) -> AnyObject? {
-        if let typeString = dictionary["type"], subtypeString = dictionary["subtype"] {
+    class open func new(_ dictionary : [String : String]) -> AnyObject? {
+        if let typeString = dictionary["type"], let subtypeString = dictionary["subtype"] {
             if let TypeClass = NSClassFromString(typeString) as? Type.Type {
                 let type = TypeClass.init()
                 type.subtype = subtypeString
@@ -72,7 +72,7 @@ import UIKit
         return nil
     }
     
-    class public func new(type: String, subtype: String) -> AnyObject? {
+    class open func new(_ type: String, subtype: String) -> AnyObject? {
         if let TypeClass = NSClassFromString(type) as? Type.Type {
             let type = TypeClass.init()
             type.subtype = subtype
@@ -86,20 +86,20 @@ import UIKit
     }
 }
 
-public class Application : Type {
-    public static let WillEnterForeground = Application(subtype: "WillEnterForeground")
-    public static let DidFinishLaunching = Application(subtype: "DidFinishLaunching")
-    public static let DidBecomeActive = Application(subtype: "DidBecomeActive")
-    public static let WillResignActive = Application(subtype: "WillResignActive")
-    public static let DidEnterBackground = Application(subtype: "DidEnterBackground")
-    public static let WillTerminate = Application(subtype: "WillTerminate")
-    public static let DidRegisterForRemoteNotifications = Application(subtype: "DidRegisterForRemoteNotifications")
-    public static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
-    public static let LogEnable = Application(subtype: "LogEnable")
-    public static let LogDisable = Application(subtype: "LogDisable")
-    public static let Info = Application(subtype: "Info")
+open class Application : Type {
+    open static let WillEnterForeground = Application(subtype: "WillEnterForeground")
+    open static let DidFinishLaunching = Application(subtype: "DidFinishLaunching")
+    open static let DidBecomeActive = Application(subtype: "DidBecomeActive")
+    open static let WillResignActive = Application(subtype: "WillResignActive")
+    open static let DidEnterBackground = Application(subtype: "DidEnterBackground")
+    open static let WillTerminate = Application(subtype: "WillTerminate")
+    open static let DidRegisterForRemoteNotifications = Application(subtype: "DidRegisterForRemoteNotifications")
+    open static let DidFailToRegisterForRemoteNotifications = Application(subtype: "DidFailToRegisterForRemoteNotifications")
+    open static let LogEnable = Application(subtype: "LogEnable")
+    open static let LogDisable = Application(subtype: "LogDisable")
+    open static let Info = Application(subtype: "Info")
 
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get {
             if subtype == "DidFinishLaunching" {
                  return "App Launch"
@@ -111,136 +111,136 @@ public class Application : Type {
     }
 }
 
-public class Notification : Type {
-    override var imageName : String {
+open class Notification : Type {
+    override fileprivate var imageName : String {
         get { return "Notification" }
         set { self.imageName = newValue }
     }
 }
 
-public class Crash : Type {
-    override var imageName : String {
+open class Crash : Type {
+    override fileprivate var imageName : String {
         get { return "Error" }
         set { self.imageName = newValue }
     }
 }
 
-public class Error : Type {
-    override var imageName : String {
+open class Error : Type {
+    override fileprivate var imageName : String {
         get { return "Error" }
         set { self.imageName = newValue }
     }
 }
 
-public class Warning : Type {
-    override var imageName : String {
+open class Warning : Type {
+    override fileprivate var imageName : String {
         get { return "Warning" }
         set { self.imageName = newValue }
     }
 }
 
-public class Info : Type {
-    override var imageName : String {
+open class Info : Type {
+    override fileprivate var imageName : String {
         get { return "Info" }
         set { self.imageName = newValue }
     }
 }
 
-public class Table : Type {
-    public static let DidSelectRow = Table(subtype: "DidSelectRow")
-    override var imageName : String {
+open class Table : Type {
+    open static let DidSelectRow = Table(subtype: "DidSelectRow")
+    override fileprivate var imageName : String {
         get { return "Table View Controller" }
         set { self.imageName = newValue }
     }
 }
 
-public class Controller : Type {
-    public static let ViewWillAppear = Controller(subtype: "ViewWillAppear")
-    public static let ViewDidAppear = Controller(subtype: "ViewDidAppear")
-    public static let ViewWillDisappear = Controller(subtype: "ViewWillDisappear")
-    public static let Screenshot = Controller(subtype: "Screenshot")
-    override var imageName : String {
+open class Controller : Type {
+    open static let ViewWillAppear = Controller(subtype: "ViewWillAppear")
+    open static let ViewDidAppear = Controller(subtype: "ViewDidAppear")
+    open static let ViewWillDisappear = Controller(subtype: "ViewWillDisappear")
+    open static let Screenshot = Controller(subtype: "Screenshot")
+    override fileprivate var imageName : String {
         get { return "View Controller" }
         set { self.imageName = newValue }
     }
     
-    internal func imageWithController(controller: String) {
+    internal func imageWithController(_ controller: String) {
         // TODO: return a different image based on the controller type
         // Navigation, table, collection, generic, alert, split view
     }
 }
 
-public class Beacon : Type {
-    public static let DidRangeBeacons = Beacon(subtype: "DidRangeBeacons")
-    public static let StartRanging = Beacon(subtype: "StartRanging")
-    public static let StopRanging = Beacon(subtype: "StopRanging")
-    public static let StopBrieflyRanging = Beacon(subtype: "StopBrieflyRanging")
-    public static let RangingDidFail = Beacon(subtype: "RangingDidFail")
+open class Beacon : Type {
+    open static let DidRangeBeacons = Beacon(subtype: "DidRangeBeacons")
+    open static let StartRanging = Beacon(subtype: "StartRanging")
+    open static let StopRanging = Beacon(subtype: "StopRanging")
+    open static let StopBrieflyRanging = Beacon(subtype: "StopBrieflyRanging")
+    open static let RangingDidFail = Beacon(subtype: "RangingDidFail")
 
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Beacon" }
         set { self.imageName = newValue }
     }
 }
 
-public class Region : Type {
-    public static let StartRegionMonitoring = Region(subtype: "StartRegionMonitoring")
-    public static let MonitorDidFail = Region(subtype: "MonitorDidFail")
-    public static let DidEnter = Region(subtype: "DidEnter")
-    public static let DidExit = Region(subtype: "DidExit")
-    public static let DidStartMonitoring = Region(subtype: "DidStartMonitoring")
-    public static let DidDetermineState = Region(subtype: "DidDetermineState")
-    public static let DidChangeAuthorization = Region(subtype: "DidChangeAuthorization")
+open class Region : Type {
+    open static let StartRegionMonitoring = Region(subtype: "StartRegionMonitoring")
+    open static let MonitorDidFail = Region(subtype: "MonitorDidFail")
+    open static let DidEnter = Region(subtype: "DidEnter")
+    open static let DidExit = Region(subtype: "DidExit")
+    open static let DidStartMonitoring = Region(subtype: "DidStartMonitoring")
+    open static let DidDetermineState = Region(subtype: "DidDetermineState")
+    open static let DidChangeAuthorization = Region(subtype: "DidChangeAuthorization")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Beacon" }
         set { self.imageName = newValue }
     }
 }
 
-public class Location : Type {
-    public static let DidFail = Location(subtype: "DidFail")
-    public static let DidChangeAuthorization = Location(subtype: "DidChangeAuthorization")
+open class Location : Type {
+    open static let DidFail = Location(subtype: "DidFail")
+    open static let DidChangeAuthorization = Location(subtype: "DidChangeAuthorization")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Beacon" }
         set { self.imageName = newValue }
     }
 }
 
-public class Connection : Type {
-    public static let DidFail = Connection(subtype: "DidFail")
-    public static let DidLoad = Connection(subtype: "DidLoad")
+open class Connection : Type {
+    open static let DidFail = Connection(subtype: "DidFail")
+    open static let DidLoad = Connection(subtype: "DidLoad")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Safari" }
         set { self.imageName = newValue }
     }
 }
 
-public class Device : Type {
-    public static let Hardware = Device(subtype: "Hardware")
-    public static let User = Device(subtype: "User")
+open class Device : Type {
+    open static let Hardware = Device(subtype: "Hardware")
+    open static let User = Device(subtype: "User")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Device" }
         set { self.imageName = newValue }
     }
 }
 
-public class Feedback : Type {
-    public static let User = Feedback(subtype: "User")
+open class Feedback : Type {
+    open static let User = Feedback(subtype: "User")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "User" }
         set { self.imageName = newValue }
     }
 }
 
-public class Action : Type {
-    public static let Button = Action(subtype: "Button")
+open class Action : Type {
+    open static let Button = Action(subtype: "Button")
     
-    override var imageName : String {
+    override fileprivate var imageName : String {
         get { return "Action Button" }
         set { self.imageName = newValue }
     }

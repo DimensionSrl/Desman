@@ -8,10 +8,10 @@
 
 import UIKit
 
-public class User: NSCoder {
-    public let uuid : String
-    public var name : String?
-    public var imageUrl : NSURL?
+open class User: NSCoder {
+    open let uuid : String
+    open var name : String?
+    open var imageUrl : URL?
     
     public init(uuid: String, name: String) {
         self.uuid = uuid
@@ -21,10 +21,10 @@ public class User: NSCoder {
     public init(uuid: String, name: String, image: String) {
         self.uuid = uuid
         self.name = name
-        self.imageUrl = NSURL(string: image)
+        self.imageUrl = URL(string: image)
     }
     
-    public init?(dictionary: [String : Coding]) {
+    public init?(dictionary: [String : Any]) {
         guard let uuid = dictionary["user"] as? String else {
             self.uuid = "Unknown"
             self.name = "Unknown"
@@ -37,29 +37,29 @@ public class User: NSCoder {
         }
         
         if let image = dictionary["image"] as? String {
-            self.imageUrl = NSURL(string: image)
+            self.imageUrl = URL(string: image)
         }
         
         self.uuid = uuid
         super.init()
     }
     
-    override public func isEqual(object: AnyObject?) -> Bool {
+    override open func isEqual(_ object: Any?) -> Bool {
         if let object = object as? User {
             return hash == object.hash
         }
         return false
     }
     
-    override public var hash: Int {
+    override open var hash: Int {
         return "\(uuid)".hashValue
     }
     
-    override public var description : String {
+    override open var description : String {
         return "User: \(name) - \(uuid)"
     }
     
-    public var title : String {
+    open var title : String {
         if let name = name {
             return name
         }
