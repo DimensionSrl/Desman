@@ -21,7 +21,12 @@ import UIKit
             name = "Unknown"
         }
         if let classForImage = NSClassFromString("Desman.EventsTableViewController") {
-            return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
+            if #available(iOS 8.0, *) {
+                return UIImage(named: name, inBundle: NSBundle(forClass: classForImage), compatibleWithTraitCollection: nil)
+            } else {
+                return UIImage()
+                // Fallback on earlier versions
+            }
         }
         return nil
     }

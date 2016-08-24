@@ -167,6 +167,7 @@ public class EventManager : NSObject {
             self.log(FlowApp())
             self.log(FlowDeviceName())
             self.log(FlowDeviceType())
+            self.log(FlowDeviceID())
         }
     }
     
