@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        if let compressedImage = UIImageJPEGRepresentation(image, 0.4) {
+        if let compressedImage = UIImageJPEGRepresentation(image!, 0.4) {
             let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: compressedImage)
             Des.log(event)
         }

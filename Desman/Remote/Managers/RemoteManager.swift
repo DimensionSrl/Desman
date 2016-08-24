@@ -226,7 +226,7 @@ public class RemoteManager : NSObject {
                         if let json = jsonParent.first as? [AnyObject] {
                             if let name = json.first as? String {
                                 if let content = json[1] as? [String: AnyObject] {
-                                    if let data = content["data"] as? [String: AnyObject], id = data["connection_id"] as? String {
+                                    if let data = content["data"] as? [String: AnyObject], let id = data["connection_id"] as? String {
                                         self.connectionId = id
                                     }
                                 }
