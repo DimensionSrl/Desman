@@ -27,6 +27,7 @@ public class Event: NSCoder {
     public var attachment : NSData?
     public var attachmentUrl : NSURL?
     public var desc : String?
+    public var typeString : String?
     
     // TODO: support remote attachment url with caching
     
@@ -79,6 +80,18 @@ public class Event: NSCoder {
         }
         
         self.type = type
+        self.typeString = typeString
+        super.init()
+        self.commonInit()
+    }
+    
+    public init(_ type: String, subtype: String, desc: String?, value: String?) {
+        self.type = Type(subtype: subtype)
+        self.typeString = type
+        self.desc = desc
+        self.value = value
+        self.timestamp = NSDate()
+        self.uuid = NSUUID()
         super.init()
         self.commonInit()
     }
@@ -225,6 +238,8 @@ public class Event: NSCoder {
         
         self.uuid = NSUUID(UUIDString: cdevent.uuid)
         
+        self.typeString = cdevent.typeString
+        
         if let url = cdevent.attachmentUrl,  let attachmentUrl = NSURL(string: url) {
             self.attachmentUrl = attachmentUrl
         }
@@ -249,6 +264,9 @@ public class Event: NSCoder {
         }
         event.sent = self.sent
         event.timestamp = self.timestamp
+        if let typeString = typeString {
+            event.typeString = typeString
+        }
         if let attachmentUrl = self.attachmentUrl {
             event.attachmentUrl = attachmentUrl.absoluteString
         }
@@ -290,6 +308,10 @@ public class Event: NSCoder {
         if let desc = decoder.decodeObjectForKey("desc") as? String {
             self.desc = desc
         }
+        
+        if let typeString = decoder.decodeObjectForKey("type_string") as? String {
+            self.typeString = typeString
+        }
 
         if let uuid = decoder.decodeObjectForKey("uuid") as? String {
             self.uuid = NSUUID(UUIDString: uuid)
@@ -313,6 +335,7 @@ public class Event: NSCoder {
         coder.encodeObject(uuid, forKey: "uuid")
         coder.encodeObject(attachmentUrl, forKey: "attachment")
         coder.encodeBool(sent, forKey: "sent")
+        coder.encodeObject(typeString, forKey: "type_string")
     }
     
     var dictionary : [String : Coding] {
@@ -342,7 +365,11 @@ public class Event: NSCoder {
     
     var flowDictionary : [String : Coding] {
         var dict = [String : Coding]()
-        dict["type"] = type.type
+        // dict["type"] = type.type
+        if let typeString = typeString {
+            dict["type"] = typeString
+        }
+        
         dict["name"] = type.subtype
         dict["date"] = EventManager.sharedInstance.flowDateFormatter.stringFromDate(timestamp)
         if let value = self.value, doubleValue = Double(value) {
