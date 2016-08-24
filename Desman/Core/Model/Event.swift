@@ -353,7 +353,12 @@ public class Event: NSCoder {
         }
         if let payload = self.payload {
             if NSJSONSerialization.isValidJSONObject(payload) {
-                dict["payload"] = self.payload
+                do {
+                    let payloadData = try NSJSONSerialization.dataWithJSONObject(payload, options: .PrettyPrinted)
+                    dict["payload"] = NSString(data: payloadData, encoding: NSUTF8StringEncoding)
+                } catch _ {
+                    
+                }
             }
         }
         return dict
