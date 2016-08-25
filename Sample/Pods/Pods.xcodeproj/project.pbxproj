@@ -7,255 +7,196 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		05F7CA018C02B33585E610E3964EDE91 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3433537C3A3CEAF962EDEEAE1C651FB /* FeedbackComposeViewController.swift */; };
-		07CF0857147A35A1B08A9EF1D8A169DD /* Desman-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A063F49136F857E63FDC93598703614C /* Desman-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		08663258989DCD71C1C34066255262C4 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 421924A7A57F1BB6B2BF55AC8C3A036B /* UIViewController-Swizzle.swift */; };
-		0957AD109126E530C59BE9D9D3D2751B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
-		1454EE72C369C53D71AA3E3AE4A4D119 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F7E11657A3A4A15183A875116AAB3D /* EventsTableViewController.swift */; };
-		17893214920A2A4599DB01BA7CA0738C /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8843C613E43A7372F3C6F2FF04DC5ACF /* UIImageView+Desman.swift */; };
-		17ACEA8559E3DE3A10A3FE43C02A931F /* SwiftWebSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F51EBB9321B9DEFAD37EEE5AE868CBCC /* SwiftWebSocket-dummy.m */; };
-		1E3AAEE57BFA7C80DAC4669672BF715B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311FCDE547002A4B2D043273235FE9C8 /* User.swift */; };
-		252D6460DC90E3D4B5B0B4A9C29C1CA3 /* CDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 617A21249D91FB268F47AD6B8975C020 /* CDEvent.swift */; };
-		2533409B87A71F6F3845D6F8C03C84DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
-		2E1AA1E6276ED5FB0A23F64F5EC51734 /* Pods-Desman iOS Sample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91450B0E89C058A26E7A640A1108881B /* Pods-Desman iOS Sample-dummy.m */; };
-		2F3ABE83DE373527DDCE21140786EC39 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41BA83BA685E89E70FA5E9D4E79A3BC /* EventDetailTableViewController.swift */; };
-		30D9B8E48BCCEC97EE739DB7601D2745 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B30FB42DDDF163AC856E5DEE72A05D /* EventManager.swift */; };
-		351CF054F41A7CFF6737DD1FE5508500 /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CC76C896B3AE671F76AB7D90953A49 /* CDEvent+CoreDataProperties.swift */; };
-		37D1D043159E57071A37556192DF191D /* CoreDataSerializerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63671EA8B1EE8AE18381E064FC923FA4 /* CoreDataSerializerManager.swift */; };
-		39629F944552E2B8CE8AEBF7D94427F9 /* SwiftWebSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD759019C6D253CE57FC78E04A9EB32 /* SwiftWebSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		397296CD8FF4E88BB4BD2FD21622B4EC /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC743DAF569BCC158116981693551BA /* Array+Desman.swift */; };
-		3A3900753FC1CDD12465E234E4B42F37 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6682FA60956871381B5A8544191C8D8F /* GlobalSplitViewController.swift */; };
-		3DFF3D75812ACCD81A578566566D321B /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F1A03B90460934438C94E22BB581D /* Type.swift */; };
-		49251094E8366F92F724CF8E055F0760 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61CC8FF9D371AC07D57E91D53BD732B /* UsersTableViewController.swift */; };
-		49C8175DB5099D6B18BE2146870A1AB2 /* Desman-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C337147ED25B155C3C4215576EC1DC6 /* Desman-dummy.m */; };
-		4AAAD0657ABB2B9C78F71B73102F0013 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555B017B3F256A6BA647AD8FE7EA011D /* ImageCache.swift */; };
-		4D0E478BBFF9031FCE3003071741166B /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BCFC6DCC393955BF5F691588A7CC37E /* Event.storyboard */; };
-		4FFCDFC050019FB821AF4EFF0F1D2E7F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */; };
-		5497DD5F680A1094593972528C733F10 /* Pods-Desman iOS Sample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6919ED0157938CF300728B3A8288BF33 /* Pods-Desman iOS Sample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5908FEAAFD1A165147695FE8A765C8F6 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5457A7DF3AD489447273CBCF5C91CA1B /* AppTableViewCell.swift */; };
-		5C61ED3116A7B0ADF53934C8BBECB186 /* WebSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6509172355879CDC0D431E1A47B65B /* WebSocket.swift */; };
-		60ED10930B9BBC445CF9A82A8F72ED4D /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A01EB0530A386DD7BA720F3EFD686E0 /* DeviceInfo.swift */; };
-		705FB9A2F124F8BACF21E19ABE0D2F73 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DCDD9DA1BFCB0BA53E6E18BEA6B2445 /* SwiftWebSocket.framework */; };
-		7555F0455A57E583FFE27D6E8F7BBF03 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A5527A6E235C397E0B722456897D57 /* FlowManager.swift */; };
-		79C3A199459B84014CAEA4FD61E3A84F /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D403710B1600028907F744F9534DC024 /* UploadManager.swift */; };
-		7A10533DA198736059E07C56917DCF3E /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AD089EE36693706DC22026A032895FB /* UserTableViewCell.swift */; };
-		7DFE8193901B6B699EB131844F2C1580 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D59027D64EA914AA6F93A555C0E6F8B /* Media.xcassets */; };
-		828DCD559CDB71BF4C306CFCD99E2B68 /* RemoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7354AC6DDE612CD00161E52D99154604 /* RemoteManager.swift */; };
-		908C864B0AD610300AD75A2E38F9D607 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 175B4A6F1B50A9EAE326801D55EB232A /* Desman.storyboard */; };
-		AA6B1E8790C26783A78376F0975214F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */; };
-		AF238DA621CCC1B6F4D45F526BBEAF8C /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91CA7FEA55BEB4EC600A385BE29A195 /* EventTableViewCell.swift */; };
-		B757715367B5F435368F2F966C06818F /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B708AD43BD1B91E5DB95CDEB0B84F7 /* Event.swift */; };
-		C23B7B55CFF17118436321400B45F291 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */; };
-		C479609F5A7F566C705528CC440512CF /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E718C598451FE2314BBA88042D6631 /* UserInfo.swift */; };
-		C7D66C9AA938FC5A43AF75B6F4988571 /* Desman.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = BA8341101EF29DB8C78B51F73537E365 /* Desman.xcdatamodeld */; };
-		C85137454C1B5C51C69A9F2F7FBCD830 /* RemoteEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E627CFA7237318271071252DB714338 /* RemoteEventsTableViewController.swift */; };
-		E760E78360F9F4CC9F3C17738157BFD8 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDD53F022FAC701EA3A702CB14DEEDE /* NotificationCenterManager.swift */; };
-		EA2BFA3056EC96E153B68C72AC982EF9 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A1E5FA3E0A9C822F4E1BA9147D92977 /* App.swift */; };
-		EA3D8579A6F4EEACA0F478FF66AF1B0D /* AppsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BE7E55414E535F487F317A53CDF4B7 /* AppsTableViewController.swift */; };
-		EF7DEEA8E1B38DA4F1BA66AD2E0722AF /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC6A0737144801FD4A1BED745FD7931 /* AppInfo.swift */; };
-		F06869D704ACE0C38286D3D4880081BD /* Remote.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2763D0562104B48236219938A8824B /* Remote.storyboard */; };
-		F34FF2C458902D5DDB618532C2BB19FA /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3B34DE72ED3C67F24118946C1C0DBB /* UIViewController+Desman.swift */; };
-		F35FD574B71AD18BECF08F3CE4105698 /* FlowEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DC3470061D73C6BD790D16956792F14 /* FlowEvents.swift */; };
-		F96FB58FA260B6FA34C3972AA9BF584D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2C65892F1D2BA9AE09B24B3E2AD568 /* ImageViewController.swift */; };
+		00D99D4EFB32746C75A07012C052FE15 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF1A0CF0EA9ADF2A0CE1E7497218E38 /* User.swift */; };
+		061C597EF4C328E5A0A2A8D42B143785 /* Desman.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44932CFE2DDEC260EA60FD5103378BE /* Desman.storyboard */; };
+		077EE6C65396D2BD9FD463072DE9E572 /* Pods-Desman iOS Sample-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 91450B0E89C058A26E7A640A1108881B /* Pods-Desman iOS Sample-dummy.m */; };
+		1A944777B5E45E42752AC598D15BCC48 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5228CD6F9018B1A37182AF1AB1A4CB9E /* UIViewController-Swizzle.swift */; };
+		203841980D50E25062CF1AD7A05199C3 /* CDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB741D78CC1AEBB537AC316BBF95272D /* CDEvent.swift */; };
+		216D7D85ABA1E9295550F1E9D5EDD9F1 /* FlowEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB3CB4680353AAC913191E3567FE17 /* FlowEvents.swift */; };
+		2435F62A228684B20A2B10BBAF46B269 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B55032171686CEC6B4B082F2F61428F2 /* AppTableViewCell.swift */; };
+		288CA6CA0875F930911929E55FC59070 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9C024F58EB6162A7E0C1885E6224FAF /* CoreData.framework */; };
+		2AA931DC17C83C8722EDC051E88F873E /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A33FA01A68BF6F2DE0284D9A686F5DF /* NotificationCenterManager.swift */; };
+		2F92E790342D2AFD4E4E414AF45176DA /* DType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F1138BB6B98961FC45564470051285 /* DType.swift */; };
+		32D2C6F4C9F5FE272F157553BD6A3F0F /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8B0A102CF5789D3D7FA792FFAC731E /* CDEvent+CoreDataProperties.swift */; };
+		332C0FA851CCBE25B079FB0D71D85208 /* UIImageView+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7E3FB137FE113A0D4ECED5CBB8183 /* UIImageView+Desman.swift */; };
+		34BA5E21C3CF01243F2DA917899383CD /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330231E2037171B53DD101A131116BB7 /* Event.swift */; };
+		497947AA8F43DEFAADF2F73A02DEBCD3 /* GlobalSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73669ECD7377F74231DBE51153FAFDAB /* GlobalSplitViewController.swift */; };
+		4A77037FB0EFAC5B06AE73B599686805 /* Desman.xcdatamodeld in Resources */ = {isa = PBXBuildFile; fileRef = 194C8BD494573C56C5BC61759B2DEFC7 /* Desman.xcdatamodeld */; };
+		502EF7C06991882E7F2DEBD792571C98 /* EventDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A14F0C2625D5D190EC2CFE41A78372 /* EventDetailTableViewController.swift */; };
+		5362AC21B380226B11F0A347C42CCF79 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEC447656D1D2C0C8F4747050FAD942 /* UserTableViewCell.swift */; };
+		59C836A6946F3B8C308BC99D64D05C6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58491DA1290A16ED101C62DD934E30B3 /* Foundation.framework */; };
+		604D00AF17E7345A3D2EA55E7D685008 /* Desman-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 104D42C9BB97F6B43F9B9161C34531A5 /* Desman-dummy.m */; };
+		64F99FC90435A05A6A12F1D417B2C99F /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = A85866A8CDC6109C9C23E02B1EA0509A /* UIViewController+Desman.swift */; };
+		6DB8B3894CC629C60F5020155B24529C /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17D8B290FC84A702BEA00ED827CD68A /* ImageCache.swift */; };
+		7593752BD881F8C2C07B3DEC24BDFFED /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58937FB850E0149489E9871DA9190F8E /* UserInfo.swift */; };
+		76ECBB86C2C8923EAE1AFCB033E93A2F /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37EC488526E8AFE2B784B9F645806F70 /* Photos.framework */; };
+		7B0C9CF12E7B06C18D6BC1B5503DBAE8 /* Event.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 77816D781BC5A2EE32227778092F451C /* Event.storyboard */; };
+		7C8EB202913BEF6D8514DB5AE9976C18 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08607232EE079BD5647ADABE93FE00E /* EventsTableViewController.swift */; };
+		7EE08A249A7F19B6DDDE7E9AFB6C5D82 /* FlowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2F8EB58677D5BA3EFA1F5CAA83E6D /* FlowManager.swift */; };
+		7FB75FB645E0645B8BB40250D360477E /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = B390C9FCB6ED384449A45FAC068C70BF /* Array+Desman.swift */; };
+		8D49444FD45549F6C80E3B4040EC3292 /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7986CB59D137BEA97E14A4A7E14F02 /* UploadManager.swift */; };
+		8FEC3AE2BAB55569EE635D32FA8FA93C /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85E9B1284EC33242D3EA32E57F5B0616 /* ImageViewController.swift */; };
+		90C5C1335EF6F6E828A676D47CF117F4 /* AppInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E828CDCB2CE25B871D4EBB88F48FCCBC /* AppInfo.swift */; };
+		93E5EBCBA288B94FBA74E5852C6E2DDE /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9906017A5F56F360D265FDB7241011B /* App.swift */; };
+		9881150C05382083177BE180FEBA0A31 /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE82BE3D41C51C26507396E02452769 /* EventManager.swift */; };
+		B39745BE9FDA24B933656FAA1AF605AC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58491DA1290A16ED101C62DD934E30B3 /* Foundation.framework */; };
+		BEFDE075FFB4D6ADF5F7DE8693763D3D /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778D43F60BFD5ED9E05C4E3E5BD081D2 /* DeviceInfo.swift */; };
+		C9EAB553F3646DE52CB5CFB9653B9125 /* Desman-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F005C03C6D97B23929016C20CEEF3E /* Desman-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C9FBE506DBC069B004B4BCFAB169CA97 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6A75064CE1C7607AB930CB59C49FE94 /* EventTableViewCell.swift */; };
+		D0C2C360AC3BA4BAEEA4378A2B78D8E5 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E8B62304EBB350A93EF2941F62A194 /* FeedbackComposeViewController.swift */; };
+		EBB0B9974202DCB8F14B4FA9121F3FEA /* Pods-Desman iOS Sample-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6919ED0157938CF300728B3A8288BF33 /* Pods-Desman iOS Sample-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F155CEE20E86F56DC2D72584310DEEAE /* CoreDataSerializerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C3E41B7E480A5BD15AFAE7525E67011 /* CoreDataSerializerManager.swift */; };
+		F1D3E058649492B76403CD4821DCA758 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CFA74338F5FF9D6132BB771ECEFA658 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		76AA2FEB1B8F7DD47FB783C8C09C2E50 /* PBXContainerItemProxy */ = {
+		13F26A689AFDAC149A25E816FDF15DAB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = B200FF8E6E9F06627AE998F6526D08F9;
+			remoteGlobalIDString = A122E2649F653B139F7AB16E95023F04;
 			remoteInfo = Desman;
-		};
-		A4E05FD6C821BDA857AC280A435ED3A7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 765E827B9F1F54724E9E800F53B27D7C;
-			remoteInfo = SwiftWebSocket;
-		};
-		B53040B3A999CD22028FFDAADE430B31 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 765E827B9F1F54724E9E800F53B27D7C;
-			remoteInfo = SwiftWebSocket;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0AC6A0737144801FD4A1BED745FD7931 /* AppInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
-		0AC743DAF569BCC158116981693551BA /* Array+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Desman.swift"; sourceTree = "<group>"; };
-		0B7B943C011E00DEB86C3AB589EA353E /* SwiftWebSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftWebSocket.xcconfig; sourceTree = "<group>"; };
-		0E3B34DE72ED3C67F24118946C1C0DBB /* UIViewController+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
+		00014281A3739DEF5175C94848FF4CE5 /* Desman-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Desman-prefix.pch"; sourceTree = "<group>"; };
+		06564F889A26F9EC35669AB24A05BBD6 /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07F005C03C6D97B23929016C20CEEF3E /* Desman-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Desman-umbrella.h"; sourceTree = "<group>"; };
+		088454E4E867BC1C2468EE41F64447FC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		104D42C9BB97F6B43F9B9161C34531A5 /* Desman-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Desman-dummy.m"; sourceTree = "<group>"; };
 		12AB3BC9A39396E93DD57AE093C46DD2 /* Pods-Desman iOS Sample-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Desman iOS Sample-frameworks.sh"; sourceTree = "<group>"; };
-		12AE4A73AEE218268C80DAACDB2EB915 /* Desman-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Desman-prefix.pch"; sourceTree = "<group>"; };
-		175B4A6F1B50A9EAE326801D55EB232A /* Desman.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
-		18BE7E55414E535F487F317A53CDF4B7 /* AppsTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppsTableViewController.swift; sourceTree = "<group>"; };
+		1AB7E3FB137FE113A0D4ECED5CBB8183 /* UIImageView+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
 		1C8985E4B5B81C16528E623CBD86C97D /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1D3F9B9BA1DA945ACA24595BAF8997EF /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
-		1E627CFA7237318271071252DB714338 /* RemoteEventsTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteEventsTableViewController.swift; sourceTree = "<group>"; };
-		237A5EC6C4EC09B496BF804B5C3BD56D /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		23F57176ED559FE5033977ED63A32124 /* Desman 2.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 2.xcdatamodel"; sourceTree = "<group>"; };
-		25B30FB42DDDF163AC856E5DEE72A05D /* EventManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
-		2BCFC6DCC393955BF5F691588A7CC37E /* Event.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
-		2BDD53F022FAC701EA3A702CB14DEEDE /* NotificationCenterManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
-		311FCDE547002A4B2D043273235FE9C8 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		34A5527A6E235C397E0B722456897D57 /* FlowManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
+		24F6937B0280DC9A53372C8C3AE5F64B /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
+		330231E2037171B53DD101A131116BB7 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		371E6AA43C72E92FCFDD5C57B8B41293 /* Pods-Desman iOS Sample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Desman iOS Sample.release.xcconfig"; sourceTree = "<group>"; };
-		3B572E02B7A472D937504C6AC08B2D46 /* Desman.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
-		3C337147ED25B155C3C4215576EC1DC6 /* Desman-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Desman-dummy.m"; sourceTree = "<group>"; };
-		3CF5E40A5087242123586BE13F60B587 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DC3470061D73C6BD790D16956792F14 /* FlowEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlowEvents.swift; sourceTree = "<group>"; };
-		3F6509172355879CDC0D431E1A47B65B /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Source/WebSocket.swift; sourceTree = "<group>"; };
-		421924A7A57F1BB6B2BF55AC8C3A036B /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
+		37EC488526E8AFE2B784B9F645806F70 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
+		3C3E41B7E480A5BD15AFAE7525E67011 /* CoreDataSerializerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreDataSerializerManager.swift; sourceTree = "<group>"; };
 		43127F22411714DB684FE5801D1F00D2 /* Pods-Desman iOS Sample-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Desman iOS Sample-resources.sh"; sourceTree = "<group>"; };
-		4A01EB0530A386DD7BA720F3EFD686E0 /* DeviceInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
-		505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		52CE00AB6C5E2400698EF323696B947A /* SwiftWebSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftWebSocket-prefix.pch"; sourceTree = "<group>"; };
-		5457A7DF3AD489447273CBCF5C91CA1B /* AppTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
-		555B017B3F256A6BA647AD8FE7EA011D /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		4DE82BE3D41C51C26507396E02452769 /* EventManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
+		5228CD6F9018B1A37182AF1AB1A4CB9E /* UIViewController-Swizzle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController-Swizzle.swift"; sourceTree = "<group>"; };
+		58491DA1290A16ED101C62DD934E30B3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		58937FB850E0149489E9871DA9190F8E /* UserInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		5B4EEF975BE8D012AF6D48F8E1C89B43 /* Pods-Desman iOS Sample-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Desman iOS Sample-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
-		617A21249D91FB268F47AD6B8975C020 /* CDEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CDEvent.swift; sourceTree = "<group>"; };
-		63671EA8B1EE8AE18381E064FC923FA4 /* CoreDataSerializerManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CoreDataSerializerManager.swift; sourceTree = "<group>"; };
-		63EF95E610BDB77AACEFE94E05986BDD /* SwiftWebSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftWebSocket.modulemap; sourceTree = "<group>"; };
-		6682FA60956871381B5A8544191C8D8F /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
+		5D7986CB59D137BEA97E14A4A7E14F02 /* UploadManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
+		5DF1A0CF0EA9ADF2A0CE1E7497218E38 /* User.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6919ED0157938CF300728B3A8288BF33 /* Pods-Desman iOS Sample-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Desman iOS Sample-umbrella.h"; sourceTree = "<group>"; };
-		6D59027D64EA914AA6F93A555C0E6F8B /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
-		6DCDD9DA1BFCB0BA53E6E18BEA6B2445 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftWebSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		71CFA54D050EC2AE207F8B540FAE1073 /* Pods_Desman_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desman_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7354AC6DDE612CD00161E52D99154604 /* RemoteManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
-		79CC76C896B3AE671F76AB7D90953A49 /* CDEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CDEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		8843C613E43A7372F3C6F2FF04DC5ACF /* UIImageView+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImageView+Desman.swift"; sourceTree = "<group>"; };
-		8AD089EE36693706DC22026A032895FB /* UserTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
-		8CF1C7C919562D1A99D1099C9BDF2388 /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6E3E6E54F4B759774067D9822991154A /* Desman.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
+		73669ECD7377F74231DBE51153FAFDAB /* GlobalSplitViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = GlobalSplitViewController.swift; sourceTree = "<group>"; };
+		73F1138BB6B98961FC45564470051285 /* DType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DType.swift; sourceTree = "<group>"; };
+		77816D781BC5A2EE32227778092F451C /* Event.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Event.storyboard; sourceTree = "<group>"; };
+		778D43F60BFD5ED9E05C4E3E5BD081D2 /* DeviceInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		85E9B1284EC33242D3EA32E57F5B0616 /* ImageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		8A33FA01A68BF6F2DE0284D9A686F5DF /* NotificationCenterManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		90DB3CB4680353AAC913191E3567FE17 /* FlowEvents.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlowEvents.swift; sourceTree = "<group>"; };
 		91450B0E89C058A26E7A640A1108881B /* Pods-Desman iOS Sample-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Desman iOS Sample-dummy.m"; sourceTree = "<group>"; };
-		91F7E11657A3A4A15183A875116AAB3D /* EventsTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9A1E5FA3E0A9C822F4E1BA9147D92977 /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9B3AA2ED88A1D0D235FD68FE3AE2F51C /* Desman.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Desman.xcconfig; sourceTree = "<group>"; };
+		9CFA74338F5FF9D6132BB771ECEFA658 /* Media.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		9E37CEF459E5D37AAD9A81572FFCFE52 /* Desman 2.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 2.xcdatamodel"; sourceTree = "<group>"; };
 		9F16CB15E125EE7E471626D789D05B4F /* Pods-Desman iOS Sample.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Desman iOS Sample.modulemap"; sourceTree = "<group>"; };
-		9F2C65892F1D2BA9AE09B24B3E2AD568 /* ImageViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
-		A063F49136F857E63FDC93598703614C /* Desman-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Desman-umbrella.h"; sourceTree = "<group>"; };
 		A832F7157FAF273066DA8CB0EA7B0537 /* Pods-Desman iOS Sample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Desman iOS Sample.debug.xcconfig"; sourceTree = "<group>"; };
-		AC3F1A03B90460934438C94E22BB581D /* Type.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
-		B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Desman.xcconfig; sourceTree = "<group>"; };
-		B61CC8FF9D371AC07D57E91D53BD732B /* UsersTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
-		BBD759019C6D253CE57FC78E04A9EB32 /* SwiftWebSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftWebSocket-umbrella.h"; sourceTree = "<group>"; };
-		C7B708AD43BD1B91E5DB95CDEB0B84F7 /* Event.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		D3433537C3A3CEAF962EDEEAE1C651FB /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
-		D403710B1600028907F744F9534DC024 /* UploadManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
-		DE623D30B03BFAD7AC33478A89285DDB /* Desman.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Desman.modulemap; sourceTree = "<group>"; };
-		E41BA83BA685E89E70FA5E9D4E79A3BC /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
-		EA2763D0562104B48236219938A8824B /* Remote.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Remote.storyboard; sourceTree = "<group>"; };
-		EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/Photos.framework; sourceTree = DEVELOPER_DIR; };
-		F4E718C598451FE2314BBA88042D6631 /* UserInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
-		F51EBB9321B9DEFAD37EEE5AE868CBCC /* SwiftWebSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftWebSocket-dummy.m"; sourceTree = "<group>"; };
-		F66653903EB17A0AE274046BCED471BC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F91CA7FEA55BEB4EC600A385BE29A195 /* EventTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
-		F9E1B109F5497F2DBC30A51C614D6E78 /* Desman 4.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 4.xcdatamodel"; sourceTree = "<group>"; };
+		A85866A8CDC6109C9C23E02B1EA0509A /* UIViewController+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
+		B0F2F8EB58677D5BA3EFA1F5CAA83E6D /* FlowManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
+		B17D8B290FC84A702BEA00ED827CD68A /* ImageCache.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		B390C9FCB6ED384449A45FAC068C70BF /* Array+Desman.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "Array+Desman.swift"; sourceTree = "<group>"; };
+		B55032171686CEC6B4B082F2F61428F2 /* AppTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		B8A14F0C2625D5D190EC2CFE41A78372 /* EventDetailTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventDetailTableViewController.swift; sourceTree = "<group>"; };
+		C44932CFE2DDEC260EA60FD5103378BE /* Desman.storyboard */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.storyboard; path = Desman.storyboard; sourceTree = "<group>"; };
+		CB741D78CC1AEBB537AC316BBF95272D /* CDEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CDEvent.swift; sourceTree = "<group>"; };
+		CCEC447656D1D2C0C8F4747050FAD942 /* UserTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		D08607232EE079BD5647ADABE93FE00E /* EventsTableViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		D504273F15F0C209EF6D66A9645D0EB7 /* Pods_Desman_iOS_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Desman_iOS_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E0960D833DB9FC3130CD8C71EE6228DB /* Desman 4.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 4.xcdatamodel"; sourceTree = "<group>"; };
+		E6A75064CE1C7607AB930CB59C49FE94 /* EventTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		E828CDCB2CE25B871D4EBB88F48FCCBC /* AppInfo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppInfo.swift; sourceTree = "<group>"; };
+		E9906017A5F56F360D265FDB7241011B /* App.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		E9C024F58EB6162A7E0C1885E6224FAF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		EA8B0A102CF5789D3D7FA792FFAC731E /* CDEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CDEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F1A35174047E0E3034C22A101EB66904 /* Desman.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Desman.modulemap; sourceTree = "<group>"; };
+		F6E8B62304EBB350A93EF2941F62A194 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 		FE52D52E2D564CD44720E47AEFCCF99A /* Pods-Desman iOS Sample-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Desman iOS Sample-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		4173440AF44A44EBAEE98A6E5D51D878 /* Frameworks */ = {
+		765BEDD62180ED848D5E93E9276B22B2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FFCDFC050019FB821AF4EFF0F1D2E7F /* CoreData.framework in Frameworks */,
-				AA6B1E8790C26783A78376F0975214F4 /* Foundation.framework in Frameworks */,
-				C23B7B55CFF17118436321400B45F291 /* Photos.framework in Frameworks */,
-				705FB9A2F124F8BACF21E19ABE0D2F73 /* SwiftWebSocket.framework in Frameworks */,
+				B39745BE9FDA24B933656FAA1AF605AC /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		61E59515914146D22D7FDF48BFDCC4E1 /* Frameworks */ = {
+		C72180AC63BB2F1E3A1155609E906A35 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2533409B87A71F6F3845D6F8C03C84DB /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0877203D63C87FF6E1BB6EDD1E4078F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				0957AD109126E530C59BE9D9D3D2751B /* Foundation.framework in Frameworks */,
+				288CA6CA0875F930911929E55FC59070 /* CoreData.framework in Frameworks */,
+				59C836A6946F3B8C308BC99D64D05C6F /* Foundation.framework in Frameworks */,
+				76ECBB86C2C8923EAE1AFCB033E93A2F /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		051C2C601C9B2B40DA864F4655FCA01B /* Core */ = {
+		05A9F514E55A88CBF6F08BE965F3721F /* Desman */ = {
 			isa = PBXGroup;
 			children = (
-				E89CCAA7796BA1E560303547EDD92A01 /* Assets */,
-				C8AB763F3D15327D1487E021E60A7F53 /* Resources */,
+				09288B81E351A3D94FF823E1D52005BB /* Core */,
+			);
+			path = Desman;
+			sourceTree = "<group>";
+		};
+		09288B81E351A3D94FF823E1D52005BB /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				36EE286CEFFB7254C5A2F683B29CB473 /* Controllers */,
+				2D38393D91CFDCA15C6D3CB66B059958 /* Managers */,
+				C0F3BEB7BBAE8D008D1412FF7067E7D5 /* Model */,
+				437C485D688BB17D4BF6BB2B77A11F4C /* Templates */,
+				E2E0D6DB85081E4FE40732F9452A64BD /* Utilities */,
+				2E83953A352523E3F7FBAFE38700717A /* Views */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		09761139D131AEFB798F1DBD21179163 /* Support Files */ = {
+		092C958C50114424D2836393F8119CEB /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				3CF5E40A5087242123586BE13F60B587 /* Info.plist */,
-				63EF95E610BDB77AACEFE94E05986BDD /* SwiftWebSocket.modulemap */,
-				0B7B943C011E00DEB86C3AB589EA353E /* SwiftWebSocket.xcconfig */,
-				F51EBB9321B9DEFAD37EEE5AE868CBCC /* SwiftWebSocket-dummy.m */,
-				52CE00AB6C5E2400698EF323696B947A /* SwiftWebSocket-prefix.pch */,
-				BBD759019C6D253CE57FC78E04A9EB32 /* SwiftWebSocket-umbrella.h */,
+				EC13A60CC80DCDFEFEC30D71453D1E46 /* Assets */,
+				F489033259F051322B031C2114021D6A /* Resources */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftWebSocket";
+			path = Core;
 			sourceTree = "<group>";
 		};
-		0BBDBC1275A511236D8EB83475839B74 /* Managers */ = {
+		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				63671EA8B1EE8AE18381E064FC923FA4 /* CoreDataSerializerManager.swift */,
-				25B30FB42DDDF163AC856E5DEE72A05D /* EventManager.swift */,
-				34A5527A6E235C397E0B722456897D57 /* FlowManager.swift */,
-				2BDD53F022FAC701EA3A702CB14DEEDE /* NotificationCenterManager.swift */,
-				D403710B1600028907F744F9534DC024 /* UploadManager.swift */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		0E25D1A53FE35E7D07F4BD3861191549 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				5457A7DF3AD489447273CBCF5C91CA1B /* AppTableViewCell.swift */,
-				F91CA7FEA55BEB4EC600A385BE29A195 /* EventTableViewCell.swift */,
-				8AD089EE36693706DC22026A032895FB /* UserTableViewCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		13DB77D4C15B3AE25BA0618725BA014A /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				98DF9D45CA296534CDF709509954B316 /* Desman */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		21369E0C3E2DE53F211025FBF4FF2696 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6DCDD9DA1BFCB0BA53E6E18BEA6B2445 /* SwiftWebSocket.framework */,
-				EDCA9408CCDF736BCB4F9F96A6B36DA2 /* iOS */,
+				914658F471DD154D1BEFBB8769256106 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		25B2DC61D3B59F846838968C469D7798 /* Remote */ = {
+		13D23AB317A30EF16FFA9A36C0B5F078 /* Desman */ = {
 			isa = PBXGroup;
 			children = (
-				B65790440710057BE5AC6F520A97716E /* Assets */,
+				4B1A9548EBA260710F5CA5C5392A8B8A /* Debatable */,
 			);
-			path = Remote;
+			path = Desman;
+			sourceTree = "<group>";
+		};
+		2D38393D91CFDCA15C6D3CB66B059958 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3C3E41B7E480A5BD15AFAE7525E67011 /* CoreDataSerializerManager.swift */,
+				4DE82BE3D41C51C26507396E02452769 /* EventManager.swift */,
+				B0F2F8EB58677D5BA3EFA1F5CAA83E6D /* FlowManager.swift */,
+				8A33FA01A68BF6F2DE0284D9A686F5DF /* NotificationCenterManager.swift */,
+				5D7986CB59D137BEA97E14A4A7E14F02 /* UploadManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		2DBB1E3133DFD28AE6E4763E151C7962 /* Pods-Desman iOS Sample */ = {
@@ -276,25 +217,37 @@
 			path = "Target Support Files/Pods-Desman iOS Sample";
 			sourceTree = "<group>";
 		};
-		2E66C84D62F18FA7EDB470690BFD5699 /* Debatable */ = {
+		2E83953A352523E3F7FBAFE38700717A /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				421924A7A57F1BB6B2BF55AC8C3A036B /* UIViewController-Swizzle.swift */,
+				B55032171686CEC6B4B082F2F61428F2 /* AppTableViewCell.swift */,
+				E6A75064CE1C7607AB930CB59C49FE94 /* EventTableViewCell.swift */,
+				CCEC447656D1D2C0C8F4747050FAD942 /* UserTableViewCell.swift */,
 			);
-			path = Debatable;
+			path = Views;
 			sourceTree = "<group>";
 		};
-		456BF4086A88FE3A809AED2A82833DDB /* Core */ = {
+		36EE286CEFFB7254C5A2F683B29CB473 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9A6C724D8E9CC28FE32F2035828E562A /* Controllers */,
-				0BBDBC1275A511236D8EB83475839B74 /* Managers */,
-				80B19B8281096B654F64F049E862E9EE /* Model */,
-				9AD5E915A6DC65949C273435B22258D0 /* Templates */,
-				D83F64F9252ECFB240FD2794CECB94F7 /* Utilities */,
-				0E25D1A53FE35E7D07F4BD3861191549 /* Views */,
+				B8A14F0C2625D5D190EC2CFE41A78372 /* EventDetailTableViewController.swift */,
+				D08607232EE079BD5647ADABE93FE00E /* EventsTableViewController.swift */,
+				F6E8B62304EBB350A93EF2941F62A194 /* FeedbackComposeViewController.swift */,
+				73669ECD7377F74231DBE51153FAFDAB /* GlobalSplitViewController.swift */,
+				85E9B1284EC33242D3EA32E57F5B0616 /* ImageViewController.swift */,
 			);
-			path = Core;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		437C485D688BB17D4BF6BB2B77A11F4C /* Templates */ = {
+			isa = PBXGroup;
+			children = (
+				E828CDCB2CE25B871D4EBB88F48FCCBC /* AppInfo.swift */,
+				778D43F60BFD5ED9E05C4E3E5BD081D2 /* DeviceInfo.swift */,
+				90DB3CB4680353AAC913191E3567FE17 /* FlowEvents.swift */,
+				58937FB850E0149489E9871DA9190F8E /* UserInfo.swift */,
+			);
+			path = Templates;
 			sourceTree = "<group>";
 		};
 		49360DF59207474CAFCE6BA30BBBA574 /* Targets Support Files */ = {
@@ -305,346 +258,208 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		4D25063A0AA3782DC82B8985CDB6B6DE /* Desman */ = {
+		4B1A9548EBA260710F5CA5C5392A8B8A /* Debatable */ = {
 			isa = PBXGroup;
 			children = (
-				25B2DC61D3B59F846838968C469D7798 /* Remote */,
+				5228CD6F9018B1A37182AF1AB1A4CB9E /* UIViewController-Swizzle.swift */,
 			);
-			path = Desman;
+			path = Debatable;
 			sourceTree = "<group>";
 		};
-		4DB8E03ED3463FE527C56179DDE25E8F /* Desman */ = {
+		4B20ACCF4697C7FEEFDA76E4BB32AFE7 /* Debatable */ = {
 			isa = PBXGroup;
 			children = (
-				7D5841012074F7EFE077BFFFBB75B870 /* Core */,
-				C841A67E7F0EE5ACB110E33D66942967 /* Debatable */,
-				DE67A0984E798F51646BFE131DC2F393 /* Remote */,
-				E9193CC5ABAB2E50F14E0986E625056F /* Support Files */,
+				13D23AB317A30EF16FFA9A36C0B5F078 /* Desman */,
 			);
-			name = Desman;
-			path = ../..;
+			name = Debatable;
 			sourceTree = "<group>";
 		};
-		5314DCC22EDD0AAE1F875E6EDFC63399 /* Pods */ = {
+		5C7955CF4AC4D7DA1F4EC8FD344286F5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F69462AA96133243DE5430C7202D9B55 /* SwiftWebSocket */,
+				67376A35A6A34E38B61F1A241E15B6F3 /* Desman */,
 			);
-			name = Pods;
+			name = Resources;
 			sourceTree = "<group>";
 		};
-		5AE8C536BEEF346C58E780F8B270E9B6 /* Products */ = {
+		5E60EA849FF601B9B76EBD45BB6D29DD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8CF1C7C919562D1A99D1099C9BDF2388 /* Desman.framework */,
-				71CFA54D050EC2AE207F8B540FAE1073 /* Pods_Desman_iOS_Sample.framework */,
-				237A5EC6C4EC09B496BF804B5C3BD56D /* SwiftWebSocket.framework */,
+				06564F889A26F9EC35669AB24A05BBD6 /* Desman.framework */,
+				D504273F15F0C209EF6D66A9645D0EB7 /* Pods_Desman_iOS_Sample.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		74EDD20982347ECFDF46FE9ADC44DA4E /* Managers */ = {
+		67376A35A6A34E38B61F1A241E15B6F3 /* Desman */ = {
 			isa = PBXGroup;
 			children = (
-				7354AC6DDE612CD00161E52D99154604 /* RemoteManager.swift */,
+				092C958C50114424D2836393F8119CEB /* Core */,
 			);
-			path = Managers;
+			path = Desman;
 			sourceTree = "<group>";
 		};
-		79212B0733AC940E2577F593E12B32BE /* Development Pods */ = {
+		6826214CBD20C74F10E88D4D211C4370 /* Desman */ = {
 			isa = PBXGroup;
 			children = (
-				4DB8E03ED3463FE527C56179DDE25E8F /* Desman */,
+				83A66D52416EE7BC4B7CDC6A4A5D4B1C /* Core */,
+				4B20ACCF4697C7FEEFDA76E4BB32AFE7 /* Debatable */,
+				B4A9DD772E7A35CCAB9897088B07718C /* Support Files */,
 			);
-			name = "Development Pods";
-			sourceTree = "<group>";
-		};
-		7D5841012074F7EFE077BFFFBB75B870 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				9C03F51D0B4A7F8C699CB79B7B077013 /* Desman */,
-				13DB77D4C15B3AE25BA0618725BA014A /* Resources */,
-			);
-			name = Core;
+			name = Desman;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				79212B0733AC940E2577F593E12B32BE /* Development Pods */,
-				21369E0C3E2DE53F211025FBF4FF2696 /* Frameworks */,
-				5314DCC22EDD0AAE1F875E6EDFC63399 /* Pods */,
-				5AE8C536BEEF346C58E780F8B270E9B6 /* Products */,
+				BA83D2AEC647D47369DF866C74D2A3EA /* Development Pods */,
+				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
+				5E60EA849FF601B9B76EBD45BB6D29DD /* Products */,
 				49360DF59207474CAFCE6BA30BBBA574 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		80B19B8281096B654F64F049E862E9EE /* Model */ = {
+		83A66D52416EE7BC4B7CDC6A4A5D4B1C /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9A1E5FA3E0A9C822F4E1BA9147D92977 /* App.swift */,
-				617A21249D91FB268F47AD6B8975C020 /* CDEvent.swift */,
-				79CC76C896B3AE671F76AB7D90953A49 /* CDEvent+CoreDataProperties.swift */,
-				C7B708AD43BD1B91E5DB95CDEB0B84F7 /* Event.swift */,
-				AC3F1A03B90460934438C94E22BB581D /* Type.swift */,
-				311FCDE547002A4B2D043273235FE9C8 /* User.swift */,
+				05A9F514E55A88CBF6F08BE965F3721F /* Desman */,
+				5C7955CF4AC4D7DA1F4EC8FD344286F5 /* Resources */,
 			);
-			path = Model;
+			name = Core;
 			sourceTree = "<group>";
 		};
-		9847EE74C3408DE598B8FB769AD27C8E /* Remote */ = {
+		914658F471DD154D1BEFBB8769256106 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D18B6B7CD56E1BDD2A23A9E7B18199C9 /* Controllers */,
-				74EDD20982347ECFDF46FE9ADC44DA4E /* Managers */,
+				E9C024F58EB6162A7E0C1885E6224FAF /* CoreData.framework */,
+				58491DA1290A16ED101C62DD934E30B3 /* Foundation.framework */,
+				37EC488526E8AFE2B784B9F645806F70 /* Photos.framework */,
 			);
-			path = Remote;
+			name = iOS;
 			sourceTree = "<group>";
 		};
-		98DF9D45CA296534CDF709509954B316 /* Desman */ = {
+		B4A9DD772E7A35CCAB9897088B07718C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				051C2C601C9B2B40DA864F4655FCA01B /* Core */,
-			);
-			path = Desman;
-			sourceTree = "<group>";
-		};
-		9A6C724D8E9CC28FE32F2035828E562A /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E41BA83BA685E89E70FA5E9D4E79A3BC /* EventDetailTableViewController.swift */,
-				91F7E11657A3A4A15183A875116AAB3D /* EventsTableViewController.swift */,
-				D3433537C3A3CEAF962EDEEAE1C651FB /* FeedbackComposeViewController.swift */,
-				6682FA60956871381B5A8544191C8D8F /* GlobalSplitViewController.swift */,
-				9F2C65892F1D2BA9AE09B24B3E2AD568 /* ImageViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		9AD5E915A6DC65949C273435B22258D0 /* Templates */ = {
-			isa = PBXGroup;
-			children = (
-				0AC6A0737144801FD4A1BED745FD7931 /* AppInfo.swift */,
-				4A01EB0530A386DD7BA720F3EFD686E0 /* DeviceInfo.swift */,
-				3DC3470061D73C6BD790D16956792F14 /* FlowEvents.swift */,
-				F4E718C598451FE2314BBA88042D6631 /* UserInfo.swift */,
-			);
-			path = Templates;
-			sourceTree = "<group>";
-		};
-		9C03F51D0B4A7F8C699CB79B7B077013 /* Desman */ = {
-			isa = PBXGroup;
-			children = (
-				456BF4086A88FE3A809AED2A82833DDB /* Core */,
-			);
-			path = Desman;
-			sourceTree = "<group>";
-		};
-		B65790440710057BE5AC6F520A97716E /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				EA2763D0562104B48236219938A8824B /* Remote.storyboard */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		C841A67E7F0EE5ACB110E33D66942967 /* Debatable */ = {
-			isa = PBXGroup;
-			children = (
-				FF45D090390EBAD5AEF2F0AEADD063C8 /* Desman */,
-			);
-			name = Debatable;
-			sourceTree = "<group>";
-		};
-		C8AB763F3D15327D1487E021E60A7F53 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				BA8341101EF29DB8C78B51F73537E365 /* Desman.xcdatamodeld */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		D18B6B7CD56E1BDD2A23A9E7B18199C9 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				18BE7E55414E535F487F317A53CDF4B7 /* AppsTableViewController.swift */,
-				1E627CFA7237318271071252DB714338 /* RemoteEventsTableViewController.swift */,
-				B61CC8FF9D371AC07D57E91D53BD732B /* UsersTableViewController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D83F64F9252ECFB240FD2794CECB94F7 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				0AC743DAF569BCC158116981693551BA /* Array+Desman.swift */,
-				555B017B3F256A6BA647AD8FE7EA011D /* ImageCache.swift */,
-				8843C613E43A7372F3C6F2FF04DC5ACF /* UIImageView+Desman.swift */,
-				0E3B34DE72ED3C67F24118946C1C0DBB /* UIViewController+Desman.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		DE67A0984E798F51646BFE131DC2F393 /* Remote */ = {
-			isa = PBXGroup;
-			children = (
-				F03E6F30D276933D596E471A8FFE319E /* Desman */,
-				E3640FB60BB432D8C00736C2931D7518 /* Resources */,
-			);
-			name = Remote;
-			sourceTree = "<group>";
-		};
-		E3640FB60BB432D8C00736C2931D7518 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				4D25063A0AA3782DC82B8985CDB6B6DE /* Desman */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
-		E89CCAA7796BA1E560303547EDD92A01 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				175B4A6F1B50A9EAE326801D55EB232A /* Desman.storyboard */,
-				2BCFC6DCC393955BF5F691588A7CC37E /* Event.storyboard */,
-				6D59027D64EA914AA6F93A555C0E6F8B /* Media.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		E9193CC5ABAB2E50F14E0986E625056F /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				DE623D30B03BFAD7AC33478A89285DDB /* Desman.modulemap */,
-				B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */,
-				3C337147ED25B155C3C4215576EC1DC6 /* Desman-dummy.m */,
-				12AE4A73AEE218268C80DAACDB2EB915 /* Desman-prefix.pch */,
-				A063F49136F857E63FDC93598703614C /* Desman-umbrella.h */,
-				F66653903EB17A0AE274046BCED471BC /* Info.plist */,
+				F1A35174047E0E3034C22A101EB66904 /* Desman.modulemap */,
+				9B3AA2ED88A1D0D235FD68FE3AE2F51C /* Desman.xcconfig */,
+				104D42C9BB97F6B43F9B9161C34531A5 /* Desman-dummy.m */,
+				00014281A3739DEF5175C94848FF4CE5 /* Desman-prefix.pch */,
+				07F005C03C6D97B23929016C20CEEF3E /* Desman-umbrella.h */,
+				088454E4E867BC1C2468EE41F64447FC /* Info.plist */,
 			);
 			name = "Support Files";
 			path = "Sample/Pods/Target Support Files/Desman";
 			sourceTree = "<group>";
 		};
-		EDCA9408CCDF736BCB4F9F96A6B36DA2 /* iOS */ = {
+		BA83D2AEC647D47369DF866C74D2A3EA /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5EA0261BC151E9BCF7CCC90B89B14AD5 /* CoreData.framework */,
-				505A44DB468351C3C5BB64820D01F128 /* Foundation.framework */,
-				EA6E8A3593A3BC828A6C8B5F2CCB5947 /* Photos.framework */,
+				6826214CBD20C74F10E88D4D211C4370 /* Desman */,
 			);
-			name = iOS;
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		F03E6F30D276933D596E471A8FFE319E /* Desman */ = {
+		C0F3BEB7BBAE8D008D1412FF7067E7D5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9847EE74C3408DE598B8FB769AD27C8E /* Remote */,
+				E9906017A5F56F360D265FDB7241011B /* App.swift */,
+				CB741D78CC1AEBB537AC316BBF95272D /* CDEvent.swift */,
+				EA8B0A102CF5789D3D7FA792FFAC731E /* CDEvent+CoreDataProperties.swift */,
+				73F1138BB6B98961FC45564470051285 /* DType.swift */,
+				330231E2037171B53DD101A131116BB7 /* Event.swift */,
+				5DF1A0CF0EA9ADF2A0CE1E7497218E38 /* User.swift */,
 			);
-			path = Desman;
+			path = Model;
 			sourceTree = "<group>";
 		};
-		F69462AA96133243DE5430C7202D9B55 /* SwiftWebSocket */ = {
+		E2E0D6DB85081E4FE40732F9452A64BD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				3F6509172355879CDC0D431E1A47B65B /* WebSocket.swift */,
-				09761139D131AEFB798F1DBD21179163 /* Support Files */,
+				B390C9FCB6ED384449A45FAC068C70BF /* Array+Desman.swift */,
+				B17D8B290FC84A702BEA00ED827CD68A /* ImageCache.swift */,
+				1AB7E3FB137FE113A0D4ECED5CBB8183 /* UIImageView+Desman.swift */,
+				A85866A8CDC6109C9C23E02B1EA0509A /* UIViewController+Desman.swift */,
 			);
-			path = SwiftWebSocket;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
-		FF45D090390EBAD5AEF2F0AEADD063C8 /* Desman */ = {
+		EC13A60CC80DCDFEFEC30D71453D1E46 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				2E66C84D62F18FA7EDB470690BFD5699 /* Debatable */,
+				C44932CFE2DDEC260EA60FD5103378BE /* Desman.storyboard */,
+				77816D781BC5A2EE32227778092F451C /* Event.storyboard */,
+				9CFA74338F5FF9D6132BB771ECEFA658 /* Media.xcassets */,
 			);
-			path = Desman;
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F489033259F051322B031C2114021D6A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				194C8BD494573C56C5BC61759B2DEFC7 /* Desman.xcdatamodeld */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		635222744B5BF0D5F6D1FBE520AC711B /* Headers */ = {
+		8F06D4C2CD4410A49A0F541DCC7E695A /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				07CF0857147A35A1B08A9EF1D8A169DD /* Desman-umbrella.h in Headers */,
+				C9EAB553F3646DE52CB5CFB9653B9125 /* Desman-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82DDCCF369CAA5A34C02DA77BFB7A751 /* Headers */ = {
+		ABB2E0F89D7BD6B060DDED597AD343B9 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39629F944552E2B8CE8AEBF7D94427F9 /* SwiftWebSocket-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0542B334C8CB3104D02E4B520941DEC /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5497DD5F680A1094593972528C733F10 /* Pods-Desman iOS Sample-umbrella.h in Headers */,
+				EBB0B9974202DCB8F14B4FA9121F3FEA /* Pods-Desman iOS Sample-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		244534978F221300521F757B07CAA9D9 /* Pods-Desman iOS Sample */ = {
+		A122E2649F653B139F7AB16E95023F04 /* Desman */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B7C7CACF70A739DB6A8BD56F3ED134DB /* Build configuration list for PBXNativeTarget "Pods-Desman iOS Sample" */;
+			buildConfigurationList = C0DD07D02CC44A7AA11503804319313F /* Build configuration list for PBXNativeTarget "Desman" */;
 			buildPhases = (
-				98F3993413B161A617081B561966C55E /* Sources */,
-				B0877203D63C87FF6E1BB6EDD1E4078F /* Frameworks */,
-				B0542B334C8CB3104D02E4B520941DEC /* Headers */,
+				78DFCB6ABA831A4EB1F8D24E1C27A67B /* Sources */,
+				C72180AC63BB2F1E3A1155609E906A35 /* Frameworks */,
+				3A453D2F9BCABDB297722D43FC4DBB64 /* Resources */,
+				8F06D4C2CD4410A49A0F541DCC7E695A /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				97B41E8942B6827484E1C6394F0EB2EA /* PBXTargetDependency */,
-				1EFE77F5C2E04289F89FA9395229DD4D /* PBXTargetDependency */,
-			);
-			name = "Pods-Desman iOS Sample";
-			productName = "Pods-Desman iOS Sample";
-			productReference = 71CFA54D050EC2AE207F8B540FAE1073 /* Pods_Desman_iOS_Sample.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		765E827B9F1F54724E9E800F53B27D7C /* SwiftWebSocket */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 597A68060486C9FC2D58926963F2CE34 /* Build configuration list for PBXNativeTarget "SwiftWebSocket" */;
-			buildPhases = (
-				DE7FB46C3980D74305958B722618B584 /* Sources */,
-				61E59515914146D22D7FDF48BFDCC4E1 /* Frameworks */,
-				82DDCCF369CAA5A34C02DA77BFB7A751 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SwiftWebSocket;
-			productName = SwiftWebSocket;
-			productReference = 237A5EC6C4EC09B496BF804B5C3BD56D /* SwiftWebSocket.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		B200FF8E6E9F06627AE998F6526D08F9 /* Desman */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F166061984D1B4F08528051F2D430509 /* Build configuration list for PBXNativeTarget "Desman" */;
-			buildPhases = (
-				7C8E587DEDE4EB409480D1D6182F4000 /* Sources */,
-				4173440AF44A44EBAEE98A6E5D51D878 /* Frameworks */,
-				053B83D9F2DFF18649A0778DBC331182 /* Resources */,
-				635222744B5BF0D5F6D1FBE520AC711B /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FE00D9CD777E12D75F7C1AD067019AFA /* PBXTargetDependency */,
 			);
 			name = Desman;
 			productName = Desman;
-			productReference = 8CF1C7C919562D1A99D1099C9BDF2388 /* Desman.framework */;
+			productReference = 06564F889A26F9EC35669AB24A05BBD6 /* Desman.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EF159F4340E5A201E26B7B7605C25519 /* Pods-Desman iOS Sample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CC8D4156F79D63AF40690ED97B7FE8D /* Build configuration list for PBXNativeTarget "Pods-Desman iOS Sample" */;
+			buildPhases = (
+				FC227DAF28BFAAFB71E4A741A98AA5A7 /* Sources */,
+				765BEDD62180ED848D5E93E9276B22B2 /* Frameworks */,
+				ABB2E0F89D7BD6B060DDED597AD343B9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CF369010F42FF45AAA3BC066D2B6496C /* PBXTargetDependency */,
+			);
+			name = "Pods-Desman iOS Sample";
+			productName = "Pods-Desman iOS Sample";
+			productReference = D504273F15F0C209EF6D66A9645D0EB7 /* Pods_Desman_iOS_Sample.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -655,6 +470,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0700;
+				TargetAttributes = {
+					A122E2649F653B139F7AB16E95023F04 = {
+						LastSwiftMigration = 0800;
+					};
+					EF159F4340E5A201E26B7B7605C25519 = {
+						LastSwiftMigration = 0800;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -664,117 +487,90 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 5AE8C536BEEF346C58E780F8B270E9B6 /* Products */;
+			productRefGroup = 5E60EA849FF601B9B76EBD45BB6D29DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B200FF8E6E9F06627AE998F6526D08F9 /* Desman */,
-				244534978F221300521F757B07CAA9D9 /* Pods-Desman iOS Sample */,
-				765E827B9F1F54724E9E800F53B27D7C /* SwiftWebSocket */,
+				A122E2649F653B139F7AB16E95023F04 /* Desman */,
+				EF159F4340E5A201E26B7B7605C25519 /* Pods-Desman iOS Sample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		053B83D9F2DFF18649A0778DBC331182 /* Resources */ = {
+		3A453D2F9BCABDB297722D43FC4DBB64 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				908C864B0AD610300AD75A2E38F9D607 /* Desman.storyboard in Resources */,
-				C7D66C9AA938FC5A43AF75B6F4988571 /* Desman.xcdatamodeld in Resources */,
-				4D0E478BBFF9031FCE3003071741166B /* Event.storyboard in Resources */,
-				7DFE8193901B6B699EB131844F2C1580 /* Media.xcassets in Resources */,
-				F06869D704ACE0C38286D3D4880081BD /* Remote.storyboard in Resources */,
+				061C597EF4C328E5A0A2A8D42B143785 /* Desman.storyboard in Resources */,
+				4A77037FB0EFAC5B06AE73B599686805 /* Desman.xcdatamodeld in Resources */,
+				7B0C9CF12E7B06C18D6BC1B5503DBAE8 /* Event.storyboard in Resources */,
+				F1D3E058649492B76403CD4821DCA758 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7C8E587DEDE4EB409480D1D6182F4000 /* Sources */ = {
+		78DFCB6ABA831A4EB1F8D24E1C27A67B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA2BFA3056EC96E153B68C72AC982EF9 /* App.swift in Sources */,
-				EF7DEEA8E1B38DA4F1BA66AD2E0722AF /* AppInfo.swift in Sources */,
-				EA3D8579A6F4EEACA0F478FF66AF1B0D /* AppsTableViewController.swift in Sources */,
-				5908FEAAFD1A165147695FE8A765C8F6 /* AppTableViewCell.swift in Sources */,
-				397296CD8FF4E88BB4BD2FD21622B4EC /* Array+Desman.swift in Sources */,
-				351CF054F41A7CFF6737DD1FE5508500 /* CDEvent+CoreDataProperties.swift in Sources */,
-				252D6460DC90E3D4B5B0B4A9C29C1CA3 /* CDEvent.swift in Sources */,
-				37D1D043159E57071A37556192DF191D /* CoreDataSerializerManager.swift in Sources */,
-				49C8175DB5099D6B18BE2146870A1AB2 /* Desman-dummy.m in Sources */,
-				60ED10930B9BBC445CF9A82A8F72ED4D /* DeviceInfo.swift in Sources */,
-				B757715367B5F435368F2F966C06818F /* Event.swift in Sources */,
-				2F3ABE83DE373527DDCE21140786EC39 /* EventDetailTableViewController.swift in Sources */,
-				30D9B8E48BCCEC97EE739DB7601D2745 /* EventManager.swift in Sources */,
-				1454EE72C369C53D71AA3E3AE4A4D119 /* EventsTableViewController.swift in Sources */,
-				AF238DA621CCC1B6F4D45F526BBEAF8C /* EventTableViewCell.swift in Sources */,
-				05F7CA018C02B33585E610E3964EDE91 /* FeedbackComposeViewController.swift in Sources */,
-				F35FD574B71AD18BECF08F3CE4105698 /* FlowEvents.swift in Sources */,
-				7555F0455A57E583FFE27D6E8F7BBF03 /* FlowManager.swift in Sources */,
-				3A3900753FC1CDD12465E234E4B42F37 /* GlobalSplitViewController.swift in Sources */,
-				4AAAD0657ABB2B9C78F71B73102F0013 /* ImageCache.swift in Sources */,
-				F96FB58FA260B6FA34C3972AA9BF584D /* ImageViewController.swift in Sources */,
-				E760E78360F9F4CC9F3C17738157BFD8 /* NotificationCenterManager.swift in Sources */,
-				C85137454C1B5C51C69A9F2F7FBCD830 /* RemoteEventsTableViewController.swift in Sources */,
-				828DCD559CDB71BF4C306CFCD99E2B68 /* RemoteManager.swift in Sources */,
-				3DFF3D75812ACCD81A578566566D321B /* Type.swift in Sources */,
-				17893214920A2A4599DB01BA7CA0738C /* UIImageView+Desman.swift in Sources */,
-				F34FF2C458902D5DDB618532C2BB19FA /* UIViewController+Desman.swift in Sources */,
-				08663258989DCD71C1C34066255262C4 /* UIViewController-Swizzle.swift in Sources */,
-				79C3A199459B84014CAEA4FD61E3A84F /* UploadManager.swift in Sources */,
-				1E3AAEE57BFA7C80DAC4669672BF715B /* User.swift in Sources */,
-				C479609F5A7F566C705528CC440512CF /* UserInfo.swift in Sources */,
-				49251094E8366F92F724CF8E055F0760 /* UsersTableViewController.swift in Sources */,
-				7A10533DA198736059E07C56917DCF3E /* UserTableViewCell.swift in Sources */,
+				93E5EBCBA288B94FBA74E5852C6E2DDE /* App.swift in Sources */,
+				90C5C1335EF6F6E828A676D47CF117F4 /* AppInfo.swift in Sources */,
+				2435F62A228684B20A2B10BBAF46B269 /* AppTableViewCell.swift in Sources */,
+				7FB75FB645E0645B8BB40250D360477E /* Array+Desman.swift in Sources */,
+				32D2C6F4C9F5FE272F157553BD6A3F0F /* CDEvent+CoreDataProperties.swift in Sources */,
+				203841980D50E25062CF1AD7A05199C3 /* CDEvent.swift in Sources */,
+				F155CEE20E86F56DC2D72584310DEEAE /* CoreDataSerializerManager.swift in Sources */,
+				604D00AF17E7345A3D2EA55E7D685008 /* Desman-dummy.m in Sources */,
+				BEFDE075FFB4D6ADF5F7DE8693763D3D /* DeviceInfo.swift in Sources */,
+				2F92E790342D2AFD4E4E414AF45176DA /* DType.swift in Sources */,
+				34BA5E21C3CF01243F2DA917899383CD /* Event.swift in Sources */,
+				502EF7C06991882E7F2DEBD792571C98 /* EventDetailTableViewController.swift in Sources */,
+				9881150C05382083177BE180FEBA0A31 /* EventManager.swift in Sources */,
+				7C8EB202913BEF6D8514DB5AE9976C18 /* EventsTableViewController.swift in Sources */,
+				C9FBE506DBC069B004B4BCFAB169CA97 /* EventTableViewCell.swift in Sources */,
+				D0C2C360AC3BA4BAEEA4378A2B78D8E5 /* FeedbackComposeViewController.swift in Sources */,
+				216D7D85ABA1E9295550F1E9D5EDD9F1 /* FlowEvents.swift in Sources */,
+				7EE08A249A7F19B6DDDE7E9AFB6C5D82 /* FlowManager.swift in Sources */,
+				497947AA8F43DEFAADF2F73A02DEBCD3 /* GlobalSplitViewController.swift in Sources */,
+				6DB8B3894CC629C60F5020155B24529C /* ImageCache.swift in Sources */,
+				8FEC3AE2BAB55569EE635D32FA8FA93C /* ImageViewController.swift in Sources */,
+				2AA931DC17C83C8722EDC051E88F873E /* NotificationCenterManager.swift in Sources */,
+				332C0FA851CCBE25B079FB0D71D85208 /* UIImageView+Desman.swift in Sources */,
+				64F99FC90435A05A6A12F1D417B2C99F /* UIViewController+Desman.swift in Sources */,
+				1A944777B5E45E42752AC598D15BCC48 /* UIViewController-Swizzle.swift in Sources */,
+				8D49444FD45549F6C80E3B4040EC3292 /* UploadManager.swift in Sources */,
+				00D99D4EFB32746C75A07012C052FE15 /* User.swift in Sources */,
+				7593752BD881F8C2C07B3DEC24BDFFED /* UserInfo.swift in Sources */,
+				5362AC21B380226B11F0A347C42CCF79 /* UserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		98F3993413B161A617081B561966C55E /* Sources */ = {
+		FC227DAF28BFAAFB71E4A741A98AA5A7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E1AA1E6276ED5FB0A23F64F5EC51734 /* Pods-Desman iOS Sample-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DE7FB46C3980D74305958B722618B584 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				17ACEA8559E3DE3A10A3FE43C02A931F /* SwiftWebSocket-dummy.m in Sources */,
-				5C61ED3116A7B0ADF53934C8BBECB186 /* WebSocket.swift in Sources */,
+				077EE6C65396D2BD9FD463072DE9E572 /* Pods-Desman iOS Sample-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1EFE77F5C2E04289F89FA9395229DD4D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftWebSocket;
-			target = 765E827B9F1F54724E9E800F53B27D7C /* SwiftWebSocket */;
-			targetProxy = A4E05FD6C821BDA857AC280A435ED3A7 /* PBXContainerItemProxy */;
-		};
-		97B41E8942B6827484E1C6394F0EB2EA /* PBXTargetDependency */ = {
+		CF369010F42FF45AAA3BC066D2B6496C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Desman;
-			target = B200FF8E6E9F06627AE998F6526D08F9 /* Desman */;
-			targetProxy = 76AA2FEB1B8F7DD47FB783C8C09C2E50 /* PBXContainerItemProxy */;
-		};
-		FE00D9CD777E12D75F7C1AD067019AFA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftWebSocket;
-			target = 765E827B9F1F54724E9E800F53B27D7C /* SwiftWebSocket */;
-			targetProxy = B53040B3A999CD22028FFDAADE430B31 /* PBXContainerItemProxy */;
+			target = A122E2649F653B139F7AB16E95023F04 /* Desman */;
+			targetProxy = 13F26A689AFDAC149A25E816FDF15DAB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1BCD8E3D271CCE18B9D83B103ACAEAED /* Debug */ = {
+		41790212DADEF42B7F3DA411D5581CC5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */;
+			baseConfigurationReference = 9B3AA2ED88A1D0D235FD68FE3AE2F51C /* Desman.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -796,45 +592,12 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		2F337B35682B0B22EA7E99D626A71365 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 371E6AA43C72E92FCFDD5C57B8B41293 /* Pods-Desman iOS Sample.release.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "Target Support Files/Pods-Desman iOS Sample/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Desman_iOS_Sample;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		47BEF9D903506B003EA5C2B249729489 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -878,13 +641,13 @@
 			};
 			name = Debug;
 		};
-		78848B41477313B02FD496B8F181BC81 /* Debug */ = {
+		4EB71FD68A6805D8B25CAD6AC9917995 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A832F7157FAF273066DA8CB0EA7B0537 /* Pods-Desman iOS Sample.debug.xcconfig */;
+			baseConfigurationReference = 371E6AA43C72E92FCFDD5C57B8B41293 /* Pods-Desman iOS Sample.release.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -897,7 +660,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
 				MODULEMAP_FILE = "Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.modulemap";
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -905,37 +668,7 @@
 				PRODUCT_NAME = Pods_Desman_iOS_Sample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		A63BEF023EBC36E45781987DED8A701A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = B5A889D5A055EBF887C7AB70EAC8D22A /* Desman.xcconfig */;
-			buildSettings = {
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/Desman/Desman-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Desman/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/Desman/Desman.modulemap";
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Desman;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -980,9 +713,9 @@
 			};
 			name = Release;
 		};
-		D83D089AED8BB2D562FA2B5F149F0BD2 /* Debug */ = {
+		C2698B4099093C93A8217033073E915D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B7B943C011E00DEB86C3AB589EA353E /* SwiftWebSocket.xcconfig */;
+			baseConfigurationReference = A832F7157FAF273066DA8CB0EA7B0537 /* Pods-Desman iOS Sample.debug.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -993,27 +726,31 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftWebSocket/SwiftWebSocket-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftWebSocket/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Desman iOS Sample/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftWebSocket/SwiftWebSocket.modulemap";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Desman iOS Sample/Pods-Desman iOS Sample.modulemap";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = SwiftWebSocket;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Desman_iOS_Sample;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		E549CD2961B191941D176A3121B275E3 /* Release */ = {
+		EAE2530765FCBA286590C2C4880156A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B7B943C011E00DEB86C3AB589EA353E /* SwiftWebSocket.xcconfig */;
+			baseConfigurationReference = 9B3AA2ED88A1D0D235FD68FE3AE2F51C /* Desman.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1024,17 +761,17 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/SwiftWebSocket/SwiftWebSocket-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwiftWebSocket/Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Desman/Desman-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Desman/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SwiftWebSocket/SwiftWebSocket.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Desman/Desman.modulemap";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = SwiftWebSocket;
+				PRODUCT_NAME = Desman;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1044,6 +781,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2CC8D4156F79D63AF40690ED97B7FE8D /* Build configuration list for PBXNativeTarget "Pods-Desman iOS Sample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2698B4099093C93A8217033073E915D /* Debug */,
+				4EB71FD68A6805D8B25CAD6AC9917995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -1053,29 +799,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		597A68060486C9FC2D58926963F2CE34 /* Build configuration list for PBXNativeTarget "SwiftWebSocket" */ = {
+		C0DD07D02CC44A7AA11503804319313F /* Build configuration list for PBXNativeTarget "Desman" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D83D089AED8BB2D562FA2B5F149F0BD2 /* Debug */,
-				E549CD2961B191941D176A3121B275E3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7C7CACF70A739DB6A8BD56F3ED134DB /* Build configuration list for PBXNativeTarget "Pods-Desman iOS Sample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				78848B41477313B02FD496B8F181BC81 /* Debug */,
-				2F337B35682B0B22EA7E99D626A71365 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F166061984D1B4F08528051F2D430509 /* Build configuration list for PBXNativeTarget "Desman" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1BCD8E3D271CCE18B9D83B103ACAEAED /* Debug */,
-				A63BEF023EBC36E45781987DED8A701A /* Release */,
+				41790212DADEF42B7F3DA411D5581CC5 /* Debug */,
+				EAE2530765FCBA286590C2C4880156A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1083,15 +811,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		BA8341101EF29DB8C78B51F73537E365 /* Desman.xcdatamodeld */ = {
+		194C8BD494573C56C5BC61759B2DEFC7 /* Desman.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				3B572E02B7A472D937504C6AC08B2D46 /* Desman.xcdatamodel */,
-				23F57176ED559FE5033977ED63A32124 /* Desman 2.xcdatamodel */,
-				1D3F9B9BA1DA945ACA24595BAF8997EF /* Desman 3.xcdatamodel */,
-				F9E1B109F5497F2DBC30A51C614D6E78 /* Desman 4.xcdatamodel */,
+				6E3E6E54F4B759774067D9822991154A /* Desman.xcdatamodel */,
+				9E37CEF459E5D37AAD9A81572FFCFE52 /* Desman 2.xcdatamodel */,
+				24F6937B0280DC9A53372C8C3AE5F64B /* Desman 3.xcdatamodel */,
+				E0960D833DB9FC3130CD8C71EE6228DB /* Desman 4.xcdatamodel */,
 			);
-			currentVersion = 1D3F9B9BA1DA945ACA24595BAF8997EF /* Desman 3.xcdatamodel */;
+			currentVersion = E0960D833DB9FC3130CD8C71EE6228DB /* Desman 4.xcdatamodel */;
 			path = Desman.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

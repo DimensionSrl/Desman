@@ -67,21 +67,21 @@ open class UploadManager {
                             event.id = id
                             event.sent = true
                             event.uploading = false
-                            if EventManager.sharedInstance.type == .coreData {
+                            if EventManager.shared.type == .coreData {
                                 event.saveCDEvent()
                             }
                             DispatchQueue.main.async {
-                                EventManager.sharedInstance.sentEvents.append(event)
+                                EventManager.shared.sentEvents.append(event)
                             }
                         } else if let id = eventDictionary["id"] as? Int {
                             event.id = "\(id)"
                             event.sent = true
                             event.uploading = false
-                            if EventManager.sharedInstance.type == .coreData {
+                            if EventManager.shared.type == .coreData {
                                 event.saveCDEvent()
                             }
                             DispatchQueue.main.async {
-                                EventManager.sharedInstance.sentEvents.append(event)
+                                EventManager.shared.sentEvents.append(event)
                             }
                         }
                     } catch let parseError as NSError {
@@ -94,7 +94,7 @@ open class UploadManager {
                 }
             }
             DispatchQueue.main.async {
-                EventManager.sharedInstance.serializeEvents()
+                EventManager.shared.serializeEvents()
             }
         })
         task.resume()
@@ -174,15 +174,15 @@ open class UploadManager {
                 }
                 
                 event.sent = true
-                if EventManager.sharedInstance.type == .coreData {
+                if EventManager.shared.type == .coreData {
                     event.saveCDEvent()
                 }
                 DispatchQueue.main.async {
-                    EventManager.sharedInstance.sentEvents.append(event)
+                    EventManager.shared.sentEvents.append(event)
                 }
             }
             DispatchQueue.main.async {
-                EventManager.sharedInstance.serializeEvents()
+                EventManager.shared.serializeEvents()
             }
         })
         task.resume()
@@ -231,11 +231,11 @@ open class UploadManager {
                                                 if let event = filteredEvents.first {
                                                     event.id = "\(id)"
                                                     event.sent = true
-                                                    if EventManager.sharedInstance.type == .coreData {
+                                                    if EventManager.shared.type == .coreData {
                                                         event.saveCDEvent()
                                                     }
                                                     DispatchQueue.main.async {
-                                                        EventManager.sharedInstance.sentEvents.append(event)
+                                                        EventManager.shared.sentEvents.append(event)
                                                     }
                                                 }
                                             } else {
@@ -257,7 +257,7 @@ open class UploadManager {
                     }
                 }
                 DispatchQueue.main.async {
-                    EventManager.sharedInstance.serializeEvents()
+                    EventManager.shared.serializeEvents()
                 }
             })
             task.resume()

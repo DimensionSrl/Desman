@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public let Des = EventManager.sharedInstance
+public let Des = EventManager.shared
 
 @objc public enum Serialization : Int {
     case none
@@ -100,7 +100,7 @@ open class EventManager : NSObject {
     /**
     A shared instance of `EventManager`.
     */
-    static open let sharedInstance = EventManager()
+    static open let shared = EventManager()
 
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
     dynamic fileprivate(set) open var events = [Event]()
@@ -162,7 +162,7 @@ open class EventManager : NSObject {
         shouldLog = true
         
         if endpoint == .desman {
-            self.logType(Application.LogEnable)
+            self.logType(AppCycle.LogEnable)
         } else if endpoint == .flow {
             self.log(FlowApp())
             self.log(FlowDeviceName())
@@ -173,7 +173,7 @@ open class EventManager : NSObject {
     
     open func stopLogging() {
         if endpoint == .desman {
-            self.logType(Application.LogDisable)
+            self.logType(AppCycle.LogDisable)
         }
         
         self.processEvents()
@@ -224,7 +224,7 @@ open class EventManager : NSObject {
         }
     }
     
-    open func logType(_ type: Type){
+    open func logType(_ type: DType){
         if shouldLog {
             let event = Event(type)
             self.eventsQueue.append(event)
@@ -237,7 +237,7 @@ open class EventManager : NSObject {
         }
     }
     
-    open func log(_ type: Type, payload: [String : Any]){
+    open func log(_ type: DType, payload: [String : Any]){
         if shouldLog {
             let event = Event(type: type, payload: payload)
             self.eventsQueue.append(event)
@@ -250,7 +250,7 @@ open class EventManager : NSObject {
         }
     }
 
-    open func log(_ type: Type, value: String, desc: String){
+    open func log(_ type: DType, value: String, desc: String){
         if shouldLog {
             let event = Event(type, value: value, desc: desc)
             self.eventsQueue.append(event)
@@ -263,7 +263,7 @@ open class EventManager : NSObject {
         }
     }
     
-    open func log(_ type: Type, desc: String){
+    open func log(_ type: DType, desc: String){
         if shouldLog {
             let event = Event(type, desc: desc)
             self.eventsQueue.append(event)
@@ -276,7 +276,7 @@ open class EventManager : NSObject {
         }
     }
     
-    open func log(_ type: Type, desc: String, payload: [String : Any]){
+    open func log(_ type: DType, desc: String, payload: [String : Any]){
         if shouldLog {
             let event = Event(type, desc: desc)
             event.payload = payload

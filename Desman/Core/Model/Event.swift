@@ -16,7 +16,7 @@ public let currentAppIdentifier = Bundle.main.bundleIdentifier
 public let currentDeviceName = UIDevice.current.name
 
 open class Event: NSCoder {
-    open let type : Type
+    open let type : DType
     open var value: String?
     open var payload : [String : Any]?
     open var timestamp : Date
@@ -40,8 +40,8 @@ open class Event: NSCoder {
     }
     
     public init?(dictionary: [String : Any]) {
-        guard let typeString = dictionary["type"] as? String, let subtypeString = dictionary["subtype"] as? String, let type = Type.new(typeString, subtype: subtypeString) as? Type else {
-            self.type = Type()
+        guard let typeString = dictionary["type"] as? String, let subtypeString = dictionary["subtype"] as? String, let type = DType.new(typeString, subtype: subtypeString) as? DType else {
+            self.type = DType()
             self.timestamp = Date()
             super.init()
             return nil
@@ -84,7 +84,7 @@ open class Event: NSCoder {
     }
     
     public init(_ type: String, subtype: String, desc: String?, value: String?) {
-        self.type = Type(subtype: subtype)
+        self.type = DType(subtype: subtype)
         self.typeString = type
         self.desc = desc
         self.value = value
@@ -94,7 +94,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(_ type: Type) {
+    public init(_ type: DType) {
         self.type = type
         self.timestamp = Date()
         self.uuid = UUID()
@@ -102,7 +102,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(_ type: Type, value: String) {
+    public init(_ type: DType, value: String) {
         self.type = type
         self.value = value
         self.timestamp = Date()
@@ -111,7 +111,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(_ type: Type, desc: String) {
+    public init(_ type: DType, desc: String) {
         self.type = type
         self.desc = desc
         self.timestamp = Date()
@@ -120,7 +120,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(_ type: Type, value: String, desc: String) {
+    public init(_ type: DType, value: String, desc: String) {
         self.type = type
         self.value = value
         self.timestamp = Date()
@@ -130,7 +130,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(_ type: Type, val: Double, desc: String) {
+    public init(_ type: DType, val: Double, desc: String) {
         self.type = type
         self.value = String(val)
         self.timestamp = Date()
@@ -140,7 +140,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
 
-    public init(type: Type, value: String, payload: [String : Any]) {
+    public init(type: DType, value: String, payload: [String : Any]) {
         self.type = type
         self.timestamp = Date()
         if JSONSerialization.isValidJSONObject(payload) {
@@ -152,7 +152,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: Type, value: String, desc: String, payload: [String : Any]) {
+    public init(type: DType, value: String, desc: String, payload: [String : Any]) {
         self.type = type
         self.timestamp = Date()
         if JSONSerialization.isValidJSONObject(payload) {
@@ -165,7 +165,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
 
-    public init(type: Type, val: Double, desc: String, payload: [String : Any]) {
+    public init(type: DType, val: Double, desc: String, payload: [String : Any]) {
         self.type = type
         self.timestamp = Date()
         if JSONSerialization.isValidJSONObject(payload) {
@@ -179,7 +179,7 @@ open class Event: NSCoder {
     }
 
     
-    public init(type: Type, payload: [String : Any]) {
+    public init(type: DType, payload: [String : Any]) {
         self.type = type
         self.timestamp = Date()
         if JSONSerialization.isValidJSONObject(payload) {
@@ -191,7 +191,7 @@ open class Event: NSCoder {
     }
 
     
-    public init(type: Type, payload: [String : Any], attachment: Data) {
+    public init(type: DType, payload: [String : Any], attachment: Data) {
         self.type = type
         self.timestamp = Date()
         if JSONSerialization.isValidJSONObject(payload) {
@@ -203,7 +203,7 @@ open class Event: NSCoder {
         self.commonInit()
     }
     
-    public init(type: Type, value: String, payload: [String : Any], attachment: Data) {
+    public init(type: DType, value: String, payload: [String : Any], attachment: Data) {
         self.type = type
         self.value = value
         self.timestamp = Date()
@@ -217,10 +217,10 @@ open class Event: NSCoder {
     }
     
     init(cdevent: CDEvent) {
-        if let type = Type.new(cdevent.type, subtype: cdevent.subtype) as? Type {
+        if let type = DType.new(cdevent.type, subtype: cdevent.subtype) as? DType {
             self.type = type
         } else {
-            self.type = Type.Unknown
+            self.type = DType.Unknown
         }
         self.timestamp = cdevent.timestamp as Date
         
@@ -275,7 +275,7 @@ open class Event: NSCoder {
     }
     
     public convenience init(coder decoder: NSCoder) {
-        if let typeDictionary = decoder.decodeObject(forKey: "type") as? [String : String], let type = Type.new(typeDictionary) as? Type  {
+        if let typeDictionary = decoder.decodeObject(forKey: "type") as? [String : String], let type = DType.new(typeDictionary) as? DType  {
             if let timestamp = decoder.decodeObject(forKey: "timestamp") as? Date {
                 if let payloadData = decoder.decodeObject(forKey: "payload") as? Data {
                     if let payload = NSKeyedUnarchiver.unarchiveObject(with: payloadData) as? [String : Any] {
@@ -294,7 +294,7 @@ open class Event: NSCoder {
             }
         
         } else {
-            self.init(Type())
+            self.init(DType())
         }
         
         if let id = decoder.decodeObject(forKey: "id") as? String {
@@ -369,7 +369,7 @@ open class Event: NSCoder {
         }
         
         dict["action"] = type.subtype
-        dict["date"] = EventManager.sharedInstance.flowDateFormatter.string(from: timestamp)
+        dict["date"] = EventManager.shared.flowDateFormatter.string(from: timestamp)
         if let value = self.value, let doubleValue = Double(value) {
             dict["value"] = doubleValue
         }

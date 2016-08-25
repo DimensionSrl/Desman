@@ -1,8 +1,8 @@
 {
   "name": "Desman",
-  "version": "0.4.2",
+  "version": "0.6.0",
   "summary": "An event tracking tool for mobile apps.",
-  "homepage": "http://desman.dimension.it",
+  "homepage": "https://desman.dimension.it",
   "license": "MIT",
   "authors": [
     {
@@ -10,13 +10,13 @@
       "Dimension S.r.l.": "info@dimension.it"
     }
   ],
-  "social_media_url": "http://twitter.com/macteo",
+  "social_media_url": "https://twitter.com/macteo",
   "platforms": {
     "ios": "8.0"
   },
   "source": {
     "git": "http://10.10.1.4/ios/desman.git",
-    "tag": "v0.4.2"
+    "tag": "v0.6.0"
   },
   "requires_arc": true,
   "frameworks": [

@@ -46,7 +46,7 @@ open class FlowManager {
         request.httpMethod = "POST"
         
         let operations = pendingEvents.map{$0.flowDictionary}
-        let dictionary = ["events": operations, "token": appKey, "session": EventManager.sharedInstance.session] as [String : Any]
+        let dictionary = ["events": operations, "token": appKey, "session": EventManager.shared.session] as [String : Any]
         
         do {
             let data = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
@@ -60,16 +60,16 @@ open class FlowManager {
                 } else {
                     for event in pendingEvents {
                         event.sent = true
-                        if EventManager.sharedInstance.type == .coreData {
+                        if EventManager.shared.type == .coreData {
                             event.saveCDEvent()
                         }
                         DispatchQueue.main.async {
-                            EventManager.sharedInstance.sentEvents.append(event)
+                            EventManager.shared.sentEvents.append(event)
                         }
                     }
                 }
                 DispatchQueue.main.async {
-                    EventManager.sharedInstance.serializeEvents()
+                    EventManager.shared.serializeEvents()
                 }
             })
             task.resume()

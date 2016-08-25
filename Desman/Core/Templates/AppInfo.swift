@@ -10,7 +10,7 @@ import Foundation
 
 @objc open class AppInfo : Event {
     public init () {
-        super.init(Application.Info)
+        super.init(AppCycle.Info)
         payload = infoDictionary
         attachment = App.currentAppIcon
     }

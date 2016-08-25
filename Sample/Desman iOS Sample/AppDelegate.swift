@@ -13,27 +13,26 @@ import Desman
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         logEvents()
         // logFlow()
         return true
     }
         
     func logEvents() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+        DispatchQueue.main.async {
             Des.takeOff(appKey: "HIre5w9XvBFEYt3yIizCN01CeManBsEx37lKQbiQ7BE=")
-            
-            Des.swizzles = [.ViewWillAppear, .ViewWillDisappear]
-            Des.startLogging()
+            Des.swizzles = [.viewWillAppear, .viewWillDisappear]
             Des.consoleLog = true
+            Des.startLogging()
             Des.limit = 40
             Des.timeInterval = 1.0
     
-            // D is an alias for EventManager.sharedInstance
-            Des.logType(Application.DidFinishLaunching)
+            // Des is an alias for EventManager.shared
+            Des.logType(AppCycle.DidFinishLaunching)
             Des.log(DeviceInfo())
             Des.log(DeviceUserInfo())
-            let event = Event(Type(subtype: "user"), value: "m@macteo.it")
+            let event = Event(DType(subtype: "user"), value: "m@macteo.it")
             Des.log(event)
             Des.listenToAppLifecycleActivity()
             Des.listenToScreenshots()
@@ -41,20 +40,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func logFlow() {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
-            Des.takeOff(appKey: "E3128D2E-9C65-44F0-9AF4-F69DD49448DC", endpoint: .Flow)
+        DispatchQueue.main.async {
+            Des.takeOff(appKey: "E3128D2E-9C65-44F0-9AF4-F69DD49448DC", endpoint: .flow)
             
-            Des.swizzles = [.ViewWillAppear, .ViewWillDisappear]
+            Des.swizzles = [.viewWillAppear, .viewWillDisappear]
             Des.startLogging()
             Des.consoleLog = false
             Des.limit = 40
             Des.timeInterval = 1.0
             
-            // D is an alias for EventManager.sharedInstance
-            Des.logType(Application.DidFinishLaunching)
+            // Des is an alias for EventManager.shared
+            Des.logType(AppCycle.DidFinishLaunching)
             Des.log(DeviceInfo())
             Des.log(DeviceUserInfo())
-            let event = Event(Type(subtype: "user"), value: "m@macteo.it")
+            let event = Event(DType(subtype: "user"), value: "m@macteo.it")
             Des.log(event)
             Des.listenToAppLifecycleActivity()
             Des.listenToScreenshots()

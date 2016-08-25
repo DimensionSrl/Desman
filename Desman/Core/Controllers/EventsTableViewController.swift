@@ -22,9 +22,9 @@ open class EventsTableViewController: UITableViewController, UIViewControllerPre
         super.viewDidLoad()
         self.splitViewController?.preferredDisplayMode = .allVisible
         
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .new, context: &desmanEventsContext)
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "sentEvents", options: .new, context: &desmanEventsContext)
-        self.events = EventManager.sharedInstance.events.sorted{ $0.timestamp.compare($1.timestamp as Date) == ComparisonResult.orderedDescending }
+        EventManager.shared.addObserver(self, forKeyPath: "events", options: .new, context: &desmanEventsContext)
+        EventManager.shared.addObserver(self, forKeyPath: "sentEvents", options: .new, context: &desmanEventsContext)
+        self.events = EventManager.shared.events.sorted{ $0.timestamp.compare($1.timestamp as Date) == ComparisonResult.orderedDescending }
         
         if #available(iOS 9.0, *) {
             // FIXME: should check for forceTouchCapability but for some reason it doesn't work
@@ -161,8 +161,8 @@ open class EventsTableViewController: UITableViewController, UIViewControllerPre
     }
 
     deinit {
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+        EventManager.shared.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
+        EventManager.shared.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
     }
     
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {

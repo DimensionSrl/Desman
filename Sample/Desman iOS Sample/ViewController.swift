@@ -19,30 +19,30 @@ class ViewController: UIViewController {
 
     @IBAction func showEvents(sender: UIBarButtonItem) {
         Des.log(Action.Button, payload: ["button": "show events"])
-        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: NSBundle(forClass: EventsController.self))
-        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("eventsController")
-        self.presentViewController(desmanController, animated: true, completion: nil)
+        let desmanStoryboard = UIStoryboard(name: "Desman", bundle: Bundle(for: EventsController.self))
+        let desmanController = desmanStoryboard.instantiateViewController(withIdentifier: "eventsController")
+        self.present(desmanController, animated: true, completion: nil)
     }
     
-    @IBAction func showRemote(sender: UIButton) {
-        Des.log(Action.Button, payload: ["button": "show remote"])
-        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: NSBundle(forClass: RemoteController.self))
-        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
-        self.presentViewController(desmanController, animated: true, completion: nil)
-    }
+//    @IBAction func showRemote(sender: UIButton) {
+//        Des.log(Action.Button, payload: ["button": "show remote"])
+//        let desmanStoryboard = UIStoryboard(name: "Remote", bundle: Bundle(for: RemoteController.self))
+//        let desmanController = desmanStoryboard.instantiateViewControllerWithIdentifier("remoteController")
+//        self.presentViewController(desmanController, animated: true, completion: nil)
+//    }
     
     @IBAction func feedbackCompose(sender: UIButton) {
         Des.log(Action.Button, payload: ["button": "feedback compose"])
         let feedbackController = FeedbackComposeViewController()
         feedbackController.placeholder = "Give your feedback"
-        feedbackController.modalPresentationStyle = .OverCurrentContext
-        self.presentViewController(feedbackController, animated: true) { () -> Void in
+        feedbackController.modalPresentationStyle = .overCurrentContext
+        self.present(feedbackController, animated: true) { () -> Void in
         }
     }
     
     @IBAction func takeScreenshot(sender: UIButton) {
-        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.mainScreen().scale)
-        self.view.drawViewHierarchyInRect(self.view.bounds, afterScreenUpdates: true)
+        UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, false, UIScreen.main.scale)
+        self.view.drawHierarchy(in: self.view.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         if let compressedImage = UIImageJPEGRepresentation(image!, 0.4) {

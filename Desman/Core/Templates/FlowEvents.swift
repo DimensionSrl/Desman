@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class FlowType : Type {
+open class FlowType : DType {
     override open var type : String {
         return "init"
     }

@@ -16,7 +16,7 @@ open class FeedbackComposeViewController: SLComposeServiceViewController {
     override open func didSelectPost() {
         self.dismiss(animated: true, completion: nil)
         self.event.payload = ["text": textView.text as NSCoding]
-        EventManager.sharedInstance.log(event)
+        EventManager.shared.log(event)
     }
     
     override open func didSelectCancel() {

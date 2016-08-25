@@ -44,7 +44,7 @@ internal class NotificationCenterManager : NSObject {
 //        stopListening(NSNotification.Name.UIApplicationWillTerminate.rawValue)
     }
     
-    internal func startListening(_ name: String, type: Type) {
+    internal func startListening(_ name: String, type: DType) {
         stopListening(name)
 //        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: name), object: nil, queue: nil) { (notification) -> Void in
 //            var payload = [String: Any]()
@@ -60,7 +60,7 @@ internal class NotificationCenterManager : NSObject {
 //                type.subtype = String(describing: notification.name)
 //            }
 //            let event = Event(type: type, payload: payload)
-//            EventManager.sharedInstance.log(event)
+//            EventManager.shared.log(event)
 //        }
     }
     

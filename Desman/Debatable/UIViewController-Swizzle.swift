@@ -19,7 +19,7 @@ extension UIViewController {
             return
         }
         
-        let justAOneTimeThing: () = {
+        let _: () = {
             var originalSelector = #selector(UIViewController.viewWillAppear(_:))
             var swizzledSelector = #selector(UIViewController.desman_viewWillAppear(_:))
             
@@ -68,9 +68,9 @@ extension UIViewController {
     
     func desman_viewWillAppear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.viewWillAppear) {
+            if EventManager.shared.swizzles.contains(Swizzle.viewWillAppear) {
                 let event = Event(type: Controller.ViewWillAppear, payload: ["controller": name as NSCoding])
-                EventManager.sharedInstance.log(event)
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewWillAppear(animated)
@@ -78,9 +78,9 @@ extension UIViewController {
     
     func desman_viewDidAppear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.viewDidAppear) {
+            if EventManager.shared.swizzles.contains(Swizzle.viewDidAppear) {
                 let event = Event(type: Controller.ViewDidAppear, payload: ["controller": name as NSCoding])
-                EventManager.sharedInstance.log(event)
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewDidAppear(animated)
@@ -88,9 +88,9 @@ extension UIViewController {
     
     func desman_viewWillDisappear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.viewWillDisappear) {
+            if EventManager.shared.swizzles.contains(Swizzle.viewWillDisappear) {
                 let event = Event(type: Controller.ViewWillDisappear, payload: ["controller": name as NSCoding])
-                EventManager.sharedInstance.log(event)
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewWillDisappear(animated)
