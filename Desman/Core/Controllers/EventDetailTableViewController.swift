@@ -78,7 +78,17 @@ open class EventDetailTableViewController: UITableViewController, MKMapViewDeleg
                 } catch _ as NSError {
                     payloadTextView.text = NSLocalizedString("Error: cannot parse the Event Payload.", comment: "")
                 }
-                
+                if let region = payload["region"] as? [String: Any] {
+                    // TODO: extension to support geofences
+                    if let lat = region["lat"] as? Double, let lon = region["lon"] as? Double, let radius = region["radius"] as? CLLocationDistance, let state = region["state"] as? String {
+                        self.region = CLCircularRegion(center: CLLocationCoordinate2DMake(lat, lon), radius: radius, identifier: "region")
+                        self.regionState = state
+                        
+                        let location = CLLocation(latitude: lat, longitude: lon)
+                        let circle = MKCircle(center: location.coordinate, radius: radius)
+                        self.mapView.add(circle)
+                    }
+                }
                 // TODO: extension to support geofences
                 if let lat = payload["lat"] as? Double, let lon = payload["lon"] as? Double, let radius = payload["radius"] as? CLLocationDistance, let state = payload["state"] as? String {
                     self.region = CLCircularRegion(center: CLLocationCoordinate2DMake(lat, lon), radius: radius, identifier: "region")
