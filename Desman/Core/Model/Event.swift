@@ -415,8 +415,6 @@ open class Event: NSCoder {
     override open var description : String {
         if let payload = payload {
             return "\(dateFormatter.string(from: timestamp)) - \(title) \(payload)"
-        } else if let value = value  {
-            return "\(dateFormatter.string(from: timestamp)) - \(title) \(value)"
         } else {
             return "\(dateFormatter.string(from: timestamp)) - \(title)"
         }
