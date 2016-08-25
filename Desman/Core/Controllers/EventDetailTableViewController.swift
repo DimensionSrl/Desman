@@ -66,10 +66,14 @@ open class EventDetailTableViewController: UITableViewController, MKMapViewDeleg
             
             if let payload = event.payload {
                 do {
-                    let data = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
-                    if let string = String(data: data, encoding: String.Encoding.utf8) {
-                        let replacedString = string.replacingOccurrences(of: "\\/", with: "/")
-                        payloadTextView.text = replacedString
+                    if JSONSerialization.isValidJSONObject(payload) {
+                        let data = try JSONSerialization.data(withJSONObject: payload, options: JSONSerialization.WritingOptions.prettyPrinted)
+                        if let string = String(data: data, encoding: String.Encoding.utf8) {
+                            let replacedString = string.replacingOccurrences(of: "\\/", with: "/")
+                            payloadTextView.text = replacedString
+                        }
+                    } else {
+                        payloadTextView.text = NSLocalizedString("Error: cannot parse the Event Payload.", comment: "")
                     }
                 } catch _ as NSError {
                     payloadTextView.text = NSLocalizedString("Error: cannot parse the Event Payload.", comment: "")
