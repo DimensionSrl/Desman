@@ -422,17 +422,17 @@ open class Event: NSCoder {
     
     open var title : String {
         if let desc = self.desc {
-            return "\(type.subtype) \(desc)"
+            return "\(type.subtype) - \(desc)"
         }
         
         if self.type.className == "Desman.Controller" {
             if let payload = self.payload, let controllerName = payload["controller"] as? String {
-                return "\(controllerName) \(type.subtype)"
+                return "\(controllerName) - \(type.subtype)"
             }
         }
         if self.type.className == "Desman.Action" && self.type.subtype == Action.Button.subtype {
             if let payload = self.payload, let buttonName = payload["button"] as? String {
-                return "\(buttonName) \(type.subtype)"
+                return "\(buttonName) - \(type.subtype)"
             }
         }
         
@@ -447,7 +447,7 @@ open class Event: NSCoder {
         }
         
         if let value = value {
-            return "\(type.description) \(value)"
+            return "\(type.subtype) - \(value)"
         }
         
         return type.description
