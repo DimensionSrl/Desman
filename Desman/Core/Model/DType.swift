@@ -111,35 +111,35 @@ open class AppCycle : DType {
     }
 }
 
-open class Notification : DType {
+open class DNotification : DType {
     override var imageName : String {
         get { return "Notification" }
         set { self.imageName = newValue }
     }
 }
 
-open class Crash : DType {
+open class DCrash : DType {
     override var imageName : String {
         get { return "Error" }
         set { self.imageName = newValue }
     }
 }
 
-open class Error : DType {
+open class DError : DType {
     override var imageName : String {
         get { return "Error" }
         set { self.imageName = newValue }
     }
 }
 
-open class Warning : DType {
+open class DWarning : DType {
     override var imageName : String {
         get { return "Warning" }
         set { self.imageName = newValue }
     }
 }
 
-open class Info : DType {
+open class DInfo : DType {
     override var imageName : String {
         get { return "Info" }
         set { self.imageName = newValue }

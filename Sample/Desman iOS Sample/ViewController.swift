@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
-        Des.logType(Warning(subtype: "memory"))
+        Des.logType(DWarning(subtype: "memory"))
     }
 
     @IBAction func showEvents(sender: UIBarButtonItem) {

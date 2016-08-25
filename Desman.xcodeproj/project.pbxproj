@@ -86,6 +86,7 @@
 		958598F21D6ED70700E9AF3B /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
 		958598F31D6ED70700E9AF3B /* Desman 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 4.xcdatamodel"; sourceTree = "<group>"; };
 		958598F41D6ED70700E9AF3B /* Desman.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
+		95909BBF1D6F33F0005F095E /* Desman.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = Desman.podspec; sourceTree = "<group>"; };
 		95979BF51CF5809F004B26DF /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
 		95BD431F1BF9C3B700477CB6 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = ../../../Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
 		95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesmanRemote.h; sourceTree = "<group>"; };
@@ -242,8 +243,8 @@
 			children = (
 				95EE6BEF1BFA1A43000BA0F6 /* GlobalSplitViewController.swift */,
 				954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */,
-				95EE6BF11BFA41A2000BA0F6 /* EventDetailTableViewController.swift */,
 				95EE6BF21BFA41A2000BA0F6 /* EventsTableViewController.swift */,
+				95EE6BF11BFA41A2000BA0F6 /* EventDetailTableViewController.swift */,
 				95EE6BF31BFA41A2000BA0F6 /* ImageViewController.swift */,
 			);
 			path = Controllers;
@@ -276,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				9508719E1BE0BF45000C54AE /* README.md */,
+				95909BBF1D6F33F0005F095E /* Desman.podspec */,
 				956AF1EC1BD4F0AF00464E9E /* Desman */,
 			);
 			sourceTree = "<group>";

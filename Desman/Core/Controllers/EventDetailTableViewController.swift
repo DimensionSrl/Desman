@@ -14,6 +14,7 @@ open class EventDetailTableViewController: UITableViewController, MKMapViewDeleg
     @IBOutlet weak var uuidLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet var valueLabel: UILabel!
     @IBOutlet weak var payloadTextView: UITextView!
     @IBOutlet var sentCell: UITableViewCell!
     @IBOutlet var mapView: MKMapView!
@@ -43,6 +44,12 @@ open class EventDetailTableViewController: UITableViewController, MKMapViewDeleg
             typeLabel.text = event.title
             uuidLabel.text = event.uuid?.uuidString
             dateLabel.text = event.dateFormatter.string(from: event.timestamp)
+            
+            if let value = event.value {
+                valueLabel.text = value
+            } else {
+                valueLabel.text = ""
+            }
             
             if event.sent {
                 sentCell.accessoryType = .checkmark
@@ -105,19 +112,19 @@ open class EventDetailTableViewController: UITableViewController, MKMapViewDeleg
     // MARK: - Table view data source
 
     override open func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if (indexPath as NSIndexPath).row == 6 {
+        if (indexPath as NSIndexPath).row == 7 {
             if payloadTextView.text.lengthOfBytes(using: String.Encoding.utf8) == 0 {
                 return 44
             }
             let size = payloadTextView.sizeThatFits(CGSize(width: self.view.frame.size.width - payloadLeadingConstraint.constant - payloadTrailingConstraint.constant, height: CGFloat.greatestFiniteMagnitude))
             return size.height + 1
-        } else if (indexPath as NSIndexPath).row == 4 {
+        } else if (indexPath as NSIndexPath).row == 5 {
             if (event?.attachmentUrl != nil) || (event?.attachment != nil) {
                 return tableView.frame.size.width / 3.0
             } else {
                 return 0
             }
-        } else if (indexPath as NSIndexPath).row == 5 {
+        } else if (indexPath as NSIndexPath).row == 6 {
             if region != nil || location != nil {
                 return 200
             } else {

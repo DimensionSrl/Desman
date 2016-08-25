@@ -448,6 +448,10 @@ open class Event: NSCoder {
             }
         }
         
+        if let value = value {
+            return "\(type.description) \(value)"
+        }
+        
         return type.description
     }
     
