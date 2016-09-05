@@ -30,8 +30,8 @@ open class Event: NSCoder {
     // TODO: support remote attachment url with caching
     
     var id : String?
-    open var uuid : UUID?
-    open let dateFormatter = DateFormatter()
+    var uuid : UUID?
+    let dateFormatter = DateFormatter()
     
     func commonInit() {
         dateFormatter.dateStyle = .short
