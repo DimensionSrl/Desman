@@ -19,12 +19,12 @@
 		951F50CA1BFDD9B30099FED6 /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F50C91BFDD9B30099FED6 /* Array+Desman.swift */; };
 		951F50CB1BFDDA6A0099FED6 /* Array+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F50C91BFDD9B30099FED6 /* Array+Desman.swift */; };
 		9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9520297A1BF630460067AB29 /* UIViewController+Desman.swift */; };
+		95263E131D8066C100564043 /* Desman.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 95263E0E1D8066C100564043 /* Desman.xcdatamodeld */; };
 		9535C1351BF8C6B9008F6FA2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
 		954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */; };
 		955EC7F21D2D58000093BD01 /* FlowEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EC7F11D2D58000093BD01 /* FlowEvents.swift */; };
 		956AF1EE1BD4F0AF00464E9E /* Desman.h in Headers */ = {isa = PBXBuildFile; fileRef = 956AF1ED1BD4F0AF00464E9E /* Desman.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		957CE8661BFC7CB500C716F9 /* Desman.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8641BFC7CB500C716F9 /* Desman.xcdatamodeld */; };
 		957CE8691BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */; };
 		957CE86A1BFC7E6F00C716F9 /* CDEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8681BFC7E6F00C716F9 /* CDEvent.swift */; };
 		957CE86C1BFC834300C716F9 /* CoreDataSerializerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE86B1BFC834300C716F9 /* CoreDataSerializerManager.swift */; };
@@ -71,7 +71,10 @@
 		9509B6201BF627CD00F3465A /* RemoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteManager.swift; sourceTree = "<group>"; };
 		951F50C91BFDD9B30099FED6 /* Array+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Desman.swift"; sourceTree = "<group>"; };
 		9520297A1BF630460067AB29 /* UIViewController+Desman.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Desman.swift"; sourceTree = "<group>"; };
-		952C21021C87341700F91D64 /* Desman 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 2.xcdatamodel"; sourceTree = "<group>"; };
+		95263E0F1D8066C100564043 /* Desman 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 2.xcdatamodel"; sourceTree = "<group>"; };
+		95263E101D8066C100564043 /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
+		95263E111D8066C100564043 /* Desman 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 4.xcdatamodel"; sourceTree = "<group>"; };
+		95263E121D8066C100564043 /* Desman.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
 		9535C0C41BF8C1FF008F6FA2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		9535C1521BF8CB97008F6FA2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
@@ -80,12 +83,10 @@
 		956AF1EB1BD4F0AF00464E9E /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1ED1BD4F0AF00464E9E /* Desman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desman.h; sourceTree = "<group>"; };
 		956AF1EF1BD4F0AF00464E9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		957CE8651BFC7CB500C716F9 /* Desman.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Desman.xcdatamodel; sourceTree = "<group>"; };
 		957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDEvent+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		957CE8681BFC7E6F00C716F9 /* CDEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDEvent.swift; sourceTree = "<group>"; };
 		957CE86B1BFC834300C716F9 /* CoreDataSerializerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataSerializerManager.swift; sourceTree = "<group>"; };
 		95979BF51CF5809F004B26DF /* FlowManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowManager.swift; sourceTree = "<group>"; };
-		95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Desman 3.xcdatamodel"; sourceTree = "<group>"; };
 		95BD431F1BF9C3B700477CB6 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = ../../../Carthage/Build/iOS/SwiftWebSocket.framework; sourceTree = "<group>"; };
 		95BD434F1BF9CF7D00477CB6 /* DesmanRemote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesmanRemote.h; sourceTree = "<group>"; };
 		95BD43511BF9CF9A00477CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -303,7 +304,7 @@
 		957CE8631BFC7C9700C716F9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				957CE8641BFC7CB500C716F9 /* Desman.xcdatamodeld */,
+				95263E0E1D8066C100564043 /* Desman.xcdatamodeld */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -477,7 +478,6 @@
 				957CE8691BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift in Sources */,
 				9535C1351BF8C6B9008F6FA2 /* UIViewController-Swizzle.swift in Sources */,
 				95EE6BF41BFA41A2000BA0F6 /* EventDetailTableViewController.swift in Sources */,
-				957CE8661BFC7CB500C716F9 /* Desman.xcdatamodeld in Sources */,
 				955EC7F21D2D58000093BD01 /* FlowEvents.swift in Sources */,
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
@@ -485,6 +485,7 @@
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
 				95979BF61CF5809F004B26DF /* FlowManager.swift in Sources */,
 				95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */,
+				95263E131D8066C100564043 /* Desman.xcdatamodeld in Sources */,
 				951F50CA1BFDD9B30099FED6 /* Array+Desman.swift in Sources */,
 				9509B5F61BF5FBB900F3465A /* DeviceInfo.swift in Sources */,
 				95EE6BFF1BFA41ED000BA0F6 /* AppTableViewCell.swift in Sources */,
@@ -743,14 +744,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		957CE8641BFC7CB500C716F9 /* Desman.xcdatamodeld */ = {
+		95263E0E1D8066C100564043 /* Desman.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */,
-				952C21021C87341700F91D64 /* Desman 2.xcdatamodel */,
-				957CE8651BFC7CB500C716F9 /* Desman.xcdatamodel */,
+				95263E0F1D8066C100564043 /* Desman 2.xcdatamodel */,
+				95263E101D8066C100564043 /* Desman 3.xcdatamodel */,
+				95263E111D8066C100564043 /* Desman 4.xcdatamodel */,
+				95263E121D8066C100564043 /* Desman.xcdatamodel */,
 			);
-			currentVersion = 95979BF71CF58AAE004B26DF /* Desman 3.xcdatamodel */;
+			currentVersion = 95263E111D8066C100564043 /* Desman 4.xcdatamodel */;
 			path = Desman.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
