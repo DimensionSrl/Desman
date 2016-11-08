@@ -23,10 +23,10 @@ Pod::Spec.new do |s|
     debatable.source_files = 'Desman/Debatable/**/*.swift'
   end
 
-  s.subspec 'Remote' do |remote|
-    remote.dependency      'Desman/Core'
-    remote.dependency      'SwiftWebSocket', '~> 2.6.5'
-    remote.source_files  = 'Desman/Remote/**/*.swift'
-    remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]
-  end
+  # s.subspec 'Remote' do |remote|
+  #   remote.dependency      'Desman/Core'
+  #   remote.dependency      'SwiftWebSocket', '~> 2.6.5'
+  #   remote.source_files  = 'Desman/Remote/**/*.swift'
+  #   remote.resources     = [ 'Desman/Remote/Assets/**/*.xcassets', 'Desman/Remote/Assets/*.storyboard' ]
+  # end
 end
