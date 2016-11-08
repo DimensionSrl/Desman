@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors               = [ 'Matteo Gavagnin' => 'matteo.gavagnin@dimension.it', 'Dimension S.r.l.' => 'info@dimension.it' ]
   s.social_media_url      = 'https://twitter.com/macteo'
   s.ios.deployment_target = '8.0'
-  s.source                = { :git => 'http://10.10.1.4/ios/desman.git', :tag => "v#{s.version}"}
+  s.source                = { :git => 'https://github.com/dimensionsrl/desman.git', :tag => "v#{s.version}"}
   s.requires_arc          = true
   s.frameworks            = [ 'Photos', 'CoreData' ]
   s.default_subspec       = 'Core'
