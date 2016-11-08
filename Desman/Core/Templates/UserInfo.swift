@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-@objc public class DeviceUserInfo : Event {
+@objc open class DeviceUserInfo : Event {
     public init () {
         super.init(Device.User)
         payload = infoDictionary
@@ -17,8 +17,8 @@ import UIKit
         // attachment = App.currentAppIcon
     }
     
-    var infoDictionary : [String : Coding] {
+    var infoDictionary : [String : Any] {
         // Upload user name, not the device one
-        return ["name": UIDevice.currentDevice().name]
+        return ["name": UIDevice.current.name as NSCoding]
     }
 }

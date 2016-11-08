@@ -23,48 +23,48 @@ class CoreDataSerializerManager: NSObject {
     
     // #pragma mark - Core Data stack
     
-    func event(uuidString: String) -> CDEvent {
-        let request = NSFetchRequest()
-        request.entity = NSEntityDescription.entityForName("CDEvent", inManagedObjectContext: self.managedObjectContext)
+    func event(_ uuidString: String) -> CDEvent {
+        let request : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest()
+        request.entity = NSEntityDescription.entity(forEntityName: "CDEvent", in: self.managedObjectContext)
         request.predicate = NSPredicate(format: "uuid = %@", uuidString)
         
         if let events = executeFetchRequest(request) as? [CDEvent], let event = events.last {
             return event
         } else {
-            return NSEntityDescription.insertNewObjectForEntityForName("CDEvent", inManagedObjectContext: self.managedObjectContext) as! CDEvent
+            return NSEntityDescription.insertNewObject(forEntityName: "CDEvent", into: self.managedObjectContext) as! CDEvent
         }
     }
     
     var managedObjectContext: NSManagedObjectContext{
-        if NSThread.isMainThread() {
+        if Thread.isMainThread {
             if (_managedObjectContext == nil) {
                 let coordinator = self.persistentStoreCoordinator
-                _managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+                _managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
                 _managedObjectContext!.persistentStoreCoordinator = coordinator
                 
                 return _managedObjectContext!
             }
         } else {
             
-            var threadContext : NSManagedObjectContext? = NSThread.currentThread().threadDictionary["NSManagedObjectContext"] as? NSManagedObjectContext;
+            var threadContext : NSManagedObjectContext? = Thread.current.threadDictionary["NSManagedObjectContext"] as? NSManagedObjectContext;
             if threadContext == nil {
                 if (_managedObjectContext == nil) {
                     let coordinator = self.persistentStoreCoordinator
-                    _managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+                    _managedObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
                     _managedObjectContext!.persistentStoreCoordinator = coordinator
                 }
 
-                threadContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
-                threadContext!.parentContext = _managedObjectContext
+                threadContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+                threadContext!.parent = _managedObjectContext
                 if #available(iOS 8.0, *) {
-                    threadContext!.name = NSThread.currentThread().description
+                    threadContext!.name = Thread.current.description
                 } else {
                     // Fallback on earlier versions
                 }
                 
-                NSThread.currentThread().threadDictionary["NSManagedObjectContext"] = threadContext
+                Thread.current.threadDictionary["NSManagedObjectContext"] = threadContext
                 
-                NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(CoreDataSerializerManager.contextWillSave(_:)) , name: NSManagedObjectContextWillSaveNotification, object: threadContext)
+                NotificationCenter.default.addObserver(self, selector:#selector(CoreDataSerializerManager.contextWillSave(_:)) , name: NSNotification.Name.NSManagedObjectContextWillSave, object: threadContext)
             }
             return threadContext!;
         }
@@ -76,8 +76,8 @@ class CoreDataSerializerManager: NSObject {
     // If the model doesn't already exist, it is created from the application's model.
     var managedObjectModel: NSManagedObjectModel {
         if (_managedObjectModel == nil) {
-            let modelURL = NSBundle(forClass: CoreDataSerializerManager.self).URLForResource(kModmName, withExtension: "momd")
-            _managedObjectModel = NSManagedObjectModel(contentsOfURL: modelURL!)
+            let modelURL = Bundle(for: CoreDataSerializerManager.self).url(forResource: kModmName, withExtension: "momd")
+            _managedObjectModel = NSManagedObjectModel(contentsOf: modelURL!)
         }
         return _managedObjectModel!
     }
@@ -86,10 +86,10 @@ class CoreDataSerializerManager: NSObject {
     // If the coordinator doesn't already exist, it is created and the application's store added to it.
     var persistentStoreCoordinator: NSPersistentStoreCoordinator {
         if (_persistentStoreCoordinator == nil) {
-            let storeURL = applicationLibraryDirectory.URLByAppendingPathComponent(kStoreName)
+            let storeURL = applicationLibraryDirectory.appendingPathComponent(kStoreName)
             _persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
             do {
-                try _persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: self.databaseOptions())
+                try _persistentStoreCoordinator!.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: storeURL, options: self.databaseOptions())
             } catch let error {
                 print("Desman: cannot add CoreData persistent store \(error)")
             }
@@ -99,12 +99,12 @@ class CoreDataSerializerManager: NSObject {
     
     // #pragma mark - fetches
     
-    func executeFetchRequest(request:NSFetchRequest)-> Array<AnyObject>?{
+    func executeFetchRequest(_ request:NSFetchRequest<NSFetchRequestResult>)-> Array<AnyObject>?{
         
         var results:Array<AnyObject>?
-        self.managedObjectContext.performBlockAndWait {
+        self.managedObjectContext.performAndWait {
             do {
-                results = try self.managedObjectContext.executeFetchRequest(request)
+                results = try self.managedObjectContext.fetch(request)
             } catch let error {
                 print("Desman: warning cannot fetch from Core Data \(error)")
             }
@@ -113,18 +113,18 @@ class CoreDataSerializerManager: NSObject {
         
     }
     
-    func executeFetchRequest(request:NSFetchRequest, completionHandler:(results: Array<AnyObject>?) -> Void)-> (){
+    func executeFetchRequest(_ request:NSFetchRequest<NSFetchRequestResult>, completionHandler:@escaping (_ results: Array<NSFetchRequestResult>?) -> Void)-> (){
         
-        self.managedObjectContext.performBlock{
+        self.managedObjectContext.perform{
             var results:Array<AnyObject>?
             
             do {
-                results = try self.managedObjectContext.executeFetchRequest(request)
+                results = try self.managedObjectContext.fetch(request)
             } catch let error {
                 print("Desman: warning cannot fetch from Core Data \(error)")
             }
             
-            completionHandler(results: results)
+            completionHandler(results as? Array<NSFetchRequestResult>)
         }
         
     }
@@ -135,14 +135,14 @@ class CoreDataSerializerManager: NSObject {
         let context:NSManagedObjectContext = self.managedObjectContext;
         if context.hasChanges {
             
-            context.performBlockAndWait{
+            context.performAndWait{
                 do {
                     try context.save()
                 } catch _ {
                     print("Desman: warning cannot save to Core Data")
                 }
-                if let parentContext = context.parentContext {
-                    parentContext.performBlockAndWait {
+                if let parentContext = context.parent {
+                    parentContext.performAndWait {
                         do {
                             try parentContext.save()
                         } catch let error {
@@ -154,16 +154,16 @@ class CoreDataSerializerManager: NSObject {
         }
     }
     
-    func contextWillSave(notification:NSNotification){
+    func contextWillSave(_ notification:Foundation.Notification){
         
         let context : NSManagedObjectContext! = notification.object as! NSManagedObjectContext
-        let insertedObjects : NSSet = context.insertedObjects
+        let insertedObjects = context.insertedObjects
         
         if insertedObjects.count != 0 {
             do {
-                try context.obtainPermanentIDsForObjects(insertedObjects.allObjects as! [NSManagedObject])
+                try context.obtainPermanentIDs(for: Array(insertedObjects))
             } catch let error {
-                ("Desman: warning cannot obtain ids from Core Data \(error)")
+                print("Desman: warning cannot obtain ids from Core Data \(error)")
             }
         }
     }
@@ -177,8 +177,8 @@ class CoreDataSerializerManager: NSObject {
         return options
     }
     
-    var applicationLibraryDirectory: NSURL {
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.LibraryDirectory, inDomains: .UserDomainMask)
-        return urls[urls.endIndex-1] as NSURL
+    var applicationLibraryDirectory: URL {
+        let urls = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)
+        return urls[urls.endIndex-1] as URL
     }
 }

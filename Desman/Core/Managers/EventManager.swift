@@ -9,53 +9,53 @@
 import Foundation
 import CoreData
 
-public let Des = EventManager.sharedInstance
+public let Des = EventManager.shared
 
 @objc public enum Serialization : Int {
-    case None
-    case UserDefaults
-    case CoreData
+    case none
+    case userDefaults
+    case coreData
 }
 
 @objc public enum Endpoint : Int {
-    case Desman
-    case Flow
+    case desman
+    case flow
 }
 
 @objc public enum Swizzle : Int {
-    case ViewWillAppear
-    case ViewDidAppear
-    case ViewWillDisappear
+    case viewWillAppear
+    case viewDidAppear
+    case viewWillDisappear
 }
 
-public class EventManager : NSObject {
-    var lastSync : NSDate?
+open class EventManager : NSObject {
+    var lastSync : Date?
     var upload = false
     var shouldLog = false
-    public var consoleLog = false
-    public var swizzles = [Swizzle]()
-    private var currentSession = NSUUID().UUIDString
+    open var consoleLog = false
+    open var swizzles = [Swizzle]()
+    fileprivate var currentSession = UUID().uuidString
     
-    public var limit = 100
-    public var timeInterval = 1.0 {
+    open var limit = 100
+    open var timeInterval = 1.0 {
         didSet {
             if timeInterval < 0.25 {
                 timeInterval = 0.25
             }
-            dispatch_async(dispatch_get_main_queue()) {
+            DispatchQueue.main.async {
                 self.timer?.invalidate()
-                self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
+                self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
             }
         }
     }
-    var timer : NSTimer?
+    var timer : Timer?
     var eventsQueue = [Event]()
-    var type = Serialization.None
-    var endpoint = Endpoint.Desman
+    var type = Serialization.none
+    var endpoint = Endpoint.desman
     
-    private var _flowFormatter : NSDateFormatter?
+    fileprivate var _flowFormatter : DateFormatter?
     
-    var flowDateFormatter : NSDateFormatter {
+    var flowDateFormatter : DateFormatter {
         if (_flowFormatter == nil) {
             createFlowFormatter()
         }
@@ -63,16 +63,16 @@ public class EventManager : NSObject {
         return _flowFormatter!
     }
     
-    private func createFlowFormatter() {
-        let flowFormatter = NSDateFormatter()
-        flowFormatter.locale = NSLocale(localeIdentifier: "it_IT")
+    fileprivate func createFlowFormatter() {
+        let flowFormatter = DateFormatter()
+        flowFormatter.locale = NSLocale(localeIdentifier: "it_IT") as Locale!
         flowFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        flowFormatter.timeZone = NSTimeZone.systemTimeZone()
+        flowFormatter.timeZone = TimeZone.current
         _flowFormatter = flowFormatter
     }
     
-    public func resetSession() -> String {
-        currentSession = NSUUID().UUIDString
+    open func resetSession() -> String {
+        currentSession = UUID().uuidString
         return currentSession
     }
     
@@ -80,19 +80,19 @@ public class EventManager : NSObject {
         return currentSession
     }
     
-    public func listenToAppLifecycleActivity() {
+    open func listenToAppLifecycleActivity() {
         NotificationCenterManager.sharedInstance.listenToAppLifecycleActivity()
     }
     
-    public func listenToScreenshots() {
+    open func listenToScreenshots() {
         NotificationCenterManager.sharedInstance.listenToScreenshots()
     }
 
-    public func stopListeningToAppLifecycleActivity() {
+    open func stopListeningToAppLifecycleActivity() {
         NotificationCenterManager.sharedInstance.stopListeningToAppLifecycleActivity()
     }
     
-    public func stopListeningToScreenshots() {
+    open func stopListeningToScreenshots() {
         NotificationCenterManager.sharedInstance.stopListeningToScreenshots()
     }
 
@@ -100,13 +100,13 @@ public class EventManager : NSObject {
     /**
     A shared instance of `EventManager`.
     */
-    static public let sharedInstance = EventManager()
+    static open let shared = EventManager()
 
     // Only Desman can set the property or change its objects, but doing so we can make it observable to KVO
-    dynamic private(set) public var events = [Event]()
-    dynamic internal(set) public var sentEvents = [Event]()
+    dynamic fileprivate(set) open var events = [Event]()
+    dynamic internal(set) open var sentEvents = [Event]()
     
-    public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization) {
+    open func takeOff(_ baseURL: URL, appKey: String, serialization: Serialization) {
         self.type = serialization
         self.upload = true
         UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
@@ -119,15 +119,15 @@ public class EventManager : NSObject {
         self.forceLog(AppInfo())
     }
     
-    public func takeOff(baseURL: NSURL, appKey: String, serialization: Serialization, endpoint: Endpoint) {
+    open func takeOff(_ baseURL: URL, appKey: String, serialization: Serialization, endpoint: Endpoint) {
         self.type = serialization
         self.upload = true
         
         self.endpoint = endpoint
         
-        if endpoint == .Desman {
+        if endpoint == .desman {
             UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
-        } else if endpoint == .Flow {
+        } else if endpoint == .flow {
             FlowManager.sharedInstance.takeOff(appKey)
         }
         
@@ -140,30 +140,30 @@ public class EventManager : NSObject {
         self.forceLog(AppInfo())
     }
     
-    public func takeOff(appKey appKey: String) {
-        let baseURL = NSURL(string: "https://desman.dimension.it")!
-        let serialization : Serialization = .CoreData
+    open func takeOff(appKey: String) {
+        let baseURL = URL(string: "https://desman.dimension.it")!
+        let serialization : Serialization = .coreData
         takeOff(baseURL, appKey: appKey, serialization: serialization)
     }
     
-    public func takeOff(appKey appKey: String, endpoint: Endpoint) {
-        let baseURL = NSURL(string: "https://desman.dimension.it")!
-        let serialization : Serialization = .CoreData
+    open func takeOff(appKey: String, endpoint: Endpoint) {
+        let baseURL = URL(string: "https://desman.dimension.it")!
+        let serialization : Serialization = .coreData
         self.endpoint = endpoint
-        if endpoint == .Desman {
+        if endpoint == .desman {
             UploadManager.sharedInstance.takeOff(baseURL, appKey: appKey)
-        } else if endpoint == .Flow {
+        } else if endpoint == .flow {
             FlowManager.sharedInstance.takeOff(appKey)
         }
         takeOff(baseURL, appKey: appKey, serialization: serialization)
     }
     
-    public func startLogging() {
+    open func startLogging() {
         shouldLog = true
         
-        if endpoint == .Desman {
-            self.logType(Application.LogEnable)
-        } else if endpoint == .Flow {
+        if endpoint == .desman {
+            self.logType(AppCycle.LogEnable)
+        } else if endpoint == .flow {
             self.log(FlowApp())
             self.log(FlowDeviceName())
             self.log(FlowDeviceType())
@@ -171,41 +171,41 @@ public class EventManager : NSObject {
         }
     }
     
-    public func stopLogging() {
-        if endpoint == .Desman {
-            self.logType(Application.LogDisable)
+    open func stopLogging() {
+        if endpoint == .desman {
+            self.logType(AppCycle.LogDisable)
         }
         
         self.processEvents()
         shouldLog = false
     }
     
-    public func purgeLogs() {
+    open func purgeLogs() {
         self.events.removeAll()
         self.serializeEvents()
         // TODO: remove every online log linked to this device and user
     }
     
     func scheduleProcessTimer() {
-        dispatch_async(dispatch_get_main_queue()) {
+        DispatchQueue.main.async {
             if let timer = self.timer {
                 timer.invalidate()
             }
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
+            self.timer = Timer.scheduledTimer(timeInterval: self.timeInterval, target: self, selector: #selector(EventManager.processEvents), userInfo: nil, repeats: true)
         }
     }
     
-    public func takeOff(serialization: Serialization) {
+    open func takeOff(_ serialization: Serialization) {
         self.type = serialization
         deserializeEvents()
         scheduleProcessTimer()
         // TODO: support other databases
     }
     
-    public func log(event: Event){
+    open func log(_ event: Event){
         if shouldLog {
             self.eventsQueue.append(event)
-            if type == .CoreData {
+            if type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -214,9 +214,9 @@ public class EventManager : NSObject {
         }
     }
     
-    func forceLog(event: Event){
+    func forceLog(_ event: Event){
         self.eventsQueue.append(event)
-        if type == .CoreData {
+        if type == .coreData {
             event.saveCDEvent()
         }
         if consoleLog {
@@ -224,11 +224,11 @@ public class EventManager : NSObject {
         }
     }
     
-    public func logType(type: Type){
+    open func logType(_ type: DType){
         if shouldLog {
             let event = Event(type)
             self.eventsQueue.append(event)
-            if self.type == .CoreData {
+            if self.type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -237,11 +237,11 @@ public class EventManager : NSObject {
         }
     }
     
-    public func log(type: Type, payload: [String : Coding]){
+    open func log(_ type: DType, payload: [String : Any]){
         if shouldLog {
             let event = Event(type: type, payload: payload)
             self.eventsQueue.append(event)
-            if self.type == .CoreData {
+            if self.type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -250,11 +250,11 @@ public class EventManager : NSObject {
         }
     }
 
-    public func log(type: Type, value: String, desc: String){
+    open func log(_ type: DType, value: String, desc: String){
         if shouldLog {
             let event = Event(type, value: value, desc: desc)
             self.eventsQueue.append(event)
-            if self.type == .CoreData {
+            if self.type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -263,11 +263,11 @@ public class EventManager : NSObject {
         }
     }
     
-    public func log(type: Type, desc: String){
+    open func log(_ type: DType, desc: String){
         if shouldLog {
             let event = Event(type, desc: desc)
             self.eventsQueue.append(event)
-            if self.type == .CoreData {
+            if self.type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -276,12 +276,12 @@ public class EventManager : NSObject {
         }
     }
     
-    public func log(type: Type, desc: String, payload: [String : Coding]){
+    open func log(_ type: DType, desc: String, payload: [String : Any]){
         if shouldLog {
             let event = Event(type, desc: desc)
             event.payload = payload
             self.eventsQueue.append(event)
-            if self.type == .CoreData {
+            if self.type == .coreData {
                 event.saveCDEvent()
             }
             if consoleLog {
@@ -294,21 +294,21 @@ public class EventManager : NSObject {
     func processEvents() {
         guard eventsQueue.count > 0 else  {
             // We only need to upload events already avaiable but not sent.
-            if endpoint == .Desman {
+            if endpoint == .desman {
                 UploadManager.sharedInstance.sendEvents(self.events)
-            } else if endpoint == .Flow {
+            } else if endpoint == .flow {
                 FlowManager.sharedInstance.sendEvents(self.events)
             }
             
             return
         }
         
-        self.events.appendContentsOf(eventsQueue)
+        self.events.append(contentsOf: eventsQueue)
         
-        var sortedEvents = self.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        var sortedEvents = self.events.sorted{ $0.timestamp.compare($1.timestamp as Date) == ComparisonResult.orderedDescending }
         
         if sortedEvents.count > self.limit {
-            sortedEvents.removeRange(self.limit..<sortedEvents.count)
+            sortedEvents.removeSubrange(self.limit..<sortedEvents.count)
         }
         
         eventsQueue.removeAll()
@@ -316,9 +316,9 @@ public class EventManager : NSObject {
         
         if self.upload {
             self.sentEvents.removeAll()
-            if endpoint == .Desman {
+            if endpoint == .desman {
                 UploadManager.sharedInstance.sendEvents(self.events)
-            } else if endpoint == .Flow {
+            } else if endpoint == .flow {
                 FlowManager.sharedInstance.sendEvents(self.events)
             }
         }
@@ -328,40 +328,40 @@ public class EventManager : NSObject {
     
     func serializeEvents() {
         guard events.count > 0 else { return }
-        if type == .UserDefaults {
-            let sortedEvents = events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
-            let eventsData = NSKeyedArchiver.archivedDataWithRootObject(sortedEvents)
-            let defaults = NSUserDefaults.standardUserDefaults()
-            defaults.setObject(eventsData, forKey: "events")
+        if type == .userDefaults {
+            let sortedEvents = events.sorted{ $0.timestamp.compare($1.timestamp as Date) == ComparisonResult.orderedDescending }
+            let eventsData = NSKeyedArchiver.archivedData(withRootObject: sortedEvents)
+            let defaults = UserDefaults.standard
+            defaults.set(eventsData, forKey: "events")
             defaults.synchronize()
         }
     }
     
-    public func resetEvents() {
+    open func resetEvents() {
         self.events.removeAll()
     }
     
     func deserializeEvents() {
-        if type == .UserDefaults {
-            let defaults = NSUserDefaults.standardUserDefaults()
-            if let eventsData = defaults.objectForKey("events") as? NSData {
-                if let events = NSKeyedUnarchiver.unarchiveObjectWithData(eventsData) as? [Event] {
-                    self.eventsQueue.appendContentsOf(events)
+        if type == .userDefaults {
+            let defaults = UserDefaults.standard
+            if let eventsData = defaults.object(forKey: "events") as? Data {
+                if let events = NSKeyedUnarchiver.unarchiveObject(with: eventsData) as? [Event] {
+                    self.eventsQueue.append(contentsOf: events)
                 }
             }
-        } else if type == .CoreData {
-            let request: NSFetchRequest = NSFetchRequest(entityName: "CDEvent")
+        } else if type == .coreData {
+            let request : NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "CDEvent")
             if let fetchedEvents = CoreDataSerializerManager.sharedInstance.executeFetchRequest(request) {
                 let mappedEvents = fetchedEvents.map{Event(cdevent: $0 as! CDEvent)}
-                self.eventsQueue.appendContentsOf(mappedEvents)
+                self.eventsQueue.append(contentsOf: mappedEvents)
             }
         }
     }
     
-    public func uploadEvents() {
-        if endpoint == .Desman {
+    open func uploadEvents() {
+        if endpoint == .desman {
             UploadManager.sharedInstance.sendEvents(self.events)
-        } else if endpoint == .Flow {
+        } else if endpoint == .flow {
             FlowManager.sharedInstance.sendEvents(self.events)
         }
     }

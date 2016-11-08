@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UserTableViewCell: UITableViewCell {
-    @IBOutlet public var userTitleLabel: UILabel!
-    @IBOutlet public var userImageView: UIImageView!
+open class UserTableViewCell: UITableViewCell {
+    @IBOutlet open var userTitleLabel: UILabel!
+    @IBOutlet open var userImageView: UIImageView!
 }

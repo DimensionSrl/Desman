@@ -9,9 +9,9 @@
 import UIKit
 
 extension UIViewController {
-    public override class func initialize() {
+    open override class func initialize() {
         struct Static {
-            static var token: dispatch_once_t = 0
+            static var token: Int = 0
         }
         
         // make sure this isn't a subclass
@@ -19,7 +19,7 @@ extension UIViewController {
             return
         }
         
-        dispatch_once(&Static.token) {
+        let _: () = {
             var originalSelector = #selector(UIViewController.viewWillAppear(_:))
             var swizzledSelector = #selector(UIViewController.desman_viewWillAppear(_:))
             
@@ -61,36 +61,36 @@ extension UIViewController {
             } else {
                 method_exchangeImplementations(originalMethod, swizzledMethod);
             }
-        }
+        }()
     }
     
     // MARK: - Method Swizzling
     
-    func desman_viewWillAppear(animated: Bool) {
+    func desman_viewWillAppear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.ViewWillAppear) {
-                let event = Event(type: Controller.ViewWillAppear, payload: ["controller": name])
-                EventManager.sharedInstance.log(event)
+            if EventManager.shared.swizzles.contains(Swizzle.viewWillAppear) {
+                let event = Event(type: Controller.ViewWillAppear, payload: ["controller": name as NSCoding])
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewWillAppear(animated)
     }
     
-    func desman_viewDidAppear(animated: Bool) {
+    func desman_viewDidAppear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.ViewDidAppear) {
-                let event = Event(type: Controller.ViewDidAppear, payload: ["controller": name])
-                EventManager.sharedInstance.log(event)
+            if EventManager.shared.swizzles.contains(Swizzle.viewDidAppear) {
+                let event = Event(type: Controller.ViewDidAppear, payload: ["controller": name as NSCoding])
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewDidAppear(animated)
     }
     
-    func desman_viewWillDisappear(animated: Bool) {
+    func desman_viewWillDisappear(_ animated: Bool) {
         if !isDesmanController && log {
-            if EventManager.sharedInstance.swizzles.contains(Swizzle.ViewWillDisappear) {
-                let event = Event(type: Controller.ViewWillDisappear, payload: ["controller": name])
-                EventManager.sharedInstance.log(event)
+            if EventManager.shared.swizzles.contains(Swizzle.viewWillDisappear) {
+                let event = Event(type: Controller.ViewWillDisappear, payload: ["controller": name as NSCoding])
+                EventManager.shared.log(event)
             }
         }
         self.desman_viewWillDisappear(animated)
@@ -105,14 +105,14 @@ extension UIViewController {
     }
     
     var module : String {
-        let className = NSStringFromClass(self.dynamicType)
+        let className = NSStringFromClass(type(of: self))
         let dotString = "."
-        return "\(className.componentsSeparatedByString(dotString).first!)"
+        return "\(className.components(separatedBy: dotString).first!)"
     }
     
     var name : String {
-        let className = NSStringFromClass(self.dynamicType)
+        let className = NSStringFromClass(type(of: self))
         let dotString = "."
-        return "\(className.componentsSeparatedByString(dotString).last!)"
+        return "\(className.components(separatedBy: dotString).last!)"
     }
 }

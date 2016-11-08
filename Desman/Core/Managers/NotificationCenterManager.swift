@@ -23,67 +23,64 @@ internal class NotificationCenterManager : NSObject {
     }
     
     internal func stopListeningToScreenshots() {
-        stopListening(UIApplicationUserDidTakeScreenshotNotification)
+        stopListening(.UIApplicationUserDidTakeScreenshot)
     }
     
     internal func listenToAppLifecycleActivity() {
-        startListening(UIApplicationDidBecomeActiveNotification, type: Application.DidBecomeActive)
-        startListening(UIApplicationDidEnterBackgroundNotification, type: Application.DidEnterBackground)
+        startListening(.UIApplicationDidBecomeActive, type: AppCycle.DidBecomeActive)
+        startListening(.UIApplicationDidEnterBackground, type: AppCycle.DidEnterBackground)
         // startListening(UIApplicationDidFinishLaunchingNotification, type: Application.DidFinishLaunching)
-        startListening(UIApplicationWillEnterForegroundNotification, type: Application.WillEnterForeground)
-        startListening(UIApplicationWillResignActiveNotification, type: Application.WillResignActive)
-        startListening(UIApplicationWillTerminateNotification, type: Application.WillTerminate)
+        startListening(.UIApplicationWillEnterForeground, type: AppCycle.WillEnterForeground)
+        startListening(.UIApplicationWillResignActive, type: AppCycle.WillResignActive)
+        startListening(.UIApplicationWillTerminate, type: AppCycle.WillTerminate)
     }
     
     internal func stopListeningToAppLifecycleActivity() {
-        stopListening(UIApplicationDidBecomeActiveNotification)
-        stopListening(UIApplicationDidEnterBackgroundNotification)
+        stopListening(NSNotification.Name.UIApplicationDidBecomeActive)
+        stopListening(NSNotification.Name.UIApplicationDidEnterBackground)
         // stopListening(UIApplicationDidFinishLaunchingNotification)
-        stopListening(UIApplicationWillEnterForegroundNotification)
-        stopListening(UIApplicationWillResignActiveNotification)
-        stopListening(UIApplicationWillTerminateNotification)
+        stopListening(NSNotification.Name.UIApplicationWillEnterForeground)
+        stopListening(NSNotification.Name.UIApplicationWillResignActive)
+        stopListening(NSNotification.Name.UIApplicationWillTerminate)
     }
     
-    internal func startListening(name: String, type: Type) {
+    internal func startListening(_ name: NSNotification.Name, type: DType) {
         stopListening(name)
-        NSNotificationCenter.defaultCenter().addObserverForName(name, object: nil, queue: nil) { (notification) -> Void in
-            var payload = [String: Coding]()
+        NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil) { (notification) -> Void in
+            var payload = [String: Any]()
             if let object = notification.object {
-                if let object = object as? Coding {
+                if let object = object as? NSCoding {
                     payload["object"] = object
-                } else {
-                    payload["object"] = object.description
                 }
             }
-            if let userInfo = notification.userInfo {
+            if let userInfo = (notification as NSNotification).userInfo {
                 payload["userInfo"] = userInfo
             }
             if type.subtype == "" {
-                type.subtype = notification.name
+                type.subtype = String(describing: notification.name)
             }
             let event = Event(type: type, payload: payload)
-            EventManager.sharedInstance.log(event)
+            EventManager.shared.log(event)
         }
     }
     
     func startListeningForScreenshots() {
-        stopListening(UIApplicationUserDidTakeScreenshotNotification)
-        NSNotificationCenter.defaultCenter().addObserverForName(UIApplicationUserDidTakeScreenshotNotification, object: nil, queue: nil) { (notification) -> Void in
+        stopListening(.UIApplicationUserDidTakeScreenshot)
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationUserDidTakeScreenshot, object: nil, queue: nil) { (notification) -> Void in
             if #available(iOS 8.0, *) {
-                let imgManager = PHImageManager.defaultManager()
+                let imgManager = PHImageManager.default()
                 let fetchOptions = PHFetchOptions()
                 fetchOptions.sortDescriptors = [NSSortDescriptor(key:"creationDate", ascending: true)]
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.50 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
-                    if let fetchResult: PHFetchResult = PHAsset.fetchAssetsWithMediaType(PHAssetMediaType.Image, options: fetchOptions) {
-                        if fetchResult.count > 0 {
-                            let assetResult = fetchResult.objectAtIndex(fetchResult.count - 1) as! PHAsset
-                            imgManager.requestImageDataForAsset(assetResult, options: nil, resultHandler: { (data, string, orientation, userInfo) -> Void in
-                                if let data = data {
-                                    let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller"], attachment: data)
-                                    Des.log(event)
-                                }
-                            })
-                        }
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.50 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
+                    let fetchResult: PHFetchResult = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: fetchOptions)
+                    if fetchResult.count > 0 {
+                        let assetResult = fetchResult.object(at: fetchResult.count - 1) 
+                        imgManager.requestImageData(for: assetResult, options: nil, resultHandler: { (data, string, orientation, userInfo) -> Void in
+                            if let data = data {
+                                let event = Event(type: Controller.Screenshot, payload: ["controller": "View Controller" as NSCoding], attachment: data as Data)
+                                Des.log(event)
+                            }
+                        })
                     }
                 }
             } else {
@@ -93,7 +90,7 @@ internal class NotificationCenterManager : NSObject {
         }
     }
     
-    internal func stopListening(name: String) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: name, object: nil)
+    internal func stopListening(_ name: NSNotification.Name) {
+        NotificationCenter.default.removeObserver(self, name: name, object: nil)
     }
 }

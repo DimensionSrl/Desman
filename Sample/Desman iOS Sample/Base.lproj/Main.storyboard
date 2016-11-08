@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8UA-I3-jRh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="8UA-I3-jRh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -34,57 +35,51 @@
                         <viewControllerLayoutGuide type="bottom" id="f97-nK-7OB"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="zGg-dM-615">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y6F-V9-W76">
-                                <rect key="frame" x="20" y="117" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="gsS-z0-gP6"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Feedback"/>
                                 <connections>
-                                    <action selector="feedbackCompose:" destination="82m-NS-lbf" eventType="touchUpInside" id="3we-I7-xNK"/>
+                                    <action selector="feedbackComposeWithSender:" destination="82m-NS-lbf" eventType="touchUpInside" id="eDs-o1-yOg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmf-Yu-yXX">
-                                <rect key="frame" x="20" y="181" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="GR6-bT-cwc"/>
                                 </constraints>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Remote"/>
-                                <connections>
-                                    <action selector="showRemote:" destination="82m-NS-lbf" eventType="touchUpInside" id="SSM-Di-Qev"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Igc-kY-IjQ">
-                                <rect key="frame" x="20" y="247" width="560" height="30"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Screenshot"/>
                                 <connections>
-                                    <action selector="takeScreenshot:" destination="82m-NS-lbf" eventType="touchUpInside" id="sH0-rg-fgR"/>
+                                    <action selector="takeScreenshotWithSender:" destination="82m-NS-lbf" eventType="touchUpInside" id="zO5-gL-Lip"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.97647058819999999" green="0.60392156860000001" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.97647058819999999" green="0.60392156860000001" blue="0.031372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Igc-kY-IjQ" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" id="4io-CZ-Lc8"/>
-                            <constraint firstItem="Y6F-V9-W76" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" id="Keu-YZ-xdm"/>
+                            <constraint firstItem="Igc-kY-IjQ" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" constant="4" id="4io-CZ-Lc8"/>
+                            <constraint firstItem="Y6F-V9-W76" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" constant="4" id="Keu-YZ-xdm"/>
                             <constraint firstItem="Y6F-V9-W76" firstAttribute="top" secondItem="NMj-Wh-kwX" secondAttribute="bottom" constant="53" id="LhB-tf-zDi"/>
                             <constraint firstItem="xmf-Yu-yXX" firstAttribute="trailing" secondItem="zGg-dM-615" secondAttribute="trailingMargin" id="RjS-kb-yyf"/>
                             <constraint firstItem="Y6F-V9-W76" firstAttribute="trailing" secondItem="zGg-dM-615" secondAttribute="trailingMargin" id="S2c-Di-3ZH"/>
                             <constraint firstItem="xmf-Yu-yXX" firstAttribute="top" secondItem="Y6F-V9-W76" secondAttribute="bottom" constant="34" id="WXG-vT-7dz"/>
                             <constraint firstItem="Igc-kY-IjQ" firstAttribute="top" secondItem="xmf-Yu-yXX" secondAttribute="bottom" constant="36" id="afm-Yz-U7o"/>
                             <constraint firstItem="Igc-kY-IjQ" firstAttribute="trailing" secondItem="zGg-dM-615" secondAttribute="trailingMargin" id="hjr-xl-iO5"/>
-                            <constraint firstItem="xmf-Yu-yXX" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" id="pRT-dV-FpF"/>
+                            <constraint firstItem="xmf-Yu-yXX" firstAttribute="leading" secondItem="zGg-dM-615" secondAttribute="leadingMargin" constant="4" id="pRT-dV-FpF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qiF-gn-Xgu">
                         <barButtonItem key="rightBarButtonItem" image="Desman" id="qv2-Kq-hfA">
                             <connections>
-                                <action selector="showEvents:" destination="82m-NS-lbf" id="UMS-wX-eKc"/>
+                                <action selector="showEventsWithSender:" destination="82m-NS-lbf" id="Vp8-Oy-a1u"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -94,7 +89,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gKy-8c-akw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="49"/>
+            <point key="canvasLocation" x="437.60000000000002" y="48.125937031484263"/>
         </scene>
     </scenes>
     <resources>

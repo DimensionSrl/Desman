@@ -8,32 +8,32 @@
 
 import UIKit
 
-public class FlowType : Type {
-    override public var type : String {
+open class FlowType : DType {
+    override open var type : String {
         return "init"
     }
 }
 
-@objc public class FlowApp : Event {
+@objc open class FlowApp : Event {
     public init () {
         
         super.init("Init", subtype: "AppVersion", desc: nil, value: nil)
         
-        let version = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as! String
-        let buildNumber = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as! String
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+        let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
         
         self.desc = "\(version) (\(buildNumber))"
     }
 }
 
-@objc public class FlowDeviceName : Event {
+@objc open class FlowDeviceName : Event {
     public init () {
         super.init("Init", subtype: "DeviceName", desc: nil, value: nil)
-        self.desc = UIDevice.currentDevice().name
+        self.desc = UIDevice.current.name
     }
 }
 
-@objc public class FlowDeviceType : Event {
+@objc open class FlowDeviceType : Event {
     public init () {
         super.init("Init", subtype: "DeviceType", desc: nil, value: nil)
         
@@ -41,7 +41,7 @@ public class FlowType : Type {
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
         let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8 where value != 0 else { return identifier }
+            guard let value = element.value as? Int8 , value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         
@@ -49,12 +49,12 @@ public class FlowType : Type {
     }
 }
 
-@objc public class FlowDeviceID : Event {
+@objc open class FlowDeviceID : Event {
     public init () {
         super.init("Init", subtype: "DeviceID", desc: nil, value: nil)
         
-        if let identifierForVendor = UIDevice.currentDevice().identifierForVendor {
-            self.desc = identifierForVendor.UUIDString
+        if let identifierForVendor = UIDevice.current.identifierForVendor {
+            self.desc = identifierForVendor.uuidString
         }
     }
 }

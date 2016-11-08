@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
-@objc public class DeviceInfo : Event, CBPeripheralManagerDelegate {
+@objc open class DeviceInfo : Event, CBPeripheralManagerDelegate {
     var bluetoothPeripheralManager : CBPeripheralManager?
     
     public init () {
@@ -21,22 +21,22 @@ import CoreBluetooth
         payload = infoDictionary
     }
     
-    var infoDictionary : [String : Coding] {
-        var info = [String : Coding]()
+    var infoDictionary : [String : Any] {
+        var info = [String : Any]()
         
-        var appData = [String : NSObject]()
-        appData["bundleIdentifier"] = NSBundle.mainBundle().bundleIdentifier
-        appData["shortVersion"] = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleShortVersionString") as? NSObject
-        appData["version"] = NSBundle.mainBundle().objectForInfoDictionaryKey("CFBundleVersion") as? NSObject
+        var appData = [String : Any]()
+        appData["bundleIdentifier"] = Bundle.main.bundleIdentifier
+        appData["shortVersion"] = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? NSObject
+        appData["version"] = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? NSObject
         
         info["app"] = appData
         
-        var deviceData = [String : AnyObject]()
-        deviceData["vendorIdentifier"] = UIDevice.currentDevice().identifierForVendor!.UUIDString
-        deviceData["systemName"] = UIDevice.currentDevice().systemName
-        deviceData["systemVersion"] = UIDevice.currentDevice().systemVersion
+        var deviceData = [String : Any]()
+        deviceData["vendorIdentifier"] = UIDevice.current.identifierForVendor!.uuidString
+        deviceData["systemName"] = UIDevice.current.systemName
+        deviceData["systemVersion"] = UIDevice.current.systemVersion
         deviceData["model"] = modelName
-        deviceData["name"] = UIDevice.currentDevice().name
+        deviceData["name"] = UIDevice.current.name
         deviceData["idiom"] = idiom
         deviceData["batteryState"] = batteryState
         deviceData["batteryLevel"] = batteryLevel
@@ -49,11 +49,11 @@ import CoreBluetooth
         
         info["device"] = deviceData
         
-        var envData = [String : AnyObject]()
-        envData["locale"] = NSLocale.currentLocale().localeIdentifier
-        envData["language"] = NSLocale.preferredLanguages().first
-        envData["timezone"] = NSTimeZone.defaultTimeZone().name
-        envData["timestamp"] = NSDate().timeIntervalSince1970
+        var envData = [String : Any]()
+        envData["locale"] = NSLocale.current.identifier
+        envData["language"] = NSLocale.preferredLanguages.first
+        envData["timezone"] = TimeZone.current.identifier
+        envData["timestamp"] = Date().timeIntervalSince1970
         
         info["env"] = envData
         
@@ -61,8 +61,8 @@ import CoreBluetooth
     }
     
     var batteryLevel : Int {
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        let level = Double(UIDevice.currentDevice().batteryLevel)
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        let level = Double(UIDevice.current.batteryLevel)
         if level >= 0 {
             return Int(level * 100.0)
         } else {
@@ -71,27 +71,27 @@ import CoreBluetooth
     }
     
     var batteryState : String {
-        UIDevice.currentDevice().batteryMonitoringEnabled = true
-        switch UIDevice.currentDevice().batteryState {
-        case .Unknown:
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        switch UIDevice.current.batteryState {
+        case .unknown:
             return "Unknown"
-        case .Unplugged:
+        case .unplugged:
             return "Unplugged"
-        case .Charging:
+        case .charging:
             return "Charging"
-        case .Full:
+        case .full:
             return "Full"
         }
     }
     
     var idiom : String {
-        let interfaceIdiom = UIDevice.currentDevice().userInterfaceIdiom
+        let interfaceIdiom = UIDevice.current.userInterfaceIdiom
         switch interfaceIdiom {
-        case .Phone:
+        case .phone:
             return "iPhone"
-        case .Pad:
+        case .pad:
             return "iPad"
-        case .Unspecified:
+        case .unspecified:
             return "Unspecified"
         default:
             return "Unknown"
@@ -108,7 +108,7 @@ import CoreBluetooth
         uname(&systemInfo)
         let machineMirror = Mirror(reflecting: systemInfo.machine)
         let identifier = machineMirror.children.reduce("") { identifier, element in
-            guard let value = element.value as? Int8 where value != 0 else { return identifier }
+            guard let value = element.value as? Int8 , value != 0 else { return identifier }
             return identifier + String(UnicodeScalar(UInt8(value)))
         }
         
@@ -142,11 +142,11 @@ import CoreBluetooth
     
     var availableSpace : NSNumber {
         var availableSpace : NSNumber = 999999
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
-            if let freeSize = dictionary[NSFileSystemFreeSize] as? NSNumber {
-                let freeSizeMB = freeSize.longLongValue / 1024 / 1024
-                availableSpace = NSNumber(longLong: freeSizeMB)
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        if let dictionary = try? FileManager.default.attributesOfFileSystem(forPath: paths.last!) {
+            if let freeSize = dictionary[FileAttributeKey.systemFreeSize] as? NSNumber {
+                let freeSizeMB = freeSize.int64Value / 1024 / 1024
+                availableSpace = NSNumber(value: freeSizeMB)
             }
         }
         return availableSpace
@@ -154,59 +154,60 @@ import CoreBluetooth
 
     var totalSpace : NSNumber {
         var totalSpace : NSNumber = 999999
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        if let dictionary = try? NSFileManager.defaultManager().attributesOfFileSystemForPath(paths.last!) {
-            if let size = dictionary[NSFileSystemSize] as? NSNumber {
-                let sizeMB = size.longLongValue / 1024 / 1024
-                totalSpace = NSNumber(longLong: sizeMB)
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        if let dictionary = try? FileManager.default.attributesOfFileSystem(forPath: paths.last!) {
+            if let size = dictionary[FileAttributeKey.systemSize] as? NSNumber {
+                let sizeMB = size.int64Value / 1024 / 1024
+                totalSpace = NSNumber(value: sizeMB)
             }
         }
         return totalSpace
     }
     
     var usedMemory : NSNumber {
-        var info = task_basic_info()
-        var count = mach_msg_type_number_t(sizeofValue(info))/4
-        
-        let kerr: kern_return_t = withUnsafeMutablePointer(&info) {
-            
-            task_info(mach_task_self_,
-                task_flavor_t(TASK_BASIC_INFO),
-                task_info_t($0),
-                &count)
-        }
-        
-        if kerr == KERN_SUCCESS {
-            let memoryUsedMB = info.resident_size / 1024 / 1024
-            return NSNumber(unsignedInteger: UInt(memoryUsedMB))
-        }
-        return NSNumber(int: -1)
+        // FIXME: convert to swift 3
+//        var info = task_basic_info()
+//        var count = mach_msg_type_number_t(MemoryLayout<task_basic_info>.size)/4
+//        
+//        let kerr: kern_return_t = withUnsafeMutablePointer(to: &info) {
+//            
+//            task_info(mach_task_self_,
+//                task_flavor_t(TASK_BASIC_INFO),
+//                task_info_t($0),
+//                &count)
+//        }
+//        
+//        if kerr == KERN_SUCCESS {
+//            let memoryUsedMB = info.resident_size / 1024 / 1024
+//            return NSNumber(value: UInt(memoryUsedMB))
+//        }
+        return NSNumber(value: -1)
     }
     
     var physicalMemory : NSNumber {
-        let physicalMemoryMB = NSProcessInfo.processInfo().physicalMemory / 1024 / 1024
-        return NSNumber(unsignedLongLong: physicalMemoryMB)
+        let physicalMemoryMB = ProcessInfo.processInfo.physicalMemory / 1024 / 1024
+        return NSNumber(value: physicalMemoryMB)
     }
     
     var bluetoothState : String {
         guard let state = bluetoothPeripheralManager?.state else { return "Unknown" }
         switch state {
-        case .Unknown:
+        case .unknown:
             return "Unknown"
-        case .Resetting:
+        case .resetting:
             return "Resetting"
-        case .Unsupported:
+        case .unsupported:
             return "Unsupported"
-        case .Unauthorized:
+        case .unauthorized:
             return "Unauthorized"
-        case .PoweredOff:
+        case .poweredOff:
             return "PoweredOff"
-        case .PoweredOn:
+        case .poweredOn:
             return "PoweredOn"
         }
     }
     
-    public func peripheralManagerDidUpdateState(peripheral: CBPeripheralManager) {
+    open func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
     
     }
 }
