@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		9509B5E81BF5FB2D00F3465A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E41BF5FB2D00F3465A /* App.swift */; };
 		9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E51BF5FB2D00F3465A /* Event.swift */; };
-		9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E61BF5FB2D00F3465A /* Type.swift */; };
 		9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5E71BF5FB2D00F3465A /* User.swift */; };
 		9509B5EF1BF5FB7300F3465A /* EventManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5ED1BF5FB7300F3465A /* EventManager.swift */; };
 		9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5EE1BF5FB7300F3465A /* UploadManager.swift */; };
@@ -23,6 +22,7 @@
 		9535C1351BF8C6B9008F6FA2 /* UIViewController-Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9509B5FC1BF5FE1400F3465A /* UIViewController-Swizzle.swift */; };
 		954B61351BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */; };
 		954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */; };
+		9555B32E1DD1BAF9009FF259 /* DType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9555B32D1DD1BAF9009FF259 /* DType.swift */; };
 		955EC7F21D2D58000093BD01 /* FlowEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 955EC7F11D2D58000093BD01 /* FlowEvents.swift */; };
 		956AF1EE1BD4F0AF00464E9E /* Desman.h in Headers */ = {isa = PBXBuildFile; fileRef = 956AF1ED1BD4F0AF00464E9E /* Desman.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		957CE8691BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */; };
@@ -56,7 +56,6 @@
 		9508719E1BE0BF45000C54AE /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9509B5E41BF5FB2D00F3465A /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		9509B5E51BF5FB2D00F3465A /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		9509B5E61BF5FB2D00F3465A /* Type.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
 		9509B5E71BF5FB2D00F3465A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9509B5ED1BF5FB7300F3465A /* EventManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventManager.swift; sourceTree = "<group>"; };
 		9509B5EE1BF5FB7300F3465A /* UploadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadManager.swift; sourceTree = "<group>"; };
@@ -79,6 +78,7 @@
 		9535C1521BF8CB97008F6FA2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		954B612E1BF3BA2C004FA6F2 /* FeedbackComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackComposeViewController.swift; sourceTree = "<group>"; };
 		954B61421BF3BA9D004FA6F2 /* NotificationCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationCenterManager.swift; sourceTree = "<group>"; };
+		9555B32D1DD1BAF9009FF259 /* DType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DType.swift; sourceTree = "<group>"; };
 		955EC7F11D2D58000093BD01 /* FlowEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowEvents.swift; sourceTree = "<group>"; };
 		956AF1EB1BD4F0AF00464E9E /* Desman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Desman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		956AF1ED1BD4F0AF00464E9E /* Desman.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Desman.h; sourceTree = "<group>"; };
@@ -254,7 +254,7 @@
 			children = (
 				9509B5E41BF5FB2D00F3465A /* App.swift */,
 				9509B5E51BF5FB2D00F3465A /* Event.swift */,
-				9509B5E61BF5FB2D00F3465A /* Type.swift */,
+				9555B32D1DD1BAF9009FF259 /* DType.swift */,
 				9509B5E71BF5FB2D00F3465A /* User.swift */,
 				957CE8681BFC7E6F00C716F9 /* CDEvent.swift */,
 				957CE8671BFC7E6F00C716F9 /* CDEvent+CoreDataProperties.swift */,
@@ -404,7 +404,7 @@
 			attributes = {
 				LastSwiftMigration = 0710;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "DIMENSION S.r.l.";
 				TargetAttributes = {
 					956AF1EA1BD4F0AF00464E9E = {
@@ -463,7 +463,6 @@
 				954B61461BF3BA9D004FA6F2 /* NotificationCenterManager.swift in Sources */,
 				95EE6C011BFA41ED000BA0F6 /* UserTableViewCell.swift in Sources */,
 				95EE6BF01BFA1A43000BA0F6 /* GlobalSplitViewController.swift in Sources */,
-				9509B5EA1BF5FB2D00F3465A /* Type.swift in Sources */,
 				9520297B1BF630460067AB29 /* UIViewController+Desman.swift in Sources */,
 				9509B5F51BF5FBB900F3465A /* AppInfo.swift in Sources */,
 				957CE86C1BFC834300C716F9 /* CoreDataSerializerManager.swift in Sources */,
@@ -482,6 +481,7 @@
 				9509B5E91BF5FB2D00F3465A /* Event.swift in Sources */,
 				9509B5F01BF5FB7300F3465A /* UploadManager.swift in Sources */,
 				957CE86A1BFC7E6F00C716F9 /* CDEvent.swift in Sources */,
+				9555B32E1DD1BAF9009FF259 /* DType.swift in Sources */,
 				9509B5EB1BF5FB2D00F3465A /* User.swift in Sources */,
 				95979BF61CF5809F004B26DF /* FlowManager.swift in Sources */,
 				95EE6BFA1BFA41C0000BA0F6 /* UIImageView+Desman.swift in Sources */,
@@ -510,6 +510,7 @@
 		956AF1DB1BD4F09200464E9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -520,14 +521,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -556,6 +558,7 @@
 		956AF1DC1BD4F09200464E9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -566,14 +569,15 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -587,6 +591,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -595,15 +600,16 @@
 		956AF2031BD4F0AF00464E9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0.3.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 0.3.0;
 				DYLIB_CURRENT_VERSION = 0.3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = Desman/Core/Support/Info.plist;
@@ -617,7 +623,7 @@
 				PRODUCT_NAME = Desman;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -626,15 +632,16 @@
 		956AF2041BD4F0AF00464E9E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BITCODE_GENERATION_MODE = bitcode;
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0.3.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 0.3.0;
 				DYLIB_CURRENT_VERSION = 0.3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_GENERATE_TEST_COVERAGE_FILES = NO;
 				INFOPLIST_FILE = Desman/Core/Support/Info.plist;
@@ -647,7 +654,7 @@
 				PRODUCT_MODULE_NAME = Desman;
 				PRODUCT_NAME = Desman;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -656,14 +663,15 @@
 		95EE6B721BF9D1D7000BA0F6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BITCODE_GENERATION_MODE = bitcode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0.3.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 0.3.0;
 				DYLIB_CURRENT_VERSION = 0.3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -677,6 +685,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -685,14 +694,15 @@
 		95EE6B731BF9D1D7000BA0F6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				BITCODE_GENERATION_MODE = bitcode;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 0.3.0;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 0.3.0;
 				DYLIB_CURRENT_VERSION = 0.3.0;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -706,6 +716,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-Remote-iOS";
 				PRODUCT_NAME = DesmanRemote;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0.1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

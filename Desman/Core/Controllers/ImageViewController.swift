@@ -8,18 +8,18 @@
 
 import UIKit
 
-public class ImageViewController: UIViewController {
-    public var imageUrl : NSURL?
-    @IBOutlet public var imageView: UIImageView!
+open class ImageViewController: UIViewController {
+    open var imageUrl : URL?
+    @IBOutlet open var imageView: UIImageView!
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         if let imageUrl = imageUrl {
             imageView.loadFromURL(imageUrl)
         }
     }
-    @IBAction func imageViewTapped(sender: UITapGestureRecognizer) {
-        let hide = !navigationController!.navigationBarHidden
+    @IBAction func imageViewTapped(_ sender: UITapGestureRecognizer) {
+        let hide = !navigationController!.isNavigationBarHidden
         navigationController!.setNavigationBarHidden(hide, animated: true)
     }
 }

@@ -126,6 +126,7 @@
 					959597281BF8DD8600BCB8A2 = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = GXH4K8J6KR;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -344,7 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -362,7 +363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "it.dimension.Desman-iOS-Sample";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

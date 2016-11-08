@@ -1,1 +1,1 @@
-github "tidwall/SwiftWebSocket" ~> 2.3.0
+github "macteo/SwiftWebSocket" ~> 2.6.5 # "swift/3.0" # ~> 2.3.0

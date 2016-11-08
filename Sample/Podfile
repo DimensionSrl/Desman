@@ -2,4 +2,4 @@ platform :ios, '8.0'
 use_frameworks!
 target 'Desman iOS Sample'
 pod 'Desman/Debatable', :path => '..'
-pod 'Desman/Remote', :path => '..'
+# pod 'Desman/Remote', :path => '..'

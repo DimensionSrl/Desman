@@ -8,14 +8,14 @@
 
 import Foundation
 
-@objc public class AppInfo : Event {
+@objc open class AppInfo : Event {
     public init () {
-        super.init(Application.Info)
+        super.init(AppCycle.Info)
         payload = infoDictionary
         attachment = App.currentAppIcon
     }
     
-    var infoDictionary : [String : Coding] {
-        return ["name": App.currentAppName]
+    var infoDictionary : [String : Any] {
+        return ["name": App.currentAppName as NSCoding]
     }
 }

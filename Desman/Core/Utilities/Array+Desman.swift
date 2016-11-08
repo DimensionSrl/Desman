@@ -7,13 +7,13 @@
 //
 
 extension Array where Element: Equatable {
-    mutating func removeObject(object: Element) {
-        if let index = self.indexOf(object) {
-            self.removeAtIndex(index)
+    mutating func removeObject(_ object: Element) {
+        if let index = self.index(of: object) {
+            self.remove(at: index)
         }
     }
     
-    func removeObjectsInArray(array: [Element]) -> [Element] {
+    func removeObjectsInArray(_ array: [Element]) -> [Element] {
         var arrayCopy = [Element](self)
         for object in array {
             arrayCopy.removeObject(object)
@@ -21,7 +21,7 @@ extension Array where Element: Equatable {
         return arrayCopy
     }
     
-    mutating func removeObjectsInArrayInPlace(array: [Element]) {
+    mutating func removeObjectsInArrayInPlace(_ array: [Element]) {
         for object in array {
             self.removeObject(object)
         }

@@ -11,24 +11,24 @@ import UIKit
 private var desmanEventsContext = 0
 
 // Just a fake controller to be invoked and obtain the right Bundle containing Desman storyboards.
-public class EventsController {
+open class EventsController {
 
 }
 
-public class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
+open class EventsTableViewController: UITableViewController, UIViewControllerPreviewingDelegate {
     var events = [Event]()
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
-        self.splitViewController?.preferredDisplayMode = .AllVisible
+        self.splitViewController?.preferredDisplayMode = .allVisible
         
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "events", options: .New, context: &desmanEventsContext)
-        EventManager.sharedInstance.addObserver(self, forKeyPath: "sentEvents", options: .New, context: &desmanEventsContext)
-        self.events = EventManager.sharedInstance.events.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+        EventManager.shared.addObserver(self, forKeyPath: "events", options: .new, context: &desmanEventsContext)
+        EventManager.shared.addObserver(self, forKeyPath: "sentEvents", options: .new, context: &desmanEventsContext)
+        self.events = EventManager.shared.events.sorted{ $0.timestamp.compare($1.timestamp as Date) == ComparisonResult.orderedDescending }
         
         if #available(iOS 9.0, *) {
             // FIXME: should check for forceTouchCapability but for some reason it doesn't work
-            registerForPreviewingWithDelegate(self, sourceView: view)
+            registerForPreviewing(with: self, sourceView: view)
             /*
             if traitCollection.forceTouchCapability == .Available {
                 registerForPreviewingWithDelegate(self, sourceView: view)
@@ -38,12 +38,12 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
     }
 
     @available(iOS 9.0, *)
-    public func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        guard let indexPath = tableView.indexPathForRowAtPoint(location) else { return nil }
-        guard let cell = tableView.cellForRowAtIndexPath(indexPath) else { return nil }
-        guard let detailVC = storyboard?.instantiateViewControllerWithIdentifier("EventDetailTableViewController") as? EventDetailTableViewController else { return nil }
+    open func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        guard let indexPath = tableView.indexPathForRow(at: location) else { return nil }
+        guard let cell = tableView.cellForRow(at: indexPath) else { return nil }
+        guard let detailVC = storyboard?.instantiateViewController(withIdentifier: "EventDetailTableViewController") as? EventDetailTableViewController else { return nil }
         
-        let selectedEvent = events[indexPath.row]
+        let selectedEvent = events[(indexPath as NSIndexPath).row]
         detailVC.event = selectedEvent
         
         detailVC.preferredContentSize = CGSize(width: 0.0, height: 300)
@@ -53,121 +53,121 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
         return detailVC
     }
     
-    public func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        showViewController(viewControllerToCommit, sender: self)
+    open func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        show(viewControllerToCommit, sender: self)
     }
     
-    @IBAction func dismissController(sender: UIBarButtonItem) {
-        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func dismissController(_ sender: UIBarButtonItem) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &desmanEventsContext {
             if keyPath == "events" {
-                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? [Event] {
+                if let updatedEvents = change?[NSKeyValueChangeKey.newKey] as? [Event] {
                     // We need to compare the updatedEvents with the events Array
                     // After the comparison we need to add, update and remove cells
                     let removedEvents = events.removeObjectsInArray(updatedEvents)
                     let addedEvents = updatedEvents.removeObjectsInArray(events)
                     
-                    var removeIndexPaths = [NSIndexPath]()
+                    var removeIndexPaths = [IndexPath]()
                     var index = 1
                     let eventsCount = events.count
                     for _ in removedEvents {
-                        let indexPath = NSIndexPath(forRow: eventsCount - index, inSection: 0)
+                        let indexPath = IndexPath(row: eventsCount - index, section: 0)
                         removeIndexPaths.append(indexPath)
                         index += 1
                     }
                     
-                    var addedIndexPaths = [NSIndexPath]()
+                    var addedIndexPaths = [IndexPath]()
                     index = 0
                     for _ in addedEvents {
-                        let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                        let indexPath = IndexPath(row: index, section: 0)
                         addedIndexPaths.append(indexPath)
                         index += 1
                     }
-                    var rowAnimation : UITableViewRowAnimation = .Right
+                    var rowAnimation : UITableViewRowAnimation = .right
                     if events.count == 0 {
-                        rowAnimation = .None
+                        rowAnimation = .none
                     }
-                    events = updatedEvents.sort{ $0.timestamp.compare($1.timestamp) == NSComparisonResult.OrderedDescending }
+                    events = updatedEvents.sorted{ $0.timestamp.compare($1.timestamp) == ComparisonResult.orderedDescending }
                     
                     tableView.beginUpdates()
-                    tableView.deleteRowsAtIndexPaths(removeIndexPaths, withRowAnimation: .Left)
-                    tableView.insertRowsAtIndexPaths(addedIndexPaths, withRowAnimation: rowAnimation)
+                    tableView.deleteRows(at: removeIndexPaths, with: .left)
+                    tableView.insertRows(at: addedIndexPaths, with: rowAnimation)
                     tableView.endUpdates()
                 }
             } else if keyPath == "sentEvents" {
-                if let updatedEvents = change?[NSKeyValueChangeNewKey] as? [Event] {
+                if let updatedEvents = change?[NSKeyValueChangeKey.newKey] as? [Event] {
                     var potentiallyUpdatedEventsDict = [Int : Event]()
                     for event in updatedEvents {
                         potentiallyUpdatedEventsDict[event.hash] = event
                     }
-                    var updatedIndexPaths = [NSIndexPath]()
+                    var updatedIndexPaths = [IndexPath]()
                     var index = 0
                     for event in events {
                         if let _ = potentiallyUpdatedEventsDict[event.hash] {
-                            let indexPath = NSIndexPath(forRow: index, inSection: 0)
+                            let indexPath = IndexPath(row: index, section: 0)
                             updatedIndexPaths.append(indexPath)
                         }
                         index += 1
                     }
                     
-                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(0.10 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double(Int64(0.10 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
                         self.tableView.beginUpdates()
-                        self.tableView.reloadRowsAtIndexPaths(updatedIndexPaths, withRowAnimation: .None)
+                        self.tableView.reloadRows(at: updatedIndexPaths, with: .none)
                         self.tableView.endUpdates()
                     }
                 }
             }
         } else {
-            super.observeValueForKeyPath(keyPath, ofObject: object, change: change, context: context)
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
         }
     }
     
-    override public func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
-    override public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override open func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
 
-    override public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override open func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return events.count
     }
     
-    override public func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedEvent = events[indexPath.row]
-        self.performSegueWithIdentifier("showEventDetailSegue", sender: selectedEvent)
+    override open func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedEvent = events[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: "showEventDetailSegue", sender: selectedEvent)
     }
 
-    override public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! EventTableViewCell
-        let event = events[indexPath.row]
+    override open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath) as! EventTableViewCell
+        let event = events[(indexPath as NSIndexPath).row]
         cell.eventTitleLabel?.text = event.title
         if event.sent {
-            cell.accessoryType = .Checkmark
+            cell.accessoryType = .checkmark
         } else {
-            cell.accessoryType = .None
+            cell.accessoryType = .none
         }
         cell.eventImageView?.image = event.image
-        cell.eventSubtitleLabel?.text = event.dateFormatter.stringFromDate(event.timestamp)
+        cell.eventSubtitleLabel?.text = event.dateFormatter.string(from: event.timestamp)
         
         return cell
     }
 
     deinit {
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
-        EventManager.sharedInstance.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
+        EventManager.shared.removeObserver(self, forKeyPath: "events", context: &desmanEventsContext)
+        EventManager.shared.removeObserver(self, forKeyPath: "sentEvents", context: &desmanEventsContext)
     }
     
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEventDetailSegue" {
-            if let detailNavigationController = segue.destinationViewController as? UINavigationController, detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
+            if let detailNavigationController = segue.destination as? UINavigationController, let detailController = detailNavigationController.viewControllers[0] as? EventDetailTableViewController {
                 if let event = sender as? Event {
                     detailController.event = event
                 }
@@ -175,13 +175,13 @@ public class EventsTableViewController: UITableViewController, UIViewControllerP
         }
     }
     
-    @IBAction func infoButtonPressed(sender: UIBarButtonItem) {
-        let alertController = UIAlertController(title: NSLocalizedString("Desman \(DesmanVersionNumber)", comment: ""), message: "\n\(currentUserIdentifier)\n\(currentDeviceName)", preferredStyle: .ActionSheet)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .Cancel, handler: { (action) -> Void in
-            alertController.dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func infoButtonPressed(_ sender: UIBarButtonItem) {
+        let alertController = UIAlertController(title: NSLocalizedString("Desman \(DesmanVersionNumber)", comment: ""), message: "\n\(currentUserIdentifier)\n\(currentDeviceName)", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .cancel, handler: { (action) -> Void in
+            alertController.dismiss(animated: true, completion: nil)
         }))
         
         alertController.popoverPresentationController?.barButtonItem = sender
-        self.presentViewController(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
 }
