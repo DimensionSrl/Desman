@@ -8,16 +8,17 @@
 
 import Foundation
 import UIKit
-import CoreBluetooth
+// import CoreBluetooth
 
-@objc open class DeviceInfo : Event, CBPeripheralManagerDelegate {
-    var bluetoothPeripheralManager : CBPeripheralManager?
+@objc open class DeviceInfo : Event { // t, CBPeripheralManagerDelegate
+    // var bluetoothPeripheralManager : CBPeripheralManager?
     
     public init () {
         super.init(Device.Hardware)
+        /*
         let options = [CBCentralManagerOptionShowPowerAlertKey:0]
         bluetoothPeripheralManager = CBPeripheralManager(delegate: self, queue: nil, options: options)
-        
+        */
         payload = infoDictionary
     }
     
@@ -45,7 +46,7 @@ import CoreBluetooth
         deviceData["usedMemory"] = usedMemory
         deviceData["totalMemory"] = physicalMemory
         
-        deviceData["bluetoothState"] = bluetoothState
+        // deviceData["bluetoothState"] = bluetoothState
         
         info["device"] = deviceData
         
@@ -124,6 +125,9 @@ import CoreBluetooth
         case "iPhone7,1":                               return "iPhone 6 Plus"
         case "iPhone8,1":                               return "iPhone 6s"
         case "iPhone8,2":                               return "iPhone 6s Plus"
+        case "iPhone8,4":                               return "iPhone SE"
+        case "iPhone9,1", "iPhone9,3":                  return "iPhone 7"
+        case "iPhone9,2", "iPhone9,4":                  return "iPhone 7 Plus"
         case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
         case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
         case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
@@ -133,7 +137,8 @@ import CoreBluetooth
         case "iPad4,4", "iPad4,5", "iPad4,6":           return "iPad Mini 2"
         case "iPad4,7", "iPad4,8", "iPad4,9":           return "iPad Mini 3"
         case "iPad5,1", "iPad5,2":                      return "iPad Mini 4"
-        case "iPad6,7", "iPad6,8":                      return "iPad Pro"
+        case "iPad6,3", "iPad6,4", "iPad6,7", "iPad6,8":return "iPad Pro"
+        case "AppleTV5,3":                              return "Apple TV"
         case "i386", "x86_64":                          return "Simulator"
         default:                                        return identifier
         }
@@ -189,6 +194,7 @@ import CoreBluetooth
         return NSNumber(value: physicalMemoryMB)
     }
     
+    /*
     var bluetoothState : String {
         guard let state = bluetoothPeripheralManager?.state else { return "Unknown" }
         switch state {
@@ -206,10 +212,11 @@ import CoreBluetooth
             return "PoweredOn"
         }
     }
-    
+
     open func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
     
     }
+     */
 }
 
     
