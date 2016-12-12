@@ -338,7 +338,11 @@ open class Event: NSCoder {
     
     var dictionary : [String : Any] {
         var dict = [String : Any]()
-        dict["type"] = type.className
+        if type.className == "Desman.DType" {
+            dict["type"] = typeString
+        } else {
+            dict["type"] = type.className
+        }
         dict["subtype"] = type.subtype
         dict["timestamp"] = timestamp.timeIntervalSince1970
         dict["uuid"] = identifier
