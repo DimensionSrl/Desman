@@ -40,7 +40,7 @@ open class FlowManager {
             return
         }
         // TODO: expose it as configurable
-        let url = URL(string: "http://apps.dimension.it/appflow/tracker/v2/")!
+        let url = URL(string: "https://apps.dimension.it/appflow/tracker/v2/")!
 
         var request = forgeRequest(url: url, contentTypes: ["application/json"])
         request.httpMethod = "POST"
